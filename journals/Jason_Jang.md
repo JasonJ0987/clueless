@@ -1,4 +1,4 @@
-2023/05/08:
+## 05/08/2023:
 Application brainstorming
 Decided as a team that we will develop a weather/event based fashion coordinator planner
 Sabrina created a mock-up of the app's home page
@@ -29,6 +29,3 @@ Features/Functions:
     As a user, I can compare my friends' outfits with my own to coordinate or ensure no duplicates
 
     As a user, I can customize my page to fit my style
-
-
-
