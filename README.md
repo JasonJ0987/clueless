@@ -1,4 +1,10 @@
-# Module3 Project Gamma
+# I Wear Whatevr 
+
+- Jason Jang
+- Jeanette Gonzalez
+- Liland Pham
+- Sabrina Blinder
+- Xander Clemens
 
 ## Getting started
 
