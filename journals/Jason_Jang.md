@@ -29,3 +29,11 @@ Features/Functions:
     As a user, I can compare my friends' outfits with my own to coordinate or ensure no duplicates
 
     As a user, I can customize my page to fit my style
+
+## 05/09/2023
+1. Yesterday, we started our WireFrame production. We generated an idea and gave an elevator pitch to our instructors. They gave us recommendations on our project, mostly to skim down on our functions
+    and get our VMP out. Form over function is the mindset we need.
+
+2. Today we will aim to finish up our WireFrame and discuss whether we want separate microservices or a single monolithic app. Will begin to structure our API design and endpoints.
+
+3. No current blockers
