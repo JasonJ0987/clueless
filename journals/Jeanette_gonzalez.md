@@ -19,3 +19,14 @@ Today me and my team are planning on writting down some ideas for the API design
 
 3. Do you have any blockers/challenges to your progress?
 The current challenge is figuring out the API desing for all of the pages and getting a better undestanding of it. 
+
+## May 10, 2023
+
+1. What did you do?
+Today we worked on our API endpoints as well as made some changes to our wireframe. 
+
+2. What are you planning to do today?
+Today we wanted to complete the API endpoints and make any corrections or changes to the wireframe.
+
+3. Do you have any blockers/challenges to your progress?
+No blockers for today.
