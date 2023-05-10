@@ -1,6 +1,6 @@
 ## I Love Whatevr Wireframe
 
-## Design
+## Overall Design
 <img src="docs/ghi.md/WireFrame.png" width="1000" height="500" alt="I Love Whatevr Wireframe">
 
 ## Home Page
