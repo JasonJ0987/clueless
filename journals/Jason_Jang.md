@@ -31,9 +31,16 @@ Features/Functions:
     As a user, I can customize my page to fit my style
 
 ## 05/09/2023
-1. Yesterday, we started our WireFrame production. We generated an idea and gave an elevator pitch to our instructors. They gave us recommendations on our project, mostly to skim down on our functions
-    and get our VMP out. Form over function is the mindset we need.
+1. Yesterday, we started our WireFrame production. We generated an idea and gave an elevator pitch to our instructors. They gave us recommendations on our project, mostly to skim down on our functions and get our VMP out. Form over function is the mindset we need.
 
 2. Today we will aim to finish up our WireFrame and discuss whether we want separate microservices or a single monolithic app. Will begin to structure our API design and endpoints.
 
 3. No current blockers
+
+
+## 05/10/2023
+1. Yesterday, we wrapped up our WireFrame. Started on the API design.
+
+2. Today we will present our WireFrame to the instructor to get the okay to export the Wireframe to our project. Then we will aim to complete our API designs and endpoints.
+
+3. I do not know how to design endpoints.

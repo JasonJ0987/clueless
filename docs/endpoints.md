@@ -50,7 +50,7 @@
 
 ## Sign Up
 
-* Endpoint path: /token
+* Endpoint path: /signup
 * Endpoint method: POST
 
 * Request shape (JSON):
@@ -59,7 +59,7 @@
     * password: string
     * confirm password: string
 
-* Response: Account information and a token
+* Response: Some form of verification of new user created
 * Response shape (JSON):
     ```json
     {
@@ -68,12 +68,11 @@
             "email": string,
             "password": string,
             "confirm password": string
-        },
-        "token": string
+        }
     }
     ```
 
-## Main
+## mainCalendar
 * Endpoint path: /main
 * Endpoint method: GET
 * Query parameters:
