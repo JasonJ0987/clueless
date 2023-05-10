@@ -41,6 +41,6 @@ Features/Functions:
 ## 05/10/2023
 1. Yesterday, we wrapped up our WireFrame. Started on the API design.
 
-2. Today we will present our WireFrame to the instructor to get the okay to export the Wireframe to our project. Then we will aim to complete our API designs and endpoints.
+2. Today we will present our WireFrame to the instructor to get the okay to export the Wireframe to our project, once we get the okay, we will move the wireframe into our docs folder. Then we will aim to complete our API designs.
 
-3. I do not know how to design endpoints.
+3. Concept of API Design is challenging, will need time and clarification.

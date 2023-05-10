@@ -1,17 +1,15 @@
 ## Endpoints:
-1. login
-2. logout
-3. signup
-4. main
-5. closet
-6. closet/<bin:id>
-7. closet/<bin:id>/<clothes:id>
-8. planner
-9. clothesnew
-10. account
+1. Login
+2. Logout
+3. Signup
+4. Calendar
+5. Bins
+6. Clothes
+7. New Clothes
+8. New Wardrobe
 
 
-## Log In
+## Login
 
 * Endpoint path: /token
 * Endpoint method: POST
@@ -34,7 +32,7 @@
     ```
 
 
-### Log out
+### Logout
 
 * Endpoint path: /token
 * Endpoint method: DELETE
@@ -48,7 +46,8 @@
     true
     ```
 
-## Sign Up
+
+## Signup
 
 * Endpoint path: /signup
 * Endpoint method: POST
@@ -63,30 +62,124 @@
 * Response shape (JSON):
     ```json
     {
-        "account": {
-            "name": string,
-            "email": string,
-            "password": string,
-            "confirm password": string
-        }
+        "success": boolean,
+        "message": string
     }
     ```
 
-## mainCalendar
-* Endpoint path: /main
+
+## Calendar
+
+* Endpoint path: /calendar
 * Endpoint method: GET
-* Query parameters:
-    * loggedin: true
 
 * Headers:
     * Authorization: Bearer token
 
-* Response: displays main page (planner preview)
+* Response: Displays our planner
 * Response shape (JSON):
     ```json
    {
     "planner": {
-        "days of the week": string
+        "Monday": string,
+        "Tuesday": string,
+        "Wednesday": string,
+        "Thursday": string,
+        "Friday": string,
+        "Saturday": string,
+        "Sunday": string
     }
    }
+   ```
+
+
+## Bins
+
+* Endpoint path: /bins
+* Endpoint method: GET
+
+* Headers:
+    * Authorization: Bearer token
+
+* Response: List of bins
+* Response body:
+    ```json
+    {
+        "bins": bin object
+    }
+    ```
+
+
+## Clothes
+
+* Endpoint path: /clothes
+* Endpoint method: GET
+* Query parameters:
+    * q: What bin are we in
+
+* Headers:
+    * Authorization: Bearer token
+
+* Response: List of clothing
+* Response body:
+    ```json
+    {
+        "clothes": clothes object
+    }
+    ```
+
+
+## New Clothes
+
+* Endpoint path: /clothes
+* Endpoint method: POST
+* Query parameters:
+    * q: What bin are we in
+
+* Headers:
+    * Authorization: Bearer token
+
+* Request Body:
+    ```json
+    {
+        "title": string,
+        "image": url,
+        "tags": tag object
+    }
+    ```
+
+* Response: Indication of success or failure
+* Response Body:
+    ```json
+    {
+        "success": boolean,
+        "message": string
+    }
+    ```
+
+## Create Wardrobe
+
+* Endpoint path: /wardrobe
+* Endpoint method: POST
+
+* Headers:
+    * Authorization: Bearer token
+
+* Request Body:
+    ```json
+    {
+        "Hat": clothes object,
+        "Top": clothes object,
+        "Bottom": clothes object,
+        "Shoes": clothes object
+    }
+    ```
+
+* Response: Indication of success or failure
+* Response Body:
+    ```json
+    {
+        "success": boolean,
+        "message": string
+    }
     ```
