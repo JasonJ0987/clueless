@@ -1,7 +1,7 @@
 ## I Love Whatevr Wireframe
 
 ## Design
-<img src="docs/ghi.md/IWW WireFrame.png" width="1000" height="500" alt="I Love Whatevr Wireframe">
+<img src="docs/ghi.md/WireFrame.png" width="1000" height="500" alt="I Love Whatevr Wireframe">
 
 ## Home Page
 <img src="docs/ghi.md/Home_Page.png" width="1000" height="500" alt="Home Page">
@@ -34,9 +34,7 @@
 <img src="docs/ghi.md/Account_Page.png" width="1000" height="500" alt="Account Page">
 
 ## Minimal Viable Functions
-<img src="docs/ghi.md/Minimal_Viable_Function
-.png" width="1000" height="500" alt="Minimal Viable Functions">
+<img src="docs/ghi.md/Minimal_Viable_Function.png" width="1000" height="500" alt="Minimal Viable Functions">
 
 ## Stretch Goals
-<img src="docs/ghi.md/Stretch_Goals
-.png" width="1000" height="500" alt="Stretch Goals">
+<img src="docs/ghi.md/Stretch_Goals.png" width="1000" height="500" alt="Stretch Goals">
