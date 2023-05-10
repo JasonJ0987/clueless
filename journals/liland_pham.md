@@ -17,3 +17,8 @@ Slogan: Clueless for now
 1. Finished the wire-framing design with the team. Added comments to Excalidraw and prioritized the pages that are more important for the project. The pages that are considered as "stretch goals", we placed them to the side, for now.
 2. Today, I am planning to talk to my team whether it's important for us to have multiple microservices or not. As of now, it seems like we can just work out of one monolith folder since none of the app seems to be polling from one another. Also, we will attempt to have a head start with the API design.
 3. Not quite understanding on how API design works so far but maybe I'll have a better understanding after Thursday's lecture.
+
+## May 10th, 2023
+1. Went over the wire-framing design with the team before presenting it to Violet. Violet made some suggestions and we cleaned up the design a little bit before importing it into VS Code.
+2. Finishing wire-framing design and completing the API design. Try to get a little bit more insight/clarification on how to write an API endpoint for the project.
+3. No blockers for today.
