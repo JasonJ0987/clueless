@@ -30,3 +30,14 @@ Today we wanted to complete the API endpoints and make any corrections or change
 
 3. Do you have any blockers/challenges to your progress?
 No blockers for today.
+
+## May 11, 2023
+
+1. What did you do?
+Today we worked on writing issues and stories for each feature on our application.
+
+2. What are you planning to do today?
+Today we planned on writing our issues and stories.
+
+3. Do you have any blockers/challenges to your progress?
+No blockers at the moment.

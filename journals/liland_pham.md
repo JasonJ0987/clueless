@@ -10,7 +10,7 @@
 
 Project Details For Now:
 Team Name: Corporate Espionage
-Title: I Wear Whatever
+Title: I Wear Whatevr
 Slogan: Clueless for now
 
 ## May 9th, 2023
@@ -21,4 +21,10 @@ Slogan: Clueless for now
 ## May 10th, 2023
 1. Went over the wire-framing design with the team before presenting it to Violet. Violet made some suggestions and we cleaned up the design a little bit before importing it into VS Code.
 2. Finishing wire-framing design and completing the API design. Try to get a little bit more insight/clarification on how to write an API endpoint for the project.
+3. No blockers for today.
+
+
+## May 11th, 2023
+1. Reviewed the API design endpoints and discussed how to arrange the format for the issues that are being created on GitLab. Went through the examples of the issues that were released on Learn. Got started on the simpler functions such as login, logout, sign up, and buttons to redirect to a new page.
+2. Get started on writing issues for the project's functions and hopefully get through most of the creation of the issues by today. If not, we have time to finish creating them on Friday.
 3. No blockers for today.

@@ -12,3 +12,8 @@ i created a mock home page for our website.
 2. Today, i plan to continue drawing up different designs to give the team visuals of what wed like our project to look like.
 
 3. Today, APIdesign has caused me a bit of confusion as well as API endpoints.
+
+## 05/11/2023
+1. Today, our team spent our time creating issues in gitlab. We, so far, have completed the log in, sign up, log out, style button, closet page, and weekly planner issues
+2. I plan on continuing creating these issues
+3. no blockers for today.
