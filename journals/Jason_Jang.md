@@ -44,3 +44,10 @@ Features/Functions:
 2. Today we will present our WireFrame to the instructor to get the okay to export the Wireframe to our project, once we get the okay, we will move the wireframe into our docs folder. Then we will aim to complete our API designs.
 
 3. Concept of API Design is challenging, will need time and clarification.
+
+## 05/11/2023
+1. Yesterday, we got clarification on how API designs are generated. As a team we tackled how we want our API designs to look like, ideally. We were made aware that our end product and API design may not necessarily line up together and that is fine.
+
+2. Today, as a group we plan on taking another look at our API design to make sure we like what we created. Then we will look into making issues.
+
+3. Blockers for today is that we don't know how to make issues yet.
