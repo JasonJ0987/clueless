@@ -23,8 +23,12 @@ Slogan: Clueless for now
 2. Finishing wire-framing design and completing the API design. Try to get a little bit more insight/clarification on how to write an API endpoint for the project.
 3. No blockers for today.
 
-
 ## May 11th, 2023
 1. Reviewed the API design endpoints and discussed how to arrange the format for the issues that are being created on GitLab. Went through the examples of the issues that were released on Learn. Got started on the simpler functions such as login, logout, sign up, and buttons to redirect to a new page.
 2. Get started on writing issues for the project's functions and hopefully get through most of the creation of the issues by today. If not, we have time to finish creating them on Friday.
+3. No blockers for today.
+
+## May 12th, 2023
+1. Completed the rest of our issues.
+2. Today, the team and I will create the rest of our issues and start talking about whether we want to implement SQL or MongoDB to the project.
 3. No blockers for today.
