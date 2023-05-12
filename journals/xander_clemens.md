@@ -13,4 +13,9 @@ Developed ideas for our project and identified who our users are, the high-level
 ## 5/10/2023
 1. We finalized our wireframes, met with our project consultant to understand the importance of our Most Viable Product, created our first version of our out API endpoints, and uploaded everything into our project code.
 2. Organize our wireframe images and assist in the creation of our FastAPI endpoints to use in our design.
-3. Mainting a realist perspective on our work of our wireframe, following our key bullet points addressed to our Minimal Viable Product list, and knowing that the following weeks of learning new technologies and integrating our API needs to be heavily focused on still achieving our Minimal Viable Product list. 
+3. Mainting a realist perspective on our work of our wireframe, following our key bullet points addressed to our Minimal Viable Product list, and knowing that the following weeks of learning new technologies and integrating our API needs to be heavily focused on still achieving our Minimal Viable Product list.
+
+## 5/11/2023
+ 1. Contributed to the template and stories for our issues for the functions used in our project.
+2. Defining the story, feature, and descriptions of our features: login, signup, closet page, style button, weekly outfit planner, and a logout button.
+3. We discussed establishing baselines for what clothes will be displayed to the user depending on the weather temperature and the weaker description tag from Open Weather API. Currently, this is still being determined as to the accurate baselines we want to use. 
