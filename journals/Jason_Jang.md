@@ -51,3 +51,10 @@ Features/Functions:
 2. Today, as a group we plan on taking another look at our API design to make sure we like what we created. Then we will look into making issues.
 
 3. Blockers for today is that we don't know how to make issues yet.
+
+## 05/12/2023
+1. Yesterday, we explored how to make issues and created a few for our features.
+
+2. Today, we will finish making the rest of the issues for our remaining features.
+
+3. There are no blockers today.
