@@ -23,8 +23,17 @@ Slogan: Clueless for now
 2. Finishing wire-framing design and completing the API design. Try to get a little bit more insight/clarification on how to write an API endpoint for the project.
 3. No blockers for today.
 
-
 ## May 11th, 2023
 1. Reviewed the API design endpoints and discussed how to arrange the format for the issues that are being created on GitLab. Went through the examples of the issues that were released on Learn. Got started on the simpler functions such as login, logout, sign up, and buttons to redirect to a new page.
 2. Get started on writing issues for the project's functions and hopefully get through most of the creation of the issues by today. If not, we have time to finish creating them on Friday.
 3. No blockers for today.
+
+## May 12th, 2023
+1. Completed the rest of our issues.
+2. Today, the team and I will create the rest of our issues and start talking about whether we want to implement SQL or MongoDB to the project.
+3. No blockers for today.
+
+## May 15th, 2023
+1. Choosing a database for 'I Wear Whatevr" project. We've implemented SQL before in past projects and it'll be cool if we are able to implement a No SQL database instead (for the experience aspect).
+2.Today, as a group, we will be deciding on whether we will be using a relational database(PostgresSQL) or a documental database (MongoDB) for the project.
+3. After going through the explorations for MongoDB, I still don't quite understand how to implement this database into our project.

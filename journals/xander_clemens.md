@@ -18,4 +18,9 @@ Developed ideas for our project and identified who our users are, the high-level
 ## 5/11/2023
  1. Contributed to the template and stories for our issues for the functions used in our project.
 2. Defining the story, feature, and descriptions of our features: login, signup, closet page, style button, weekly outfit planner, and a logout button.
-3. We discussed establishing baselines for what clothes will be displayed to the user depending on the weather temperature and the weaker description tag from Open Weather API. Currently, this is still being determined as to the accurate baselines we want to use. 
+3. We discussed establishing baselines for what clothes will be displayed to the user depending on the weather temperature and the weaker description tag from Open Weather API. Currently, this is still being determined as to the accurate baselines we want to use.
+
+## 5/12/2023
+1. Contributed to the template and stories for our issues for the functions used in our project. We finalized our issue creation on GitLab. Finishing with thirteen total issues.
+2. Completing our issue stories for the various functions we must create for our application to meet our minimum viable requirements.
+3. No challenges or blockers for today's work. We are still uncertain about the type of database we will use. However, come Monday, after learning more about MongoDB, we will better understand the direction we pursue a database in our project.
