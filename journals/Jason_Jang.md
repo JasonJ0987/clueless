@@ -58,3 +58,10 @@ Features/Functions:
 2. Today, we will finish making the rest of the issues for our remaining features.
 
 3. There are no blockers today.
+
+## 05/15/2023
+1. Last time, we finished writing out the rest of our issues.
+
+2. Today, we will discuss whether or not we want to use a RDBMS or a DDBMS.
+
+3. There are no blockers today.
