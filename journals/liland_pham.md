@@ -32,3 +32,8 @@ Slogan: Clueless for now
 1. Completed the rest of our issues.
 2. Today, the team and I will create the rest of our issues and start talking about whether we want to implement SQL or MongoDB to the project.
 3. No blockers for today.
+
+## May 15th, 2023
+1. Choosing a database for 'I Wear Whatevr" project. We've implemented SQL before in past projects and it'll be cool if we are able to implement a No SQL database instead (for the experience aspect).
+2.Today, as a group, we will be deciding on whether we will be using a relational database(PostgresSQL) or a documental database (MongoDB) for the project.
+3. After going through the explorations for MongoDB, I still don't quite understand how to implement this database into our project.
