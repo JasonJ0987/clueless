@@ -1,3 +1,7 @@
+Template:
+A list of features/issues that you worked on and who you worked with, if applicable
+A reflection on any design conversations that you had
+At least one ah-ha! moment that you had during your coding, however small
 1. What did you do?
 2. What are you planning to do today?
 3. Do you have any blockers/challenges to your progress?
@@ -29,3 +33,26 @@ Developed ideas for our project and identified who our users are, the high-level
 1. Defined what database we were going to use for our application and decided on using MongoDB
 2. Help provide feedback and discuss with the team in deciding what database we will implement for our project.
 3. No blockers or challenges as we are nearing the end of our planning and design phase and will soon be moving into the development phase, where we begin to code. At this point, more challenges and blockers will exist during this project.
+
+## 5/16/2023
+
+Today, I worked on:
+
+* Getting our Docker Containers running and our Authentication
+
+I worked with Jeanette, Liland, and Sabrina as navigators for Jason, who was the driver for today. We built out our docker.compose.yml file to be able to run our FastAPI server, Mongo, Mongo Express, and React development servers. After getting our development servers to run, we built out the backend server portion for authenticating our users. We now have a queries and routers folder in our monolith (whatevr) directory that allows us to create, get, and list user accounts. Once implemented, our application now can:
+
+- Allow users to log in and log out.
+- Require a valid token for access to certain endpoints.
+- Get the current account data for a logged-in user.
+- Let users sign up for new accounts.
+
+We learned that JWTdown for FastAPI provides two routes for logging in and logging out:
+The POST /token to log in using form data sets a cookie and returns a JSON token for you to use in your API calls.
+DELETE /token to log out, which deletes the cookie set with logging in.
+When requiring a valid token for access to specific endpoints, we can use the authenticator.get_current_account_data method as an injected dependency. This method will return the current account data for a logged-in user or None if the user is not logged in.
+We used the authenticator to get the current account data for a logged-in user.try_get_current_account_data method. This method will return the current account data for a logged-in user or None if the user is not logged in.
+Finally, we learned that we can use the authenticator to let users sign up for new accounts. Login method. This method takes an AccountForm object as input, containing the new account's username and password. The method will return a Token object if the login is successful or raise an exception if the login is unsuccessful.
+We are excited to implement authentication in my application using JWTdown for FastAPI, making our application more secure and user-friendly.
+
+For tomorrow we plan on analyzing the code that Violet provided us to further build our authentication section to the backend of our application and, later this week, integrate React hooks and frontend authentication.
