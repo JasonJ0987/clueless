@@ -69,6 +69,6 @@ Features/Functions:
 ## 05/16/2023
 1. Yesterday, we decided to use MongoDB, a DDBMS for our database
 
-2. Today, we will work on starting our docker files and authentication
+2. Today, we will work on starting our docker files and authentication. I was the driver for coding today. We updated our docker yml file to include our application and the mongo express database. Our service depends on a DDBMS database using mongo. Using jwtdown we implemented a login and logout function. Furthermore we created a signin function as well. We used fastapi to test our functions to make sure that we were able to properly sign in, log in and log out. We made sure that the bearer tokens were properly being generated and deleted corresponding to the functions. We created a new function branch called 'authentication' where we uploaded our new functions.
 
 3. No current blockers.
