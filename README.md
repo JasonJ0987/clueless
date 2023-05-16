@@ -4,16 +4,16 @@
 - Jeanette Gonzalez
 - Liland Pham
 - Sabrina Blinder
-- Xander Clemens
+- [Xander Clemens](https://gitlab.com/XanderRubio) 
 
 Clueless – bringing you clothing outfit reccomnedations based on the weather. 
 
 ## Design
 
 - [API design](docs/endpoints.md)
-- [Data model](docs/data-model.md)
-- [GHI](docs/ghi.md)
-- [Integrations](docs/integrations.md)
+- [Data model](docs/data-model.md) (NEED TO CREATE)
+- [GHI](docs/wireframe.md)
+- [Integrations](docs/integrations.md) (NEED TO CREATE)
 
 ## Intended users
 
