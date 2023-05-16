@@ -40,4 +40,13 @@ Today we worked on deciding what database we will be using for our application. 
 2. What are you planning to do today?
 Today as a group we will be deciding what databse we will be using relational or documental. Documental database is MongoDB and relation is PostgreSQL.
 3. Do you have any blockers/challenges to your progress?
-My blocker for the moment is learning more about MongoDB to get a better understanding of how we could incorportae it into our project. 
+My blocker for the moment is learning more about MongoDB to get a better understanding of how we could incorportae it into our project.
+
+
+## May 16, 2023
+1. What did you do?
+We decided as a team to use MongoDB as the database of our project.
+2. What are you planning to do today?
+Today we worked on implementing the login, logout, and signup functions to our projects by using jwtdown. We also implemented MongoDB to be able to access information in our database. Json was the driver and the rest of the group were the navigators. We updated the the docker-compose yaml file and the requirements.txt file. We also used FastAPI for our endpoints and made sure they were working correctly.
+3. Do you have any blocker/challenges to your progress?
+As of right now I do not have any blockers.
