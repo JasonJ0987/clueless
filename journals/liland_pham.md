@@ -37,3 +37,8 @@ Slogan: Clueless for now
 1. Choosing a database for 'I Wear Whatevr" project. We've implemented SQL before in past projects and it'll be cool if we are able to implement a No SQL database instead (for the experience aspect).
 2.Today, as a group, we will be deciding on whether we will be using a relational database(PostgresSQL) or a documental database (MongoDB) for the project.
 3. After going through the explorations for MongoDB, I still don't quite understand how to implement this database into our project.
+
+## May 16th, 2023
+1. As a team, we decided to go with MongoDB as the database. I downloaded the MongoDB Compass onto my computer in order to access the database locally on my computer.
+2. We are going to begin the project setup by adding the necessary codes in the docker-compose.yaml file and the requirements.txt file. Since we are going with MongoDB DDBMS, we needed to add things such as Mongo Express in order to view the database in the browser. Using JWTdown, we were able to start the authentication process. So far, the login, logout, and create an account for a user is working. FastAPI was used to make sure the endpoints were operating correctly and the token was able to be created/deleted whenever a user has been logged in or logged out.
+3. No current blockers.
