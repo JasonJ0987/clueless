@@ -4,8 +4,8 @@
 - Jeanette Gonzalez
 - Liland Pham
 - Sabrina Blinder
-- [Xander Clemens](https://gitlab.com/XanderRubio) 
-- [💻](https://www.google.com/ "Optional title")
+- Xander Clemens | [LinkedIn](https://www.linkedin.com/in/alexanderclemens/) | [GitLab](https://gitlab.com/XanderRubio)
+
 
 
 Clueless – bringing you clothing outfit reccomnedations based on the weather. 
