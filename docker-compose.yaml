@@ -1,13 +1,8 @@
-# volumes:
+volumes:
+  mongo-data:
+    external: true
+
 services:
-  fastapi:
-    build:
-      context: sample_service
-      dockerfile: Dockerfile.dev
-    ports:
-      - 8000:8000
-    volumes:
-      - ./sample_service:/app
 
   ghi:
     image: node:lts-bullseye
@@ -21,5 +16,44 @@ services:
       HOST_OS: ${OS}
       NODE_ENV: development
       HOST: "0.0.0.0"
-      PUBLIC_URL: http://localhost:3000
-      REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+      # PUBLIC_URL: http://localhost:3000
+      # REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+      REACT_APP_WHATEVR: http://localhost:8001
+
+  mongo:
+    image: mongo:5
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  fastapi:
+    build:
+      context: ./whatevr
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - 8000:8000
+    volumes:
+      - ./whatevr:/app
+    environment:
+      DATABASE_URL: mongodb://root:password@mongo
+      DATABASE_NAME: db-name
+      WAIT_BEFORE: 5
+      WAIT_TIMEOUT: 60
+      WAIT_HOSTS: mongo:27017
+      SIGNING_KEY: 87fe4a3fcfb60092dbaeb854a196bc3d9b190aed7930c734749e85245de698420c25f8e6899c421b4494e99459e01058de5daa9d49584cd62ec975da9aea33db
+
+  mongo-express:
+    build:
+      context: setup/mongo-express
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      WAIT_HOSTS: mongo:27017
+      WAIT_BEFORE: 5
+      WAIT_TIMEOUT: 60

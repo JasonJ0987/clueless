@@ -65,3 +65,10 @@ Features/Functions:
 2. Today, we will discuss whether or not we want to use a RDBMS or a DDBMS.
 
 3. There are no blockers today.
+
+## 05/16/2023
+1. Yesterday, we decided to use MongoDB, a DDBMS for our database
+
+2. Today, we will work on starting our docker files and authentication
+
+3. No current blockers.
