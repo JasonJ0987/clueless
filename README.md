@@ -5,7 +5,7 @@
 - Liland Pham
 - Sabrina Blinder
 - [Xander Clemens](https://gitlab.com/XanderRubio) 
-- [text](https://www.google.com/ "Optional title")
+- [💻](https://www.google.com/ "Optional title")
 
 
 Clueless – bringing you clothing outfit reccomnedations based on the weather. 
