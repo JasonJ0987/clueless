@@ -1,9 +1,9 @@
 # I Wear Whatevr 
 
-- Jason Jang
-- Jeanette Gonzalez
-- Liland Pham
-- Sabrina Blinder
+- Jason Jang | [LinkedIn](https://www.linkedin.com/in/chiyoung-jang) | [GitLab](https://gitlab.com/JasonJJ98)
+- Jeanette Gonzalez | [LinkedIn](https://www.linkedin.com/in/jeanetteglz) | [GitLab](https://gitlab.com/JeanetteGz)
+- Liland Pham | [LinkedIn](https://www.linkedin.com/in/lilandpham) | [GitLab](https://gitlab.com/phamliland)
+- Sabrina Blinder | [LinkedIn](https://www.linkedin.com/in/sabrina-blinder-959575260) | [GitLab](https://gitlab.com/sabrinablinder)
 - Xander Clemens | [LinkedIn](https://www.linkedin.com/in/alexanderclemens/) | [GitLab](https://gitlab.com/XanderRubio)
 
 
@@ -18,16 +18,16 @@ Clueless – bringing you clothing outfit reccomnedations based on the weather.
 - [Integrations](docs/integrations.md) (NEED TO CREATE)
 
 ## Intended users
-
+(REVIEW AND UPDATE)
 We are targeting users with lots of clothes in there closet and want to have the abilty to receive recommend outfit combinations from the clothes that they have based off what the weahter is for the day. 
 
 ## Functionality
-
+(REVIEW AND UPDATE)
 - Visitors to the site can create an account to then upload their clothes into the databass.
   
 
 ## Project Initialization
-
+(REVIEW AND UPDATE)
 To fully enjoy this application on your local machine, please make sure to follow these steps:
 
 1. Clone the repository down to your local machine
