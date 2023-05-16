@@ -24,3 +24,8 @@ Developed ideas for our project and identified who our users are, the high-level
 1. Contributed to the template and stories for our issues for the functions used in our project. We finalized our issue creation on GitLab. Finishing with thirteen total issues.
 2. Completing our issue stories for the various functions we must create for our application to meet our minimum viable requirements.
 3. No challenges or blockers for today's work. We are still uncertain about the type of database we will use. However, come Monday, after learning more about MongoDB, we will better understand the direction we pursue a database in our project.
+
+## 5/15/2023
+1. Defined what database we were going to use for our application and decided on using MongoDB
+2. Help provide feedback and discuss with the team in deciding what database we will implement for our project.
+3. No blockers or challenges as we are nearing the end of our planning and design phase and will soon be moving into the development phase, where we begin to code. At this point, more challenges and blockers will exist during this project.
