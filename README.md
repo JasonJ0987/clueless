@@ -1,4 +1,4 @@
-# I Wear Whatevr 
+# I Wear Whatevr
 
 - Jason Jang | [LinkedIn](https://www.linkedin.com/in/chiyoung-jang) | [GitLab](https://gitlab.com/JasonJJ98)
 - Jeanette Gonzalez | [LinkedIn](https://www.linkedin.com/in/jeanetteglz) | [GitLab](https://gitlab.com/JeanetteGz)
@@ -8,7 +8,7 @@
 
 
 
-Clueless – bringing you clothing outfit reccomnedations based on the weather. 
+Clueless – bringing you clothing outfit recommendations based on the weather.
 
 ## Design
 
@@ -19,12 +19,12 @@ Clueless – bringing you clothing outfit reccomnedations based on the weather.
 
 ## Intended users
 (REVIEW AND UPDATE)
-We are targeting users with lots of clothes in there closet and want to have the abilty to receive recommend outfit combinations from the clothes that they have based off what the weahter is for the day. 
+We are targeting users with lots of clothes in there closet and want to have the ability to receive recommend outfit combinations from the clothes that they have based off what the weather is for the day.
 
 ## Functionality
 (REVIEW AND UPDATE)
-- Visitors to the site can create an account to then upload their clothes into the databass.
-  
+- Visitors to the site can create an account to then upload their clothes into the database.
+
 
 ## Project Initialization
 (REVIEW AND UPDATE)
@@ -38,4 +38,3 @@ To fully enjoy this application on your local machine, please make sure to follo
 6. Run `docker exec -it NEED TO EDIT-api-1 bash`
 7. Run `python manage.py loaddata products.json`
 8. Exit the container's CLI, and enjoy Clueless to its fullest! (CHECK THIS STEP)
-
