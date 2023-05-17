@@ -72,3 +72,11 @@ Features/Functions:
 2. Today, we will work on starting our docker files and authentication. I was the driver for coding today. We updated our docker yml file to include our application and the mongo express database. Our service depends on a DDBMS database using mongo. Using jwtdown we implemented a login and logout function. Furthermore we created a signin function as well. We used fastapi to test our functions to make sure that we were able to properly sign in, log in and log out. We made sure that the bearer tokens were properly being generated and deleted corresponding to the functions. We created a new function branch called 'authentication' where we uploaded our new functions.
 
 3. No current blockers.
+
+## 05/17/2023
+
+Today, as a group we decided to add a few additional features to the authentication feature. We added a confirm password function that makes sure that the user can input their password again to make sure they have it written out properly. If their confirm password does not match their password, then a 401 bad request error will be thrown. Otherwise, the user will be able to create an account regularly.
+
+Once completed we found out that while using jwtdown fastapi, we would not be able to implement the ability to log in with either an email or a username. Due to some under the hood circumstances of jwtdown we decided to pass on this function for now.
+
+Afterwards, we decided it was time we start implementing access into our third-party api, OpenWeather. However, we had lots of difficulties getting started and relied on an instructor to help us initialize. We got a refresher on the basics of FastAPI and learned how the folder structure should look like. Although we understood queries, routers, and utils better we are still struggling to implement the third-party api data. We will continue to try to get the feature working properly.
