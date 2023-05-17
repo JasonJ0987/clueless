@@ -18,7 +18,7 @@ services:
       HOST: "0.0.0.0"
       # PUBLIC_URL: http://localhost:3000
       # REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
-      REACT_APP_WHATEVR: http://localhost:8001
+      REACT_APP_WHATEVR: http://localhost:8000
 
   mongo:
     image: mongo:5
@@ -28,7 +28,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
 
-  fastapi:
+  whatevr_fastapi:
     build:
       context: ./whatevr
       dockerfile: ./Dockerfile.dev
