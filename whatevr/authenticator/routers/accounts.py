@@ -11,7 +11,7 @@ from authenticator import authenticator
 
 from pydantic import BaseModel
 
-from queries.accounts import (
+from authenticator.queries.accounts import (
     AccountIn,
     AccountOut,
     AccountQueries,
