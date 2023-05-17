@@ -1,7 +1,7 @@
 import os
 from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
-from authenticator.queries.accounts import AccountQueries, AccountOut, Account
+from api.queries.accounts import AccountQueries, AccountOut, Account
 
 
 class ExampleAuthenticator(Authenticator):
@@ -33,3 +33,6 @@ class ExampleAuthenticator(Authenticator):
 
 
 authenticator = ExampleAuthenticator(os.environ["SIGNING_KEY"])
+
+
+

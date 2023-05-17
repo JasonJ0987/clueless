@@ -30,6 +30,7 @@ class AccountIn(BaseModel):
     confirm_password: str
     first: str
     last: str
+    zipcode: int
 
 
 class Account(AccountIn):
@@ -43,8 +44,9 @@ class AccountOut(BaseModel):
     username: str
     first: str
     last: str
+    zipcode: int
     # roles: List[str]
-
+    
 
 """
 
