@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "646620b95ccb73e9d4986b0a"
+  },
+  "email": "user@example.com",
+  "username": "string",
+  "password": "$2b$12$O8xGbKw0ppBswWUvqbhJueq7DyhjsDhlVptU0Rv4zWkTAjhtdQ.z2",
+  "confirm_password": "string",
+  "first": "string",
+  "last": "string",
+  "zipcode": 99501,
+  "roles": [
+    "patron"
+  ]
+}]

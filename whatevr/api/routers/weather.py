@@ -10,6 +10,8 @@ from api.utils.keys import OPEN_WEATHER_API_KEY
 from api.queries.accounts import AccountOut
 import requests
 from pydantic import BaseModel
+from api.utils.token_auth import get_current_user
+from datetime import datetime
 
 
 router = APIRouter()
@@ -19,81 +21,50 @@ class ZipCodeInput(BaseModel):
     zipcode: int
 
 
-class WeatherResponse(BaseModel):
-    zip_code: int
-    temperature: float
-    description: str
-
-
-@router.get("/api/weather", response_model=WeatherResponse)
+@router.get("/api/weather")
 def get_weather_by_zipcode(
-    zip_code_input: ZipCodeInput,
-    current_user: AccountOut
-
+    current_user: dict = Depends(get_current_user)
 ):
     zip_code = current_user.zipcode
 
     url = "https://api.openweathermap.org/data/2.5/forecast"
-    params = {"zip": str(zip_code), "appid": OPEN_WEATHER_API_KEY}
+    params = {"zip": str(zip_code), "appid": OPEN_WEATHER_API_KEY, "units": "imperial"}
 
-    # try:
     response = requests.get(url, params=params)
     response.raise_for_status()
     data = response.json()
-
+    print(data)
     weather_data = {
-        "zip_code": data["city"]["coord"]["lat"],
-        "temperature": data["main"]["temp"],
-        "description": data["weather"][0]["description"]
+        1:{
+        "temperature": str(data["list"][0]["main"]["temp"]) + " °F",
+        "description": data["list"][0]["weather"][0]["main"],
+        "icon": data["list"][0]["weather"][0]["icon"],
+        "time": data["list"][0]["dt_txt"]
+        },
+        2:{
+        "temperature": str(data["list"][8]["main"]["temp"]) + " °F",
+        "description": data["list"][8]["weather"][0]["main"],
+        "icon": data["list"][0]["weather"][0]["icon"],
+        "time": data["list"][8]["dt_txt"]
+        },
+        3:{
+        "temperature": str(data["list"][16]["main"]["temp"]) + " °F",
+        "description": data["list"][16]["weather"][0]["main"],
+        "icon": data["list"][0]["weather"][0]["icon"],
+        "time": data["list"][16]["dt_txt"]
+        },
+        4:{
+        "temperature": str(data["list"][24]["main"]["temp"]) + " °F",
+        "description": data["list"][24]["weather"][0]["main"],
+        "icon": data["list"][0]["weather"][0]["icon"],
+        "time": data["list"][24]["dt_txt"]
+        },
+        5:{
+        "temperature": str(data["list"][32]["main"]["temp"]) + " °F",
+        "descripti6n": data["list"][32]["weather"][0]["main"],
+        "icon": data["list"][0]["weather"][0]["icon"],
+        "time": data["list"][32]["dt_txt"]
+        }
+
     }
-    return WeatherResponse(**weather_data)
-
-#     except requests.exceptions.RequestException as e:
-#         raise HTTPException(
-#             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-#             detail="Error getting weather data",
-#         ) from e
-
-
-
-
-# @router.get("/api/weather")
-# def get_weather_by_zipcode(
-#     context: AccountOut
-# ):
-#     url = "https://api.openweathermap.org/data/2.5/forecast"
-#     params = {"zip": str(context.zipcode), "appid": OPEN_WEATHER_API_KEY}
-
-#     r = requests.get(url, params=params)
-#     return r.json()
-
-
-
-
-
-
-# @router.get("/weather")
-# async def get_weather(
-#     info: AccountOut,
-#     request: Request,
-#     response: Response,
-#     weatherdb: WeatherQueries = Depends(),
-# ):
-#     zip_code = info.zip_code
-#     url = f"https://api.openweathermap.org/data/2.5/forecast?zip={zip_code}&appid={OPEN_WEATHER_API_KEY}"
-#   response = await get(url)
-
-#     content = response.json()
-
-#     weather_query = weather_query(
-#         city=content["name"],
-#         description=content["weather"]["description"],
-#     )
-
-#     return weather_query
-
-
-
-#
-#
-#
+    return weather_data
