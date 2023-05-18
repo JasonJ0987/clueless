@@ -50,3 +50,20 @@ We decided as a team to use MongoDB as the database of our project.
 Today we worked on implementing the login, logout, and signup functions to our projects by using jwtdown. We also implemented MongoDB to be able to access information in our database. Json was the driver and the rest of the group were the navigators. We updated the the docker-compose yaml file and the requirements.txt file. We also used FastAPI for our endpoints and made sure they were working correctly.
 3. Do you have any blocker/challenges to your progress?
 As of right now I do not have any blockers.
+
+
+## May 17, 2023
+1. What did you do?
+Today we completed the authentication with JWTdown. For the AccountIn and AccountOut models, we tried to make it so that a user cna login with either email or username. We later found that only the email can be used. We have also added a zip code field to get the users zip code, in order to get the weather based on their location.
+2. what are you planning to do today?
+We are planning to finish the authentication with JWTdown. As a team we will try to incorporate the OpenWaether API.
+3. Do you have any blocker/challenges to your progress?
+Yes. My blocker for the moment is trying to figure out how to incorportae correctly the OpenWeatherAPI and how to connect with MongoDB database to get the logged in users zip code in order to get the weather data. 
+
+
+## May 18, 2023
+1. What did you do?
+
+2. what are you planning to do today?
+
+3. Do you have any blocker/challenges to your progress?
