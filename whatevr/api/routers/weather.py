@@ -33,7 +33,6 @@ def get_weather_by_zipcode(
     response = requests.get(url, params=params)
     response.raise_for_status()
     data = response.json()
-    print(data)
     weather_data = {
         1:{
         "temperature": str(data["list"][0]["main"]["temp"]) + " °F",

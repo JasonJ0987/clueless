@@ -46,29 +46,28 @@ class AccountOut(BaseModel):
     last: str
     zipcode: int
     # roles: List[str]
-    
-
-"""
-
-class SessionOut(BaseModel):
-    jti: str
-    account_id: str
 
 
-class AccountIn(BaseModel):
-    email: str
-    password: str
-    full_name: str
-
-
-class Account(AccountIn):
-    id: PydanticObjectId
-    roles: List[str]
-
-
-class AccountOut(BaseModel):
+class Tag(BaseModel):
     id: str
-    email: str
-    full_name: str
-    roles: List[str]
-"""
+    description: str
+
+
+class Clothes(BaseModel):
+    id: str
+    name: str
+    picture: str
+    primary_color: str
+    tags: Tag
+    type: str
+
+
+class Bin(BaseModel):
+    id: str
+    picture: str
+    clothes_name: Clothes
+
+
+class Closet(BaseModel):
+    id: str
+    bin_id: str
