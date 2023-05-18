@@ -80,3 +80,11 @@ Today, as a group we decided to add a few additional features to the authenticat
 Once completed we found out that while using jwtdown fastapi, we would not be able to implement the ability to log in with either an email or a username. Due to some under the hood circumstances of jwtdown we decided to pass on this function for now.
 
 Afterwards, we decided it was time we start implementing access into our third-party api, OpenWeather. However, we had lots of difficulties getting started and relied on an instructor to help us initialize. We got a refresher on the basics of FastAPI and learned how the folder structure should look like. Although we understood queries, routers, and utils better we are still struggling to implement the third-party api data. We will continue to try to get the feature working properly.
+
+## 05/18/2023
+
+Today, as a group we tackled the implementation of a third party API once again. This time we refreshed ourselves on FastAPI and got additional assistance from Violet on the implementation. We learned we had to create some type of get_user function that will grab the current loggin user's bearer token so that the function will know the user's information. We learned how to ensure that the funciton is authentication locked so that you must be logged in to access the function. This was achieved by using the Depends() function using the get_user function. Once we had that knowledge, we applied it to our get_weather function.
+
+Now in order to grab weather data, you must be logged in. The weather function will access the user's zip code information and use that to ask our third party api to grab the forecast for the next 5 days based on the zip code. The function will then return the temperature, the datetime, and the weather condition for the next 5 days.
+
+Afterwards, we decided to start working on our CRUD functions. We created models for our closet, bins, clothes, and tags which will be used to classify the clothes. We our struggling to wrap our heads around how CRUD will work with Mongo so we will use the weekend to do further research as well.
