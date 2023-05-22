@@ -48,26 +48,52 @@ class AccountOut(BaseModel):
     # roles: List[str]
 
 
-class Tag(BaseModel):
+class TagIn(BaseModel):
+    description: str
+
+class TagOut(BaseModel):
     id: str
     description: str
 
 
-class Clothes(BaseModel):
+class ClosetIn(BaseModel):
+    name: str
+
+class ClosetOut(BaseModel):
+    id: int | str
+    name: str
+
+class ClosetList(BaseModel):
+    closets: List[ClosetOut]
+
+
+class BinIn(BaseModel):
+    name: str
+    picture: str
+    closet: ClosetOut
+
+
+class BinOut(BaseModel):
+    id: int | str
+    name: str
+    picture: str
+    closet: ClosetOut
+
+
+class ClothesIn(BaseModel):
+    name: str
+    picture: str
+    primary_color: str
+    type: str
+    tags: List[TagOut]
+    bin: BinOut
+
+
+class ClothesOut(BaseModel):
     id: str
     name: str
     picture: str
     primary_color: str
-    tags: Tag
     type: str
-
-
-class Bin(BaseModel):
-    id: str
-    picture: str
-    clothes_name: Clothes
-
-
-class Closet(BaseModel):
-    id: str
-    bin_id: str
+    tags: List[TagOut]
+    bin: BinOut

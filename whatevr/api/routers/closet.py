@@ -10,22 +10,27 @@ from fastapi import (
 import requests
 from pydantic import BaseModel
 from api.utils.token_auth import get_current_user
-from api.queries.models import Closet
+from api.queries.models import ClosetIn, ClosetOut, ClosetList
 from api.queries.closet import ClosetQueries
+from typing import List
+
 
 router = APIRouter()
 
-@router.get("/api/closet")
-def get_closet(
+@router.get("/api/closet", response_model=ClosetList)
+def get_closets(
+    repo: ClosetQueries = Depends(),
     current_user: dict = Depends(get_current_user)
 ):
-    pass
+    return ClosetList(closets=repo.get_all())
 
 @router.post("/api/closet")
 async def post_closet(
-    closet: Closet,
+    closet: ClosetIn,
     repo: ClosetQueries = Depends(),
     current_user: dict = Depends(get_current_user)
 ):
     closet = repo.create(closet)
     return closet
+
+
