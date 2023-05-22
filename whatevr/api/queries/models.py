@@ -51,6 +51,7 @@ class AccountOut(BaseModel):
 class TagIn(BaseModel):
     description: str
 
+
 class TagOut(BaseModel):
     id: str
     description: str
@@ -59,9 +60,11 @@ class TagOut(BaseModel):
 class ClosetIn(BaseModel):
     name: str
 
+
 class ClosetOut(BaseModel):
     id: int | str
     name: str
+
 
 class ClosetList(BaseModel):
     closets: List[ClosetOut]
@@ -70,14 +73,18 @@ class ClosetList(BaseModel):
 class BinIn(BaseModel):
     name: str
     picture: str
-    closet: ClosetOut
+    closet_id: str
 
 
 class BinOut(BaseModel):
-    id: int | str
+    id: str
     name: str
     picture: str
-    closet: ClosetOut
+    closet_id: str
+
+
+class BinList(BaseModel):
+    bins: List[BinOut]
 
 
 class ClothesIn(BaseModel):
