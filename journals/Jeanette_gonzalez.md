@@ -67,3 +67,11 @@ Yes. My blocker for the moment is trying to figure out how to incorportae correc
 2. what are you planning to do today?
 
 3. Do you have any blocker/challenges to your progress?
+
+
+## May 19, 2023
+1. What did you do?
+
+2. what are you planning to do today?
+
+3. Do you have any blocker/challenges to your progress?
