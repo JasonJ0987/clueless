@@ -12,4 +12,32 @@
   "roles": [
     "patron"
   ]
+},{
+  "_id": {
+    "$oid": "6466778026497f6e379a5df3"
+  },
+  "email": "S@example.com",
+  "username": "string",
+  "password": "$2b$12$S4PoJvdC8KxERa4tqDA/3.wgMN/ObxHxwSKqkZGtn4mbzJ24wbTPa",
+  "confirm_password": "string",
+  "first": "string",
+  "last": "string",
+  "zipcode": 10306,
+  "roles": [
+    "patron"
+  ]
+},{
+  "_id": {
+    "$oid": "646677c226497f6e379a5df4"
+  },
+  "email": "FloRida@example.com",
+  "username": "string",
+  "password": "$2b$12$0UATDNOOPfpiPh49dce4x.8QlQFcOW9C9Gf9YCa7NZz2B0wRySjhK",
+  "confirm_password": "string",
+  "first": "string",
+  "last": "string",
+  "zipcode": 33607,
+  "roles": [
+    "patron"
+  ]
 }]
