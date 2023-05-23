@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "646bc0f74277954dd0f38117"
+  },
+  "name": "Bottoms",
+  "picture": "string",
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  }
+},{
+  "_id": {
+    "$oid": "646beb5724b33168d5719493"
+  },
+  "name": "Hat",
+  "picture": "string",
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  }
+}]

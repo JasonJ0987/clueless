@@ -1,0 +1,23 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "f43aaaf8-393a-4605-ae34-b336c9501d1c",
+      "connectionOptions": {
+        "connectionString": "mongodb://root:password@localhost:27017/?authMechanism=DEFAULT"
+      },
+      "favorite": {
+        "name": "Whatevr",
+        "color": "color1"
+      },
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1684779218673"
+        }
+      }
+    }
+  ]
+}
