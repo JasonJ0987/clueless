@@ -96,3 +96,10 @@ Get all Closets and Create closets properly implemented
 Create bins properly implemented
 Blockers: get all bins and get one bin
     seeked assistance for this
+
+## 05/23/2023
+
+Got get_all() for bins functional.
+plan to use jwtdownfastapi for front-end authentication
+Began construction of CRUD functions for clothes
+Need to figure out how to implement relation between clothes models and tags models
