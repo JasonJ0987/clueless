@@ -35,7 +35,6 @@ class AccountIn(BaseModel):
 
 class Account(AccountIn):
     id: PydanticObjectId
-    # roles: List[str]
 
 
 class AccountOut(BaseModel):
@@ -45,7 +44,6 @@ class AccountOut(BaseModel):
     first: str
     last: str
     zipcode: int
-    # roles: List[str]
 
 
 class TagIn(BaseModel):
