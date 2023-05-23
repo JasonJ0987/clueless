@@ -60,7 +60,9 @@ As for the weather description, we're sticking to "main" since there's only 16 o
 As for now, the GET one bin and POST endpoints are only working for the bins.
 3. Was having trouble with setting the CRUD functions for bins, particularly retrieving the data of only one bin (get_one function). With Violet's help we were able to finally get the correct ID back from the bin model.
 
-## May 22nd, 2023
+## May 23rd, 2023
 1. Continuation of creating CRUD for bins. Able to create the endpoint get_all.
 2. Sabrina is the driver for today. We will be setting up the CRUD functions for clothes and tags. For clothes, we will be creating a POST to create a clothes item, GET one clothes item, GET all clothes in a particular bin, and DELETE a single clothes item. For tags, we will be setting up CRUD functions as well. POST a tag, DELETE a tag, and GET all tags.
 3. Not really a blocker but my team and I are wondering how we can implement the tags for each clothing item. Is it a foreign key? If so, is it a one to many relationship between a single clothing item with many tags?
+
+## May 23th, 2023
