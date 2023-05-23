@@ -87,7 +87,7 @@ class ClothesQueries(Queries):
             clothesProps["bin_id"] = str(clothesProps["bin_id"])
         return [ClothesOut(**clothes) for clothes in clothesPropsList]
 
-    def get_one(self, clothes_id: str, closet_id: str, bin_id: str) -> ClosetOut | None:
+    def get_one(self, clothes_id: str, closet_id: str, bin_id: str) -> ClothesOut | None:
         props = self.collection.find_one(
             {
                 "_id": ObjectId(clothes_id),
@@ -102,7 +102,7 @@ class ClothesQueries(Queries):
         props["id"] = str(props["_id"])
         return ClothesOut(**props)
 
-    def create(self, item: ClosetIn) -> ClothesOut | None:
+    def create(self, item: ClothesIn) -> ClothesOut | None:
         props = item.dict()
         props["closet_id"] = str(props["closet_id"])
         props["bin_id"] = str(props["bin_id"])
@@ -112,7 +112,7 @@ class ClothesQueries(Queries):
         props["closet_id"] = str(props["closet_id"])
         props["bin_id"] = str(props["bin_id"])
         props["id"] = str(props["_id"])
-        return ClosetOut(**props)
+        return ClothesOut(**props)
 
     def delete(self, clothes_id: str, closet_id: str, bin_id: str):
         self.collection.delete_one(

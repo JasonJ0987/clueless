@@ -119,7 +119,7 @@ async def delete_clothing(
     closet_id: str,
     bin_id: str,
     clothes_id: str,
-    repo: ClosetQueries = Depends(),
+    repo: ClothesQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
     repo.delete(closet_id=closet_id, bin_id=bin_id, clothes_id=clothes_id)
