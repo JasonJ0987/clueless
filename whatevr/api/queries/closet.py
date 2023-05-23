@@ -33,12 +33,12 @@ class BinQueries(Queries):
     DB_NAME = "library"
     COLLECTION = "bins"
 
-    def get_all(self) -> List[BinOut]:
+    def get_all(self, closet_id: str) -> List[BinOut]:
         props = self.collection.find()
         binPropsList = list(props)
-        # print("props", binPropsList)
         for binProps in binPropsList:
             binProps["id"] = str(binProps["_id"])
+            binProps["closet_id"] = str(binProps["closet_id"])
         return [BinOut(**bins) for bins in binPropsList]
 
     def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:

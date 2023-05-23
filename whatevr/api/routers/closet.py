@@ -37,13 +37,15 @@ async def post_closet(
     return closet
 
 
-@router.get("/api/closet/{closet_id}/bins", response_model=BinList)
+@router.get("/api/closet/{closet_id}/bins", response_model=BinList | None)
 def get_bins(
     closet_id: str,
     repo: BinQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
-    return BinList(bins=repo.get_all())
+    if BinList(bins=repo.get_all(closet_id=closet_id)) == []:
+        return None
+    return BinList(bins=repo.get_all(closet_id=closet_id))
 
 
 @router.get("/api/closet/{closet_id}/bins/{bin_id}", response_model=BinOut | None)
