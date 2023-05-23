@@ -104,3 +104,7 @@ class ClothesOut(BaseModel):
     type: str
     tags: List[TagOut]
     bin: BinOut
+
+
+class ClothesList(BaseModel):
+    clothes: List[ClothesOut]
