@@ -2,7 +2,6 @@ from fastapi import (
     Depends,
     APIRouter,
 )
-import requests
 from api.utils.token_auth import get_current_user
 from api.queries.models import (
     ClosetOut,
@@ -20,8 +19,6 @@ from api.queries.closet import (
     BinQueries,
     ClothesQueries,
 )
-from typing import List
-
 
 router = APIRouter()
 
@@ -114,48 +111,13 @@ def get_clothing_item(
     return props
 
 
-@router.delete("closet/{closet_id}/bins/{bin_id}/clothes/{clothes_id}", response_model=bool)
+@router.delete("/api/closet/{closet_id}/bins/{bin_id}/clothes/{clothes_id}", response_model=bool)
 async def delete_clothing(
     closet_id: str,
     bin_id: str,
     clothes_id: str,
-    repo: ClosetQueries = Depends(),
+    repo: ClothesQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
     repo.delete(closet_id=closet_id, bin_id=bin_id, clothes_id=clothes_id)
     return True
-
-
-
-
-
-
-
-
-
-# DELETE
-# @router.delete("/books/{book_id}/loans", response_model=bool)
-# async def remove_loan(
-#     book_id: str,
-#     repo: LoanQueries = Depends(),
-#     account: dict = Depends(get_current_user),
-# ):
-#     if "patron" not in account.roles:
-#         raise not_authorized
-#     await socket_manager.broadcast_refetch()
-#     repo.delete(book_id=book_id, account_id=account.id)
-#     return True
-
-# POST
-# @router.post("/books/{book_id}/loans", response_model=LoanOut)
-# async def create_loan(
-#     book_id: str,
-#     repo: LoanQueries = Depends(),
-#     account: dict = Depends(get_current_user),
-# ):
-#     if "patron" not in account.roles:
-#         raise not_authorized
-#     await socket_manager.broadcast_refetch()
-#     loan_request = LoanIn(book_id=book_id, account_id=account.id)
-#     loan_request = repo.create(loan_request)
-#     return loan_request

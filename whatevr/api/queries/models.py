@@ -52,6 +52,10 @@ class TagIn(BaseModel):
     description: str
 
 
+class TagList(BaseModel):
+    tags: List[TagIn]
+
+
 class TagOut(BaseModel):
     id: str
     description: str
@@ -92,8 +96,9 @@ class ClothesIn(BaseModel):
     picture: str
     primary_color: str
     type: str
-    tags: List[TagOut]
-    bin: BinOut
+    tag_id: List[str]
+    bin_id: str
+    closet_id: str
 
 
 class ClothesOut(BaseModel):
@@ -102,8 +107,9 @@ class ClothesOut(BaseModel):
     picture: str
     primary_color: str
     type: str
-    tags: List[TagOut]
-    bin: BinOut
+    tag_id: List[str]
+    bin_id: str
+    closet_id: str
 
 
 class ClothesList(BaseModel):
