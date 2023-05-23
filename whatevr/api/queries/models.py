@@ -96,7 +96,7 @@ class ClothesIn(BaseModel):
     picture: str
     primary_color: str
     type: str
-    tag_id: List[str]
+    tag_ids: List[str]
     bin_id: str
     closet_id: str
 
@@ -107,7 +107,7 @@ class ClothesOut(BaseModel):
     picture: str
     primary_color: str
     type: str
-    tag_id: List[str]
+    tag_ids: List[str]
     bin_id: str
     closet_id: str
 
