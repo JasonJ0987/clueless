@@ -73,3 +73,27 @@ Today, I worked on:
 * Creating our MongoDB Compass Database, successfully fetching our API from Open Weather.
 
 Jason was the driver today, and the rest of our group were the navigators. We, as a team, worked together on getting our accounts (users) to display in the MongoDB collection displayed on the MongoDB Compass (graphical user interface (GUI) for MongoDB that allows you to explore, query, and analyze your data). After getting this to work, we discussed a team and decided to focus on getting our API call to Open Weather to work on FastAPI. After seeing the data being returned in our API call, we successfully extracted the city, temperature (in Fahrenheit), description of the weather, time, and logo icon of the weather. In addition, we could return a five-day forecast of the weather data for a specific city. We still need to adjust the format for how the time is being produced and will do this later on the front-end side. From here, we discussed again and decided on working and building our models for the closet, clothes, and bins. We were still determining how to include some fields when using MongoDB, but after trial/error and research, we got our Bin model and created a bin to register an object id in our MongoDB compass. Our team has a three-day work break, and we have agreed to focus on Monday to progress our models further and get/post functionality to the three collections we need for our project: clothes, bins, and closets and our work day ended with the team feeling optimistic about our success in returning the correct data required from Open Weather. Our blockage is with MongoDB, and not fully grasping how it works, but every day this week, we learn more and more.
+
+## 5/19/2023
+
+Today, I worked on:
+
+* CRUD functionality for our Bins and Closet models used in our Mongo Database and making successful execution when running them in FastAPI
+
+Liland was our driver today with the goal and focus of successfully executing our get, post functionality FastAPI calls for our Bins, Closets, and clothes models. After completing our closet GET and POST on FastAPI. After doing so, we focused on developing our code for Bins in our queries and routers folder. For several hours today, our team continually addressed errors with how our _id data for each bin was being returned and ran into TypeError or dict errors. After working as a group on our blockage, we had our coding consultant Violet join our video call, and after working on our code and adjusting our closet.py folder in our queries directory, we successfully returned our bins GET execution on FastAPI. The primary fix was adding the following:
+```
+    def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:
+        props = self.collection.find_one(
+            {
+                "_id": ObjectId(bin_id),
+                "closet_id": ObjectId(closet_id),
+            }
+        )
+        if not props:
+            return None
+        props["closet_id"] = str(props["closet_id"])
+        props["id"] = str(props["_id"])
+        return BinOut(**props)
+
+    ```
+This allowed our errors to go away and for us to fetch the din data and ensure it is turned into a string since the model for bins is set in strings. Tomorrow, we will finalize our GET functionality for bins and then make the GET/PUT functionality for our clothes model. Additionally, this week, the focus will shift to the front end by first focusing on authentication on the front end.

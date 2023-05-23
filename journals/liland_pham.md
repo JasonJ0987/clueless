@@ -53,3 +53,9 @@ Slogan: Clueless for now
 2. Able to add and connect to OpenWeather API. OpenWeather only allows you to grab weather for 5 days at a time.
 As for the weather description, we're sticking to "main" since there's only 16 of them. All found on this link: https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
 3. Have to go over the basics of MongoDB in order to understand the creation of models, routers, and queries.
+
+## May 22nd, 2023
+1. As a team, we discussed about MongoDB and how to utilize it in our CRUD functions. First, we changed some of our models and rewriting some of them to include the "in" and "out" for each API. With my observation, I noticed the "in" model does not need the "id" as part of the collection for the database but the "out" function does -- this is to handle data validation and serialization/deserialization. We finished creating a GET and POST endpoint for the closet (including both router and query); We referred to the setup to the mongo-api-example project, but we were able to connect to the closet endpoints with ease. I was the driver for the afternoon - I will be creating the CRUD functions for the bins.
+2. Finished setting up CRUD for the closet, changing around the models for closet, bins, clothes, and tags, and starting CRUD function for bins. It's a little different creating CRUD for bins than closet because now we are referring to both the closet_id and bin_id. With Violet's help, I am able to understand how to utilize ObjectId a little bit more. We will need ObjectId in order to convert the id to a Mongo-readable ID. 
+As for now, the GET one bin and POST endpoints are only working for the bins.
+3. Was having trouble with setting the CRUD functions for bins, particularly retrieving the data of only one bin (get_one function). With Violet's help we were able to finally get the correct ID back from the bin model.
