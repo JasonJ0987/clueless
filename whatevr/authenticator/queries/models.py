@@ -1,5 +1,5 @@
 from bson.objectid import ObjectId
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import List
 
 
@@ -24,8 +24,10 @@ class SessionOut(BaseModel):
 
 
 class AccountIn(BaseModel):
-    email: str
+    email: EmailStr
+    username: str
     password: str
+    confirm_password: str
     first: str
     last: str
 
@@ -37,7 +39,8 @@ class Account(AccountIn):
 
 class AccountOut(BaseModel):
     id: str
-    email: str
+    email: EmailStr
+    username: str
     first: str
     last: str
     # roles: List[str]

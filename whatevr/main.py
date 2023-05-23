@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from authenticator import authenticator
-from routers import accounts
+from authenticator.authenticator import authenticator
+from authenticator.routers import accounts
 
 app = FastAPI()
 app.include_router(authenticator.router)

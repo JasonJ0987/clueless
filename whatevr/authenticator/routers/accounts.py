@@ -11,9 +11,8 @@ from authenticator import authenticator
 
 from pydantic import BaseModel
 
-from queries.accounts import (
+from authenticator.queries.accounts import (
     AccountIn,
-    Account,
     AccountOut,
     AccountQueries,
     DuplicateAccountError,
@@ -22,7 +21,6 @@ from queries.accounts import (
 class AccountForm(BaseModel):
     username: str
     password: str
-    # confirm_password: str first and last as well
 
 class AccountToken(Token):
     account: AccountOut
@@ -40,14 +38,20 @@ async def create_account(
     response: Response,
     accounts: AccountQueries = Depends(),
 ):
-    hashed_password = authenticator.hash_password(info.password)
-    try:
-        account = accounts.create(info, hashed_password)
-    except DuplicateAccountError:
+    if info.password == info.confirm_password:
+        hashed_password = authenticator.hash_password(info.password)
+        try:
+            account = accounts.create(info, hashed_password)
+        except DuplicateAccountError:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Cannot create an account with those credentials",
+            )
+        form = AccountForm(username=info.email, password=info.password)
+        token = await authenticator.login(response, request, form, accounts)
+        return AccountToken(account=account, **token.dict())
+    else:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Cannot create an account with those credentials",
+            detail="Password does not match",
         )
-    form = AccountForm(username=info.email, password=info.password)
-    token = await authenticator.login(response, request, form, accounts)
-    return AccountToken(account=account, **token.dict())
