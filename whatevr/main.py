@@ -1,12 +1,7 @@
 from fastapi import FastAPI
-<<<<<<< HEAD
-from authenticator.authenticator import authenticator
-from authenticator.routers import accounts
-=======
 from api.utils.authenticator import authenticator
 from api.routers import accounts, weather, closet, tags
 
->>>>>>> closet
 
 app = FastAPI()
 

@@ -1,4 +1,3 @@
-from pydantic import BaseModel
 from .client import Queries
 from .models import AccountIn, Account, AccountOut
 from pymongo.errors import DuplicateKeyError
@@ -29,22 +28,3 @@ class AccountQueries(Queries):
             raise DuplicateAccountError()
         props["id"] = str(props["_id"])
         return Account(**props)
-
-
-
-#       Possible delete function
-# def delete(self, email: str) -> None:
-#     """Deletes an account from the database.
-
-#     Args:
-#         email: The email address of the account to be deleted.
-
-#     Raises:
-#         NotFoundError: If the account is not found in the database.
-#     """
-
-#     document = self.collection.find_one({"email": email})
-#     if not document:
-#         raise NotFoundError("Account not found")
-
-#     self.collection.delete_one(document)

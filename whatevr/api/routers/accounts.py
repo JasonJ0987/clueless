@@ -11,26 +11,26 @@ from api.utils.authenticator import authenticator
 
 from pydantic import BaseModel
 
-<<<<<<<< HEAD:whatevr/authenticator/routers/accounts.py
-from authenticator.queries.accounts import (
-========
 from api.queries.accounts import (
->>>>>>>> closet:whatevr/api/routers/accounts.py
     AccountIn,
     AccountOut,
     AccountQueries,
     DuplicateAccountError,
 )
 
+
 class AccountForm(BaseModel):
     username: str
     password: str
 
+
 class AccountToken(Token):
     account: AccountOut
 
+
 class HttpError(BaseModel):
     detail: str
+
 
 router = APIRouter()
 

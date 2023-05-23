@@ -1,11 +1,7 @@
 import os
 from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
-<<<<<<<< HEAD:whatevr/authenticator/authenticator.py
-from authenticator.queries.accounts import AccountQueries, AccountOut, Account
-========
 from api.queries.accounts import AccountQueries, AccountOut, Account
->>>>>>>> closet:whatevr/api/utils/authenticator.py
 
 
 class ExampleAuthenticator(Authenticator):
@@ -37,6 +33,3 @@ class ExampleAuthenticator(Authenticator):
 
 
 authenticator = ExampleAuthenticator(os.environ["SIGNING_KEY"])
-
-
-

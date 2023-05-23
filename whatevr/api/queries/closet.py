@@ -1,20 +1,12 @@
 from bson.objectid import ObjectId
-<<<<<<< HEAD
-from pydantic import BaseModel
-=======
->>>>>>> closet
 from .client import Queries
 from .models import (
     ClosetIn,
     ClosetOut,
     BinOut,
-<<<<<<< HEAD
-    BinIn
-=======
     BinIn,
     ClothesIn,
     ClothesOut
->>>>>>> closet
 )
 from typing import List
 
@@ -26,10 +18,6 @@ class ClosetQueries(Queries):
     def get_all(self) -> List[ClosetOut]:
         props = self.collection.find()
         closetPropsList = list(props)
-<<<<<<< HEAD
-        # print("props", closetPropsList)
-=======
->>>>>>> closet
         for closetProps in closetPropsList:
             closetProps["id"] = str(closetProps["_id"])
         return [ClosetOut(**closet) for closet in closetPropsList]
@@ -45,52 +33,6 @@ class BinQueries(Queries):
     DB_NAME = "library"
     COLLECTION = "bins"
 
-<<<<<<< HEAD
-    def get_all(self) -> List[BinOut]:
-        props = self.collection.find()
-        binPropsList = list(props)
-        # print("props", binPropsList)
-        for binProps in binPropsList:
-            binProps["id"] = str(binProps["_id"])
-        return [BinOut(**bins) for bins in binPropsList]
-
-    def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:
-        bin_id = ObjectId(bin_id)
-        props = self.collection.find_one(
-            {
-                "_id": bin_id,
-                "closet_id": closet_id,
-            }
-            # {
-            #     "_id": 0,
-            # }
-
-        )
-        if not props:
-            return None
-        # props["closet_id"] = str(props["closet_id"])
-        props["id"] = str(props["_id"])
-        return Binoprops
-
-    def create(self, item: BinIn):
-        props = item.dict()
-        props["closet_id"] = ObjectId(props["closet_id"])
-        self.collection.insert_one(props)
-        props["closet_id"] = str(props["closet_id"])
-        props["id"] = str(props["_id"])
-        # return BinOut(**props)
-        return props
-
-
-
-    # def delete(self, book_id: str, account_id: str):
-    #     self.collection.delete_one(
-    #         {
-    #             "account_id": ObjectId(account_id),
-    #             "book_id": ObjectId(book_id),
-    #         }
-    #     )
-=======
     def get_all(self, closet_id: str) -> List[BinOut]:
         props = self.collection.find(
             {"closet_id": ObjectId(closet_id)},
@@ -129,7 +71,7 @@ class ClothesQueries(Queries):
     DB_NAME = "library"
     COLLECTION = "clothes"
 
-    def get_all(self, closet_id: str, bin_id: str ) -> List[ClothesOut]:
+    def get_all(self, closet_id: str, bin_id: str) -> List[ClothesOut]:
         props = self.collection.find(
             {
                 "closet_id": ObjectId(closet_id),
@@ -178,4 +120,3 @@ class ClothesQueries(Queries):
                 "bin_id": ObjectId(bin_id)
             }
         )
->>>>>>> closet
