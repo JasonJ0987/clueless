@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "646d14f715e1b60297e46cba"
+  },
+  "name": "shit2",
+  "picture": "string",
+  "primary_color": "brown",
+  "type": "shirt",
+  "tag_id": [
+    "some_tag"
+  ],
+  "bin_id": {
+    "$oid": "646bc0f74277954dd0f38117"
+  },
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  }
+}]
