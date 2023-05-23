@@ -95,5 +95,5 @@ Liland was our driver today with the goal and focus of successfully executing ou
         props["id"] = str(props["_id"])
         return BinOut(**props)
 
-    ```
+```
 This allowed our errors to go away and for us to fetch the din data and ensure it is turned into a string since the model for bins is set in strings. Tomorrow, we will finalize our GET functionality for bins and then make the GET/PUT functionality for our clothes model. Additionally, this week, the focus will shift to the front end by first focusing on authentication on the front end.
