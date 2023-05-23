@@ -63,15 +63,16 @@ Yes. My blocker for the moment is trying to figure out how to incorportae correc
 
 ## May 18, 2023
 1. What did you do?
-
+Today we worked on connecting our third-party-aoi for OpenWeather.
 2. what are you planning to do today?
-
+Today we wroked on getting the API to work, which was successful. 
 3. Do you have any blocker/challenges to your progress?
+No blockers.
 
-
-## May 19, 2023
+## May 22, 2023
 1. What did you do?
-
+Today we changed some of our models and worked on the CRUD functionality. 
 2. what are you planning to do today?
-
+Today we plan on finishing setting up CRUD for the closet and we want to work on changing some of our models. We got some help from Violet since we were stuck on getting the id to be read with mongo.
 3. Do you have any blocker/challenges to your progress?
+No blockers for today as we got help from Violet. 
