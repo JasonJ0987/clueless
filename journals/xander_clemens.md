@@ -82,18 +82,19 @@ Today, I worked on:
 
 Liland was our driver today with the goal and focus of successfully executing our get, post functionality FastAPI calls for our Bins, Closets, and clothes models. After completing our closet GET and POST on FastAPI. After doing so, we focused on developing our code for Bins in our queries and routers folder. For several hours today, our team continually addressed errors with how our _id data for each bin was being returned and ran into TypeError or dict errors. After working as a group on our blockage, we had our coding consultant Violet join our video call, and after working on our code and adjusting our closet.py folder in our queries directory, we successfully returned our bins GET execution on FastAPI. The primary fix was adding the following:
 ```
-    def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:
-        props = self.collection.find_one(
-            {
-                "_id": ObjectId(bin_id),
-                "closet_id": ObjectId(closet_id),
-            }
-        )
-        if not props:
-            return None
-        props["closet_id"] = str(props["closet_id"])
-        props["id"] = str(props["_id"])
-        return BinOut(**props)
+def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:
+    props = self.collection.find_one(
+        {
+            "_id": ObjectId(bin_id),
+            "closet_id": ObjectId(closet_id),
+        }
+    )
+    if not props:
+        return None
+    props["closet_id"] = str(props["closet_id"])
+    props["id"] = str(props["_id"])
+    return BinOut(**props)
 
 ```
 This allowed our errors to go away and for us to fetch the din data and ensure it is turned into a string since the model for bins is set in strings. Tomorrow, we will finalize our GET functionality for bins and then make the GET/PUT functionality for our clothes model. Additionally, this week, the focus will shift to the front end by first focusing on authentication on the front end.
+
