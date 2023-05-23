@@ -88,3 +88,11 @@ Today, as a group we tackled the implementation of a third party API once again.
 Now in order to grab weather data, you must be logged in. The weather function will access the user's zip code information and use that to ask our third party api to grab the forecast for the next 5 days based on the zip code. The function will then return the temperature, the datetime, and the weather condition for the next 5 days.
 
 Afterwards, we decided to start working on our CRUD functions. We created models for our closet, bins, clothes, and tags which will be used to classify the clothes. We our struggling to wrap our heads around how CRUD will work with Mongo so we will use the weekend to do further research as well.
+
+## 05/22/2023
+
+All models cleaned up formatting
+Get all Closets and Create closets properly implemented
+Create bins properly implemented
+Blockers: get all bins and get one bin
+    seeked assistance for this
