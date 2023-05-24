@@ -65,4 +65,7 @@ As for now, the GET one bin and POST endpoints are only working for the bins.
 2. Sabrina is the driver for today. We will be setting up the CRUD functions for clothes and tags. For clothes, we will be creating a POST to create a clothes item, GET one clothes item, GET all clothes in a particular bin, and DELETE a single clothes item. For tags, we will be setting up CRUD functions as well. POST a tag, DELETE a tag, and GET all tags.
 3. Not really a blocker but my team and I are wondering how we can implement the tags for each clothing item. Is it a foreign key? If so, is it a one to many relationship between a single clothing item with many tags?
 
-## May 23th, 2023
+## May 24th, 2023
+1. Starting on front-end authentication today.
+2. Jeanette is the driver. We are starting on frontend authentication. We discussed first as a group if we are going to be implementing authentication with JWTdown or Redux. We decided to go with JWTDown since there were documentation for us to use. We have finished setting up all the jsx files needed but when signing up a new account, it's giving back an error that it's not getting a token.
+3. Blocker - having trouble debugging why the token is not being created and adding to the backed (MongoDB like Mongo Compass)
