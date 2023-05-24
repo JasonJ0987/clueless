@@ -16,7 +16,7 @@ services:
       HOST_OS: ${OS}
       NODE_ENV: development
       HOST: "0.0.0.0"
-      # PUBLIC_URL: http://localhost:3000
+      PUBLIC_URL: http://localhost:3000
       # REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
       REACT_APP_WHATEVR: http://localhost:8000
 
@@ -45,6 +45,7 @@ services:
       WAIT_TIMEOUT: 60
       WAIT_HOSTS: mongo:27017
       SIGNING_KEY: 87fe4a3fcfb60092dbaeb854a196bc3d9b190aed7930c734749e85245de698420c25f8e6899c421b4494e99459e01058de5daa9d49584cd62ec975da9aea33db
+      # LOGIN_KEY: 84d618ab8b30ed6b41b4d8c50a64bd113012d0fec70bc8d8729d61c3bf5359ee
 
   mongo-express:
     build:
