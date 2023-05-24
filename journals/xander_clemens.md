@@ -98,3 +98,17 @@ def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:
 ```
 This allowed our errors to go away and for us to fetch the din data and ensure it is turned into a string since the model for bins is set in strings. Tomorrow, we will finalize our GET functionality for bins and then make the GET/PUT functionality for our clothes model. Additionally, this week, the focus will shift to the front end by first focusing on authentication on the front end.
 
+## 5/20/2023
+
+* Today, I worked on the CRUD functionality for our clothes and tag models and executing our FastAPI endpoints.
+
+Sabrina was the driver today, and we all worked together on mob programming to code out our clothes routers and queries for our FastAPI endpoints. In addition, we created our tags routers and questions for our FastAPI endpoints. For the clothes, we made four functions to perform the following:
+- Get a clothing item.
+- Get all clothing items.
+- Create a clothing item.
+- Delete a specific clothing item.
+We then created a new file for the tags in our routers and queries directory. We created four functions to perform the following:
+- Get all tags
+- Create a tag
+- Delete a specific tag
+We didn't have any blockages today, and we only had to fix errors that would return to us in our docker logs. We ended the day by merging our features into our main branch. For the following day, we plan on working on the front end of our project by first doing the front-end authentication.
