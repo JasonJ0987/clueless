@@ -103,3 +103,6 @@ Got get_all() for bins functional.
 plan to use jwtdownfastapi for front-end authentication
 Began construction of CRUD functions for clothes
 Need to figure out how to implement relation between clothes models and tags models
+Figured out implementation between clothes and tags
+completed merge of our branches to our main.
+Main is now up to branch
