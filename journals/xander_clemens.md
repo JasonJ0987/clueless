@@ -112,3 +112,11 @@ We then created a new file for the tags in our routers and queries directory. We
 - Create a tag
 - Delete a specific tag
 We didn't have any blockages today, and we only had to fix errors that would return to us in our docker logs. We ended the day by merging our features into our main branch. For the following day, we plan on working on the front end of our project by first doing the front-end authentication.
+
+## 5/21/2023
+
+* Today, I worked on the front end authentication for the first time and creating the signup form and loging form to be able to access the JavascriptWebToken.
+
+Jeanette was the driver today, and the rest of the team assisted with our mob programming style for the workday. We created a file directory called components in our ghi folder (React section) to store the following files: Login, Main, SignUp, TokenCard, and UserDataCard. We added the routing path to our signup form and login. During this time, we have successfully registered a new user on the front end to connect to the backend. Our main error is having the data we attempt to post from the Signup form return that the data is undefined.
+
+When we evaluated and looked into the developer tools and Netowk tab, we saw that our payload attempted to be sent, had an error with finding our web token, and missing the web_token, token type, and hashed_password. This is because of an issue on the backend and not having a fetch function for our web token. We have gone ahead and created a router. Get in whatevr/api/routers/accounts.py to be able to fetch the web token. After testing last night, it successfully retrieves the token to display on our backend in our Mango Express. However, we are still running into this error on the front end. We plan on continuing to fix this error tomorrow by reviewing syntax in our Frontend and continually referencing source code from the JWTdown library. After we fix this error, we will focus on finishing the login form and logout ability.
