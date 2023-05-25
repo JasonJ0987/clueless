@@ -1,4 +1,4 @@
-import { useToken } from "@galvanize-inc/jwtdown-for-react";
+import  useToken  from "@galvanize-inc/jwtdown-for-react";
 import JSONPretty from "react-json-pretty";
 
 const TokenCard = () => {

@@ -3,7 +3,8 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import "react-json-pretty/themes/monikai.css";
 import TokenCard from "./TokenCard";
 import UserDataCard from "./UserDataCard";
-import SignUp from "./SignUp";
+// import SignUp from "./SignUp";
+import Login from "./Login";
 
 const ConsoleBanner = () => {
      return (
@@ -18,7 +19,7 @@ export const Main = () => {
      return (
      <div>
           <ConsoleBanner />
-          {!token && <SignUp />}
+          {!token && <Login />}
           {token && <TokenCard />}
           <UserDataCard />
      </div>
