@@ -69,3 +69,17 @@ As for now, the GET one bin and POST endpoints are only working for the bins.
 1. Starting on front-end authentication today.
 2. Jeanette is the driver. We are starting on frontend authentication. We discussed first as a group if we are going to be implementing authentication with JWTdown or Redux. We decided to go with JWTDown since there were documentation for us to use. We have finished setting up all the jsx files needed but when signing up a new account, it's giving back an error that it's not getting a token.
 3. Blocker - having trouble debugging why the token is not being created and adding to the backed (MongoDB like Mongo Compass)
+
+
+## May 25th, 2023
+1. Our team's goal for today is to complete a login, logout, and sign up page for the front-end. We are using JWTDown with React for the front-end, which we started yesterday(May 24th).
+2. Jason is the driver. We were able to successfully sign up a new account, which now populates in Mongo Compass in our account's collection but it was giving us a 401 error. Same thing with the login page - every time a user tries to login, it gives an error that it's not able to retrieve the token from "localhost:3000/undefined/token".
+For signup - we had to pass in the login function:
+    <!-- login(accountData.email, accountData.password);-->
+For the login, since it wasn't recognizing the path we had to add in a base url to define localhost:8000 and pass that through the AuthProvider tag. The tag was at the outermost level.
+    <!--const baseUrl = "http://localhost:8000";
+        return (
+            <AuthProvider baseUrl={baseUrl}>
+            </AuthProvider> -->
+Also added a logout button when a user successfully logs in.
+3. Although the team and I were referring to the documentation of JWTdown, we had to reach for help from Paul Wu. Without Paul, we wouldn't have know to pass a baseUrl to our App.jsx file. 
