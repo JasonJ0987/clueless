@@ -7,21 +7,31 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 
 const ConsoleBanner = () => {
-     return (
-     <div className="alert alert-info mt-3 mb-3" role="alert">
-          <i className="bi bi-info-circle-fill"></i> Welcome to Whatevr
-     </div>
-     );
+    const { logout } = useToken();
+
+    return (
+    <div>
+    <div className="alert alert-info mt-3 mb-3" role="alert">
+        <i className="bi bi-info-circle-fill"></i> Welcome to Whatevr
+    </div>
+    <div className="btn-group mb-3" role="group">
+        <button className="btn btn-danger" onClick={logout}>
+            Logout <i className="bi bi-box-arrow-left"></i>
+        </button>
+    </div>
+    </div>
+    );
 };
 
 export const Main = () => {
-     const { token } = useToken();
-     return (
-     <div>
-          <ConsoleBanner />
-          {!token && <Login />}
-          {token && <TokenCard />}
-          <UserDataCard />
-     </div>
-     );
+    const { token } = useToken();
+    return (
+    <div>
+        <ConsoleBanner />
+        {!token && <SignUp />}
+        {!token && <Login />}
+        {token && <TokenCard />}
+        <UserDataCard />
+    </div>
+    );
 };
