@@ -1,10 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import ErrorNotification from "./ErrorNotification";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import SignupForm from "./components/SignUp";
 import Login from "./components/Login";
 import { Main } from "./components/Main";
+import NavBar from "./components/Navbar";
+import './index.css'
 
 function App() {
   const domain = /https:\/\/[^/]+/;
@@ -13,16 +17,17 @@ function App() {
 
   return (
     <AuthProvider baseUrl={baseUrl}>
-      <div className="container">
         <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<Main />}></Route>
-            <Route exact path="/signup" element={<SignupForm />}></Route>
-            <Route exact path="/login" element={<Login />}></Route>
-            {/* <Route exact path='/logout' element={<LogoutForm />}></Route> */}
-          </Routes>
+          <NavBar />
+          <div className="container" id="outerdiv" style={{ padding: '0' }}>
+            <Routes>
+                <Route exact path="/" element={<Main />}></Route>
+                <Route exact path="/signup" element={<SignupForm />}></Route>
+                <Route exact path="/login" element={<Login />}></Route>
+                {/* <Route exact path='/logout' element={<LogoutForm />}></Route> */}
+            </Routes>
+          </div>
         </BrowserRouter>
-      </div>
     </AuthProvider>
   );
 }
