@@ -69,6 +69,7 @@ Today we wroked on getting the API to work, which was successful.
 3. Do you have any blocker/challenges to your progress?
 No blockers.
 
+
 ## May 22, 2023
 1. What did you do?
 Today we changed some of our models and worked on the CRUD functionality. 
@@ -76,3 +77,22 @@ Today we changed some of our models and worked on the CRUD functionality.
 Today we plan on finishing setting up CRUD for the closet and we want to work on changing some of our models. We got some help from Violet since we were stuck on getting the id to be read with mongo.
 3. Do you have any blocker/challenges to your progress?
 No blockers for today as we got help from Violet. 
+
+
+## May 23, 2023
+1. What did you do?
+Today we continued creating CRUD for our bins. 
+2. What are you planning to do today?
+Sabrina was the driver for today. As a team we will bne setting up CRUD functions for the tags and the clothes. We will create POST, GET for the clothes items and POST, DELETE, for the tags.
+3. Do you have any blocker/challenges to your progress?
+No blockers.
+The only thing we are having some trouble with at the moment is how to be able to add the tags to the clothing item.
+
+## May 24, 2023
+1. What did you do?
+today we will be satrting with the front end authentication.
+2. What are you planning to do today
+Today I was the driver. We are starting our forntend authentication and discussing how we will be implementing the authentication. We came to in agreement to use JWTdown. We set up all of the jsx files.
+3. Do you have any blocker/challenges to your progress?
+No blockers.
+my blocker for the moment is that we keep getting an token error which we are unsure of why that could be happening. 
