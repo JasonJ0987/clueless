@@ -1,16 +1,16 @@
-import { useToken } from "@galvanize-inc/jwtdown-for-react";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState } from "react";
 
 
 const Login = () => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { login } = useToken();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(`username: ${username} password: ${password}`);
-        login(username, password);
+        console.log(`email: ${email} password: ${password}`);
+        login(email, password);
         e.target.reset();
     };
 
@@ -20,12 +20,12 @@ const Login = () => {
     <div className="card-body">
         <form onSubmit={(e) => handleSubmit(e)}>
         <div className="mb-3">
-            <label className="form-label">Username:</label>
+            <label className="form-label">Email:</label>
             <input
-                name="username"
+                name="email"
                 type="text"
                 className="form-control"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
             />
             </div>
             <div className="mb-3">

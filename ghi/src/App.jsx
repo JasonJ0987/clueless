@@ -9,20 +9,21 @@ import { Main } from "./components/Main";
 function App() {
   const domain = /https:\/\/[^/]+/;
   const basename = process.env.PUBLIC_URL.replace(domain, "");
+  const baseUrl = "http://localhost:8000";
 
   return (
-    <div className="container">
-      <BrowserRouter basename={basename}>
-        <AuthProvider>
+    <AuthProvider baseUrl={baseUrl}>
+      <div className="container">
+        <BrowserRouter>
           <Routes>
-            <Route exact path='/' element={<Main />}></Route>
-            <Route exact path='/signup' element={<SignupForm />}></Route>
-            <Route exact path='/login' element={<Login />}></Route>
+            <Route exact path="/" element={<Main />}></Route>
+            <Route exact path="/signup" element={<SignupForm />}></Route>
+            <Route exact path="/login" element={<Login />}></Route>
             {/* <Route exact path='/logout' element={<LogoutForm />}></Route> */}
           </Routes>
-        </AuthProvider>
-      </BrowserRouter>
-    </div>
+        </BrowserRouter>
+      </div>
+    </AuthProvider>
   );
 }
 
