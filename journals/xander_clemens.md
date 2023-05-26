@@ -130,3 +130,20 @@ In the morning, we spent a significant amount of time editing our code to get it
 After we successfully achieved our goal, we moved on to front-end design. We began using Bootstrap to create our navigation bar and made adjustments to the padding and margins of our links to ensure that they are visually pleasing and easy to use. We also discussed our plans for tomorrow, which include focusing on creating a more visually appealing navigation bar and starting to design our pages based on the wireframe designs that we have created.
 
 While working on the CSS and designing the frontend, we realized that dividing our group into teams of 2 or 3 people per section or micro feature would be better to avoid multiple errors being displayed on the React server.
+
+## 5/23/2023
+
+* Today, we focused on building the React page containing the view closet section.
+
+We focused our entire work day on the Views of our closet to display from Jason being the driver and Jeannette, Liland, and myself assisting with navigation. Sabrina was working on the Navigation bar today and got the Nav Bar to look more pleasing to the eyes. Through the work section, to return the bin and closet data needed for our closet page, we had to make sure we used the following snippets to be able to return the data correctly.
+
+```
+setClosets(data.closets);
+setBins(data.bins);
+```
+
+Our focus from when we return from the three day weekend is to follow the next four days of work hitting these schedule goals:
+Tuesday - finish Bin view page
+Wednesday - create forms for adding a new item to bin and form for wardrobe
+Thursday - planner view page
+Friday - connecting 3rd party api to planner
