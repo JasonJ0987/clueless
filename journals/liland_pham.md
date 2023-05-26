@@ -82,4 +82,9 @@ For the login, since it wasn't recognizing the path we had to add in a base url 
             <AuthProvider baseUrl={baseUrl}>
             </AuthProvider> -->
 Also added a logout button when a user successfully logs in.
-3. Although the team and I were referring to the documentation of JWTdown, we had to reach for help from Paul Wu. Without Paul, we wouldn't have know to pass a baseUrl to our App.jsx file. 
+3. Although the team and I were referring to the documentation of JWTdown, we had to reach for help from Paul Wu. Without Paul, we wouldn't have know to pass a baseUrl to our App.jsx file.
+
+## May 26th, 2023
+1. Today, we will officially start on adding front-end pages for our website.
+2. Jason was the driver today for the closet view page while Xander and Sabrina were working on the navigation bar - they are adding a logo and creating drop down buttons for the links. As for the closet view page, we had to get assistance from Violet in order to call the correct data that is being passed through the useEffect. Since we are using the token to verify if the user is logged in before accessing the closet page, it was incorrectly loading the wrong data information. In the end, we were able to grab the correct closet ID needed along with its bins in the browser.
+3. Blocker - although I am referring to older projects I feel like I'm having a difficult time trying to get in the groove with React again. The more I start doing a couple more React pages, I think I'll be good then.
