@@ -7,6 +7,7 @@ import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import SignupForm from "./components/SignUp";
 import Login from "./components/Login";
 import { Main } from "./components/Main";
+import ClosetView from "./components/ClosetView";
 import NavBar from "./components/Navbar";
 import './index.css'
 
@@ -24,7 +25,7 @@ function App() {
                 <Route exact path="/" element={<Main />}></Route>
                 <Route exact path="/signup" element={<SignupForm />}></Route>
                 <Route exact path="/login" element={<Login />}></Route>
-                {/* <Route exact path='/logout' element={<LogoutForm />}></Route> */}
+                <Route exact path="/closet" element={<ClosetView />}></Route>
             </Routes>
           </div>
         </BrowserRouter>
