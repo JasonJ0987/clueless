@@ -1,54 +1,70 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState, useEffect,  } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 function ClosetView() {
-    const [closets, setClosets] = useState([]);
-    const [bins, setBins] = useState([]);
-    const { token } = useToken();
+  const [closets, setClosets] = useState(null);
+  const [bins, setBins] = useState(null);
+  const [closetId, setClosetId] = useState("");
+  const { token } = useToken();
 
-    const loadCloset = async () => {
-        const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
-        const fetchConfig = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
-            }
-        }
-        const response = await fetch(url, fetchConfig, {credentials: "include",});
-        if (response.ok) {
-            const data = await response.json();
-            console.log(data);
-            setClosets(data);
-        }
+  const loadCloset = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setClosets(data.closets);
+      setClosetId(data.closets[0].id);
+    }
+  };
 
-    useEffect(() => {loadCloset();},[token]);
-    // useEffect(() => {
-    //     if (!token) {
-    //         navigate('/login');
-    //     } else {
-    //         loadCloset();
-    //     }
-    // }, [token, navigate]);
+  const loadBins = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setBins(data.bins.filter((bin) => bin.closet_id === closetId));
+    }
+  };
+
+  useEffect(() => {loadCloset();}, [token]);
+  useEffect(() => { if (closetId !== "") loadBins();}, [closetId]);
 
 
-    // const loadBins = async () => {
-    //     const response = await fetch(`http://localhost:8000/api/closet/${closet_id}/bins`);
-    //     if (response.ok) {
-    //         const data = await response.json();
-    //         setBins(data.closets.filter(
-    //             closet => closet.id===closet_id
-    //         ))
-    //     }
-    // }
-
-    return(
-        <div>
-        </div>
-    );
-};
-
+  return (
+    <div className="container mt-5">
+      {/* {bins &&
+        closets.map((closet) => (
+          <div key={closet.id}>
+            <h2>{closet.name}</h2>
+            {bins.map((bin) => (
+              <div key={bin.id}>{bin.name}</div>
+            ))}
+          </div>
+        ))} */}
+        <h1>Your Closet</h1>
+        { bins && bins.map((bin) => (
+            <div key={bin.id}>
+                <NavLink to={`/bins/${bin.id}`}>{bin.name}</NavLink>
+            </div>
+        )
+        )}
+    </div>
+  );
+}
 
 export default ClosetView;

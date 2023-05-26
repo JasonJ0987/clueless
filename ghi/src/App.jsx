@@ -25,7 +25,10 @@ function App() {
                 <Route exact path="/" element={<Main />}></Route>
                 <Route exact path="/signup" element={<SignupForm />}></Route>
                 <Route exact path="/login" element={<Login />}></Route>
-                <Route exact path="/closet" element={<ClosetView />}></Route>
+                <Route path="/closet" >
+                    <Route index element={<ClosetView />}/>
+                    <Route path="/bins/:id" element={<BinView />} />
+                </Route>
             </Routes>
           </div>
         </BrowserRouter>
