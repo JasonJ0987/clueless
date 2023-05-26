@@ -120,3 +120,13 @@ We didn't have any blockages today, and we only had to fix errors that would ret
 Jeanette was the driver today, and the rest of the team assisted with our mob programming style for the workday. We created a file directory called components in our ghi folder (React section) to store the following files: Login, Main, SignUp, TokenCard, and UserDataCard. We added the routing path to our signup form and login. During this time, we have successfully registered a new user on the front end to connect to the backend. Our main error is having the data we attempt to post from the Signup form return that the data is undefined.
 
 When we evaluated and looked into the developer tools and Netowk tab, we saw that our payload attempted to be sent, had an error with finding our web token, and missing the web_token, token type, and hashed_password. This is because of an issue on the backend and not having a fetch function for our web token. We have gone ahead and created a router. Get in whatevr/api/routers/accounts.py to be able to fetch the web token. After testing last night, it successfully retrieves the token to display on our backend in our Mango Express. However, we are still running into this error on the front end. We plan on continuing to fix this error tomorrow by reviewing syntax in our Frontend and continually referencing source code from the JWTdown library. After we fix this error, we will focus on finishing the login form and logout ability.
+
+## 5/22/2023
+
+* Today, we made significant progress on our project. Our main focus was finalizing the ability to create a user account on the application's front end, which involved a lot of coding and testing. Jeanette and Jason served as drivers today, and we employed mob programming, which allowed us to work collaboratively and efficiently.
+
+In the morning, we spent a significant amount of time editing our code to get it to successfully POST from the front end and register a user in our MongoDB database. It was a challenging task, but we were able to overcome it with persistence and teamwork.
+
+After we successfully achieved our goal, we moved on to front-end design. We began using Bootstrap to create our navigation bar and made adjustments to the padding and margins of our links to ensure that they are visually pleasing and easy to use. We also discussed our plans for tomorrow, which include focusing on creating a more visually appealing navigation bar and starting to design our pages based on the wireframe designs that we have created.
+
+While working on the CSS and designing the frontend, we realized that dividing our group into teams of 2 or 3 people per section or micro feature would be better to avoid multiple errors being displayed on the React server.
