@@ -10,7 +10,7 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [zipcode, setZipcode] = useState("");
-    const { register, login } = useToken();
+    const { register } = useToken();
     const navigate = useNavigate();
 
     const handleRegistration = (e) => {
@@ -28,7 +28,6 @@ const Signup = () => {
             accountData,
             `${process.env.REACT_APP_WHATEVR}/api/accounts`
         );
-        login(accountData.email, accountData.password);
         e.target.reset();
         navigate("/");
     };
@@ -75,7 +74,7 @@ const Signup = () => {
                         <label className="form-label">Email</label>
                         <input
                             name="email"
-                            type="emai"
+                            type="email"
                             className="form-control"
                             onChange={(e) => {
                                 setEmail(e.target.value);

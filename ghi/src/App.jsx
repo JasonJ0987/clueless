@@ -1,30 +1,36 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import ErrorNotification from "./ErrorNotification";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import Signup from "./components/SignUp";
 import Login from "./components/Login";
 import { Main } from "./components/Main";
+import NavBar from "./components/Navbar";
+import './index.css'
 
 
 
 function App() {
   const domain = /https:\/\/[^/]+/;
   const basename = process.env.PUBLIC_URL.replace(domain, "");
+  const baseUrl = "http://localhost:8000";
 
   return (
-    <div className="container">
-      <BrowserRouter basename={basename}>
-        <AuthProvider>
-          <Routes>
-            <Route exact path='/' element={<Main />}></Route>
-            <Route exact path='/signup' element={<Signup />}></Route>
-            <Route exact path='/login' element={<Login />}></Route>
-            {/* <Route exact path='/logout' element={<LogoutForm />}></Route> */}
-          </Routes>
-        </AuthProvider>
-      </BrowserRouter>
-    </div>
+    <AuthProvider baseUrl={baseUrl}>
+        <BrowserRouter>
+          <NavBar />
+          <div className="container" id="outerdiv" style={{ padding: '0' }}>
+            <Routes>
+                <Route exact path="/" element={<Main />}></Route>
+                <Route exact path="/signup" element={<SignupForm />}></Route>
+                <Route exact path="/login" element={<Login />}></Route>
+                {/* <Route exact path='/logout' element={<LogoutForm />}></Route> */}
+            </Routes>
+          </div>
+        </BrowserRouter>
+    </AuthProvider>
   );
 }
 
