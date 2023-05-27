@@ -106,3 +106,9 @@ Need to figure out how to implement relation between clothes models and tags mod
 Figured out implementation between clothes and tags
 completed merge of our branches to our main.
 Main is now up to branch
+
+## 05/24/2023
+
+We began work on implementing the Front-End Authentication. We decided to create the token grabber and sign-up form first. We tried testing to see if the back-end was working together with the front-end and we discovered that our sign-up function was not generating an account. We got a bunch of errors regarding the token. We were wondering if the issue was the we needed a log in function for sign in to work so we tried to create a login function. We discovered that we were unable to find an access token. Turns out our payload did not match what it does in the Playground app that was provided to us. We struggled with getting the authentication on the front end to work for the rest of the day
+
+
