@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import { Main } from "./components/Main";
 import ClosetView from "./components/ClosetView";
 import NavBar from "./components/Navbar";
+import BinView from "./components/BinView";
 import './index.css'
 
 function App() {
