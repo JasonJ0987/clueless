@@ -28,7 +28,7 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route path="closet">
               <Route index element={<ClosetView />} />
-              <Route path="bins/:id" element={<BinView />} />
+              <Route path="bins/:binId" element={<BinView />} />
             </Route>
           </Routes>
         </div>

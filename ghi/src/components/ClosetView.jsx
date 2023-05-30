@@ -59,7 +59,7 @@ function ClosetView() {
         <h1>Your Closet</h1>
         { bins && bins.map((bin) => (
             <div key={bin.id}>
-                <NavLink to={`/bins/${bin.id}`}>{bin.name}</NavLink>
+                <NavLink to={`bins/${bin.id}`}>{bin.name}</NavLink>
             </div>
         )
         )}
