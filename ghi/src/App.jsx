@@ -26,7 +26,7 @@ function App() {
         <div className="container" id="outerdiv" style={{ padding: "0" }}>
           <Routes>
             <Route exact path="/" element={<Main />} />
-            <Route exact path="/signup" element={<SignupForm />} />
+            <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
             <Route path="closet">
               <Route index element={<ClosetView />} />

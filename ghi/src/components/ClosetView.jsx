@@ -47,24 +47,46 @@ function ClosetView() {
 
   return (
     <div className="container mt-5">
-      {/* {bins &&
-        closets.map((closet) => (
-          <div key={closet.id}>
-            <h2>{closet.name}</h2>
-            {bins.map((bin) => (
-              <div key={bin.id}>{bin.name}</div>
-            ))}
-          </div>
-        ))} */}
-        <h1>Your Closet</h1>
-        { bins && bins.map((bin) => (
-            <div key={bin.id}>
+      <h1>{closets && closets[0].name}</h1>
+      {bins &&
+        bins.map((bin) => (
+          <div
+            className="card mb-5"
+            style={{ width: "40vw", height: "50vh" }}
+            key={bin.id}
+          >
+            {/* <img className="card-img" src={bin.picture} />
+            <div className="card-img-overlay">
+              <h5 className="card-title"><NavLink to={`bins/${bin.id}`}>{bin.name}</NavLink></h5> */}
+            <div className="card-body">
+              <h5 className="card-title" style={{ textAlign: "center" }}>
                 <NavLink to={`bins/${bin.id}`}>{bin.name}</NavLink>
+              </h5>
+              <div style={{ display: "flex" }}>
+              <img
+                className="card-img-bottom"
+                style={{ justifyContent: "center", alignItems: "center", width: "100%", height:"40vh", objectFit: "cover"}}
+                src={bin.picture}
+              />
+              </div>
             </div>
-        )
-        )}
+          </div>
+        ))}
     </div>
   );
 }
 
 export default ClosetView;
+
+
+{/* //  <div className="card-body">
+//               <h5 className="card-title" style={{ textAlign: "center" }}>
+//                 <NavLink to={`bins/${bin.id}`}>{bin.name}</NavLink>
+//               </h5>
+//               <img */}
+{/* //                 className="card-img-bottom"
+//                 style={{ backgroundSize: "cover", backgroundPosition: "center" }}
+//                 src={bin.picture}
+//               />
+//             </div> */}
+{/* //           </div> */}

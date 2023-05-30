@@ -44,7 +44,7 @@ function Navbar() {
             onMouseLeave={onMouseLeave}
           >
             <Link
-              to='/closetview'
+              to='/closet'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -61,6 +61,7 @@ function Navbar() {
               Planner
             </Link>
           </li>
+          {token ?(
           <li>
             <Link
               to='/signup'
@@ -70,6 +71,7 @@ function Navbar() {
               <SignupButton/>
             </Link>
           </li>
+          ): null}
         </ul>
 
       </nav>
