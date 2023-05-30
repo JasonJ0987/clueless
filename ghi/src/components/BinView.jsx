@@ -57,6 +57,7 @@ function BinView() {
         if (response.ok) {
             const data = await response.json();
             setClothes(data.clothes)
+            console.log(data)
         }
     };
 
@@ -71,6 +72,9 @@ function BinView() {
                 <div className="card mb-5" style={{ width: "33vw", height: "25vh" }} key={item.id}>
                     <div className="card-body">
                         <h5 className="card-title">{item.name}</h5>
+                    {/* <div className="card-footer">
+                        { item.tag }
+                    </div> */}
 
                     </div>
                 </div>
