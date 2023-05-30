@@ -4,13 +4,15 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
-import SignupForm from "./components/SignUp";
+import Signup from "./components/SignUp";
 import Login from "./components/Login";
 import { Main } from "./components/Main";
 import ClosetView from "./components/ClosetView";
 import NavBar from "./components/Navbar";
 import BinView from "./components/BinView";
 import './index.css'
+
+
 
 function App() {
   const domain = /https:\/\/[^/]+/;

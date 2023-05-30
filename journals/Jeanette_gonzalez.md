@@ -96,3 +96,18 @@ Today I was the driver. We are starting our forntend authentication and discussi
 3. Do you have any blocker/challenges to your progress?
 No blockers.
 my blocker for the moment is that we keep getting an token error which we are unsure of why that could be happening. 
+
+
+## May 25, 2023
+1. What did you do?
+Today we worked on completeing the login, logout, and sign up for the front-end. 
+2. What are you planning to do today?
+Today Jason was the driver. We can now create a new account siccessfully and however we are getting an error 404 in the console log.
+3. Do you have any blocker/challenges to your progress?
+The team got some help from Paul Wu to pass the baseUrl to the App.jsx file.
+
+
+## May 26, 2023
+1. Today we will add front-end pages to our website.
+2. Jason was the driver for today and Xander and Sabrina worked on the navigation bar. For the closet view page we got help from Violet since we were having trouble calling the correct data from being passed through useEffect. We were able to get the correct closet ID and the bins.
+3. My current blocker is trying to figure out how to do the react pages but I am using past projects to get an idea.

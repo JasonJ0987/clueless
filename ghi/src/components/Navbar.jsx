@@ -1,64 +1,80 @@
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import Dropdown from '../dropdown.jsx';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css';
+import { SignupButton } from '../button.jsx';
 
-function NavBar() {
-  const { logout, token } = useToken();
+function Navbar() {
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const token = useToken();
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth >= 960) {
+      setTimeout(() => {
+        setDropdown(true);
+      }, 200);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth >= 960) {
+      setDropdown(false);
+    }
+  };
 
   return (
-    <nav
-      className="navbar navbar-expand-lg nabvar-light"
-      style={{ minWidth: "100vw", position: "fixed", top: "0", padding: "0" }}
-    >
-      <div className="container-fluid" style={{ padding: "0" }}>
-        <NavLink
-          className="navbar-brand ml-5 mr-5"
-          style={{ color: "white" }}
-          to="/"
-        >
-          Home
-        </NavLink>
-        <button
-          className="navbar-toggler btn btn-primary"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          style={{ padding: "0" }}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav">
-            {!token && (
-              <li className="nav-item dropdown whitetext">
-                <NavLink className="nav-link whitetext" to="/login">
-                  Login
-                </NavLink>
-              </li>
-            )}
-            {!token && (
-              <li className="nav-item dropdown me-4">
-                <NavLink className="nav-link whitetext" to="/signup">
-                  Sign up
-                </NavLink>
-              </li>
-            )}
-            {token && (
-              <li className="nav-item dropdown me-4">
-                <button className="btn btn-danger" onClick={logout}>
-                  Logout <i className="bi bi-box-arrow-left"></i>
-                </button>
-              </li>
-            )}
-          </ul>
+    <>
+
+      <nav className='navbar'>
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' height="65" width="200"/>
+        </Link>
+        <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
-      </div>
-    </nav>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li
+            className='nav-item'
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+            <Link
+              to='/closetview'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              MyCloset <i className='fas fa-caret-down' />
+            </Link>
+            {dropdown && <Dropdown />}
+          </li>
+          <li className='nav-item'>
+            <Link
+              to='/planner'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Planner
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/signup'
+              className='nav-links-mobile'
+              onClick={closeMobileMenu}
+            >
+              <SignupButton/>
+            </Link>
+          </li>
+        </ul>
+
+      </nav>
+    </>
   );
 }
 
-
-export default NavBar;
+export default Navbar;

@@ -7,7 +7,7 @@ const UserDataCard = () => {
     const { fetchWithCookie } = useToken();
 
     const handleFetchWithAPI = async () => {
-        const url = `${process.env.REACT_APP_WHATEVR}/token`;
+        const url = `${process.env.REACT_APP_WHATEVR}/token`
         fetch(url, {
             credentials: "include",
         })

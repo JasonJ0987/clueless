@@ -1,6 +1,7 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel, EmailStr
 from typing import List
+# from jwtdown_fastapi.authentication import Token
 
 
 class PydanticObjectId(ObjectId):
@@ -112,3 +113,23 @@ class ClothesOut(BaseModel):
 
 class ClothesList(BaseModel):
     clothes: List[ClothesOut]
+
+
+
+
+
+
+
+
+# class AccountOut(Account):
+#     id: int
+#     modified: str
+#     hashed_password: str
+
+
+# class AccountIn(Account):
+#     password: str
+
+
+# class AccountToken(Token):
+#     account: AccountOut
