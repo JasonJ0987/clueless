@@ -76,7 +76,7 @@ def get_bin(
     return props
 
 
-@router.post("/api/closet{closet_id}/bins/{bin_id}/clothes", response_model=ClothesOut)
+@router.post("/api/closet/{closet_id}/bins/{bin_id}/clothes", response_model=ClothesOut)
 async def post_clothes(
     clothes: ClothesIn,
     repo: ClothesQueries = Depends(),

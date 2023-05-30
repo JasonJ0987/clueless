@@ -21,6 +21,7 @@ app.include_router(authenticator.router)
 app.include_router(accounts.router)
 app.include_router(weather.router)
 app.include_router(closet.router)
+# app.include_router(bins.router)
 app.include_router(tags.router)
 
 

@@ -44,7 +44,7 @@ function Navbar() {
             onMouseLeave={onMouseLeave}
           >
             <Link
-              to='/closetview'
+              to='/closet'
               className='nav-links'
               onClick={closeMobileMenu}
             >
