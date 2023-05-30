@@ -10,3 +10,12 @@ export function SignupButton() {
         </Link>
     );
 }
+
+export function SignupButton() {
+
+    return (
+        <Link to='/signup'>
+            <button className='btn'>GET STARTED</button>
+        </Link>
+    );
+}
