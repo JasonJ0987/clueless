@@ -40,7 +40,7 @@ function BinView() {
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
         const data = await response.json();
-        setBin(data.bin);
+        setBin(data);
         }
     };
 
@@ -66,10 +66,13 @@ function BinView() {
 
     return (
         <div>
-            <h1>View Bin</h1>
+            <h1>{ bin && bin.name }</h1>
             { clothes && clothes.map((item) => (
-                <div key={item.id}>
-                    <li>{item.name}</li>
+                <div className="card mb-5" style={{ width: "33vw", height: "25vh" }} key={item.id}>
+                    <div className="card-body">
+                        <h5 className="card-title">{item.name}</h5>
+
+                    </div>
                 </div>
             )
             )}
