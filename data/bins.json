@@ -2,17 +2,38 @@
   "_id": {
     "$oid": "646bc0f74277954dd0f38117"
   },
-  "name": "Bottoms",
-  "picture": "string",
+  "name": "Hats",
+  "picture": "https://cdn.imgbin.com/9/7/8/imgbin-hat-pink-hat-Au4E3cbpjiuSuDVJPQZQz1pWY.jpg",
   "closet_id": {
     "$oid": "646b99c3f2cd73044cf5707d"
   }
-},{
+},
+{
   "_id": {
     "$oid": "646beb5724b33168d5719493"
   },
-  "name": "Hat",
-  "picture": "string",
+  "name": "Tops",
+  "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNbiNlxfLlELWrWOTB-6f-J1k5NM35OPW4aKahX3UhyvIE83wo8qRcwEmAXTNh3_YR94DN_VQwQqQ&usqp=CAU&ec=48665701",
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  }
+},
+{
+  "_id": {
+    "$oid": "647659f829d0764ee8697289"
+  },
+  "name": "Bottoms",
+  "picture": "https://t3.ftcdn.net/jpg/01/91/18/80/360_F_191188099_Y0GiZEW3KWdZdLKOjrAldPHW5nk7A19Y.jpg",
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  }
+},
+{
+  "_id": {
+    "$oid": "64765a3929d0764ee869728a"
+  },
+  "name": "Shoes",
+  "picture": "https://ih1.redbubble.net/image.1401560191.7983/st,small,845x845-pad,1000x1000,f8f8f8.jpg",
   "closet_id": {
     "$oid": "646b99c3f2cd73044cf5707d"
   }
