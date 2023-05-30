@@ -12,28 +12,28 @@ function Dropdown() {
       onClick={handleClick}
       className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
     >
-      <li>
-        <Link className="dropdown-link" to="/closet/{closet_id}/bins/">
+      <li>:
+        <Link className="dropdown-link" to="/closet/:closet_id/bins/">
           Bins
         </Link>
       </li>
       <li>
-        <Link className="dropdown-link" to="/closet/{closet_id}/bin/{bin_id/hats/">
+        <Link className="dropdown-link" to="/closet/:closet_id/bins/:bin_id/hats/">
           Hats
         </Link>
       </li>
       <li>
-        <Link className="dropdown-link" to="/closet/{closet_id}/bin/{bin_id/tops">
+        <Link className="dropdown-link" to="/closet/:closet_id/bins/:bin_id/tops">
           Tops
         </Link>
       </li>
       <li>
-        <Link className="dropdown-link" to="/closet/{closet_id}/bin/{bin_id/bottoms">
+        <Link className="dropdown-link" to="/closet/:closet_id/bins/:bin_id/bottoms">
           Bottoms
         </Link>
       </li>
       <li>
-        <Link className="dropdown-link" to="/closet/{closet_id}/bin/{bin_id/shoes">
+        <Link className="dropdown-link" to="/closet/:closet_id/bins/:bin_id/shoes">
           Shoes
         </Link>
       </li>
