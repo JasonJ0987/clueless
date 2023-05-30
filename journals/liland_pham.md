@@ -88,3 +88,8 @@ Also added a logout button when a user successfully logs in.
 1. Today, we will officially start on adding front-end pages for our website.
 2. Jason was the driver today for the closet view page while Xander and Sabrina were working on the navigation bar - they are adding a logo and creating drop down buttons for the links. As for the closet view page, we had to get assistance from Violet in order to call the correct data that is being passed through the useEffect. Since we are using the token to verify if the user is logged in before accessing the closet page, it was incorrectly loading the wrong data information. In the end, we were able to grab the correct closet ID needed along with its bins in the browser.
 3. Blocker - although I am referring to older projects I feel like I'm having a difficult time trying to get in the groove with React again. The more I start doing a couple more React pages, I think I'll be good then.
+
+## May 30th, 2023
+1. Created a Bins View page for all of the bins that will list all of the items for that particular bin
+2. I was the driver for today. The team and I created a page to view the individual bins that we have set up for each user: hats, tops, bottoms, and shoes. In the closet view page, all of the bins are listed on there. And once the user click on the title of the bin, for example: hats, it will redirect the user to the hat's bin's page. The related items that were assigned under hats will be displayed in a card format.
+3. No blockers - most of the code was similar to the closet view page.
