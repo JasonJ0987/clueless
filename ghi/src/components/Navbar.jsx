@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Dropdown from '../dropdown.jsx';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css';
-import { SignupButton,LoginButton } from '../button.jsx';
+import { SignupButton, LoginButton } from '../button.jsx';
 
 function Navbar() {
   const [click, setClick] = useState(false);
