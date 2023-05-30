@@ -92,4 +92,6 @@ Also added a logout button when a user successfully logs in.
 ## May 30th, 2023
 1. Created a Bins View page for all of the bins that will list all of the items for that particular bin
 2. I was the driver for today. The team and I created a page to view the individual bins that we have set up for each user: hats, tops, bottoms, and shoes. In the closet view page, all of the bins are listed on there. And once the user click on the title of the bin, for example: hats, it will redirect the user to the hat's bin's page. The related items that were assigned under hats will be displayed in a card format.
+
+Sabrina and Xander worked on the navigation bar. They set up the drop down button and added a logo which will redirect the user to the homepage once it's clicked.
 3. No blockers - most of the code was similar to the closet view page.
