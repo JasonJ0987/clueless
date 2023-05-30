@@ -19,20 +19,20 @@ function App() {
 
   return (
     <AuthProvider baseUrl={baseUrl}>
-        <BrowserRouter>
-          <NavBar />
-          <div className="container" id="outerdiv" style={{ padding: '0' }}>
-            <Routes>
-                <Route exact path="/" element={<Main />}></Route>
-                <Route exact path="/signup" element={<SignupForm />}></Route>
-                <Route exact path="/login" element={<Login />}></Route>
-                <Route path="/closet" >
-                    <Route index element={<ClosetView />}/>
-                    <Route path="/bins/:id" element={<BinView />} />
-                </Route>
-            </Routes>
-          </div>
-        </BrowserRouter>
+      <BrowserRouter>
+        <NavBar />
+        <div className="container" id="outerdiv" style={{ padding: "0" }}>
+          <Routes>
+            <Route exact path="/" element={<Main />} />
+            <Route exact path="/signup" element={<SignupForm />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route path="closet">
+              <Route index element={<ClosetView />} />
+              <Route path="bins/:id" element={<BinView />} />
+            </Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
     </AuthProvider>
   );
 }
