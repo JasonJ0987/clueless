@@ -5,7 +5,31 @@ import { Link } from 'react-router-dom';
 export function SignupButton() {
     return (
         <Link to='/signup'>
-            <button className='btn'>GET STARTED</button>
+            <button className='btn'>GET STYLED</button>
+        </Link>
+    );
+}
+
+export function LoginButton() {
+    return (
+        <Link to='/login'>
+            <button className='btn'>LOG IN</button>
+        </Link>
+    );
+}
+
+export function StyleButton() {
+    return (
+        <Link to='/createoutfit'>
+            <button className='btn'>STYLE</button>
+        </Link>
+    );
+}
+
+export function LogoutButton() {
+    return (
+        <Link to='/'>
+            <button className='btn'>LOG OUT</button>
         </Link>
     );
 }

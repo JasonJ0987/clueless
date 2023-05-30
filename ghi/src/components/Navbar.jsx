@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Dropdown from '../dropdown.jsx';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css';
-import { SignupButton } from '../button.jsx';
+import { SignupButton,LoginButton } from '../button.jsx';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -68,6 +68,15 @@ function Navbar() {
               onClick={closeMobileMenu}
             >
               <SignupButton/>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/login'
+              className='nav-links-mobile'
+              onClick={closeMobileMenu}
+            >
+              <LoginButton/>
             </Link>
           </li>
         </ul>
