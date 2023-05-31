@@ -3,12 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 import Dropdown from '../dropdown.jsx';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css';
-import { SignupButton, LoginButton } from '../button.jsx';
+import { SignupButton, LoginButton, LogoutButton } from '../button.jsx';
 
 function Navbar() {
   const [click, setClick] = useState(false);
+  const { logout, token } = useToken();
   const [dropdown, setDropdown] = useState(false);
-  const token = useToken();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -29,7 +29,6 @@ function Navbar() {
 
   return (
     <>
-
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' height="65" width="200"/>
@@ -72,13 +71,23 @@ function Navbar() {
           </li>
           <li>
             <Link
-              to='/login'
+              to='/'
               className='nav-links-mobile'
               onClick={closeMobileMenu}
             >
               <LoginButton/>
             </Link>
           </li>
+          <li>
+            <Link
+              to='/'
+              className='nav-links-mobile'
+              onClick={logout}
+            >
+              <LogoutButton/>
+            </Link>
+          </li>
+
         </ul>
 
       </nav>
