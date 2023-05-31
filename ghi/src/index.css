@@ -1,10 +1,10 @@
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-  height: 80px;
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .navbar-logo {
@@ -13,12 +13,7 @@
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
-}
-
-.fa-firstdraft {
-  margin-left: 0.5rem;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 .menu-icon {
@@ -26,6 +21,7 @@
 }
 
 .nav-menu {
+  font-size: 14px;
   display: flex;
   list-style: none;
   justify-content: flex-end;
@@ -35,12 +31,13 @@
 
 .nav-item {
   position: relative;
+  font-size: 16px;
 }
 
 .nav-links {
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
 }
 
 .nav-links:hover {
@@ -58,7 +55,7 @@
   flex-direction: column;
   background-color: #ffe978;
   position: absolute;
-  top: 80px;
+  top: 60px;
   left: 0;
   width: 100%;
 }
@@ -85,9 +82,51 @@
   width: 100%;
   text-decoration: none;
   color: #fff;
-  padding: 16px;
+  padding: 12px;
 }
 
 .dropdown-link:hover {
   background: #ffe978;
 }
+
+.bin-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .bin-card {
+    position: relative;
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+
+  }
+
+  .image-wrapper {
+    position: relative;
+  }
+
+  .card-img-bottom {
+    width: 100%;
+    height: auto;
+    filter: blur(5px);
+    transition: filter 0.3s ease-in-out;}
+
+  .card-img-bottom:hover {
+    filter: blur(0);
+  }

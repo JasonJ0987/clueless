@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Dropdown from '../dropdown.jsx';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css';
@@ -31,7 +31,7 @@ function Navbar(closet_id, ) {
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' height="65" width="200"/>
+          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' alt="logo" height="65" width="200"/>
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -47,7 +47,7 @@ function Navbar(closet_id, ) {
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              MyCloset <i className='fas fa-caret-down' />
+              MyCloset  <i className='fas fa-caret-down' />
             </Link>
             {dropdown && <Dropdown />}
           </li>
@@ -60,6 +60,7 @@ function Navbar(closet_id, ) {
               Planner
             </Link>
           </li>
+        {!token && (
           <li>
             <Link
               to='/signup'
@@ -69,6 +70,8 @@ function Navbar(closet_id, ) {
               <SignupButton/>
             </Link>
           </li>
+        )}
+        {!token && (
           <li>
             <Link
               to='/'
@@ -78,6 +81,8 @@ function Navbar(closet_id, ) {
               <LoginButton/>
             </Link>
           </li>
+          )}
+          {token && (
           <li>
             <Link
               to='/'
@@ -87,7 +92,7 @@ function Navbar(closet_id, ) {
               <LogoutButton/>
             </Link>
           </li>
-
+          )}
         </ul>
 
       </nav>

@@ -49,6 +49,14 @@ function Dropdown() {
           Shoes
         </Link>
       </li>
+      <li>
+        <Link
+          className="dropdown-link"
+          to="/clothes/new"
+        >
+          Upload Clothing Item
+        </Link>
+      </li>
     </ul>
   );
 };
