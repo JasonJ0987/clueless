@@ -6,35 +6,35 @@ At least one ah-ha! moment that you had during your coding, however small
 2. What are you planning to do today?
 3. Do you have any blockers/challenges to your progress?
 
-## 5/8/2023
+## 5/9/2023
 Developed ideas for our project and identified who our users are, the high-level functionality of our application, and the APIs needed to bring our project to life. Next, we constructed a logo and first draft wireframe to represent better what we will need to do for our project.
 
-## 5/9/2023
+## 5/10/2023
 1. Unavailable to work on the project today.
 2. Familiarize myself more with fastAPI, learn more about what needs to go into our API designs, and understand how we will meet our minimal value product.
 3. My challenges for today and this week would be related to APIs and with more practice time for understanding how this will work and relate to our project.
 
-## 5/10/2023
+## 5/11/2023
 1. We finalized our wireframes, met with our project consultant to understand the importance of our Most Viable Product, created our first version of our out API endpoints, and uploaded everything into our project code.
 2. Organize our wireframe images and assist in the creation of our FastAPI endpoints to use in our design.
 3. Mainting a realist perspective on our work of our wireframe, following our key bullet points addressed to our Minimal Viable Product list, and knowing that the following weeks of learning new technologies and integrating our API needs to be heavily focused on still achieving our Minimal Viable Product list.
 
-## 5/11/2023
+## 5/12/2023
  1. Contributed to the template and stories for our issues for the functions used in our project.
 2. Defining the story, feature, and descriptions of our features: login, signup, closet page, style button, weekly outfit planner, and a logout button.
 3. We discussed establishing baselines for what clothes will be displayed to the user depending on the weather temperature and the weaker description tag from Open Weather API. Currently, this is still being determined as to the accurate baselines we want to use.
 
-## 5/12/2023
+## 5/13/2023
 1. Contributed to the template and stories for our issues for the functions used in our project. We finalized our issue creation on GitLab. Finishing with thirteen total issues.
 2. Completing our issue stories for the various functions we must create for our application to meet our minimum viable requirements.
 3. No challenges or blockers for today's work. We are still uncertain about the type of database we will use. However, come Monday, after learning more about MongoDB, we will better understand the direction we pursue a database in our project.
 
-## 5/15/2023
+## 5/14/2023
 1. Defined what database we were going to use for our application and decided on using MongoDB
 2. Help provide feedback and discuss with the team in deciding what database we will implement for our project.
 3. No blockers or challenges as we are nearing the end of our planning and design phase and will soon be moving into the development phase, where we begin to code. At this point, more challenges and blockers will exist during this project.
 
-## 5/16/2023
+## 5/15/2023
 
 Today, I worked on:
 
@@ -57,7 +57,7 @@ We are excited to implement authentication in my application using JWTdown for F
 
 For tomorrow we plan on analyzing the code that Violet provided us to further build our authentication section to the backend of our application and, later this week, integrate React hooks and frontend authentication.
 
-## 5/17/23
+## 5/16/23
 
 Today, I worked on:
 
@@ -66,7 +66,7 @@ Today, I worked on:
 Our group participated as a whole in updating the authentication in our application and focusing on the query and router directory for our accounts(users), and starting the process of writing our API call for Open Weather API. Today I was the driver, writing most of the code and sharing my screen with the team. Everyone else was the navigator and provided guidance and insight for every line of code. We added a field to confirm passwords upon the creation of accounts. From there, we retested our login and logout and created account functionality. Afterward, we received consulting help from Violet on the structure of our files and directory in our project. After this, we spent the last 2 hours of our group work figuring out how to connect our database (MongoDB) to our Python environment. We want to return the weather for all our users based on the zip code they enter upon account creation.
 We attempted numerous different codes in our weather.py file in our router directory in hopes that it would return the correct API call using the zip code that was created for each user in our database. We are left to return the fields created in our model, but, unfortunately, we are still not returning data from our database, which is blocking our ability to perform a correct API call from open weather's API. Last, I installed the pymongo library on a new and separate branch in hopes that this would help with creating a MongoClient object and then have the ability to connect to our MongoDB database. Unforently after an hour of attempting and numerous versions of playing the pymongo in my requirements.txt, I still needed help to import the pymongo library and have it recognized in my code. I will update the team on this attempt and spend the following working day focused on connecting our MongoDB database to our Python environment to use it in our FastAPI and, additionally, spending time working on React Hooks.
 
-## 5/18/23
+## 5/17/23
 
 Today, I worked on:
 
@@ -74,7 +74,7 @@ Today, I worked on:
 
 Jason was the driver today, and the rest of our group were the navigators. We, as a team, worked together on getting our accounts (users) to display in the MongoDB collection displayed on the MongoDB Compass (graphical user interface (GUI) for MongoDB that allows you to explore, query, and analyze your data). After getting this to work, we discussed a team and decided to focus on getting our API call to Open Weather to work on FastAPI. After seeing the data being returned in our API call, we successfully extracted the city, temperature (in Fahrenheit), description of the weather, time, and logo icon of the weather. In addition, we could return a five-day forecast of the weather data for a specific city. We still need to adjust the format for how the time is being produced and will do this later on the front-end side. From here, we discussed again and decided on working and building our models for the closet, clothes, and bins. We were still determining how to include some fields when using MongoDB, but after trial/error and research, we got our Bin model and created a bin to register an object id in our MongoDB compass. Our team has a three-day work break, and we have agreed to focus on Monday to progress our models further and get/post functionality to the three collections we need for our project: clothes, bins, and closets and our work day ended with the team feeling optimistic about our success in returning the correct data required from Open Weather. Our blockage is with MongoDB, and not fully grasping how it works, but every day this week, we learn more and more.
 
-## 5/19/2023
+## 5/22/2023
 
 Today, I worked on:
 
@@ -98,7 +98,7 @@ def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:
 ```
 This allowed our errors to go away and for us to fetch the din data and ensure it is turned into a string since the model for bins is set in strings. Tomorrow, we will finalize our GET functionality for bins and then make the GET/PUT functionality for our clothes model. Additionally, this week, the focus will shift to the front end by first focusing on authentication on the front end.
 
-## 5/20/2023
+## 5/23/2023
 
 * Today, I worked on the CRUD functionality for our clothes and tag models and executing our FastAPI endpoints.
 
@@ -113,7 +113,7 @@ We then created a new file for the tags in our routers and queries directory. We
 - Delete a specific tag
 We didn't have any blockages today, and we only had to fix errors that would return to us in our docker logs. We ended the day by merging our features into our main branch. For the following day, we plan on working on the front end of our project by first doing the front-end authentication.
 
-## 5/21/2023
+## 5/24/2023
 
 * Today, I worked on the front end authentication for the first time and creating the signup form and loging form to be able to access the JavascriptWebToken.
 
@@ -121,7 +121,7 @@ Jeanette was the driver today, and the rest of the team assisted with our mob pr
 
 When we evaluated and looked into the developer tools and Netowk tab, we saw that our payload attempted to be sent, had an error with finding our web token, and missing the web_token, token type, and hashed_password. This is because of an issue on the backend and not having a fetch function for our web token. We have gone ahead and created a router. Get in whatevr/api/routers/accounts.py to be able to fetch the web token. After testing last night, it successfully retrieves the token to display on our backend in our Mango Express. However, we are still running into this error on the front end. We plan on continuing to fix this error tomorrow by reviewing syntax in our Frontend and continually referencing source code from the JWTdown library. After we fix this error, we will focus on finishing the login form and logout ability.
 
-## 5/22/2023
+## 5/25/2023
 
 * Today, we made significant progress on our project. Our main focus was finalizing the ability to create a user account on the application's front end, which involved a lot of coding and testing. Jeanette and Jason served as drivers today, and we employed mob programming, which allowed us to work collaboratively and efficiently.
 
@@ -131,7 +131,7 @@ After we successfully achieved our goal, we moved on to front-end design. We beg
 
 While working on the CSS and designing the frontend, we realized that dividing our group into teams of 2 or 3 people per section or micro feature would be better to avoid multiple errors being displayed on the React server.
 
-## 5/23/2023
+## 5/26/2023
 
 * Today, we focused on building the React page containing the view closet section.
 
@@ -147,3 +147,11 @@ Tuesday - finish Bin view page
 Wednesday - create forms for adding a new item to bin and form for wardrobe
 Thursday - planner view page
 Friday - connecting 3rd party api to planner
+
+## 5/30/2023
+
+* Today, we focused on improving our navigation bar by adjusting the spacing of our clickable buttons and logo. Additionally, we worked on connecting our view bins page from the front end to the back end and ensuring that the associated images were displayed correctly for each bin.
+
+Liland was responsible for writing the code to display the bin views in React, while Sabrina and I focused on enhancing the navigation bar and logo at the top of the page. We did not encounter any major issues during our session, although we spent some time tweaking the CSS in both the React component and CSS files.
+
+During our next working session, we plan to expand the bin view page to fully display the tags on the front-end, similar to what we did on the closet view page. We also plan to integrate the planner on the front-end, allowing token code to display specific buttons tailored to the user who is logged in or non-users.

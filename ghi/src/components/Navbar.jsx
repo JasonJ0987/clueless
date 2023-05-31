@@ -29,7 +29,6 @@ function Navbar() {
 
   return (
     <>
-
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' height="65" width="200"/>
