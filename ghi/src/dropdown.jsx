@@ -51,6 +51,6 @@ function Dropdown() {
       </li>
     </ul>
   );
-}
+};
 
 export default Dropdown;

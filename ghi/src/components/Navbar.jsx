@@ -5,7 +5,7 @@ import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css';
 import { SignupButton, LoginButton, LogoutButton } from '../button.jsx';
 
-function Navbar() {
+function Navbar(closet_id, ) {
   const [click, setClick] = useState(false);
   const { logout, token } = useToken();
   const [dropdown, setDropdown] = useState(false);
