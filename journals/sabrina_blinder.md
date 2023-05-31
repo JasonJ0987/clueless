@@ -28,11 +28,13 @@ i created a mock home page for our website.
 1. Yesterday, we decided on using mongodb and implimented that into our backend
 2. Today, Jason drove the group to add mongo onto our backend.
 3. no blockers today
-<<<<<<< HEAD
-=======
 
 ## 05/23/2023
 1. Yesterday, The closet and bin queries were finished up as well as the get,pull, and create functions.
 2. Today, I drove the group and created the Clothing quieries as well as the get one, get all, post, and delete functions in our routers. We now can create, list, and delete Clothing items.
 3. no blockers so far.
->>>>>>> closet
+
+## 05/30/2023
+1. Last week, The team worked on creating the closet and bin views while i focused on creating the navbar with a dropdown feature hosting the closet and its contents.
+2. Today, i added a sign up and login button into the navbar that each redirect the user to their respective pages. Tomorrow, ill try adding a logout button that only exists when a user is logged in.
+3. ran into quite a few css difficulties but managed to tweak them with extra css.
