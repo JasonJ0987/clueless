@@ -55,19 +55,20 @@ function ClosetView() {
             style={{ width: "40vw", height: "50vh" }}
             key={bin.id}
           >
-            {/* <img className="card-img" src={bin.picture} />
-            <div className="card-img-overlay">
-              <h5 className="card-title"><NavLink to={`bins/${bin.id}`}>{bin.name}</NavLink></h5> */}
             <div className="card-body">
               <h5 className="card-title" style={{ textAlign: "center" }}>
                 <NavLink to={`bins/${bin.id}`}>{bin.name}</NavLink>
               </h5>
               <div style={{ display: "flex" }}>
+              <NavLink to={`bins/${bin.id}`} style={{ justifyContent: "center", alignItems: "center", width: "100%", height:"40vh", objectFit: "cover" }}>
               <img
                 className="card-img-bottom"
-                style={{ justifyContent: "center", alignItems: "center", width: "100%", height:"40vh", objectFit: "cover"}}
+                style={{justifyContent: "center", alignItems: "center", width: "100%", height:"40vh", objectFit: "cover", filter: "blur(4px)"}}
                 src={bin.picture}
+                onmouseover={() => (this.blurred = false)}
+// css stretch goals: add hover effect to reduce blur and overlay words over images
               />
+              </NavLink>
               </div>
             </div>
           </div>
@@ -77,16 +78,3 @@ function ClosetView() {
 }
 
 export default ClosetView;
-
-
-{/* //  <div className="card-body">
-//               <h5 className="card-title" style={{ textAlign: "center" }}>
-//                 <NavLink to={`bins/${bin.id}`}>{bin.name}</NavLink>
-//               </h5>
-//               <img */}
-{/* //                 className="card-img-bottom"
-//                 style={{ backgroundSize: "cover", backgroundPosition: "center" }}
-//                 src={bin.picture}
-//               />
-//             </div> */}
-{/* //           </div> */}
