@@ -95,3 +95,10 @@ Also added a logout button when a user successfully logs in.
 
 Sabrina and Xander worked on the navigation bar. They set up the drop down button and added a logo which will redirect the user to the homepage once it's clicked.
 3. No blockers - most of the code was similar to the closet view page.
+
+## May 31st, 2023
+1. Starting on forms for the front end - Create a clothes item form and create a wardrobe from
+2. Xander was the driver - we are creating the form page for adding a new clothes item to a bin.
+Sabrina and Jeanette are working on the styling for the website. For the closet page, we are trying to create clickable cards that will redirect the user to the correct bin. Also, cleaned up the navigation bar to make it look prettier.
+3. Blockers - For the login page, we were trying to create an error message if the user enters in the incorrect username/password. The error message is not displaying but when the login is correct it redirects the user to the homepage. I'll say it's 75% working, all thanks to Violet, but still missing the error message.
+For the clothes form, we had an issue mapping the bins and tags but eventually had it figured out. We are stuck on the submission part - not able to add the new clothes item to the bin.
