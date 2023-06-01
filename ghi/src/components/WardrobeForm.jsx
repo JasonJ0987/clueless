@@ -1,16 +1,18 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 const WardrobeForm = () => {
-  const [closetId, setClosetId] = useState("");
-  const [bins, setBins] = useState([]);
   const [wardrobe, setWardrobe] = useState({
     hats: [],
     tops: [],
     bottoms: [],
     shoes: [],
   });
-
+  const [closetId, setClosetId] = useState("");
+  const [closets, setClosets] = useState(null);
+  const [bin, setBin] = useState([]);
+  const [clothes, setClothes] = useState(null);
   const { token } = useToken();
 
   const loadCloset = async () => {
@@ -25,73 +27,73 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
+      setClosets(data.closets);
       setClosetId(data.closets[0].id);
     }
   };
 
-  const loadBins = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
+    const loadBins = async () => {
+      const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins`;
+      const fetchConfig = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await fetch(url, fetchConfig);
+      if (response.ok) {
+        const data = await response.json();
+        setBin(data);
+      }
     };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      setBins(data.bins.filter((bin) => bin.closet_id === closetId));
-    }
-  };
 
-  const loadClothes = async () => {
-    // const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
+    const loadHats = async () => {
+        const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/646bc0f74277954dd0f38117/clothes`;
+        const fetchConfig = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        };
+        const response = await fetch(url, fetchConfig);
+        if (response.ok) {
+            const data = await response.json();
+            setHats(data.hats)
+        }
     };
-    const response = await fetch(fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      setWardrobe(data.clothes);
-    }
-  };
 
-  const handleSubmit = () => {
-    event.preventDefault();
-    const response = await fetch
-  };
+        const loadTops = async () => {
+          const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/646bc0f74277954dd0f38117/clothes`;
+          const fetchConfig = {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const response = await fetch(url, fetchConfig);
+          if (response.ok) {
+            const data = await response.json();
+            setTops(data.tops);
+          }
+        };
 
-  useEffect(() => {
-    loadCloset();
-  }, [token]);
 
-  useEffect(() => {
-    if (closetId !== "") {
-      loadBins();
-      loadClothes();
-    }
-  }, [closetId]);
+  useEffect(() => {loadCloset();}, [token]);
+  useEffect(() => { if (closetId !== "") loadTops();}, [closetId]);
+  useEffect(() => { if (closetId !== "") loadHats();}, [closetId]);
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        height: "100vh",
-      }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100vh" }}
     >
       <h3>Hats</h3>
       <div style={boxStyle}>
         {wardrobe.hats.map((hat) => (
           <div key={hat.id}>
-            <img src={hat.image} alt={hat.title} />
-            <p>{hat.title}</p>
+            <img src={bin.picture}/>
           </div>
         ))}
       </div>
@@ -99,8 +101,7 @@ const WardrobeForm = () => {
       <div style={boxStyle}>
         {wardrobe.tops.map((top) => (
           <div key={top.id}>
-            <img src={top.image} />
-            <p>{top.title}</p>
+            <img src={bin.picture} />
           </div>
         ))}
       </div>
@@ -108,8 +109,7 @@ const WardrobeForm = () => {
       <div style={boxStyle}>
         {wardrobe.bottoms.map((bottom) => (
           <div key={bottom.id}>
-            <img src={bottom.image} />
-            <p>{bottom.title}</p>
+            <img src={bin.picture} />
           </div>
         ))}
       </div>
@@ -117,14 +117,13 @@ const WardrobeForm = () => {
       <div style={boxStyle}>
         {wardrobe.shoes.map((shoe) => (
           <div key={shoe.id}>
-            <img src={shoe.image} />
-            <p>{shoe.title}</p>
+            <img src={bin.picture} />
           </div>
         ))}
       </div>
-      <button type="submit" onClick={handleSubmit}>
-        Submit Style!
-      </button>
+      <div>
+        <input className="btn btn-primary" type="submit" value="Submit Style!" />
+      </div>
     </div>
   );
 };
