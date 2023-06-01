@@ -2,6 +2,8 @@ import useToken from "@galvanize-inc/jwtdown-for-react";
 import React, { useState, useEffect } from "react";
 
 const WardrobeForm = () => {
+  const [closetId, setClosetId] = useState("");
+  const [bins, setBins] = useState([]);
   const [wardrobe, setWardrobe] = useState({
     hats: [],
     tops: [],
@@ -9,35 +11,10 @@ const WardrobeForm = () => {
     shoes: [],
   });
 
-
   const { token } = useToken();
-  const [bins, setBins] = useState([]);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setWardrobe({
-      ...wardrobe,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetch(
-      `${process.env.REACT_APP_WHATEVR}/api/closet/${wardrobe.closet_id}/bins/${wardrobe.bin_id}/wardrobe`,
-      {
-        method: "POST",
-        body: JSON.stringify(wardrobe),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-  };
-
-  const loadBins = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${wardrobe.closet_id}/bins/`;
+  const loadCloset = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -48,14 +25,57 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      setBins(data.bins);
+      setClosetId(data.closets[0].id);
     }
   };
 
+  const loadBins = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setBins(data.bins.filter((bin) => bin.closet_id === closetId));
+    }
+  };
+
+  const loadClothes = async () => {
+    // const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setWardrobe(data.clothes);
+    }
+  };
+
+  const handleSubmit = () => {
+    event.preventDefault();
+    const response = await fetch
+  };
 
   useEffect(() => {
-    loadBins();
+    loadCloset();
   }, [token]);
+
+  useEffect(() => {
+    if (closetId !== "") {
+      loadBins();
+      loadClothes();
+    }
+  }, [closetId]);
 
   return (
     <div
@@ -70,7 +90,7 @@ const WardrobeForm = () => {
       <div style={boxStyle}>
         {wardrobe.hats.map((hat) => (
           <div key={hat.id}>
-            <img src={hat.image} />
+            <img src={hat.image} alt={hat.title} />
             <p>{hat.title}</p>
           </div>
         ))}
