@@ -31,7 +31,7 @@ function Navbar(closet_id, ) {
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' alt="logo" height="65" width="200"/>
+          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' alt="logo" height="45" width="200"/>
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />

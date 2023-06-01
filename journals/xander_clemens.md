@@ -155,3 +155,9 @@ Friday - connecting 3rd party api to planner
 Liland was responsible for writing the code to display the bin views in React, while Sabrina and I focused on enhancing the navigation bar and logo at the top of the page. We did not encounter any major issues during our session, although we spent some time tweaking the CSS in both the React component and CSS files.
 
 During our next working session, we plan to expand the bin view page to fully display the tags on the front-end, similar to what we did on the closet view page. We also plan to integrate the planner on the front-end, allowing token code to display specific buttons tailored to the user who is logged in or non-users.
+
+## 5/31/2023
+
+* Today, we focused on developing further development of our CSS on the Nav Bar and presentation of our images on our closet page, creating our ClothingForm, and starting to build out our planner page.
+
+I was responsible for driving today, and as a group, we created the code today for our ClothingForm. We added the JSX code and built out our use effect and useState. We were able to display all of our model fields on our form on the front end and, at times, were able to submit the form successfully and have it be able to be shown on the front end on our closet and bin page. We had challenges today with getting an error message to display correctly on our Login component and have the ability for the user to correctly input their correct details and be taken to the home page. We have yet to get an error message to display correctly and will need to work on this for Thursday. Jeanette also worked on developing the front end for our Bin View Page, giving our group a great head start on our work schedule for tomorrow. The focus for tomorrow is to resolve our ClothingForm, login, and BinView pages. To get them functioning correctly with our MongoDB Database. 
