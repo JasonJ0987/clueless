@@ -1,57 +1,77 @@
 import React, { useEffect, useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 
-
 const ClothesForm = () => {
-    const [clothes, setClothes] = useState({
-    name: "",
-    picture: "",
-    primary_color: "",
-    type: "",
-    bin_id: "",
-    closet_id: "646b99c3f2cd73044cf5707d",
-    tag_ids: "",
-    });
-
-    const { token } = useToken();
+    const [name, setName]= useState('');
+    const [picture, setPicture]= useState('');
+    const [color, setColor]= useState('');
+    const [type, setType]= useState('');
+    const [binId, setBinId]= useState('');
+    const [tagId, setTagId]= useState([]);
     const [bins, setBins] = useState([]);
     const [tags, setTags] = useState([]);
+    const { token } = useToken();
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setClothes({
-        ...clothes, //copies the current value of the clothes variable to a new object
-        [name]: value, //sets the value of the property
-        });
-    };
-
+    const handleNameChange = (event) => {
+      const value = event.target.value;
+      setName(value);
+    }
+    const handlePictureChange = (event) => {
+      const value = event.target.value;
+      setPicture(value);
+    }
+    const handleColorChange = (event) => {
+      const value = event.target.value;
+      setColor(value);
+    }
+    const handleTypeChange = (event) => {
+      const value = event.target.value;
+      setType(value);
+    }
+    const handleBinIdChange = (event) => {
+      const value = event.target.value;
+      setBinId(value);
+    }
+    const handleTagIdChange = (event) => {
+      const value = event.target.value;
+      setTagId( tagId => [...tagId, value]);
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch(`${process.env.REACT_APP_WHATEVR}/api/closet/${clothes.closet_id}/bins/${clothes.bin_id}/clothes`,
+        const data = {};
+        data.name = name;
+        data.picture = picture;
+        data.primary_color = color;
+        data.type = type;
+        data.tag_ids = tagId;
+        data.bin_id = binId;
+        data.closet_id = "646b99c3f2cd73044cf5707d";
+
+        const response = await fetch(`${process.env.REACT_APP_WHATEVR}/api/closet/${data.closet_id}/bins/${data.bin_id}/clothes`,
         {
             method: "POST",
-            body: JSON.stringify(clothes),
+            body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
             },
         });
         if (response.ok) {
-            clothes({
-                name: "",
-                picture: "",
-                primary_color: "",
-                type: "",
-                bin_id: "",
-                closet_id: "646b99c3f2cd73044cf5707d",
-                tag_ids: "",
-            });
+            setName('');
+            setPicture('');
+            setColor('');
+            setType('');
+            setBinId('');
+            setTagId([]);
+        } else {
+          const error = await response.json();
+          console.log("Error", error);
         }
     };
 
     const loadBins = async () => {
-        const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${clothes.closet_id}/bins/`;
+        const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/`;
         const fetchConfig = {
         method: "GET",
         headers: {
@@ -85,8 +105,6 @@ const ClothesForm = () => {
     useEffect(() => {loadBins(); loadTags();}, [token]);
 
 
-
-
 return (
   <div className="card text-bg-light mb-3">
     <h5 className="card-header">ClothingForm</h5>
@@ -98,8 +116,8 @@ return (
             type="text"
             name="name"
             id="name"
-            value={clothes.name}
-            onChange={handleChange}
+            value={name}
+            onChange={handleNameChange}
           />
         </div>
         <div className="form-group">
@@ -108,8 +126,8 @@ return (
             type="text"
             name="picture"
             id="picture"
-            value={clothes.picture}
-            onChange={handleChange}
+            value={picture}
+            onChange={handlePictureChange}
           />
         </div>
         <div className="form-group">
@@ -118,8 +136,8 @@ return (
             type="text"
             name="primary_color"
             id="primary_color"
-            value={clothes.primary_color}
-            onChange={handleChange}
+            value={color}
+            onChange={handleColorChange}
           />
         </div>
         <div className="form-group">
@@ -128,13 +146,17 @@ return (
             type="text"
             name="type"
             id="type"
-            value={clothes.type}
-            onChange={handleChange}
+            value={type}
+            onChange={handleTypeChange}
           />
         </div>
         <div className="form-group">
           <label htmlFor="bin_id">Bins</label>
-          <select name="bin_id" value={clothes.bin_id} onChange={handleChange}>
+          <select
+            name="bin_id"
+            value={binId}
+            onChange={handleBinIdChange}
+          >
             <option value="">Choose a Bin</option>
             {bins.map((bin) => {
               return (
@@ -149,9 +171,8 @@ return (
           <label htmlFor="tag_ids">Tags</label>
           <select
             name="tag_ids"
-            value={clothes.tag_ids}
-            onChange={handleChange}
-            // multiple={false}
+            value={tagId}
+            onChange={handleTagIdChange}
           >
             <option value="">Tag</option>
             {tags.map((tag) => {
@@ -173,14 +194,3 @@ return (
 };
 
 export default ClothesForm;
-
-
-
-    // const fetchData = async () => {
-    //     const modelUrl = "http://localhost:8100/api/models/";
-    //     const modelResponse = await fetch(modelUrl);
-    //     if (modelResponse.ok) {
-    //         const modelData = await modelResponse.json();
-    //         setModels(modelData.models);
-    //     };
-    // };
