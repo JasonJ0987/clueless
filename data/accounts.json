@@ -1,5 +1,20 @@
 [{
   "_id": {
+    "$oid": "6465439e1c07e692b9557aeb"
+  },
+  "email": "mickey@example.com",
+  "username": "mickey",
+  "password": "$2b$12$legb/ZlHBGcy64bOKKF1MO6h5is4t5bqNFWovBkeOId7Evj7D0d1K",
+  "confirm_password": "mickey",
+  "first": "string",
+  "last": "string",
+  "zipcode": 99524,
+  "roles": [
+    "patron"
+  ]
+},
+{
+  "_id": {
     "$oid": "646620b95ccb73e9d4986b0a"
   },
   "email": "user@example.com",
@@ -12,7 +27,8 @@
   "roles": [
     "patron"
   ]
-},{
+},
+{
   "_id": {
     "$oid": "6466778026497f6e379a5df3"
   },
@@ -26,7 +42,8 @@
   "roles": [
     "patron"
   ]
-},{
+},
+{
   "_id": {
     "$oid": "646677c226497f6e379a5df4"
   },

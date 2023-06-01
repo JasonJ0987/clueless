@@ -93,9 +93,9 @@ def get_clothes(
     repo: ClothesQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
-    if ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id)) == []:
+    if ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id, user_id=current_user.id)) == []:
         return None
-    return ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id))
+    return ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id, user_id=current_user.id))
 
 
 @router.get("/api/closet/{closet_id}/bins/{bin_id}/clothes/{clothes_id}", response_model=ClothesOut | None)
@@ -106,7 +106,7 @@ def get_clothing_item(
     repo: ClothesQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
-    props = repo.get_one(clothes_id=clothes_id, bin_id=bin_id, closet_id=closet_id)
+    props = repo.get_one(clothes_id=clothes_id, bin_id=bin_id, closet_id=closet_id, user_id=current_user.id)
     if not props:
         return None
     return props
@@ -120,5 +120,6 @@ async def delete_clothing(
     repo: ClothesQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
+    print(current_user)
     repo.delete(closet_id=closet_id, bin_id=bin_id, clothes_id=clothes_id)
     return True

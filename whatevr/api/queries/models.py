@@ -51,13 +51,13 @@ class TagIn(BaseModel):
     description: str
 
 
-class TagList(BaseModel):
-    tags: List[TagIn]
-
-
 class TagOut(BaseModel):
     id: str
     description: str
+
+
+class TagList(BaseModel):
+    tags: List[TagOut]
 
 
 class ClosetIn(BaseModel):
@@ -98,6 +98,7 @@ class ClothesIn(BaseModel):
     tag_ids: List[str]
     bin_id: str
     closet_id: str
+    user_id: str
 
 
 class ClothesOut(BaseModel):
@@ -109,6 +110,7 @@ class ClothesOut(BaseModel):
     tag_ids: List[str]
     bin_id: str
     closet_id: str
+    user_id: str
 
 
 class ClothesList(BaseModel):
