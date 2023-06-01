@@ -19,7 +19,7 @@ const WardrobeForm = () => {
   const { token } = useToken();
 
   const loadBins = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -30,87 +30,88 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      setBin(data);
-      console.log(bin);
+      setBin(data.bins);
+      console.log("data", data);
     }
   };
 
-  // const loadHats = async () => {
-  //     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/646bc0f74277954dd0f38117/clothes`;
-  //     const fetchConfig = {
-  //         method: "GET",
-  //         headers: {
-  //             "Content-Type": "application/json",
-  //             Authorization: `Bearer ${token}`,
-  //         },
-  //     };
-  //     const response = await fetch(url, fetchConfig);
-  //     if (response.ok) {
-  //         const data = await response.json();
-  //         console.log("hatdata", data)
-  //         setHats(data)
-  //         //console.log(hats);
-  //     }
-  // };
+  const loadHats = async () => {
+      const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
+      const fetchConfig = {
+          method: "GET",
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+          },
+      };
+      const response = await fetch(url, fetchConfig);
+      if (response.ok) {
+          const data = await response.json();
+          // console.log("hatdata", data)
+          setHats(data.hats)
+          console.log("hats", hats);
+      }
+  };
 
-  // const loadTops = async () => {
-  //   const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/646beb5724b33168d5719493/clothes`;
-  //   const fetchConfig = {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   const response = await fetch(url, fetchConfig);
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     console.log("topdata", data)
-  //     setTops(data);
-  //     // console.log(tops);
-  //   }
-  // };
+  const loadTops = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      // console.log("topdata", data)
+      setTops(data.tops);
+      console.log("tops", tops);
+    }
+  };
 
-  // const loadBottoms = async () => {
-  //   const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/647659f829d0764ee8697289/clothes`;
-  //   const fetchConfig = {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   const response = await fetch(url, fetchConfig);
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     console.log("bottomdata", data)
-  //     setBottoms(data);
-  //   }
-  // };
+  const loadBottoms = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      // console.log("bottomdata", data)
+      setBottoms(data.bottoms);
+      console.log("bottoms", bottoms)
+    }
+  };
 
-  // const loadShoes = async () => {
-  //   const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/64765a3929d0764ee869728a/clothes`;
-  //   const fetchConfig = {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   const response = await fetch(url, fetchConfig);
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     console.log("shoedata", data)
-  //     setShoes(data);
-  //     console.log(shoes);
-  //   }
-  // };
+  const loadShoes = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      // console.log("shoesdata", data)
+      setShoes(data.shoes);
+      console.log("shoes", shoes)
+    }
+  };
 
   useEffect(() => {
-    // loadHats();
-    // loadTops();
-    // loadBottoms();
-    // loadShoes();
+    loadHats();
+    loadTops();
+    loadBottoms();
+    loadShoes();
     loadBins();
   }, [token]);
 
