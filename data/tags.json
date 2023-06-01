@@ -3,4 +3,16 @@
     "$oid": "646d1f505b47d2fcc8c7b6cf"
   },
   "description": "sunny"
+},
+{
+  "_id": {
+    "$oid": "6478bdd7f9945b090ea1f9fe"
+  },
+  "description": "rainy"
+},
+{
+  "_id": {
+    "$oid": "6478bde7f9945b090ea1f9ff"
+  },
+  "description": "snowing"
 }]

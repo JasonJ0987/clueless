@@ -7,6 +7,7 @@ function BinView() {
     const [closetId, setClosetId] = useState("");
     const [bin, setBin] = useState(null);
     const [clothes, setClothes] = useState(null);
+    const [userId, setUserId] = useState("");
     // const [clothesId, setClothesId] = useState("");
     const { token } = useToken();
     const { binId } = useParams();
@@ -44,6 +45,18 @@ function BinView() {
         }
     };
 
+    const loadUser = async () => {
+        const url = `${process.env.REACT_APP_WHATEVR}/token`;
+        fetch(url, {
+        credentials: "include",
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            setUserId(data.account.id);
+        })
+        .catch((error) => console.error(error));
+    };
+
     const loadClothes = async () => {
         const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes`;
         const fetchConfig = {
@@ -61,7 +74,7 @@ function BinView() {
     };
 
     useEffect(() => {loadCloset();}, [token]);
-    useEffect(() => { if (closetId !== "") loadBins();}, [closetId]);
+    useEffect(() => { if (closetId !== "") loadBins(); loadUser();}, [closetId]);
     useEffect(() => { if (closetId !== "") loadClothes();}, [closetId]);
 
     return (
