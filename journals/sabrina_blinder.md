@@ -38,3 +38,8 @@ i created a mock home page for our website.
 1. Last week, The team worked on creating the closet and bin views while i focused on creating the navbar with a dropdown feature hosting the closet and its contents.
 2. Today, i added a sign up and login button into the navbar that each redirect the user to their respective pages. Tomorrow, ill try adding a logout button that only exists when a user is logged in.
 3. ran into quite a few css difficulties but managed to tweak them with extra css.
+
+## 05/31/2023
+1. Yesterday, i continued on with the nav bar.
+2. Today, i completed the navbar. The logout button can now only be seen when logged in and the sign up/login buttons only display when a user is not registered/signed in. I also worked on the stylings for the closet view while the others began building a clothing form.
+3. 
