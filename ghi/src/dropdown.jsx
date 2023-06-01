@@ -52,7 +52,7 @@ function Dropdown() {
       <li>
         <Link
           className="dropdown-link"
-          to="/clothes/new"
+          to="/closet/new"
         >
           Upload Clothing Item
         </Link>
