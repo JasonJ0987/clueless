@@ -145,37 +145,41 @@ const WardrobeForm = () => {
           value="Submit Style!"
         />
       </form>
-      <h3>Hats</h3>
+      <h3 style={{ color: "white" }}>Hats</h3>
       <div style={boxStyle}>
-        {hats && hats.map((hat) => (
-          <div key={hat.id}>
-            <img src={hat.picture} alt={hat.name} />
-          </div>
-        ))}
+        {hats &&
+          hats.map((hat) => (
+            <div key={hat.id}>
+              <img src={hat.picture} alt={hat.name} />
+            </div>
+          ))}
       </div>
-      <h3>Tops</h3>
+      <h3 style={{ color: "white" }}>Tops</h3>
       <div style={boxStyle}>
-        {tops && tops.map((top) => (
-          <div key={top.id}>
-            <img src={top.picture} alt={top.name} />
-          </div>
-        ))}
+        {tops &&
+          tops.map((top) => (
+            <div key={top.id}>
+              <img src={top.picture} alt={top.name} />
+            </div>
+          ))}
       </div>
-      <h3>Bottoms</h3>
+      <h3 style={{ color: "white" }}>Bottoms</h3>
       <div style={boxStyle}>
-        {bottoms && bottoms.map((bottom) => (
-          <div key={bottom.id}>
-            <img src={bottom.picture} alt={bottom.name} />
-          </div>
-        ))}
+        {bottoms &&
+          bottoms.map((bottom) => (
+            <div key={bottom.id}>
+              <img src={bottom.picture} alt={bottom.name} />
+            </div>
+          ))}
       </div>
-      <h3>Shoes</h3>
+      <h3 style={{ color: "white" }}>Shoes</h3>
       <div style={boxStyle}>
-        {shoes && shoes.map((shoe) => (
-          <div key={shoe.id}>
-            <img src={shoe.picture} alt={shoe.name} />
-          </div>
-        ))}
+        {shoes &&
+          shoes.map((shoe) => (
+            <div key={shoe.id}>
+              <img src={shoe.picture} alt={shoe.name} />
+            </div>
+          ))}
       </div>
     </div>
   );
