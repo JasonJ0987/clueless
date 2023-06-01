@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Dropdown from '../dropdown.jsx';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css';
 import { SignupButton, LoginButton, LogoutButton } from '../button.jsx';
 
-function Navbar() {
+function Navbar(closet_id, ) {
   const [click, setClick] = useState(false);
   const { logout, token } = useToken();
   const [dropdown, setDropdown] = useState(false);
@@ -31,7 +31,7 @@ function Navbar() {
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' height="65" width="200"/>
+          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' alt="logo" height="45" width="200"/>
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -47,7 +47,7 @@ function Navbar() {
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              MyCloset <i className='fas fa-caret-down' />
+              MyCloset  <i className='fas fa-caret-down' />
             </Link>
             {dropdown && <Dropdown />}
           </li>
@@ -60,6 +60,7 @@ function Navbar() {
               Planner
             </Link>
           </li>
+        {!token && (
           <li>
             <Link
               to='/signup'
@@ -69,6 +70,8 @@ function Navbar() {
               <SignupButton/>
             </Link>
           </li>
+        )}
+        {!token && (
           <li>
             <Link
               to='/'
@@ -78,6 +81,8 @@ function Navbar() {
               <LoginButton/>
             </Link>
           </li>
+          )}
+          {token && (
           <li>
             <Link
               to='/'
@@ -87,7 +92,7 @@ function Navbar() {
               <LogoutButton/>
             </Link>
           </li>
-
+          )}
         </ul>
 
       </nav>

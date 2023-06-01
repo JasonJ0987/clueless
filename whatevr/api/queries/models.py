@@ -51,13 +51,13 @@ class TagIn(BaseModel):
     description: str
 
 
-class TagList(BaseModel):
-    tags: List[TagIn]
-
-
 class TagOut(BaseModel):
     id: str
     description: str
+
+
+class TagList(BaseModel):
+    tags: List[TagOut]
 
 
 class ClosetIn(BaseModel):

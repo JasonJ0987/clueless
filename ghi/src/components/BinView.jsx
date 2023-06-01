@@ -57,7 +57,6 @@ function BinView() {
         if (response.ok) {
             const data = await response.json();
             setClothes(data.clothes)
-            // console.log(data)
         }
     };
 

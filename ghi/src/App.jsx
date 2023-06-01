@@ -10,6 +10,7 @@ import { Main } from "./components/Main";
 import ClosetView from "./components/ClosetView";
 import NavBar from "./components/Navbar";
 import BinView from "./components/BinView";
+import ClothesForm from "./components/ClothingForm";
 import './index.css'
 
 
@@ -25,12 +26,13 @@ function App() {
         <NavBar />
         <div className="container" id="outerdiv" style={{ padding: "0" }}>
           <Routes>
-            <Route exact path="/" element={<Main />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/" element={< Main />} />
+            <Route exact path="/signup" element={< Signup />} />
+            <Route exact path="/login" element={< Login />} />
             <Route path="closet">
-              <Route index element={<ClosetView />} />
-              <Route path="bins/:binId" element={<BinView />} />
+              <Route index element={< ClosetView />} />
+              <Route path="bins/:binId" element={< BinView />} />
+              <Route path="new" element={< ClothesForm />} />
             </Route>
           </Routes>
         </div>
