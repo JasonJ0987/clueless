@@ -124,3 +124,10 @@ class ClothesQueries(Queries):
                 "bin_id": ObjectId(bin_id)
             }
         )
+
+
+class OutfitQueries(Queries):
+    DB_NAME = "library"
+    COLLECTION = "outfits"
+
+    def create(self, )

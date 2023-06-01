@@ -12,7 +12,7 @@ const WardrobeForm = () => {
   const [closetId, setClosetId] = useState("");
   const [closets, setClosets] = useState(null);
   const [bin, setBin] = useState([]);
-  const [clothes, setClothes] = useState(null);
+  const [hats, setHats] = useState(null);
   const { token } = useToken();
 
   const loadCloset = async () => {
