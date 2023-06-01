@@ -11,6 +11,7 @@ import ClosetView from "./components/ClosetView";
 import NavBar from "./components/Navbar";
 import BinView from "./components/BinView";
 import ClothesForm from "./components/ClothingForm";
+import WardrobeForm from "./components/WardrobeForm";
 import './index.css'
 
 
@@ -33,6 +34,9 @@ function App() {
               <Route index element={< ClosetView />} />
               <Route path="bins/:binId" element={< BinView />} />
               <Route path="new" element={< ClothesForm />} />
+            </Route>
+            <Route path="wardrobe">
+              <Route path="new" element={< WardrobeForm />} />
             </Route>
           </Routes>
         </div>
