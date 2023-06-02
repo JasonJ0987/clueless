@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const WardrobeForm = () => {
   const [bins, setBin] = useState([]);
-  const [hats, setHats] = useState(null);
+  const [hats, setHats] = useState([]);
   const [tops, setTops] = useState(null);
   const [bottoms, setBottoms] = useState(null);
   const [shoes, setShoes] = useState(null);
@@ -88,6 +88,7 @@ const WardrobeForm = () => {
       console.log("hatdata", data)
       setHats(data.clothes);
       console.log("hats", hats);
+      console.log("cat")
     }
   };
 
@@ -145,17 +146,35 @@ const WardrobeForm = () => {
     }
   };
 
-  // useEffect(() => {
-  //   loadBins();
-  // }, [token]);
-
   useEffect(() => {
-      loadHats();
-      loadTops();
-      loadBottoms();
-      loadShoes();
-      loadBins();
+    loadHats();
+    loadTops();
+    loadBottoms();
+    loadShoes();
+    loadBins();
   }, [token]);
+
+  // useEffect(() => {
+  //     loadHats();
+  // }, []);
+
+  // useEffect(() => {
+  //     loadTops();
+  // }, []);
+  
+  // useEffect(() => {
+  //     loadBottoms();
+  // }, []);
+
+  // useEffect(() => {
+  //     loadShoes();
+  // }, []);
+
+  // useEffect(() => {
+  //     loadBins();
+  // }, []);
+
+  // }, [token]);
 
   useEffect(() => {
   }, [hats]);

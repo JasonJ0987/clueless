@@ -277,3 +277,48 @@ html{
   max-width: 100%;
   height: auto;
 }
+
+.parent:first-of-type{
+    background: #ffffff url("https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2342&q=80") no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .parent:nth-of-type(2) {
+    background: #ffffff url("https://i5.walmartimages.com/asr/59a3cf8a-47f4-40d9-b72a-8bd7097f64b3.f4d7642c07a5c65d00fb6af3901bdbb6.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF") no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .parent:nth-of-type(3) {
+    background: #ffffff url("https://www.colorhexa.com/1f2029.png") no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .parent:nth-of-type(4) {
+    background: #ffffff url("https://i.pinimg.com/originals/45/8c/20/458c205bb927899719d41ce3d9e65257.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .parent:last-of-type {
+    background: #ffffff url("https://i.pinimg.com/600x315/d4/e9/db/d4e9db2b090aac2782229908ff4f89df.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .parent {
+    width: 100%;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+    font-family: tahoma;
+    text-align: center;
+    line-height: 180%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden
+  }
+
