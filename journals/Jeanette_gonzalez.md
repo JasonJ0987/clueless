@@ -111,3 +111,14 @@ The team got some help from Paul Wu to pass the baseUrl to the App.jsx file.
 1. Today we will add front-end pages to our website.
 2. Jason was the driver for today and Xander and Sabrina worked on the navigation bar. For the closet view page we got help from Violet since we were having trouble calling the correct data from being passed through useEffect. We were able to get the correct closet ID and the bins.
 3. My current blocker is trying to figure out how to do the react pages but I am using past projects to get an idea.
+
+## May 30, 2023
+1. Today we created a bins view page for the clothing items in the cartegory.
+2. Liland was the driver. As a team we created a page to be able to view the bins for each clothing category. The closet view page has the bins listed, so when the user clicks on a card called "shoes" they will be redirected to the page where they have their shoes. Xander and Sabrina worked on the navigation bar and added buttons.
+3. No blockers today.
+
+
+## May 31st, 2023
+1. Today we will be satrting the clothing forms and wardrobe form.
+2. Xander was the driver. I was working on the styling as well as on the wardrobe form and sabrina was working on the styling as well. For the closet page, we were working on getting the cards to be clickable and to redirect to the correct page.
+3. The blocker for today was getting the error message to appear when a user enter the incorrect email/password. Another blocker is being able to add new clothing in the clothes form. 
