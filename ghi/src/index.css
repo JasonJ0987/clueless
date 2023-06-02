@@ -254,3 +254,26 @@ html{
 :root {
   background-color: #1f2029;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 75px;
+}
+
+.bin-card {
+  width: 100%;
+}
+
+.card-title {
+  margin-bottom: 0;
+}
+
+.image-wrapper {
+  text-align: center;
+}
+
+.card-img-bottom {
+  max-width: 100%;
+  height: auto;
+}
