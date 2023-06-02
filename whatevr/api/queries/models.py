@@ -122,11 +122,7 @@ class OutfitIn(BaseModel):
     top: ClothesOut
     bottom: ClothesOut
     shoes: ClothesOut
-<<<<<<< HEAD
-
-=======
     user_id: str
->>>>>>> a76abd8e31735dbb3f1a6c37ed76618567d904ac
 
 
 class OutfitOut(BaseModel):

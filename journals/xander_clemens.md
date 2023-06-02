@@ -87,7 +87,7 @@ def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:
         {
             "_id": ObjectId(bin_id),
             "closet_id": ObjectId(closet_id),
-        }  
+        }
     )
     if not props:
         return None
@@ -167,3 +167,9 @@ I was responsible for driving today, and as a group, we created the code today f
 * Today, we worked on advancing our application on three issues: Our CSS for the login/closet-view page and the clothing and wardrobe form.
 
 And Jeanette did the driving today while Jason and Liland assisted with navigation. Sabrina focused on the front-end styling adding new CSS to the various pages of our application. In the morning, we faced the challenge of getting our new clothing POST on the front end to only display based on which user is logged in. We were experiencing seeing both clothing items being displayed in the same user account. We can make the adjustments successfully by only displaying the clothing items in the bin view pages specifically to the user who is logged in. Sabrina then added new CSS to the login and background of our application, created a logout button, and enhanced the dropdown functionality. Jeanette added more to the Wardrobe form, and the main blockage we are currently experiencing is docker issues preventing her from seeing her new updates being made on her browser and displaying her React server. The focus for tomorrow will be to successfully pull our data from our database to be displayed on our Wardrobe form. Additionally, Liland successfully created a dropdown select tag to show our bins and tags on our Clothing Form page.
+
+## 6/2/2023
+
+* Today, we made progress in improving our CSS and spent a significant amount of time debugging our code on the wardrobe form. Additionally, we began building the skeleton of our planner page and started creating our unit tests.
+
+Jason and Jeanette were the primary developers today. In the morning, we added OutfitIn and OutfitOut models to our models.py file in the queries directory. We then added the following functions to our closet.py file in the routers directory. Afterward, we tested our FastAPI to ensure that the endpoints were working correctly, and they were. We then proceeded to build out our wardrobe form page and successfully applied CSS to display it nicely. However, we spent most of our workday figuring out how to display our new clothing models on the front end. Although we could get the data to display on our MongoDB Compass, we could not get the data to display on the front end. We will continue to work on this issue, but after having other engineers review our code, we have decided that we must adjust the page's presentation to address the problem caused by the JWTdown authenticator library. Additionally, I started building our unit tests, focusing on testing the accounts and API endpoints. I'm encountering difficulty importing the models from our files in the queries directory. We have agreed to meet on Sunday to continue our progress and work on the project.
