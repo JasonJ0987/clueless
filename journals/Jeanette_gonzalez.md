@@ -122,3 +122,9 @@ The team got some help from Paul Wu to pass the baseUrl to the App.jsx file.
 1. Today we will be satrting the clothing forms and wardrobe form.
 2. Xander was the driver. I was working on the styling as well as on the wardrobe form and sabrina was working on the styling as well. For the closet page, we were working on getting the cards to be clickable and to redirect to the correct page.
 3. The blocker for today was getting the error message to appear when a user enter the incorrect email/password. Another blocker is being able to add new clothing in the clothes form. 
+
+
+## June 1st 2023
+1. Today we are finishing up the create a clothing item and will start the wardrobe form.
+2. Xander was the driver for half the day. Today we were working on getting the clothing item form to work correctly which we did. Jason worked on the backend for the "Clothes Out" model and added the ID for the accounts to that model. Liland created the check boxes for the tags thast the user can select when uploading their clothing item. For the other half of the day I was the driver. I was trying to get the clothing items to display on the wardrobe form so that the user can select (stretch goal: using carousal) each clothing to choose their style. 
+3. My blocker is that none of the changes I am making to the code are being relfected on the website. I am having to restart docker container each time in order to see the changes I am making. 
