@@ -87,7 +87,7 @@ def get_one(self, bin_id: str, closet_id: str) -> BinOut | None:
         {
             "_id": ObjectId(bin_id),
             "closet_id": ObjectId(closet_id),
-        }
+        }  
     )
     if not props:
         return None
@@ -166,4 +166,4 @@ I was responsible for driving today, and as a group, we created the code today f
 
 * Today, we worked on advancing our application on three issues: Our CSS for the login/closet-view page and the clothing and wardrobe form.
 
-And Jeanette did the driving today while Jason and Liland assisted with navigation. Sabrina focused on the front-end styling adding new CSS to the various pages of our application. In the morning, we faced the challenge of getting our new clothing POST on the front end to only display based on which user is logged in. We were experiencing seeing both clothing items being displayed in the same user account. We can make the adjustments successfully by only displaying the clothing items in the bin view pages specifically to the user who is logged in. Sabrina then added new CSS to the login and background of our application, created a logout button, and enhanced the dropdown functionality. Jeanette added more to the Wardrobe form, and the main blockage we are currently experiencing is docker issues preventing her from seeing her new updates being made on her browser and displaying her React server. The focus for tomorrow will be to successfully pull our data from our database to be displayed on our Wardrobe form. Additionally, Liland successfully created a dropdown select tag to show our bins and tags on our Clothing Form page. 
+And Jeanette did the driving today while Jason and Liland assisted with navigation. Sabrina focused on the front-end styling adding new CSS to the various pages of our application. In the morning, we faced the challenge of getting our new clothing POST on the front end to only display based on which user is logged in. We were experiencing seeing both clothing items being displayed in the same user account. We can make the adjustments successfully by only displaying the clothing items in the bin view pages specifically to the user who is logged in. Sabrina then added new CSS to the login and background of our application, created a logout button, and enhanced the dropdown functionality. Jeanette added more to the Wardrobe form, and the main blockage we are currently experiencing is docker issues preventing her from seeing her new updates being made on her browser and displaying her React server. The focus for tomorrow will be to successfully pull our data from our database to be displayed on our Wardrobe form. Additionally, Liland successfully created a dropdown select tag to show our bins and tags on our Clothing Form page.
