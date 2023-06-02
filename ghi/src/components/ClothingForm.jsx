@@ -136,7 +136,7 @@ const ClothesForm = () => {
 
   return (
     <div className="card text-bg-light mb-3">
-      <h5 className="card-header">ClothingForm</h5>
+      <h5 className="card-header">Clothing Form</h5>
       <div className="card-body">
         <form onSubmit={handleSubmit}>
           <div className="form-group">

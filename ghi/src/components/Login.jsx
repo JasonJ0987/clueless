@@ -12,16 +12,24 @@ const Login = () => {
   const navigate = useNavigate();
   const [isLoginClicked, setIsLoginClicked] = useState(false);
 
+  const HandleLogin = async(event) => {
+    event.preventDefault();
+    const response = await login(email,password);
+    if (response.success) {
+      setIsLoginClicked(true);
+    } else {
+      setErrorMessage("Username/password was entered incorrectly");
+    }
+
+  }
   useEffect(() => {
     if (isLoginClicked) {
       if (!token) {
-        setErrorMessage("Username/password was entered incorrectly");
-      } else {
         setErrorMessage("");
         navigate("/");
       }
     }
-  }, [isLoginClicked, token]);
+  }, [isLoginClicked, token, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
