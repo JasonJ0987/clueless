@@ -117,6 +117,12 @@ class ClothesList(BaseModel):
     clothes: List[ClothesOut]
 
 
+class OutfitIn(BaseModel):
+    hat: ClothesOut
+    top: ClothesOut
+    bottom: ClothesOut
+    shoes: ClothesOut
+
 
 
 

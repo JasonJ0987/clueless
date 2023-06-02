@@ -135,80 +135,97 @@ const ClothesForm = () => {
   }, [token]);
 
   return (
-    <div className="card text-bg-light mb-3">
-      <h5 className="card-header">ClothingForm</h5>
-      <div className="card-body">
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={name}
-              onChange={handleNameChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="picture">Picture</label>
-            <input
-              type="text"
-              name="picture"
-              id="picture"
-              value={picture}
-              onChange={handlePictureChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="primary_color">Primary Color</label>
-            <input
-              type="text"
-              name="primary_color"
-              id="primary_color"
-              value={color}
-              onChange={handleColorChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="type">Type</label>
-            <input
-              type="text"
-              name="type"
-              id="type"
-              value={type}
-              onChange={handleTypeChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="bin_id">Bins</label>
-            <select name="bin_id" value={binId} onChange={handleBinIdChange}>
-              <option value="">Choose a Bin</option>
-              {bins.map((bin) => (
-                <option value={bin.id} key={bin.id}>
-                  {bin.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="tag_id">Tags:</label>
-            {tags.map((tag) => (
-              <div key={tag.id}>
-                <input
-                  type="checkbox"
-                  id={tag.id}
-                  value={tag.id}
-                  checked={tagId.includes(tag.id)}
-                  onChange={handleTagIdChange}
-                />
-                <label htmlFor={tag.id}>{tag.description}</label>
+    <div style={{ backgroundColor: "#1f2029", minHeight: "100vh", paddingTop: "10px"}}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="card-3d-wrap mx-auto"
+              style={{ boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.3)", height: "800px" }}
+            >
+              <div className="card-3d-wrapper">
+                <div className="card-front">
+                  <div className="center-wrap">
+                    <div className="section text-center">
+                      <h4 className="mb-4 pb-3"> Sign Up Here! </h4>
+                      <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                          <label htmlFor="name">Name</label>
+                          <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            value={name}
+                            onChange={handleNameChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="picture">Picture</label>
+                          <input
+                            type="text"
+                            name="picture"
+                            id="picture"
+                            value={picture}
+                            onChange={handlePictureChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="primary_color">Primary Color</label>
+                          <input
+                            type="text"
+                            name="primary_color"
+                            id="primary_color"
+                            value={color}
+                            onChange={handleColorChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="type">Type</label>
+                          <input
+                            type="text"
+                            name="type"
+                            id="type"
+                            value={type}
+                            onChange={handleTypeChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="bin_id">Bins</label>
+                          <select name="bin_id" value={binId} onChange={handleBinIdChange}>
+                            <option value="">Choose a Bin</option>
+                            {bins.map((bin) => (
+                              <option value={bin.id} key={bin.id}>
+                                {bin.name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="tag_id">Tags:</label>
+                          {tags.map((tag) => (
+                            <div key={tag.id}>
+                              <input
+                                type="checkbox"
+                                id={tag.id}
+                                value={tag.id}
+                                checked={tagId.includes(tag.id)}
+                                onChange={handleTagIdChange}
+                              />
+                              <label htmlFor={tag.id}>{tag.description}</label>
+                            </div>
+                          ))}
+                        </div>
+                        <button type="submit" onClick={handleSubmit}>
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );

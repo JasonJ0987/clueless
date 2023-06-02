@@ -11,15 +11,19 @@ const Login = () => {
   const { login, token } = useToken();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (token) {
-      setErrorMessage("");
-      console.log(token);
-      navigate("/");
-    } else if (!token && email && password) {
-      setErrorMessage("Username/password was entered incorrectly");
-    }
-  }, [token]);
+  useEffect(
+    () => {
+        // console.log("token", token === null , email.isEmpty() , password.isEmpty());
+      if (token) {
+        setErrorMessage("");
+        console.log(token);
+        navigate("/");
+      } else if (!token && email && password) {
+        setErrorMessage("Username/password was entered incorrectly");
+      }
+    },
+    [token]
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();

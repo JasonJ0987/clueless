@@ -49,7 +49,7 @@ function Navbar(closet_id, ) {
             >
               MyCloset  <i className='fas fa-caret-down' />
             </Link>
-            {dropdown && <Dropdown />}
+            {dropdown && <Dropdown/>}
           </li>
           <li className='nav-item'>
             <Link
