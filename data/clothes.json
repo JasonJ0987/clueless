@@ -1,11 +1,11 @@
 [{
   "_id": {
-    "$oid": "646d3a01ed5fa11c05599b2a"
+    "$oid": "6478dff9848f17601cc41f80"
   },
-  "name": "shirt",
-  "picture": "string",
-  "primary_color": "black",
-  "type": "string",
+  "name": "Mickey 2 ",
+  "picture": "https://media.giphy.com/media/3JgtnXdRhSflK/giphy.gif",
+  "primary_color": "3e",
+  "type": "3e",
   "tag_ids": [
     "646d1f505b47d2fcc8c7b6cf"
   ],
@@ -14,41 +14,29 @@
   },
   "closet_id": {
     "$oid": "646b99c3f2cd73044cf5707d"
+  },
+  "user_id": {
+    "$oid": "6465439e1c07e692b9557aeb"
   }
 },
 {
   "_id": {
-    "$oid": "64764245db0a6ef76f9023d2"
+    "$oid": "6478e048848f17601cc41f81"
   },
-  "name": "shirt 2",
-  "picture": "string",
-  "primary_color": "green",
-  "type": "string",
+  "name": "user",
+  "picture": "https://media.giphy.com/media/3JgtnXdRhSflK/giphy.gif",
+  "primary_color": "3e",
+  "type": "ededde",
   "tag_ids": [
-    "646d1f505b47d2fcc8c7b6cf"
+    "6478bdd7f9945b090ea1f9fe"
   ],
   "bin_id": {
     "$oid": "646bc0f74277954dd0f38117"
   },
   "closet_id": {
     "$oid": "646b99c3f2cd73044cf5707d"
-  }
-},
-{
-  "_id": {
-    "$oid": "64764296db0a6ef76f9023d3"
   },
-  "name": "baseball cap",
-  "picture": "string",
-  "primary_color": "white and black",
-  "type": "string",
-  "tag_ids": [
-    "646d1f505b47d2fcc8c7b6cf"
-  ],
-  "bin_id": {
-    "$oid": "646beb5724b33168d5719493"
-  },
-  "closet_id": {
-    "$oid": "646b99c3f2cd73044cf5707d"
+  "user_id": {
+    "$oid": "646620b95ccb73e9d4986b0a"
   }
 }]

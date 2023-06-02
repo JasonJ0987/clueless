@@ -71,11 +71,12 @@ class ClothesQueries(Queries):
     DB_NAME = "library"
     COLLECTION = "clothes"
 
-    def get_all(self, closet_id: str, bin_id: str) -> List[ClothesOut]:
+    def get_all(self, closet_id: str, bin_id: str, user_id) -> List[ClothesOut]:
         props = self.collection.find(
             {
                 "closet_id": ObjectId(closet_id),
                 "bin_id": ObjectId(bin_id),
+                "user_id": ObjectId(user_id)
             }
         )
         clothesPropsList = list(props)
@@ -83,6 +84,7 @@ class ClothesQueries(Queries):
             clothesProps["id"] = str(clothesProps["_id"])
             clothesProps["closet_id"] = str(clothesProps["closet_id"])
             clothesProps["bin_id"] = str(clothesProps["bin_id"])
+            clothesProps["user_id"] = str(clothesProps["user_id"])
         return [ClothesOut(**clothes) for clothes in clothesPropsList]
 
     def get_one(self, clothes_id: str, closet_id: str, bin_id: str) -> ClothesOut | None:
@@ -104,12 +106,14 @@ class ClothesQueries(Queries):
         props = item.dict()
         props["closet_id"] = ObjectId(props["closet_id"])
         props["bin_id"] = ObjectId(props["bin_id"])
+        props["user_id"] = ObjectId(props["user_id"])
         self.collection.insert_one(props)
         if not props:
             return None
         props["closet_id"] = str(props["closet_id"])
         props["bin_id"] = str(props["bin_id"])
         props["id"] = str(props["_id"])
+        props["user_id"] = str(props["user_id"])
         return ClothesOut(**props)
 
     def delete(self, clothes_id: str, closet_id: str, bin_id: str):
@@ -120,3 +124,10 @@ class ClothesQueries(Queries):
                 "bin_id": ObjectId(bin_id)
             }
         )
+
+
+class OutfitQueries(Queries):
+    DB_NAME = "library"
+    COLLECTION = "outfits"
+
+    def create(self, )

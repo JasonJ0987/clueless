@@ -1,186 +1,234 @@
 import React, { useEffect, useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 
-
 const ClothesForm = () => {
-    const [clothes, setClothes] = useState({
-    name: "",
-    picture: "",
-    primary_color: "",
-    type: "",
-    bin_id: "",
-    closet_id: "646b99c3f2cd73044cf5707d",
-    tag_ids: "",
-    });
+  const [name, setName] = useState("");
+  const [picture, setPicture] = useState("");
+  const [color, setColor] = useState("");
+  const [type, setType] = useState("");
+  const [binId, setBinId] = useState("");
+  const [tagId, setTagId] = useState([]);
+  const [userId, setUserId] = useState("");
+  const [bins, setBins] = useState([]);
+  const [tags, setTags] = useState([]);
+  const { token } = useToken();
 
-    const { token } = useToken();
-    const [bins, setBins] = useState([]);
-    const [tags, setTags] = useState([]);
+  const handleNameChange = (event) => {
+    const value = event.target.value;
+    setName(value);
+  };
+  const handlePictureChange = (event) => {
+    const value = event.target.value;
+    setPicture(value);
+  };
+  const handleColorChange = (event) => {
+    const value = event.target.value;
+    setColor(value);
+  };
+  const handleTypeChange = (event) => {
+    const value = event.target.value;
+    setType(value);
+  };
+  const handleBinIdChange = (event) => {
+    const value = event.target.value;
+    setBinId(value);
+  };
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setClothes({
-        ...clothes, //copies the current value of the clothes variable to a new object
-        [name]: value, //sets the value of the property
-        });
-    };
+  const handleTagIdChange = (event) => {
+    const selectedTags = event.target.value;
+    const isChecked = event.target.checked;
 
+    if (isChecked) {
+      setTagId((prevTagId) => [...prevTagId, selectedTags]);
+    } else {
+      setTagId((prevTagId) =>
+        prevTagId.filter((tagId) => tagId !== selectedTags)
+      );
+    }
+  };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const response = await fetch(`${process.env.REACT_APP_WHATEVR}/api/closet/${clothes.closet_id}/bins/${clothes.bin_id}/clothes`,
-        {
-            method: "POST",
-            body: JSON.stringify(clothes),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        if (response.ok) {
-            clothes({
-                name: "",
-                picture: "",
-                primary_color: "",
-                type: "",
-                bin_id: "",
-                closet_id: "646b99c3f2cd73044cf5707d",
-                tag_ids: "",
-            });
-        }
-    };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = {};
+    data.name = name;
+    data.picture = picture;
+    data.primary_color = color;
+    data.type = type;
+    data.tag_ids = tagId;
+    data.bin_id = binId;
+    data.closet_id = "646b99c3f2cd73044cf5707d";
+    data.user_id = userId;
 
-    const loadBins = async () => {
-        const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${clothes.closet_id}/bins/`;
-        const fetchConfig = {
-        method: "GET",
+    const response = await fetch(
+      `${process.env.REACT_APP_WHATEVR}/api/closet/${data.closet_id}/bins/${data.bin_id}/clothes`,
+      {
+        method: "POST",
+        body: JSON.stringify(data),
         headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        };
-        const response = await fetch(url, fetchConfig);
-        if (response.ok) {
-        const data = await response.json();
-        setBins(data.bins);
-        }
+      }
+    );
+    if (response.ok) {
+      setName("");
+      setPicture("");
+      setColor("");
+      setType("");
+      setBinId("");
+      setTagId([]);
+      setUserId("");
+    } else {
+      const error = await response.json();
+      console.log("Error", error);
+    }
+  };
+
+  const loadBins = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setBins(data.bins);
+    }
+  };
 
-    const loadTags = async () => {
-        const url=`${process.env.REACT_APP_WHATEVR}/api/tags`;
-        const fetchConfig = {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-        },
-        };
-        const response = await fetch(url, fetchConfig);
-        if (response.ok) {
-        const data = await response.json();
-        setTags(data.tags);
-        }
+  const loadTags = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/tags`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setTags(data.tags);
+    }
+  };
 
-    useEffect(() => {loadBins(); loadTags();}, [token]);
+  const loadUser = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/token`;
+    fetch(url, {
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUserId(data.account.id);
+      })
+      .catch((error) => console.error(error));
+  };
 
+  useEffect(() => {
+    loadBins();
+    loadTags();
+    loadUser();
+  }, [token]);
 
-
-
-return (
-  <div className="card text-bg-light mb-3">
-    <h5 className="card-header">ClothingForm</h5>
-    <div className="card-body">
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={clothes.name}
-            onChange={handleChange}
-          />
+  return (
+    <div style={{ backgroundColor: "#1f2029", minHeight: "100vh", paddingTop: "10px"}}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="card-3d-wrap mx-auto"
+              style={{ boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.3)", height: "800px" }}
+            >
+              <div className="card-3d-wrapper">
+                <div className="card-front">
+                  <div className="center-wrap">
+                    <div className="section text-center">
+                      <h4 className="mb-4 pb-3"> Sign Up Here! </h4>
+                      <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                          <label htmlFor="name">Name</label>
+                          <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            value={name}
+                            onChange={handleNameChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="picture">Picture</label>
+                          <input
+                            type="text"
+                            name="picture"
+                            id="picture"
+                            value={picture}
+                            onChange={handlePictureChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="primary_color">Primary Color</label>
+                          <input
+                            type="text"
+                            name="primary_color"
+                            id="primary_color"
+                            value={color}
+                            onChange={handleColorChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="type">Type</label>
+                          <input
+                            type="text"
+                            name="type"
+                            id="type"
+                            value={type}
+                            onChange={handleTypeChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="bin_id">Bins</label>
+                          <select name="bin_id" value={binId} onChange={handleBinIdChange}>
+                            <option value="">Choose a Bin</option>
+                            {bins.map((bin) => (
+                              <option value={bin.id} key={bin.id}>
+                                {bin.name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="tag_id">Tags:</label>
+                          {tags.map((tag) => (
+                            <div key={tag.id}>
+                              <input
+                                type="checkbox"
+                                id={tag.id}
+                                value={tag.id}
+                                checked={tagId.includes(tag.id)}
+                                onChange={handleTagIdChange}
+                              />
+                              <label htmlFor={tag.id}>{tag.description}</label>
+                            </div>
+                          ))}
+                        </div>
+                        <button type="submit" onClick={handleSubmit}>
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="picture">Picture</label>
-          <input
-            type="text"
-            name="picture"
-            id="picture"
-            value={clothes.picture}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="primary_color">Primary Color</label>
-          <input
-            type="text"
-            name="primary_color"
-            id="primary_color"
-            value={clothes.primary_color}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="type">Type</label>
-          <input
-            type="text"
-            name="type"
-            id="type"
-            value={clothes.type}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="bin_id">Bins</label>
-          <select name="bin_id" value={clothes.bin_id} onChange={handleChange}>
-            <option value="">Choose a Bin</option>
-            {bins.map((bin) => {
-              return (
-                <option value={bin.id} key={bin.id}>
-                  {bin.name}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="tag_ids">Tags</label>
-          <select
-            name="tag_ids"
-            value={clothes.tag_ids}
-            onChange={handleChange}
-            // multiple={false}
-          >
-            <option value="">Tag</option>
-            {tags.map((tag) => {
-              return (
-                <option value={tag.id} key={tag.id}>
-                  {tag.description}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default ClothesForm;
-
-
-
-    // const fetchData = async () => {
-    //     const modelUrl = "http://localhost:8100/api/models/";
-    //     const modelResponse = await fetch(modelUrl);
-    //     if (modelResponse.ok) {
-    //         const modelData = await modelResponse.json();
-    //         setModels(modelData.models);
-    //     };
-    // };
