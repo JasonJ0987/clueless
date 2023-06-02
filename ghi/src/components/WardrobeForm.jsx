@@ -36,42 +36,32 @@ const WardrobeForm = () => {
       }
     );
     if (response.ok) {
-      setHats("");
-      setTops("");
-      setBottoms("");
-      setShoes("");
+      setHats([]);
+      setTops([]);
+      setBottoms([]);
+      setShoes([]);
     } else {
       const error = await response.json();
       console.log("Error", error)
     }
   };
 
-  // console.log("Selected Hats:", hats);
-  // console.log("Selected Tops:", tops);
-  // console.log("Selected Bottoms:", bottoms);
-  // console.log("Selected Shoes:", shoes);
-  // setHats([]);
-  // setTops([]);
-  // setBottoms([]);
-  // setShoes([]);
-
-  const loadBins = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      console.log("data", data)
-      setBin(data.bins);
-      
-    }
-  };
+//   const loadBins = async () => {
+//     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/`;
+//     const fetchConfig = {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//         // Authorization: `Bearer ${token}`,
+//       },
+//     };
+//     const response = await fetch(url, fetchConfig);
+//     if (response.ok) {
+//       const data = await response.json();
+//       console.log("data", data)
+//       setBin(data.bins);
+//     }
+//   };
 
   const loadHats = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
@@ -79,16 +69,19 @@ const WardrobeForm = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
     };
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      console.log("hatdata", data)
-      setHats(data.clothes);
+      let hatList = [];
+      for (let hat of data.clothes) {
+        hatList.push(hat);
+      }
+      console.log("hatdata", data);
+      setHats(hatList);
       console.log("hats", hats);
-      console.log("cat")
     }
   };
 
@@ -98,7 +91,7 @@ const WardrobeForm = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
     };
     const response = await fetch(url, fetchConfig);
@@ -116,7 +109,7 @@ const WardrobeForm = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
     };
     const response = await fetch(url, fetchConfig);
@@ -134,7 +127,7 @@ const WardrobeForm = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
     };
     const response = await fetch(url, fetchConfig);
@@ -151,7 +144,7 @@ const WardrobeForm = () => {
     loadTops();
     loadBottoms();
     loadShoes();
-    loadBins();
+    // loadBins();
   }, [token]);
 
   // useEffect(() => {
@@ -161,7 +154,7 @@ const WardrobeForm = () => {
   // useEffect(() => {
   //     loadTops();
   // }, []);
-  
+
   // useEffect(() => {
   //     loadBottoms();
   // }, []);
@@ -175,9 +168,6 @@ const WardrobeForm = () => {
   // }, []);
 
   // }, [token]);
-
-  useEffect(() => {
-  }, [hats]);
 
   return (
     <div
@@ -194,11 +184,11 @@ const WardrobeForm = () => {
           type="submit"
         >Submit Style</button>
         <div className="form-group">
-          <label htmlFor="hats">Hats</label>
-          <select name="hats" value={hats} onChange={handleHatsChange}>
+          <label htmlFor="hat">Hats</label>
+          <select name="hat" value={hats} onChange={handleHatsChange}>
             <option value="">Choose a Hat</option>
-            {hats && hats.map((hat) => (
-              <option value={hat.id} key={hat.id}>
+            {hats.map((hat) => (
+              <option value={hat} key={hat.id}>
                 {hat.name}
               </option>
             ))}

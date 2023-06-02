@@ -12,6 +12,7 @@ import NavBar from "./components/Navbar";
 import BinView from "./components/BinView";
 import ClothesForm from "./components/ClothingForm";
 import WardrobeForm from "./components/WardrobeForm";
+import Planner from "./components/Planner";
 import './index.css'
 
 
@@ -37,6 +38,8 @@ function App() {
             </Route>
             <Route path="wardrobe">
               <Route path="new" element={< WardrobeForm />} />
+            </Route>
+            <Route path="planner" element={< Planner />}>
             </Route>
           </Routes>
         </div>
