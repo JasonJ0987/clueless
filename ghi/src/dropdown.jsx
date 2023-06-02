@@ -14,7 +14,7 @@ function Dropdown() {
     >
       <li>
         <Link className="dropdown-link" to="/closet">
-          Bins
+          Your Closet
         </Link>
       </li>
       <li>
@@ -52,9 +52,17 @@ function Dropdown() {
       <li>
         <Link
           className="dropdown-link"
-          to="/clothes/new"
+          to="/closet/new"
         >
           Upload Clothing Item
+        </Link>
+      </li>
+      <li>
+        <Link
+          className="dropdown-link"
+          to="/wardrobe/new"
+        >
+          Create New Wardrobe
         </Link>
       </li>
     </ul>

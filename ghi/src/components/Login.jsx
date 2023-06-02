@@ -1,7 +1,6 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginButton } from "../button.jsx";
 import '../index.css';
 
 const Login = () => {
@@ -65,7 +64,7 @@ const Login = () => {
                         {errorMessage && (
                           <div className="alert alert-danger">{errorMessage}</div>
                         )}
-                        <div style={{marginTop: "15px"}}>
+                        <div style={{marginTop: "25px"}}>
                           <input className="btn btn-primary" type="submit" value="Login"/>
                         </div>
                       </form>

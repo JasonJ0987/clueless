@@ -39,6 +39,9 @@ function App() {
               <Route path="bins/:binId" element={< BinView />} />
               <Route path="new" element={< ClothesForm />} />
             </Route>
+            <Route path="wardrobe">
+              <Route path="new" element={< WardrobeForm />} />
+            </Route>
           </Routes>
         </div>
       </BrowserRouter>

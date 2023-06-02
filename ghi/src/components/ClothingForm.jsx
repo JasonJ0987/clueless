@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import '../index.css'
 
 const ClothesForm = () => {
   const [name, setName] = useState("");
@@ -135,23 +136,22 @@ const ClothesForm = () => {
   }, [token]);
 
   return (
-    <div style={{ backgroundColor: "#1f2029", minHeight: "100vh", paddingTop: "10px"}}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div
               className="card-3d-wrap mx-auto"
-              style={{ boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.3)", height: "800px" }}
+              style={{ boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.3)" }}
             >
               <div className="card-3d-wrapper">
                 <div className="card-front">
                   <div className="center-wrap">
                     <div className="section text-center">
-                      <h4 className="mb-4 pb-3"> Sign Up Here! </h4>
+                      <h4 className="mb-4 pb-3"> Upload your Clothes!</h4>
                       <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                          <label htmlFor="name">Name</label>
-                          <input
+                          <label htmlFor="name" style={{marginRight: "10px"}}>Name</label>
+                          <input style={{marginBottom: "15px"}}
                             type="text"
                             name="name"
                             id="name"
@@ -160,8 +160,8 @@ const ClothesForm = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label htmlFor="picture">Picture</label>
-                          <input
+                          <label className= 'form-label' htmlFor="picture" style={{marginRight: "10px"}}>Picture</label>
+                          <input  style={{marginBottom: "15px"}}
                             type="text"
                             name="picture"
                             id="picture"
@@ -170,8 +170,8 @@ const ClothesForm = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label htmlFor="primary_color">Primary Color</label>
-                          <input
+                          <label className= 'form-label' htmlFor="primary_color" style={{marginRight: "10px"}}>Primary Color</label>
+                          <input style={{marginBottom: "15px"}}
                             type="text"
                             name="primary_color"
                             id="primary_color"
@@ -180,8 +180,8 @@ const ClothesForm = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label htmlFor="type">Type</label>
-                          <input
+                          <label className= 'form-label' htmlFor="type" style={{marginRight: "10px"}}>Type</label>
+                          <input style={{marginBottom: "15px"}}
                             type="text"
                             name="type"
                             id="type"
@@ -190,7 +190,7 @@ const ClothesForm = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label htmlFor="bin_id">Bins</label>
+                          <label className= 'form-label' htmlFor="bin_id" style={{marginRight: "10px"}}>Bins</label>
                           <select name="bin_id" value={binId} onChange={handleBinIdChange}>
                             <option value="">Choose a Bin</option>
                             {bins.map((bin) => (
@@ -201,28 +201,27 @@ const ClothesForm = () => {
                           </select>
                         </div>
                         <div className="form-group">
-                          <label htmlFor="tag_id">Tags:</label>
+                          <label className= 'form-label' htmlFor="tag_id" style={{marginRight: "10px"}}>Tags:</label>
                           {tags.map((tag) => (
                             <div key={tag.id}>
-                              <input
+                              <input style={{marginBottom: "15px"}}
                                 type="checkbox"
                                 id={tag.id}
                                 value={tag.id}
                                 checked={tagId.includes(tag.id)}
                                 onChange={handleTagIdChange}
                               />
-                              <label htmlFor={tag.id}>{tag.description}</label>
+                              <label className= 'form-label' htmlFor={tag.id}>{tag.description}</label>
                             </div>
                           ))}
                         </div>
-                        <button type="submit" onClick={handleSubmit}>
+                        <button className= 'btn btn primary' type="submit" onClick={handleSubmit}>
                           Submit
                         </button>
                       </form>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
