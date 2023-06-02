@@ -117,10 +117,25 @@ class ClothesList(BaseModel):
     clothes: List[ClothesOut]
 
 
+class OutfitIn(BaseModel):
+    hat: ClothesOut
+    top: ClothesOut
+    bottom: ClothesOut
+    shoes: ClothesOut
+    user_id: str
 
 
+class OutfitOut(BaseModel):
+    id: str
+    hat: ClothesOut
+    top: ClothesOut
+    bottom: ClothesOut
+    shoes: ClothesOut
+    user_id: str
 
 
+class OutfitList(BaseModel):
+    outfits: List[OutfitOut]
 
 
 # class AccountOut(Account):

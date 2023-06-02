@@ -13,12 +13,15 @@ from api.queries.models import (
     ClothesOut,
     ClothesList,
     ClothesIn,
-
+    OutfitIn,
+    OutfitOut,
+    OutfitList,
 )
 from api.queries.closet import (
     ClosetQueries,
     BinQueries,
     ClothesQueries,
+    OutfitQueries,
 )
 
 router = APIRouter()
@@ -120,6 +123,47 @@ async def delete_clothing(
     repo: ClothesQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
-    print(current_user)
     repo.delete(closet_id=closet_id, bin_id=bin_id, clothes_id=clothes_id)
+    return True
+
+
+@router.post("/api/wardrobe", response_model=OutfitOut)
+async def post_outfit(
+    outfit: OutfitIn,
+    repo: OutfitQueries = Depends(),
+    current_user: dict = Depends(get_current_user),
+):
+    new_outfit = repo.create(outfit)
+    return new_outfit
+
+
+@router.get("/api/wardrobe", response_model=OutfitList | None)
+async def get_outfits(
+    repo: OutfitQueries = Depends(),
+    current_user: dict = Depends(get_current_user),
+):
+    if OutfitList(outfits=repo.get_all(user_id=current_user.id)) == []:
+        return None
+    return OutfitList(outfits=repo.get_all(user_id=current_user.id))
+
+
+@router.get("/api/wardrobe/{outfit_id}", response_model=OutfitOut | None)
+def get_outfit(
+    outfit_id: str,
+    repo: OutfitQueries = Depends(),
+    current_user: dict = Depends(get_current_user),
+):
+    props = repo.get_one(outfit_id=outfit_id, user_id=current_user.id)
+    if not props:
+        return None
+    return props
+
+
+@router.delete("/api/wardrobe/{outfit_id}", response_model=bool)
+async def delete_outfit(
+    outfit_id: str,
+    repo: OutfitQueries = Depends(),
+    current_user: dict = Depends(get_current_user),
+):
+    repo.delete(outfit_id=outfit_id)
     return True
