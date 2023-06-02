@@ -51,31 +51,42 @@ function ClosetView() {
   }, [closetId]);
 
   return (
-    <div className="container mt-5">
-      <h1>{closets && closets[0].name}</h1>
+    <div
+      className="container mt-5"
+      style={{ maxWidth: "1000px", margin: "0 auto" }}
+    >
+      <h1 style={{ color: "white" }}>{closets && closets[0].name}</h1>
+      <br></br>
+      <br></br>
       <div className="bin-container">
-        {bins &&
-          bins.map((bin) => (
-            <div
-              className="card mb-5 bin-card"
-              key={bin.id}
-            >
-              <div className="card-body">
-                <h5 className="card-title" style={{ textAlign: "center" }}>
-                  <NavLink to={`bins/${bin.id}`}>{bin.name}</NavLink>
-                </h5>
-                <div className="image-wrapper">
-                  <NavLink to={`bins/${bin.id}`}>
-                    <img
-                      className="card-img-bottom"
-                      src={bin.picture}
-                      alt={bin.name}
-                    />
+        <div className="grid-container">
+          {bins &&
+            bins.map((bin) => (
+              <div className="card mb-5 bin-card" key={bin.id}>
+                <h5 style={{ fontSize: "24pt", textAlign: "center" }}>
+                  <NavLink
+                    to={`bins/${bin.id}`}
+                    style={{ color: "black", textDecoration: "none" }}
+                    onMouseEnter={(e) => (e.target.style.color = "#8B8000")}
+                    onMouseLeave={(e) => (e.target.style.color = "black")}
+                  >
+                    {bin.name}
                   </NavLink>
+                </h5>
+                <div className="card-body">
+                  <div className="image-wrapper">
+                    <NavLink to={`bins/${bin.id}`}>
+                      <img
+                        className="card-img-bottom"
+                        src={bin.picture}
+                        alt={bin.name}
+                      />
+                    </NavLink>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
     </div>
   );

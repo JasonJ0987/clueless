@@ -39,4 +39,88 @@
   "user_id": {
     "$oid": "646620b95ccb73e9d4986b0a"
   }
+},
+{
+  "_id": {
+    "$oid": "647a1df9aa30bfd053522092"
+  },
+  "name": "Hat",
+  "picture": "hat.pic",
+  "primary_color": "green",
+  "type": "hat",
+  "tag_ids": [
+    "646d1f505b47d2fcc8c7b6cf"
+  ],
+  "bin_id": {
+    "$oid": "646bc0f74277954dd0f38117"
+  },
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  },
+  "user_id": {
+    "$oid": "646620b95ccb73e9d4986b0a"
+  }
+},
+{
+  "_id": {
+    "$oid": "647a1e2faa30bfd053522093"
+  },
+  "name": "Shirt",
+  "picture": "shirt.pic",
+  "primary_color": "green",
+  "type": "shirt",
+  "tag_ids": [
+    "646d1f505b47d2fcc8c7b6cf"
+  ],
+  "bin_id": {
+    "$oid": "646beb5724b33168d5719493"
+  },
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  },
+  "user_id": {
+    "$oid": "646620b95ccb73e9d4986b0a"
+  }
+},
+{
+  "_id": {
+    "$oid": "647a1e63aa30bfd053522094"
+  },
+  "name": "Pants",
+  "picture": "pants.pic",
+  "primary_color": "orange",
+  "type": "pants",
+  "tag_ids": [
+    "646d1f505b47d2fcc8c7b6cf"
+  ],
+  "bin_id": {
+    "$oid": "647659f829d0764ee8697289"
+  },
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  },
+  "user_id": {
+    "$oid": "646620b95ccb73e9d4986b0a"
+  }
+},
+{
+  "_id": {
+    "$oid": "647a1e70aa30bfd053522095"
+  },
+  "name": "Shoes",
+  "picture": "shoes.pic",
+  "primary_color": "blue",
+  "type": "shoes",
+  "tag_ids": [
+    "646d1f505b47d2fcc8c7b6cf"
+  ],
+  "bin_id": {
+    "$oid": "64765a3929d0764ee869728a"
+  },
+  "closet_id": {
+    "$oid": "646b99c3f2cd73044cf5707d"
+  },
+  "user_id": {
+    "$oid": "646620b95ccb73e9d4986b0a"
+  }
 }]
