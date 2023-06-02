@@ -31,7 +31,6 @@ const WardrobeForm = () => {
     if (response.ok) {
       const data = await response.json();
       setBin(data.bins);
-      console.log("data", data);
     }
   };
 
