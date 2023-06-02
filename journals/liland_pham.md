@@ -95,3 +95,16 @@ Also added a logout button when a user successfully logs in.
 
 Sabrina and Xander worked on the navigation bar. They set up the drop down button and added a logo which will redirect the user to the homepage once it's clicked.
 3. No blockers - most of the code was similar to the closet view page.
+
+## May 31st, 2023
+1. Starting on forms for the front end - Create a clothes item form and create a wardrobe from
+2. Xander was the driver - we are creating the form page for adding a new clothes item to a bin.
+Sabrina and Jeanette are working on the styling for the website. For the closet page, we are trying to create clickable cards that will redirect the user to the correct bin. Also, cleaned up the navigation bar to make it look prettier.
+3. Blockers - For the login page, we were trying to create an error message if the user enters in the incorrect username/password. The error message is not displaying but when the login is correct it redirects the user to the homepage. I'll say it's 75% working, all thanks to Violet, but still missing the error message.
+For the clothes form, we had an issue mapping the bins and tags but eventually had it figured out. We are stuck on the submission part - not able to add the new clothes item to the bin.
+
+## June 1st, 2023
+1. Finishing up the create a clothes item form and starting on the create a wardrobe form today.
+2. Xander was the driver for the first half of the day today. We were able to get the clothes item form to work - finally! We ran into the problem where if one account creates a new clothing piece, it'll also show in all the other user's bins as well (which we don't want). Jason went back to the backend model of Clothes Out and added the account's ID to the model. I was also able to create a checkbox for the tags - the user can now select multiple tags when creating a form. Our clothes form can now be created properly where the clothing item get posted in the bin of that specific user and only that user can view the clothes that they uploaded.
+Second half of the day, Jeanette started on the wardrobe form. We are trying to create card-like containers where the users are able to select items from hats, tops, bottoms, and shoes bin to create a new outfit for the planner. Right now, the containers aren't clickable yet.
+3. Blockers - Whenever the page refreshes, it doesn't recognize the token for some reason and will give a 401 unauthorized error but the account is still logged in. Also, Jeanette was running into the issue where whenever she makes changes in React, it's not automatically updating in the browser. She'll have to physically stop and start the GHI container in Docker for the browser to load with the most updated code.

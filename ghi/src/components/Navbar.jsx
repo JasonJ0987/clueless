@@ -1,37 +1,51 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import Dropdown from '../dropdown.jsx';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css';
 import { SignupButton, LoginButton, LogoutButton } from '../button.jsx';
 
-function Navbar() {
+function Navbar(closet_id, ) {
   const [click, setClick] = useState(false);
   const { logout, token } = useToken();
   const [dropdown, setDropdown] = useState(false);
+  const [delayHandler, setDelayHandler] = useState(null);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
+
   const onMouseEnter = () => {
     if (window.innerWidth >= 960) {
-      setTimeout(() => {
-        setDropdown(true);
-      }, 200);
+      clearTimeout(delayHandler);
+      setDropdown(true);
     }
   };
 
   const onMouseLeave = () => {
     if (window.innerWidth >= 960) {
-      setDropdown(false);
+      const handler = setTimeout(() => {
+        setDropdown(false);
+      }, 200);
+      setDelayHandler(handler);
     }
   };
+
+
+
+  useEffect(() => {
+    return () => {
+      // Cleanup the timeout on unmount
+      clearTimeout(delayHandler);
+    };
+  }, [delayHandler]);
+
 
   return (
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' height="65" width="200"/>
+          <img src='i-wear-whatevr-low-resolution-logo-color-on-transparent-background.png' alt="logo" height="45" width="200"/>
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -47,9 +61,9 @@ function Navbar() {
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              MyCloset <i className='fas fa-caret-down' />
+              MyCloset  <i className='fas fa-caret-down' />
             </Link>
-            {dropdown && <Dropdown />}
+            {dropdown && <Dropdown/>}
           </li>
           <li className='nav-item'>
             <Link
@@ -60,6 +74,7 @@ function Navbar() {
               Planner
             </Link>
           </li>
+        {!token && (
           <li>
             <Link
               to='/signup'
@@ -69,6 +84,8 @@ function Navbar() {
               <SignupButton/>
             </Link>
           </li>
+        )}
+        {!token && (
           <li>
             <Link
               to='/'
@@ -78,6 +95,8 @@ function Navbar() {
               <LoginButton/>
             </Link>
           </li>
+          )}
+          {token && (
           <li>
             <Link
               to='/'
@@ -87,7 +106,7 @@ function Navbar() {
               <LogoutButton/>
             </Link>
           </li>
-
+          )}
         </ul>
 
       </nav>

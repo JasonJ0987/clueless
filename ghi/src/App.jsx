@@ -10,6 +10,8 @@ import { Main } from "./components/Main";
 import ClosetView from "./components/ClosetView";
 import NavBar from "./components/Navbar";
 import BinView from "./components/BinView";
+import WardrobeForm from "./components/WardrobeForm";
+import ClothesForm from "./components/ClothingForm";
 import './index.css'
 
 
@@ -28,9 +30,17 @@ function App() {
             <Route exact path="/" element={<Main />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path="/wardrobe" element={<WardrobeForm />} />
+            <Route exact path="/" element={< Main />} />
+            <Route exact path="/signup" element={< Signup />} />
+            <Route exact path="/login" element={< Login />} />
             <Route path="closet">
-              <Route index element={<ClosetView />} />
-              <Route path="bins/:binId" element={<BinView />} />
+              <Route index element={< ClosetView />} />
+              <Route path="bins/:binId" element={< BinView />} />
+              <Route path="new" element={< ClothesForm />} />
+            </Route>
+            <Route path="wardrobe">
+              <Route path="new" element={< WardrobeForm />} />
             </Route>
           </Routes>
         </div>
@@ -38,5 +48,6 @@ function App() {
     </AuthProvider>
   );
 }
+
 
 export default App;

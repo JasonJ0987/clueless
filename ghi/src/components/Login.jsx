@@ -1,52 +1,83 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import '../index.css';
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const { login } = useToken();
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const { login, token } = useToken();
+  const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(`email: ${email} password: ${password}`);
-        login(email, password);
-        e.target.reset();
+  useEffect(
+    () => {
+        // console.log("token", token === null , email.isEmpty() , password.isEmpty());
+      if (token) {
+        setErrorMessage("");
+        console.log(token);
         navigate("/");
-    };
+      } else if (!token && email && password) {
+        setErrorMessage("Username/password was entered incorrectly");
+      }
+    },
+    [token]
+  );
 
-    return (
-    <div className="card text-bg-light mb-3">
-    <h5 className="card-header">Login</h5>
-    <div className="card-body">
-        <form onSubmit={(e) => handleSubmit(e)}>
-        <div className="mb-3">
-            <label className="form-label">Email:</label>
-            <input
-                name="email"
-                type="text"
-                className="form-control"
-                onChange={(e) => setEmail(e.target.value)}
-            />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    login(email, password);
+  };
+
+  return (
+    <div style={{ backgroundColor: "#1f2029", minHeight: "100vh"}}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card-3d-wrap mx-auto" style={{ boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.3)"}} >
+              <div className="card-3d-wrapper">
+                <div className="card-front">
+                  <div className="center-wrap">
+                    <div className="section text-center">
+                      <h4 className="mb-4 pb-3">Log In</h4>
+                      <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                          <label className="form-label">Enter your email:</label>
+                          <input
+                            name="email"
+                            type="text"
+                            placeholder="email goes here..."
+                            className="form-control"
+                            onChange={(e) => setEmail(e.target.value)}
+                          />
+                        </div>
+                        <div className="form-group mt-2">
+                          <label className="form-label">Enter your Password:</label>
+                          <input
+                            name="password"
+                            type="password"
+                            placeholder="password goes here..."
+                            className="form-control"
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
+                        </div>
+                        {errorMessage && (
+                          <div className="alert alert-danger">{errorMessage}</div>
+                        )}
+                        <div style={{marginTop: "25px"}}>
+                          <input className="btn btn-primary" type="submit" value="Login"/>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="mb-3">
-            <label className="form-label">Password:</label>
-            <input
-                name="password"
-                type="password"
-                className="form-control"
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            </div>
-            <div>
-            <input className="btn btn-primary" type="submit" value="Login" />
-            </div>
-        </form>
+          </div>
         </div>
+      </div>
     </div>
-    );
+  );
 };
 
 export default Login;
