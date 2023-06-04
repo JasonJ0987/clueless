@@ -4,8 +4,17 @@ import "../index.css"
 
 function Planner() {
   const [weather, setWeather] = useState([]);
-  const [outfit, setOutfit] = useState(null);
+  const [hats, setHats] = useState([]);
+  const [hat, setHat] = useState(null);
+  const [tops, setTops] = useState([]);
+  const [top, setTop] = useState(null);
+  const [bottoms, setBottoms] = useState([]);
+  const [bottom, setBottom] = useState(null);
+  const [shoes, setShoes] = useState([]);
+  const [shoe, setShoe] = useState(null);
   const { token } = useToken();
+
+  // need usestate for each different day !!!
 
   const loadWeather = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/weather`;
@@ -23,9 +32,98 @@ function Planner() {
     }
   };
 
+  const loadHats = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+        const data = await response.json();
+        setHats(data.clothes)
+    }
+  }
+
+  const loadTops = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setTops(data.clothes);
+    }
+  };
+
+  const loadBottoms = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setBottoms(data.clothes);
+    }
+  };
+
+  const loadShoes = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setShoes(data.clothes);
+    }
+  };
+
   useEffect(() => {
     loadWeather();
+    loadHats();
+    loadTops();
+    loadBottoms();
+    loadShoes();
   }, [token]);
+
+  const handleHatChange = (event) => {
+    const value = event.target.value;
+    setHat(value);
+  }
+
+  const handleTopChange = (event) => {
+    const value = event.target.value;
+    setHat(value);
+  }
+
+  const handleBottomChange = (event) => {
+    const value = event.target.value;
+    setBottom(value);
+  }
+
+  const handleShoeChange = (event) => {
+    const value = event.target.value;
+    setShoe(value);
+  }
+
 
   function MDYOfWeek(number) {
     let fullDay = weather[number] && weather[number]["time"];
@@ -43,8 +141,6 @@ function Planner() {
     return `${day}`;
   }
 
-
-
   let mdyOne = MDYOfWeek(1);
   let dayOne = dayOfWeek(1);
   let mdyTwo = MDYOfWeek(2);
@@ -55,6 +151,8 @@ function Planner() {
   let dayFour = dayOfWeek(4);
   let mdyFive = MDYOfWeek(5);
   let dayFive = dayOfWeek(5);
+
+  console.log('hat', hat)
 
   return (
     <div>
@@ -73,8 +171,8 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "35vh",
-            width: "100vh",
+            height: "60vh",
+            width: "150vh",
             textAlign: "center",
           }}
         >
@@ -83,6 +181,69 @@ function Planner() {
             <br></br>
             {mdyOne}
           </h2>
+          <h4>{weather[1] && weather[1]["description"]}</h4>
+          <h5>{weather[1] && weather[1]["temperature"]}</h5>
+          <img
+            src={
+              weather[1] &&
+              `http://openweathermap.org/img/w/${weather[1]["icon"]}.png`
+            }
+            alt="Weather icon"
+          />
+          <div>
+            <label htmlFor="hats">Hats: </label>
+            <br></br>
+            <select name="hats" value={hat} onChange={handleHatChange}>
+              <option value="">Choose a Hat</option>
+              {hats.map((hat) => (
+                <option value={hat.picture} key={hat.id}>
+                  {hat.name}
+                </option>
+              ))}
+            </select>
+            <div>
+                <img src={hat} alt="hat" />
+            </div>
+          </div>
+          <br></br>
+          <div>
+            <label htmlFor="tops">Tops: </label>
+            <br></br>
+            <select name="top" value={top} onChange={handleTopChange}>
+              <option value="">Choose your Top</option>
+              {tops.map((top) => (
+                <option value={top.name} key={top.id}>
+                  {top.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <br></br>
+          <div>
+            <label htmlFor="bottoms">Bottoms: </label>
+            <br></br>
+            <select name="bottom" value={bottom} onChange={handleBottomChange}>
+              <option value="">Choose your Bottom</option>
+              {bottoms.map((bottom) => (
+                <option value={bottom.name} key={bottom.id}>
+                  {bottom.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <br></br>
+          <div>
+            <label htmlFor="shoes">Shoes: </label>
+            <br></br>
+            <select name="shoe" value={shoe} onChange={handleShoeChange}>
+              <option value="">Choose your Shoe</option>
+              {shoes.map((shoe) => (
+                <option value={shoe.name} key={shoe.id}>
+                  {shoe.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div
           className="card mb-5"
@@ -90,8 +251,8 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "35vh",
-            width: "100vh",
+            height: "60vh",
+            width: "150vh",
             textAlign: "center",
           }}
         >
@@ -100,6 +261,37 @@ function Planner() {
             <br></br>
             {mdyTwo}
           </h2>
+          <h4>{weather[2] && weather[2]["description"]}</h4>
+          <h5>{weather[2] && weather[2]["temperature"]}</h5>
+          <img
+            src={
+              weather[2] &&
+              `http://openweathermap.org/img/w/${weather[2]["icon"]}.png`
+            }
+            alt="Weather icon"
+          />
+          <div>
+            <label htmlFor="hats">Hats: </label>
+            <select name="hats" value={hat} onChange={handleHatChange}>
+              <option value="">Choose a Hat</option>
+              {hats.map((hat) => (
+                <option value={hat.name} key={hat.id}>
+                  {hat.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="hats">Tops: </label>
+            <select name="hats" value={top} onChange={handleHatChange}>
+              <option value="">Choose your top</option>
+              {tops.map((top) => (
+                <option value={top.name} key={top.id}>
+                  {top.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div
           className="card mb-5"
@@ -107,8 +299,8 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "35vh",
-            width: "100vh",
+            height: "60vh",
+            width: "150vh",
             textAlign: "center",
           }}
         >
@@ -117,6 +309,37 @@ function Planner() {
             <br></br>
             {mdyThree}
           </h2>
+          <h4>{weather[3] && weather[3]["description"]}</h4>
+          <h5>{weather[3] && weather[3]["temperature"]}</h5>
+          <img
+            src={
+              weather[3] &&
+              `http://openweathermap.org/img/w/${weather[3]["icon"]}.png`
+            }
+            alt="Weather icon"
+          />
+          <div>
+            <label htmlFor="hats">Hats: </label>
+            <select name="hats" value={hat} onChange={handleHatChange}>
+              <option value="">Choose a Hat</option>
+              {hats.map((hat) => (
+                <option value={hat.name} key={hat.id}>
+                  {hat.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="hats">Tops: </label>
+            <select name="hats" value={top} onChange={handleHatChange}>
+              <option value="">Choose your top</option>
+              {tops.map((top) => (
+                <option value={top.name} key={top.id}>
+                  {top.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div
           className="card mb-5"
@@ -124,8 +347,8 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "35vh",
-            width: "100vh",
+            height: "60vh",
+            width: "150vh",
             textAlign: "center",
           }}
         >
@@ -134,6 +357,37 @@ function Planner() {
             <br></br>
             {mdyFour}
           </h2>
+          <h4>{weather[4] && weather[4]["description"]}</h4>
+          <h5>{weather[4] && weather[4]["temperature"]}</h5>
+          <img
+            src={
+              weather[4] &&
+              `http://openweathermap.org/img/w/${weather[4]["icon"]}.png`
+            }
+            alt="Weather icon"
+          />
+          <div>
+            <label htmlFor="hats">Hats: </label>
+            <select name="hats" value={hat} onChange={handleHatChange}>
+              <option value="">Choose a Hat</option>
+              {hats.map((hat) => (
+                <option value={hat.name} key={hat.id}>
+                  {hat.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="hats">Tops: </label>
+            <select name="hats" value={top} onChange={handleHatChange}>
+              <option value="">Choose your top</option>
+              {tops.map((top) => (
+                <option value={top.name} key={top.id}>
+                  {top.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div
           className="card mb-5"
@@ -141,23 +395,52 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "35vh",
-            width: "100vh",
+            height: "60vh",
+            width: "150vh",
             textAlign: "center",
           }}
         >
           <h2>
-            <h2>
-              {dayFive}
-              <br></br>
-              {mdyFive}
-            </h2>
+            {dayFive}
+            <br></br>
+            {mdyFive}
           </h2>
+          <h4>{weather[5] && weather[5]["description"]}</h4>
+          <h5>{weather[5] && weather[5]["temperature"]}</h5>
+          <img
+            src={
+              weather[5] &&
+              `http://openweathermap.org/img/w/${weather[5]["icon"]}.png`
+            }
+            alt="Weather icon"
+          />
+          <div>
+            <label htmlFor="hats">Hats: </label>
+            <select name="hats" value={hat} onChange={handleHatChange}>
+              <option value="">Choose a Hat</option>
+              {hats.map((hat) => (
+                <option value={hat.name} key={hat.id}>
+                  {hat.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="hats">Tops: </label>
+            <select name="hats" value={top} onChange={handleHatChange}>
+              <option value="">Choose your top</option>
+              {tops.map((top) => (
+                <option value={top.name} key={top.id}>
+                  {top.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 
 

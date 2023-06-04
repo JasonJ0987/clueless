@@ -58,7 +58,7 @@ def get_weather_by_zipcode(
         },
         5: {
             "temperature": str(data["list"][32]["main"]["temp"]) + " °F",
-            "descripti6n": data["list"][32]["weather"][0]["main"],
+            "description": data["list"][32]["weather"][0]["main"],
             "icon": data["list"][0]["weather"][0]["icon"],
             "time": data["list"][32]["dt_txt"]
         }

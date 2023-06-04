@@ -3,24 +3,14 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 const WardrobeForm = () => {
-  // const [wardrobe, setWardrobe] = useState({
-  //   hats: [],
-  //   tops: [],
-  //   bottoms: [],
-  //   shoes: [],
-  // });
-  // const [closetId, setClosetId] = useState("");
-  // const [closets, setClosets] = useState(null);
-  const [bin, setBin] = useState([]);
-  const [hats, setHats] = useState(null);
-  const [tops, setTops] = useState(null);
-  const [bottoms, setBottoms] = useState(null);
-  const [shoes, setShoes] = useState(null);
+  const [hats, setHats] = useState([]);
+  const [tops, setTops] = useState([]);
+  const [bottoms, setBottoms] = useState([]);
+  const [shoes, setShoes] = useState([]);
   const { token } = useToken();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     console.log("Selected Hats:", hats);
     console.log("Selected Tops:", tops);
     console.log("Selected Bottoms:", bottoms);
@@ -29,22 +19,6 @@ const WardrobeForm = () => {
     setTops([]);
     setBottoms([]);
     setShoes([]);
-  };
-
-  const loadBins = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      setBin(data.bins);
-    }
   };
 
   const loadHats = async () => {
@@ -59,7 +33,6 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      // console.log("hatdata", data)
       setHats(data.hats);
       console.log("hats", hats);
     }
@@ -77,7 +50,6 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      // console.log("topdata", data)
       setTops(data.tops);
       console.log("tops", tops);
     }
@@ -95,7 +67,6 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      // console.log("bottomdata", data)
       setBottoms(data.bottoms);
       console.log("bottoms", bottoms);
     }
@@ -113,7 +84,6 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      // console.log("shoesdata", data)
       setShoes(data.shoes);
       console.log("shoes", shoes);
     }
@@ -124,7 +94,6 @@ const WardrobeForm = () => {
     loadTops();
     loadBottoms();
     loadShoes();
-    loadBins();
   }, [token]);
 
   return (
@@ -137,7 +106,6 @@ const WardrobeForm = () => {
       }}
     >
       <form onSubmit={handleSubmit}>
-        {/* Add your form fields here */}
         <input
           className="btn btn-primary"
           type="submit"

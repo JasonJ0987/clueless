@@ -8,7 +8,7 @@ function BinView() {
   const [bin, setBin] = useState(null);
   const [clothes, setClothes] = useState(null);
   const [userId, setUserId] = useState("");
-  // const [clothesId, setClothesId] = useState("");
+  const [tags, setTags] = useState([]);
   const { token } = useToken();
   const { binId } = useParams();
 
@@ -45,6 +45,22 @@ function BinView() {
     }
   };
 
+  const loadTags = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/tags`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setTags(data.tags);
+    }
+  };
+
   const loadUser = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/token`;
     fetch(url, {
@@ -75,6 +91,7 @@ function BinView() {
 
   useEffect(() => {
     loadCloset();
+    loadTags();
   }, [token]);
   useEffect(() => {
     if (closetId !== "") loadBins();
@@ -83,6 +100,8 @@ function BinView() {
   useEffect(() => {
     if (closetId !== "") loadClothes();
   }, [closetId]);
+
+  console.log(tags);
 
   return (
     <div>
@@ -112,6 +131,9 @@ function BinView() {
                 </div>
                 <div className="card-text">{item.primary_color}</div>
                 <div className="card-text">{item.type}</div>
+                <div className="card-text">{item.tag_ids}
+                  {tags.filter(tag => tag.id === item.tag_ids).description}
+                </div>
               </div>
             </div>
           ))}
