@@ -131,8 +131,11 @@ function BinView() {
                 </div>
                 <div className="card-text">{item.primary_color}</div>
                 <div className="card-text">{item.type}</div>
-                <div className="card-text">{item.tag_ids}
-                  {tags.filter(tag => tag.id === item.tag_ids).description}
+                <br></br>
+                <div className="card-text">Tags{item.tag_ids.map((tagId => {
+                  const tag = tags.find((tag) => tag.id === tagId);
+                  return <li key={tag.id}>{tag.description}</li>
+                }))}
                 </div>
               </div>
             </div>
