@@ -94,11 +94,11 @@ def get_clothes(
     closet_id: str,
     bin_id: str,
     repo: ClothesQueries = Depends(),
-    # current_user: dict = Depends(get_current_user),
+    current_user: dict = Depends(get_current_user),
 ):
-    if ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id, user_id="646620b95ccb73e9d4986b0a")) == []:
+    if ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id, user_id=current_user.id)) == []:
         return None
-    return ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id, user_id="646620b95ccb73e9d4986b0a"))
+    return ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id, user_id=current_user.id))
 
 
 @router.get("/api/closet/{closet_id}/bins/{bin_id}/clothes/{clothes_id}", response_model=ClothesOut | None)
