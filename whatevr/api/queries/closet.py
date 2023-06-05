@@ -132,9 +132,6 @@ class OutfitQueries(Queries):
     DB_NAME = "library"
     COLLECTION = "outfits"
 
-<<<<<<< HEAD
-    def create(self, )
-=======
     def create(self, item: OutfitIn) -> OutfitOut | None:
         props = item.dict()
         props["user_id"] = ObjectId(props["user_id"])
@@ -176,4 +173,3 @@ class OutfitQueries(Queries):
                 "_id": ObjectId(outfit_id),
             }
         )
->>>>>>> a76abd8e31735dbb3f1a6c37ed76618567d904ac
