@@ -1,8 +1,7 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginButton } from "../button.jsx";
-import "../index.css";
+import '../index.css';
 
 const Login = () => {
   const [email, setEmail] = useState("");

@@ -10,9 +10,9 @@ import { Main } from "./components/Main";
 import ClosetView from "./components/ClosetView";
 import NavBar from "./components/Navbar";
 import BinView from "./components/BinView";
-import ClothesForm from "./components/ClothingForm";
 import WardrobeForm from "./components/WardrobeForm";
 import Planner from "./components/Planner";
+import ClothesForm from "./components/ClothingForm";
 import './index.css'
 
 
@@ -28,6 +28,10 @@ function App() {
         <NavBar />
         <div className="container" id="outerdiv" style={{ padding: "0" }}>
           <Routes>
+            <Route exact path="/" element={<Main />} />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/wardrobe" element={<WardrobeForm />} />
             <Route exact path="/" element={< Main />} />
             <Route exact path="/signup" element={< Signup />} />
             <Route exact path="/login" element={< Login />} />
