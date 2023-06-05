@@ -124,14 +124,21 @@ function Planner() {
     setShoe(value);
   }
 
+  // function MDYOfWeek(number) {
+  //   let fullDay = weather[number] && weather[number]["time"];
+  //   let date = new Date(fullDay);
+  //   let day = date.getDate();
+  //   let month = date.getMonth() + 1;
+  //   let year = date.getFullYear();
+  //   return `${month}-${day}-${year}`;
+  // }
 
   function MDYOfWeek(number) {
     let fullDay = weather[number] && weather[number]["time"];
     let date = new Date(fullDay);
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    return `${month}-${day}-${year}`;
+    let MDY = { month: "long", day: "numeric", year: "numeric" };
+    let formattedDate = date.toLocaleDateString(undefined, MDY);
+    return formattedDate;
   }
 
   function dayOfWeek(number) {
