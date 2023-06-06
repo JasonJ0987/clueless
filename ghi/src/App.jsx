@@ -12,6 +12,7 @@ import NavBar from "./components/Navbar";
 import BinView from "./components/BinView";
 import WardrobeForm from "./components/WardrobeForm";
 import Planner from "./components/Planner";
+import ClothesForm from "./components/ClothingForm";
 import './index.css'
 
 
