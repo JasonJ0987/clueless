@@ -1,7 +1,6 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginButton } from "../button.jsx";
 import "../index.css";
 
 const Login = () => {
@@ -12,21 +11,27 @@ const Login = () => {
   const navigate = useNavigate();
   const [isLoginClicked, setIsLoginClicked] = useState(false);
 
-  useEffect(() => {
-    if (isLoginClicked) {
-      if (!token) {
-        setErrorMessage("Username/password was entered incorrectly");
-      } else {
-        setErrorMessage("");
-        navigate("/");
-      }
+  const HandleLogin = async (event) => {
+    event.preventDefault();
+    const response = await login(email, password);
+    if (response && response.success) {
+      setIsLoginClicked(true);
+      setErrorMessage("");
+    } else if (!token) {
+      setIsLoginClicked(true);
+      setErrorMessage("Username/password was entered incorrectly");
     }
-  }, [isLoginClicked, token]);
+  };
+
+  useEffect(() => {
+    if (isLoginClicked && token) {
+      navigate("/");
+    }
+  }, [isLoginClicked, token, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoginClicked(true);
-    login(email, password);
+    HandleLogin(e);
   };
 
   return (
@@ -53,6 +58,7 @@ const Login = () => {
                             type="text"
                             placeholder="email goes here..."
                             className="form-control"
+                            autoComplete="username"
                             onChange={(e) => setEmail(e.target.value)}
                           />
                         </div>
@@ -65,10 +71,11 @@ const Login = () => {
                             type="password"
                             placeholder="password goes here..."
                             className="form-control"
+                            autoComplete="current-password"
                             onChange={(e) => setPassword(e.target.value)}
                           />
                         </div>
-                        {errorMessage && (
+                        {isLoginClicked && !token && (
                           <div className="alert alert-danger">
                             {errorMessage}
                           </div>
