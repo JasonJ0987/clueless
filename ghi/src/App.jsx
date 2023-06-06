@@ -10,6 +10,7 @@ import ClosetView from "./components/ClosetView";
 import NavBar from "./components/Navbar";
 import BinView from "./components/BinView";
 import WardrobeForm from "./components/WardrobeForm";
+import WardrobeView from "./components/WardrobeView";
 import Planner from "./components/Planner";
 import ClothesForm from "./components/ClothingForm";
 import './index.css'
@@ -37,11 +38,12 @@ function App() {
             <Route exact path="/planner" element={< Planner />} />
             <Route path="closet">
               <Route index element={< ClosetView />} />
-              <Route exact path="bins/:binId" element={< BinView />} />
+              <Route path="bins/:binId" element={< BinView />} />
               <Route path="new" element={< ClothesForm />} />
             </Route>
             <Route path="wardrobe">
               <Route path="new" element={< WardrobeForm />} />
+              <Route path=":wardrobeId" element={< WardrobeView />} />
             </Route>
             <Route path="planner" element={< Planner />}>
             </Route>

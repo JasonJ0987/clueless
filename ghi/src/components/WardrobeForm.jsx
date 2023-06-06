@@ -1,6 +1,7 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import placeholderImage from "../ghi/public/placeholder-image.png";
 
 const WardrobeForm = () => {
@@ -13,6 +14,7 @@ const WardrobeForm = () => {
   const [shoes, setShoes] = useState([]);
   const [shoe, setShoe] = useState(null);
   const [userId, setUserId] = useState("");
+  const navigate = useNavigate();
   const { token } = useToken();
 
   const loadUser = async () => {
@@ -125,6 +127,7 @@ const WardrobeForm = () => {
       setBottom(null);
       setShoe(null);
       setUserId("");
+      navigate("/planner")
     } else {
       const error = await response.json();
       return error;

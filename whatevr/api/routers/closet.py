@@ -167,3 +167,14 @@ async def delete_outfit(
 ):
     repo.delete(outfit_id=outfit_id)
     return True
+
+
+@router.put("/api/wardrobe/{outfit_id}", response_model=OutfitOut | None)
+def update_outfit(
+    outfit_id: str,
+    outfit: OutfitIn,
+    repo: OutfitQueries = Depends(),
+    current_user: dict = Depends(get_current_user),
+):
+    new_outfit = repo.update_outfit(outfit_id, outfit)
+    return new_outfit

@@ -102,7 +102,6 @@ function BinView() {
     if (closetId !== "") loadClothes();
   }, [closetId]);
 
-  console.log(tags);
 
   return (
     <div>

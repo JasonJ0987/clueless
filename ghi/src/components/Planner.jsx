@@ -1,17 +1,18 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import "../index.css"
 
 function Planner() {
   const [weather, setWeather] = useState([]);
-  const [hats, setHats] = useState([]);
-  const [hat, setHat] = useState(null);
-  const [tops, setTops] = useState([]);
-  const [top, setTop] = useState(null);
-  const [bottoms, setBottoms] = useState([]);
-  const [bottom, setBottom] = useState(null);
-  const [shoes, setShoes] = useState([]);
-  const [shoe, setShoe] = useState(null);
+  // const [hats, setHats] = useState([]);
+  // const [hat, setHat] = useState(null);
+  // const [tops, setTops] = useState([]);
+  // const [top, setTop] = useState(null);
+  // const [bottoms, setBottoms] = useState([]);
+  // const [bottom, setBottom] = useState(null);
+  // const [shoes, setShoes] = useState([]);
+  // const [shoe, setShoe] = useState(null);
   const { token } = useToken();
 
   // need usestate for each different day !!!
@@ -32,106 +33,74 @@ function Planner() {
     }
   };
 
-  const loadHats = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-        const data = await response.json();
-        setHats(data.clothes)
-    }
-  }
+  // const loadHats = async () => {
+  //   const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
+  //   const fetchConfig = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   };
+  //   const response = await fetch(url, fetchConfig);
+  //   if (response.ok) {
+  //       const data = await response.json();
+  //       setHats(data.clothes)
+  //   }
+  // };
 
-  const loadTops = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      setTops(data.clothes);
-    }
-  };
+  // const loadTops = async () => {
+  //   const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
+  //   const fetchConfig = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   };
+  //   const response = await fetch(url, fetchConfig);
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     setTops(data.clothes);
+  //   }
+  // };
 
-  const loadBottoms = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      setBottoms(data.clothes);
-    }
-  };
+  // const loadBottoms = async () => {
+  //   const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
+  //   const fetchConfig = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   };
+  //   const response = await fetch(url, fetchConfig);
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     setBottoms(data.clothes);
+  //   }
+  // };
 
-  const loadShoes = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      setShoes(data.clothes);
-    }
-  };
+  // const loadShoes = async () => {
+  //   const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
+  //   const fetchConfig = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   };
+  //   const response = await fetch(url, fetchConfig);
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     setShoes(data.clothes);
+  //   }
+  // };
 
   useEffect(() => {
     loadWeather();
-    loadHats();
-    loadTops();
-    loadBottoms();
-    loadShoes();
   }, [token]);
 
-  const handleHatChange = (event) => {
-    const value = event.target.value;
-    setHat(value);
-  }
-
-  const handleTopChange = (event) => {
-    const value = event.target.value;
-    setHat(value);
-  }
-
-  const handleBottomChange = (event) => {
-    const value = event.target.value;
-    setBottom(value);
-  }
-
-  const handleShoeChange = (event) => {
-    const value = event.target.value;
-    setShoe(value);
-  }
-
-  // function MDYOfWeek(number) {
-  //   let fullDay = weather[number] && weather[number]["time"];
-  //   let date = new Date(fullDay);
-  //   let day = date.getDate();
-  //   let month = date.getMonth() + 1;
-  //   let year = date.getFullYear();
-  //   return `${month}-${day}-${year}`;
-  // }
 
   function MDYOfWeek(number) {
     let fullDay = weather[number] && weather[number]["time"];
@@ -159,7 +128,6 @@ function Planner() {
   let mdyFive = MDYOfWeek(5);
   let dayFive = dayOfWeek(5);
 
-  console.log('hat', hat)
 
   return (
     <div>
@@ -198,7 +166,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-
+            <Link to="/wardrobe/new">Style</Link>
           </div>
         </div>
         <div
@@ -227,7 +195,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-
+            <Link to="/wardrobe/new">Style</Link>
           </div>
         </div>
         <div
@@ -256,7 +224,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-
+            <Link to="/wardrobe/new">Style</Link>
           </div>
         </div>
         <div
@@ -285,7 +253,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-
+            <Link to="/wardrobe/new">Style</Link>
           </div>
         </div>
         <div
@@ -314,7 +282,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-
+            <Link to="/wardrobe/new">Style</Link>
           </div>
         </div>
       </div>

@@ -173,3 +173,18 @@ class OutfitQueries(Queries):
                 "_id": ObjectId(outfit_id),
             }
         )
+
+    def update_outfit(self, outfit_id: str, outfit: OutfitIn) -> OutfitOut:
+        props = outfit.dict()
+        props["user_id"] = ObjectId(props["user_id"])
+        self.collection.find_one_and_update(
+            {
+                "_id": ObjectId(outfit_id),
+            },
+            {
+                "$set": {**props}
+            }
+        )
+        props["id"] = str(ObjectId(outfit_id))
+        props["user_id"] = str(props["user_id"])
+        return OutfitOut(**props)
