@@ -16,24 +16,21 @@ const Login = () => {
     const response = await login(email, password);
     if (response && response.success) {
       setIsLoginClicked(true);
-    } else {
+      setErrorMessage("");
+    } else if (!token) {
+      setIsLoginClicked(true);
       setErrorMessage("Username/password was entered incorrectly");
     }
   };
 
   useEffect(() => {
-    if (isLoginClicked) {
-      if (!token) {
-        setErrorMessage("Username/password was entered incorrectly");
-      } else if (token) {
-        navigate("/");
-      }
+    if (isLoginClicked && token) {
+      navigate("/");
     }
   }, [isLoginClicked, token, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoginClicked(true);
     HandleLogin(e);
   };
 
@@ -61,6 +58,7 @@ const Login = () => {
                             type="text"
                             placeholder="email goes here..."
                             className="form-control"
+                            autoComplete="username"
                             onChange={(e) => setEmail(e.target.value)}
                           />
                         </div>
@@ -73,6 +71,7 @@ const Login = () => {
                             type="password"
                             placeholder="password goes here..."
                             className="form-control"
+                            autoComplete="current-password"
                             onChange={(e) => setPassword(e.target.value)}
                           />
                         </div>
