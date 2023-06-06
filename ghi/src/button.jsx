@@ -20,10 +20,10 @@ export function LoginButton() {
     );
 }
 
-export function StyleButton() {
+export function AddItemButton() {
     return (
         <Link to='/closet/new'>
-            <button className='btn'>STYLE</button>
+            <button className='btn'>ADD ITEM</button>
         </Link>
     );
 }

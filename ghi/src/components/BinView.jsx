@@ -1,7 +1,7 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { StyleButton } from "../button";
+import { AddItemButton } from "../button";
 
 function BinView() {
   const [closets, setClosets] = useState(null);
@@ -106,7 +106,7 @@ function BinView() {
   return (
     <div>
       <h1 style={{ color: "white" }}>{bin && bin.name}
-        <StyleButton />
+        <AddItemButton />
       </h1>
       <br></br>
       <br></br>
