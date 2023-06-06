@@ -9,6 +9,7 @@ from api.routers import accounts, weather, closet, tags
 
 app = FastAPI()
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[os.environ.get("CORS_HOST", "http://localhost:3000")],
