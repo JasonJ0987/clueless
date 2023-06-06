@@ -115,3 +115,30 @@ Second half of the day, Jeanette started on the wardrobe form. We are trying to 
 Jeanette was the driver for the second half of the day. We were (and still are) extremely stuck with this form. The bins are not loading properly and the form dies when we select something from the hats, tops, bottoms, or shoes field.
 Had all seirs come in and they were unable to help us. Might have to change our plans and go toward a different direction when it comes to creating an outfit. Might have to create individual forms for the end user to upload their items to each bin.
 3. Blocker - not able to create an outfit form. I think it's having issues because of jwtdown authentication
+
+## June 5th, 2023
+1. The team and I met up over the weekend to discuss what to do with the wardrobe form since we were having difficulties creating the select tags to choose the hats, tops, bottoms, and shoes bin in the form.
+On June 3rd, we finish up the wardrobe form and made sure the outfit created gets inputted into the Outfit collection we have in Mongo Compass.
+2. For the weekend, Jason was the main driver for the planner page. We were able to create 5 cards to integrate the Open Weather API calls for the weather for 5 days. How it works is that the cards will be changing each day since it's grabbing the data from the 3rd party API. We were going to scrap the wardrobe form since it wasn't working for us on Friday but we ran into a similar situation. Jason figured out we had to create 4 useStates for the changing bins. With that situation solved, we can now implement that solution in the wardrobe form.
+For June 3rd, Jeanette was the driver for wardrobe form. We used the solution from the weekend and we are now able to select the items from each bins in the form. We are also starting to close issues and merge the branches to the main branch via GitLab.
+3. Blocker - Not sure on how to implement the outfit for a certain day in the planner since the cards will always be changing everyday.
+
+## June 6th, 2023
+1. Today, the team and I will be focusing on adding the outfits that were created from the wardrobe form to the planner page. We will also focus on creating unit tests for the project.
+2.
+3.
+
+## June 7th, 2023
+1.
+2.
+3.
+
+## June 8th, 2023
+1.
+2.
+3.
+
+## June 9th, 2023
+1.
+2.
+3.
