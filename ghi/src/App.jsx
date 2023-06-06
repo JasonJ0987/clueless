@@ -42,7 +42,7 @@ function App() {
               <Route path="new" element={< ClothesForm />} />
             </Route>
             <Route path="wardrobe">
-              <Route path="new" element={< WardrobeForm />} />
+              <Route path=":wardrobeId/update" element={< WardrobeForm />} />
               <Route path=":wardrobeId" element={< WardrobeView />} />
             </Route>
             <Route path="planner" element={< Planner />}>

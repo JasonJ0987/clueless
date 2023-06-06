@@ -1,8 +1,7 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import placeholderImage from "../ghi/public/placeholder-image.png";
+import { useParams } from "react-router-dom";
 
 const WardrobeForm = () => {
   const [hats, setHats] = useState([]);
@@ -16,6 +15,7 @@ const WardrobeForm = () => {
   const [userId, setUserId] = useState("");
   const navigate = useNavigate();
   const { token } = useToken();
+  const { wardrobeId } = useParams();
 
   const loadUser = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/token`;
@@ -111,9 +111,9 @@ const WardrobeForm = () => {
     data.user_id = userId;
 
     const response = await fetch(
-      `${process.env.REACT_APP_WHATEVR}/api/wardrobe`,
+      `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${wardrobeId}`,
       {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
