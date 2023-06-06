@@ -198,58 +198,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-            <label htmlFor="hats">Hats: </label>
-            <br></br>
-            <select name="hats" value={hat} onChange={handleHatChange}>
-              <option value="">Choose a Hat</option>
-              {hats.map((hat) => (
-                <option value={hat.picture} key={hat.id}>
-                  {hat.name}
-                </option>
-              ))}
-            </select>
-            <div>
-                <img src={hat} alt="hat" />
-            </div>
-          </div>
-          <br></br>
-          <div>
-            <label htmlFor="tops">Tops: </label>
-            <br></br>
-            <select name="top" value={top} onChange={handleTopChange}>
-              <option value="">Choose your Top</option>
-              {tops.map((top) => (
-                <option value={top.name} key={top.id}>
-                  {top.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <br></br>
-          <div>
-            <label htmlFor="bottoms">Bottoms: </label>
-            <br></br>
-            <select name="bottom" value={bottom} onChange={handleBottomChange}>
-              <option value="">Choose your Bottom</option>
-              {bottoms.map((bottom) => (
-                <option value={bottom.name} key={bottom.id}>
-                  {bottom.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <br></br>
-          <div>
-            <label htmlFor="shoes">Shoes: </label>
-            <br></br>
-            <select name="shoe" value={shoe} onChange={handleShoeChange}>
-              <option value="">Choose your Shoe</option>
-              {shoes.map((shoe) => (
-                <option value={shoe.name} key={shoe.id}>
-                  {shoe.name}
-                </option>
-              ))}
-            </select>
+
           </div>
         </div>
         <div
@@ -278,26 +227,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-            <label htmlFor="hats">Hats: </label>
-            <select name="hats" value={hat} onChange={handleHatChange}>
-              <option value="">Choose a Hat</option>
-              {hats.map((hat) => (
-                <option value={hat.name} key={hat.id}>
-                  {hat.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor="hats">Tops: </label>
-            <select name="hats" value={top} onChange={handleHatChange}>
-              <option value="">Choose your top</option>
-              {tops.map((top) => (
-                <option value={top.name} key={top.id}>
-                  {top.name}
-                </option>
-              ))}
-            </select>
+
           </div>
         </div>
         <div
@@ -326,26 +256,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-            <label htmlFor="hats">Hats: </label>
-            <select name="hats" value={hat} onChange={handleHatChange}>
-              <option value="">Choose a Hat</option>
-              {hats.map((hat) => (
-                <option value={hat.name} key={hat.id}>
-                  {hat.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor="hats">Tops: </label>
-            <select name="hats" value={top} onChange={handleHatChange}>
-              <option value="">Choose your top</option>
-              {tops.map((top) => (
-                <option value={top.name} key={top.id}>
-                  {top.name}
-                </option>
-              ))}
-            </select>
+
           </div>
         </div>
         <div
@@ -374,26 +285,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-            <label htmlFor="hats">Hats: </label>
-            <select name="hats" value={hat} onChange={handleHatChange}>
-              <option value="">Choose a Hat</option>
-              {hats.map((hat) => (
-                <option value={hat.name} key={hat.id}>
-                  {hat.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor="hats">Tops: </label>
-            <select name="hats" value={top} onChange={handleHatChange}>
-              <option value="">Choose your top</option>
-              {tops.map((top) => (
-                <option value={top.name} key={top.id}>
-                  {top.name}
-                </option>
-              ))}
-            </select>
+
           </div>
         </div>
         <div
@@ -422,26 +314,7 @@ function Planner() {
             alt="Weather icon"
           />
           <div>
-            <label htmlFor="hats">Hats: </label>
-            <select name="hats" value={hat} onChange={handleHatChange}>
-              <option value="">Choose a Hat</option>
-              {hats.map((hat) => (
-                <option value={hat.name} key={hat.id}>
-                  {hat.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor="hats">Tops: </label>
-            <select name="hats" value={top} onChange={handleHatChange}>
-              <option value="">Choose your top</option>
-              {tops.map((top) => (
-                <option value={top.name} key={top.id}>
-                  {top.name}
-                </option>
-              ))}
-            </select>
+
           </div>
         </div>
       </div>

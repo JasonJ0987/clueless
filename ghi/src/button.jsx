@@ -22,7 +22,7 @@ export function LoginButton() {
 
 export function StyleButton() {
     return (
-        <Link to='/clothes/new'>
+        <Link to='/closet/new'>
             <button className='btn'>STYLE</button>
         </Link>
     );
