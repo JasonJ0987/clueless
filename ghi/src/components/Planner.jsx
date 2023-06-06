@@ -12,8 +12,6 @@ function Planner() {
   const [outfitFive, setOutfitFive] = useState(null);
   const { token } = useToken();
 
-  // need usestate for each different day !!!
-
   const loadWeather = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/weather`;
     const fetchConfig = {
@@ -147,6 +145,8 @@ function Planner() {
   let dayFour = dayOfWeek(4);
   let mdyFive = MDYOfWeek(5);
   let dayFive = dayOfWeek(5);
+
+
 
 
   return (
