@@ -51,6 +51,7 @@ function Navbar(closet_id, ) {
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          {token && (
           <li
             className='nav-item'
             onMouseEnter={onMouseEnter}
@@ -65,6 +66,8 @@ function Navbar(closet_id, ) {
             </Link>
             {dropdown && <Dropdown/>}
           </li>
+          )}
+          {token && (
           <li className='nav-item'>
             <Link
               to='/planner'
@@ -74,6 +77,7 @@ function Navbar(closet_id, ) {
               Planner
             </Link>
           </li>
+          )}
         {!token && (
           <li>
             <Link

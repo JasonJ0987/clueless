@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -38,7 +37,7 @@ function App() {
             <Route exact path="/planner" element={< Planner />} />
             <Route path="closet">
               <Route index element={< ClosetView />} />
-              <Route path="bins/:binId" element={< BinView />} />
+              <Route exact path="bins/:binId" element={< BinView />} />
               <Route path="new" element={< ClothesForm />} />
             </Route>
             <Route path="wardrobe">
