@@ -1,5 +1,5 @@
 from .client import Queries
-from .models import AccountIn, Account, AccountOut
+from models import AccountIn, Account, AccountOut
 from pymongo.errors import DuplicateKeyError
 
 
