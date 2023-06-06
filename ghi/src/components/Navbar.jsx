@@ -96,7 +96,7 @@ function Navbar(closet_id, ) {
             </Link>
           </li>
           )}
-          {token && (
+        {token && (
           <li>
             <Link
               to='/'
@@ -106,7 +106,7 @@ function Navbar(closet_id, ) {
               <LogoutButton/>
             </Link>
           </li>
-          )}
+        )}
         </ul>
 
       </nav>

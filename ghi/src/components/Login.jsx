@@ -1,7 +1,7 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../index.css';
+import "../index.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,20 +11,21 @@ const Login = () => {
   const navigate = useNavigate();
   const [isLoginClicked, setIsLoginClicked] = useState(false);
 
-  const HandleLogin = async(event) => {
+  const HandleLogin = async (event) => {
     event.preventDefault();
-    const response = await login(email,password);
-    if (response.success) {
+    const response = await login(email, password);
+    if (response && response.success) {
       setIsLoginClicked(true);
     } else {
       setErrorMessage("Username/password was entered incorrectly");
     }
+  };
 
-  }
   useEffect(() => {
     if (isLoginClicked) {
       if (!token) {
-        setErrorMessage("");
+        setErrorMessage("Username/password was entered incorrectly");
+      } else if (token) {
         navigate("/");
       }
     }
@@ -33,7 +34,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoginClicked(true);
-    login(email, password);
+    HandleLogin(e);
   };
 
   return (
@@ -75,7 +76,7 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                           />
                         </div>
-                        {errorMessage && (
+                        {isLoginClicked && !token && (
                           <div className="alert alert-danger">
                             {errorMessage}
                           </div>
