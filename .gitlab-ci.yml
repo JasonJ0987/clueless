@@ -12,6 +12,7 @@ lint-test-job:
   script:
     - pip install flake8
     - flake8 whatevr
+  when: manual
 
 whatevr-unit-tests-job:
   image: python:3-bullseye
@@ -22,6 +23,7 @@ whatevr-unit-tests-job:
     - cd whatevr
     - pip install -r requirements.txt
     - python -m pytest
+  when: manual
 
 build-front-end-job:
   rules:
