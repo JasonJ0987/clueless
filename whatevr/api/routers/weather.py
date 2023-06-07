@@ -10,6 +10,7 @@ from keys import OPEN_WEATHER_API_KEY
 import requests
 from pydantic import BaseModel
 from api.utils.token_auth import get_current_user
+from api.queries.models import WeatherIn, WeatherOut
 
 
 router = APIRouter()
@@ -64,4 +65,26 @@ def get_weather_by_zipcode(
         }
 
     }
+    return weather_data
+
+
+@router.get("/api/daylist")
+def get_day_list(
+    current_user: dict = Depends(get_current_user)
+):
+    zip_code = current_user.zipcode
+
+    url = "https://api.openweathermap.org/data/2.5/forecast"
+    params = {"zip": str(zip_code), "appid": OPEN_WEATHER_API_KEY, "units": "imperial"}
+
+    response = requests.get(url, params=params)
+    response.raise_for_status()
+    data = response.json()
+    weather_data = [
+        data["list"][0]["dt_txt"][0:10],
+        data["list"][8]["dt_txt"][0:10],
+        data["list"][16]["dt_txt"][0:10],
+        data["list"][24]["dt_txt"][0:10],
+        data["list"][32]["dt_txt"][0:10]
+    ]
     return weather_data

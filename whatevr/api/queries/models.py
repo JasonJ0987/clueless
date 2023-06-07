@@ -1,6 +1,6 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel, EmailStr
-from typing import List
+from typing import List, Optional
 # from jwtdown_fastapi.authentication import Token
 
 
@@ -118,6 +118,7 @@ class ClothesList(BaseModel):
 
 
 class OutfitIn(BaseModel):
+    day: Optional[str]
     hat: ClothesOut
     top: ClothesOut
     bottom: ClothesOut
@@ -127,6 +128,7 @@ class OutfitIn(BaseModel):
 
 class OutfitOut(BaseModel):
     id: str
+    day: Optional[str]
     hat: ClothesOut
     top: ClothesOut
     bottom: ClothesOut
@@ -138,15 +140,16 @@ class OutfitList(BaseModel):
     outfits: List[OutfitOut]
 
 
-# class AccountOut(Account):
-#     id: int
-#     modified: str
-#     hashed_password: str
+class WeatherIn(BaseModel):
+    temperature: str
+    description: str
+    icon: str
+    time: str
 
 
-# class AccountIn(Account):
-#     password: str
-
-
-# class AccountToken(Token):
-#     account: AccountOut
+class WeatherOut(BaseModel):
+    id: str
+    temperature: str
+    description: str
+    icon: str
+    time: str

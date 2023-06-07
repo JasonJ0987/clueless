@@ -18,11 +18,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(authenticator.router)
-app.include_router(accounts.router)
-app.include_router(weather.router)
-app.include_router(closet.router)
-app.include_router(tags.router)
+app.include_router(authenticator.router, tags=["authentication"])
+app.include_router(accounts.router, tags=["accounts"])
+app.include_router(weather.router, tags=["weather"])
+app.include_router(closet.router, tags=["closet"])
+app.include_router(tags.router, tags=["tags"])
 
 
 

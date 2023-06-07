@@ -5,11 +5,9 @@ import "../index.css"
 
 function Planner() {
   const [weather, setWeather] = useState([]);
-  const [outfitOne, setOutfitOne] = useState(null);
-  const [outfitTwo, setOutfitTwo] = useState(null);
-  const [outfitThree, setOutfitThree] = useState(null);
-  const [outfitFour, setOutfitFour] = useState(null);
-  const [outfitFive, setOutfitFive] = useState(null);
+  const [outfits, setOutfits] = useState([]);
+  const [week, setWeek] = useState([]);
+  const [OOTDs, setOOTDs] = useState([]);
   const { token } = useToken();
 
   const loadWeather = async () => {
@@ -28,135 +26,46 @@ function Planner() {
     }
   };
 
-//   const loadOutfits = async () => {
-//     const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe`;
-//     const fetchConfig = {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer ${token}`,
-//         },
-//     };
-//     const response = await fetch(url, fetchConfig);
-//     if (response.ok) {
-//         const data = await response.json();
-//         setIdA(data.outfits[0].id);
-//         setIdB(data.outfits[1].id);
-//         setIdC(data.outfits[2].id);
-//         setIdD(data.outfits[3].id);
-//         setIdE(data.outfits[4].id);
-//         console.log(idA && idA);
-//     }
-//   }
+  const loadOutfits = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/`
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+        }
+    })
+    if (response.ok) {
+        const data = await response.json();
+        setOutfits(data.outfits)
+    }
+  }
 
-  const loadOutfitOne = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647a2d53f636ca30ee73c12d`;
+  const loadWeeks = async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/daylist`;
     const fetchConfig = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
     };
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
-    const data = await response.json();
-    setOutfitOne(data)
+      const data = await response.json();
+      setWeek(data);
     }
-  }
+  };
 
-  const loadOutfitTwo = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647f7975953cfba2f4b189c1`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-    const data = await response.json();
-    setOutfitTwo(data);
-    }
-  }
-
-  const loadOutfitThree = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647f92f368399fff27804253`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-    const data = await response.json();
-    setOutfitThree(data)
-    }
-  }
-
-  const loadOutfitFour = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647f930468399fff27804254`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-    const data = await response.json();
-    setOutfitFour(data)
-    }
-  }
-
-  const loadOutfitFive = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647f931268399fff27804255`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-    const data = await response.json();
-    setOutfitFive(data)
-    }
-  }
-
+  const outfitsOfTheWeek = outfits.filter(outfit => week.includes(outfit.day))
 
   useEffect(() => {
     loadWeather();
     loadOutfits();
-    loadOutfitOne();
-    loadOutfitTwo();
-    loadOutfitThree();
-    loadOutfitFour();
-    loadOutfitFive();
+    loadWeeks();
+    console.log(weather && weather);
   }, [token]);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//         let oldA = idA && idA;
-//         setIdA(idB && idB);
-//         setIdB(idC && idC);
-//         setIdC(idD && idD);
-//         setIdD(idE && idE);
-//         setIdE(oldA);
-//         loadOutfitOne();
-//         loadOutfitTwo();
-//         loadOutfitThree();
-//         loadOutfitFour();
-//         loadOutfitFive();
-//         console.log("interval");
-//     }, 30*1000);
-//     return () => clearInterval(interval);
-//   }, []);
+  console.log(outfitsOfTheWeek)
 
 
   function MDYOfWeek(number) {
@@ -184,6 +93,15 @@ function Planner() {
   let dayFour = dayOfWeek(4);
   let mdyFive = MDYOfWeek(5);
   let dayFive = dayOfWeek(5);
+
+  const getOOTDs = async () => {
+    const result = [];
+    for (let outfit of outfitsOfTheWeek.enumerate()) {
+        let map = {};
+        map["outfit"] = outfit;
+        map["day"] = outfit;
+    }
+  }
 
 
   return (
@@ -224,26 +142,22 @@ function Planner() {
           />
           <div>
             <Link to="/wardrobe/647a2d53f636ca30ee73c12d/update">Style</Link>
-            <img
+            {/* <img
               style={{ height: "100px", width: "100px" }}
-              src={outfitOne && outfitOne.hat.picture}
-              alt="hat"
+              src={outfitsOfTheWeek[0].hat.picture}
             />
             <img
               style={{ height: "100px", width: "100px" }}
-              src={outfitOne && outfitOne.top.picture}
-              alt="top"
+              src={outfitsOfTheWeek[0].top.picture}
             />
             <img
               style={{ height: "100px", width: "100px" }}
-              src={outfitOne && outfitOne.bottom.picture}
-              alt="bottom"
+              src={outfitsOfTheWeek[0].bottom.picture}
             />
             <img
               style={{ height: "100px", width: "100px" }}
-              src={outfitOne && outfitOne.shoes.picture}
-              alt="shoe"
-            />
+              src={outfitsOfTheWeek[0].shoes.picture}
+            /> */}
           </div>
         </div>
         <div
@@ -273,26 +187,6 @@ function Planner() {
           />
           <div>
             <Link to="/wardrobe/647f7975953cfba2f4b189c1/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitTwo && outfitTwo.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitTwo && outfitTwo.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitTwo && outfitTwo.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitTwo && outfitTwo.shoes.picture}
-              alt="shoe"
-            />
           </div>
         </div>
         <div
@@ -322,26 +216,6 @@ function Planner() {
           />
           <div>
             <Link to="/wardrobe/647f92f368399fff27804253/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitThree && outfitThree.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitThree && outfitThree.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitThree && outfitThree.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitThree && outfitThree.shoes.picture}
-              alt="shoe"
-            />
           </div>
         </div>
         <div
@@ -371,26 +245,6 @@ function Planner() {
           />
           <div>
             <Link to="/wardrobe/647f930468399fff27804254/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFour && outfitFour.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFour && outfitFour.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFour && outfitFour.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFour && outfitFour.shoes.picture}
-              alt="shoe"
-            />
           </div>
         </div>
         <div
@@ -420,26 +274,6 @@ function Planner() {
           />
           <div>
             <Link to="/wardrobe/647f931268399fff27804255/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFive && outfitFive.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFive && outfitFive.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFive && outfitFive.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFive && outfitFive.shoes.picture}
-              alt="shoe"
-            />
           </div>
         </div>
       </div>

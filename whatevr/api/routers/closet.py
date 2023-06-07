@@ -2,7 +2,10 @@ from fastapi import (
     Depends,
     APIRouter,
 )
+from keys import OPEN_WEATHER_API_KEY
+import requests
 from api.utils.token_auth import get_current_user
+from api.routers.weather import get_weather_by_zipcode
 from api.queries.models import (
     ClosetOut,
     ClosetIn,
@@ -133,6 +136,7 @@ async def post_outfit(
     repo: OutfitQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
+    print("dog")
     new_outfit = repo.create(outfit)
     return new_outfit
 
