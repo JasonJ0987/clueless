@@ -74,7 +74,7 @@ build-front-end-job:
     # CI/CD variables, that value will override the value here.
     # You need to substitute in your real values for
     # GROUP_NAME, PROJECT_NAME, & CAPROVER_NAME below.
-    PUBLIC_URL: https://gitlab.com/XanderRubio/clueless
+    PUBLIC_URL: https://XanderRubio.gitlab.io/clueless
     REACT_APP_WHATEVR_API_HOST: https://clueless.cirrus.mod3projects.com
   script:
     - cd ghi
@@ -99,6 +99,20 @@ pages:
   artifacts:
     paths:
       - public
+
+whatevr-clueless-service-image:
+  stage: build
+  image: docker:git
+  variables:
+    CLUELESS_IMAGE: ${CI_REGISTRY_IMAGE}/whatevr_clueless_image
+  before_script:
+    # $CI_JOB_TOKEN is variable automatically added by Gitlab: see https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#variables-reference
+    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
+  script:
+    - docker build --tag $GITLAB_IMAGE:latest whatevr_service
+    - docker push $GITLAB_IMAGE:latest
+  only:
+    - main
 
 # # Build Sample Service:
 # build-back-end-job:
