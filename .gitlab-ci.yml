@@ -67,8 +67,9 @@ whatevr-clueless-service-image:
   before_script:
     - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
-    - docker build --tag $GITLAB_IMAGE:latest whatevr_clueless
+    - docker build --tag $GITLAB_IMAGE:latest whatevr
     - docker push $GITLAB_IMAGE:latest
+  allow_failure: true
   only:
     - main
 
