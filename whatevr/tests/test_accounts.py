@@ -2,6 +2,7 @@
 from fastapi.testclient import TestClient
 from main import app
 
+
 # Creating a new client instance using the app object
 client = TestClient(app)
 
