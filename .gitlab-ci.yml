@@ -59,17 +59,16 @@ pages:
     paths:
       - public
 
-whatevr-clueless-service-image:
+build-whatevr-image:
   stage: build
   image: docker:git
   variables:
-    CLUELESS_IMAGE: ${CI_REGISTRY_IMAGE}/whatevr_clueless_image
+    CLUELESS_IMAGE: ${CI_REGISTRY_IMAGE}/whatevr_image
   before_script:
     - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
-    - docker build --tag $GITLAB_IMAGE:latest whatevr_service
+    - docker build --tag $GITLAB_IMAGE:latest whatevr
     - docker push $GITLAB_IMAGE:latest
-  allow_failure: true
   only:
     - main
 
