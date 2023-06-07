@@ -30,7 +30,6 @@ def test_create_account():
     assert "email" in response.json()
 
 
-
 # Defining a test function to get the access token for an existing account
 def test_get_token():
     # Getting the id of the account created in the previous test
