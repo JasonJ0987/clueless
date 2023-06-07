@@ -2,8 +2,8 @@ from fastapi import (
     Depends,
     APIRouter,
 )
-from utils.token_auth import get_current_user
-from queries.models import (
+from api.utils.token_auth import get_current_user
+from api.queries.models import (
     ClosetOut,
     ClosetIn,
     ClosetList,
@@ -17,7 +17,7 @@ from queries.models import (
     OutfitOut,
     OutfitList,
 )
-from queries.closet import (
+from api.queries.closet import (
     ClosetQueries,
     BinQueries,
     ClothesQueries,

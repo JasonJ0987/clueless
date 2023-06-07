@@ -7,11 +7,11 @@ from fastapi import (
     Request,
 )
 from jwtdown_fastapi.authentication import Token
-from utils.authenticator import authenticator
+from api.utils.authenticator import authenticator
 
 from pydantic import BaseModel
 
-from queries.accounts import (
+from api.queries.accounts import (
     AccountIn,
     AccountOut,
     AccountQueries,

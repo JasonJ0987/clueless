@@ -2,12 +2,12 @@ from fastapi import (
     Depends,
     APIRouter,
 )
-from queries.models import (
+from api.queries.models import (
     TagList,
     TagIn,
     TagOut
 )
-from queries.tags import (
+from api.queries.tags import (
     TagQueries,
 )
 
