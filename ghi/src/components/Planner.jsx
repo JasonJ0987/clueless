@@ -28,6 +28,27 @@ function Planner() {
     }
   };
 
+//   const loadOutfits = async () => {
+//     const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe`;
+//     const fetchConfig = {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `Bearer ${token}`,
+//         },
+//     };
+//     const response = await fetch(url, fetchConfig);
+//     if (response.ok) {
+//         const data = await response.json();
+//         setIdA(data.outfits[0].id);
+//         setIdB(data.outfits[1].id);
+//         setIdC(data.outfits[2].id);
+//         setIdD(data.outfits[3].id);
+//         setIdE(data.outfits[4].id);
+//         console.log(idA && idA);
+//     }
+//   }
+
   const loadOutfitOne = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647a2d53f636ca30ee73c12d`;
     const fetchConfig = {
@@ -111,6 +132,7 @@ function Planner() {
 
   useEffect(() => {
     loadWeather();
+    loadOutfits();
     loadOutfitOne();
     loadOutfitTwo();
     loadOutfitThree();
@@ -118,7 +140,24 @@ function Planner() {
     loadOutfitFive();
   }, [token]);
 
-  console.log(outfitOne && outfitOne);
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//         let oldA = idA && idA;
+//         setIdA(idB && idB);
+//         setIdB(idC && idC);
+//         setIdC(idD && idD);
+//         setIdD(idE && idE);
+//         setIdE(oldA);
+//         loadOutfitOne();
+//         loadOutfitTwo();
+//         loadOutfitThree();
+//         loadOutfitFour();
+//         loadOutfitFive();
+//         console.log("interval");
+//     }, 30*1000);
+//     return () => clearInterval(interval);
+//   }, []);
+
 
   function MDYOfWeek(number) {
     let fullDay = weather[number] && weather[number]["time"];
@@ -145,8 +184,6 @@ function Planner() {
   let dayFour = dayOfWeek(4);
   let mdyFive = MDYOfWeek(5);
   let dayFive = dayOfWeek(5);
-
-
 
 
   return (
