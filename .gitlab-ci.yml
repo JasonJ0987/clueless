@@ -63,7 +63,7 @@ build-whatevr-image:
   stage: build
   image: docker:git
   variables:
-    CLUELESS_IMAGE: ${CI_REGISTRY_IMAGE}/whatevr_image
+    GITLAB_IMAGE: ${CI_REGISTRY_IMAGE}/whatevr_image
   before_script:
     - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
