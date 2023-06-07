@@ -125,8 +125,10 @@ For June 3rd, Jeanette was the driver for wardrobe form. We used the solution fr
 
 ## June 6th, 2023
 1. Today, the team and I will be focusing on adding the outfits that were created from the wardrobe form to the planner page. We will also focus on creating unit tests for the project.
-2.
-3.
+2. I was the driver for today. We were able to successfully add an outfit to the planner. In order to do so we had to create an update (PUT) function for the outfit in the backend. Then we hardcoded 5 outfits to the front end for each of the card in the front end.
+Xander have been working on the unit testings for the backend.
+3. Blocker - We realized that since the Open Weather API dynamically changes each day, the outfit that was created for that certain date will not move along with it. Might have to change up our plans for that.
+Also, the unit testing isn't working as it should. It's not recognizing anything from our yaml whenever we try running the tests with "pytest" in the terminal. Will need assistance for this. 
 
 ## June 7th, 2023
 1.
