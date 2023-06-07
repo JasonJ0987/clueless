@@ -24,7 +24,7 @@ function App() {
 
   return (
     <AuthProvider baseUrl={baseUrl}>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <NavBar />
         <div className="container" id="outerdiv" style={{ padding: "0" }}>
           <Routes>
