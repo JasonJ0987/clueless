@@ -109,7 +109,7 @@ whatevr-clueless-service-image:
     # $CI_JOB_TOKEN is variable automatically added by Gitlab: see https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#variables-reference
     - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
-    - docker build --tag $GITLAB_IMAGE:latest whatevr_service
+    - docker build --tag $GITLAB_IMAGE:latest whatevr
     - docker push $GITLAB_IMAGE:latest
   only:
     - main
@@ -141,10 +141,10 @@ whatevr-clueless-service-image:
 #     - main
 
 
-deploy-user-image:
+deploy-whatevr-image:
   stage: deploy
   image: registry.gitlab.com/galvanize-inc/foss/glv-cloud-cli:latest
   script:
-    - glv-cloud-cli reset -a ${USER_API} -t ${CIRRUS_TOKEN}
+    - glv-cloud-cli reset -a ${WHATEVR_API} -t ${CIRRUS_TOKEN}
   only:
     - main
