@@ -6,10 +6,10 @@ from fastapi import (
     APIRouter,
     Request,
 )
-from api.utils.keys import OPEN_WEATHER_API_KEY
+from utils.keys import OPEN_WEATHER_API_KEY
 import requests
 from pydantic import BaseModel
-from api.utils.token_auth import get_current_user
+from utils.token_auth import get_current_user
 
 
 router = APIRouter()
