@@ -28,6 +28,14 @@ export function AddItemButton() {
     );
 }
 
+export function NewOutfit() {
+    return (
+        <Link to="/wardrobe/new">
+        <button className="btn">CREATE OUTFIT</button>
+        </Link>
+    );
+}
+
 export function LogoutButton() {
     return (
         <Link to='/'>

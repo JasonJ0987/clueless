@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 const WardrobeForm = () => {
+  const [date, setDate] = useState("")
   const [hats, setHats] = useState([]);
   const [hat, setHat] = useState(null);
   const [tops, setTops] = useState([]);
@@ -16,6 +17,7 @@ const WardrobeForm = () => {
   const navigate = useNavigate();
   const { token } = useToken();
   const { wardrobeId } = useParams();
+
 
   const loadUser = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/token`;
@@ -104,6 +106,7 @@ const WardrobeForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {};
+    data.date = date
     data.hat = hat;
     data.top = top;
     data.bottom = bottom;
@@ -111,9 +114,9 @@ const WardrobeForm = () => {
     data.user_id = userId;
 
     const response = await fetch(
-      `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${wardrobeId}`,
+      `${process.env.REACT_APP_WHATEVR}/api/wardrobe`,
       {
-        method: "PUT",
+        method: "POST",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
@@ -122,6 +125,7 @@ const WardrobeForm = () => {
       }
     );
     if (response.ok) {
+      setDate("");
       setHat(null);
       setTop(null);
       setBottom(null);
@@ -158,6 +162,10 @@ const WardrobeForm = () => {
     setShoe(selectedShoe);
   };
 
+  const handleDateChange = (event) => {
+    setDate(event.target.value);
+  };
+
   const boxStyle = {
     width: "200px",
     height: "200px",
@@ -186,6 +194,20 @@ const WardrobeForm = () => {
         Select Your Outfit of the Day!{" "}
       </h1>
       <br></br>
+      <div style={containerStyle}>
+        <h1 style={{ color: "white", textAlign: "center" }}>Date</h1>
+        <br />
+        <div style={{ textAlign: "center" }}>
+          <input
+            type="date"
+            name="date"
+            value={date}
+            onChange={handleDateChange}
+          />
+        </div>
+      </div>
+      <br></br>
+
       <div style={containerStyle}>
         <h1 style={{ color: "white", textAlign: "center" }}>Hats</h1>
         <br></br>
