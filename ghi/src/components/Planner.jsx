@@ -235,7 +235,6 @@ function Planner() {
             <th>Top</th>
             <th>Bottom</th>
             <th>Shoe</th>
-            {/* Add more table headers as needed */}
           </tr>
         </thead>
         <tbody>
@@ -270,7 +269,6 @@ function Planner() {
                   style={{ maxWidth: "100px", maxHeight: "100px" }}
                 />
               </td>
-              {/* Add more table cells based on your outfit data structure */}
             </tr>
           ))}
         </tbody>
