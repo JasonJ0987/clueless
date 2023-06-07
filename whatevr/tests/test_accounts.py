@@ -1,6 +1,9 @@
 # Importing the TestClient from FastAPI's testclient module and the app object from api.main
 from fastapi.testclient import TestClient
 from main import app
+import os
+os.environ["DATABASE_URL"] = "mongodb://root:password"
+
 
 
 # Creating a new client instance using the app object
@@ -34,7 +37,7 @@ def test_get_token():
     id = response.json()["id"]
 
     # Sending a GET request to '/token' with the id in the query parameters
-    response = client.get("/token", params={"_id": _id})
+    response = client.get("/token", params={"_id": id})
 
     # Checking that the server returns a 200 OK status code
     assert response.status_code == 200
