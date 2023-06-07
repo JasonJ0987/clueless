@@ -22,6 +22,7 @@ whatevr-unit-tests-job:
     - cd whatevr
     - pip install -r requirements.txt
     - python -m pytest
+  when: manual
 
 build-front-end-job:
   rules:
@@ -75,5 +76,6 @@ deploy-whatevr-image:
   image: registry.gitlab.com/galvanize-inc/foss/glv-cloud-cli:latest
   script:
     - glv-cloud-cli reset -a ${WHATEVR_API} -t ${CIRRUS_TOKEN}
+  when: manual
   only:
     - main
