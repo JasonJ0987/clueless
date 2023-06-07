@@ -10,6 +10,11 @@ from api.routers import accounts, weather, closet, tags
 app = FastAPI()
 
 
+@app.get("/")
+async def read_main():
+    return {"msg": "Hello Main"}
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[os.environ.get("CORS_HOST", "http://localhost:3000")],
@@ -17,6 +22,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.include_router(authenticator.router)
 app.include_router(accounts.router)
