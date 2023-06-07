@@ -2,14 +2,11 @@ import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "../index.css"
+import { NewOutfit } from "../button"
 
 function Planner() {
   const [weather, setWeather] = useState([]);
-  const [outfitOne, setOutfitOne] = useState(null);
-  const [outfitTwo, setOutfitTwo] = useState(null);
-  const [outfitThree, setOutfitThree] = useState(null);
-  const [outfitFour, setOutfitFour] = useState(null);
-  const [outfitFive, setOutfitFive] = useState(null);
+  const [outfits, setOutfits] = useState([]);
   const { token } = useToken();
 
   const loadWeather = async () => {
@@ -28,8 +25,8 @@ function Planner() {
     }
   };
 
-  const loadOutfitOne = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647a2d53f636ca30ee73c12d`;
+  const loadOutfits = async (outfitId) => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -39,86 +36,17 @@ function Planner() {
     };
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
-    const data = await response.json();
-    setOutfitOne(data)
-    }
-  }
-
-  const loadOutfitTwo = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647f7975953cfba2f4b189c1`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-    const data = await response.json();
-    setOutfitTwo(data);
-    }
-  }
-
-  const loadOutfitThree = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647f92f368399fff27804253`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-    const data = await response.json();
-    setOutfitThree(data)
-    }
-  }
-
-  const loadOutfitFour = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647f930468399fff27804254`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-    const data = await response.json();
-    setOutfitFour(data)
-    }
-  }
-
-  const loadOutfitFive = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/647f931268399fff27804255`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-    const data = await response.json();
-    setOutfitFive(data)
+      const data = await response.json();
+      console.log(data)
+      setOutfits(data.outfits)
     }
   }
 
 
   useEffect(() => {
     loadWeather();
-    loadOutfitOne();
-    loadOutfitTwo();
-    loadOutfitThree();
-    loadOutfitFour();
-    loadOutfitFive();
+    loadOutfits();
   }, [token]);
-
-  console.log(outfitOne && outfitOne);
 
   function MDYOfWeek(number) {
     let fullDay = weather[number] && weather[number]["time"];
@@ -153,10 +81,9 @@ function Planner() {
     <div>
       <div>
         <h1 style={{ color: "white", textAlign: "center" }}>
-          Schedule Your Week
+          Weather Forecast for next 5 Days
         </h1>
       </div>
-      <br></br>
       <br></br>
       <br></br>
       <div style={{ display: "flex", gap: "15px" }}>
@@ -166,7 +93,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "60vh",
+            height: "30vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -185,29 +112,6 @@ function Planner() {
             }
             alt="Weather icon"
           />
-          <div>
-            <Link to="/wardrobe/647a2d53f636ca30ee73c12d/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitOne && outfitOne.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitOne && outfitOne.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitOne && outfitOne.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitOne && outfitOne.shoes.picture}
-              alt="shoe"
-            />
-          </div>
         </div>
         <div
           className="card mb-5"
@@ -215,7 +119,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "60vh",
+            height: "30vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -234,29 +138,6 @@ function Planner() {
             }
             alt="Weather icon"
           />
-          <div>
-            <Link to="/wardrobe/647f7975953cfba2f4b189c1/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitTwo && outfitTwo.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitTwo && outfitTwo.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitTwo && outfitTwo.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitTwo && outfitTwo.shoes.picture}
-              alt="shoe"
-            />
-          </div>
         </div>
         <div
           className="card mb-5"
@@ -264,7 +145,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "60vh",
+            height: "30vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -283,29 +164,6 @@ function Planner() {
             }
             alt="Weather icon"
           />
-          <div>
-            <Link to="/wardrobe/647f92f368399fff27804253/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitThree && outfitThree.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitThree && outfitThree.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitThree && outfitThree.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitThree && outfitThree.shoes.picture}
-              alt="shoe"
-            />
-          </div>
         </div>
         <div
           className="card mb-5"
@@ -313,7 +171,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "60vh",
+            height: "30vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -332,29 +190,6 @@ function Planner() {
             }
             alt="Weather icon"
           />
-          <div>
-            <Link to="/wardrobe/647f930468399fff27804254/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFour && outfitFour.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFour && outfitFour.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFour && outfitFour.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFour && outfitFour.shoes.picture}
-              alt="shoe"
-            />
-          </div>
         </div>
         <div
           className="card mb-5"
@@ -362,7 +197,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "60vh",
+            height: "30vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -381,31 +216,65 @@ function Planner() {
             }
             alt="Weather icon"
           />
-          <div>
-            <Link to="/wardrobe/647f931268399fff27804255/update">Style</Link>
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFive && outfitFive.hat.picture}
-              alt="hat"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFive && outfitFive.top.picture}
-              alt="top"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFive && outfitFive.bottom.picture}
-              alt="bottom"
-            />
-            <img
-              style={{ height: "100px", width: "100px" }}
-              src={outfitFive && outfitFive.shoes.picture}
-              alt="shoe"
-            />
-          </div>
         </div>
       </div>
+      <br></br>
+      <br></br>
+      <div>
+        <h1 style={{ color: "white", textAlign: "center" }}> Outfit Table </h1>
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <NewOutfit />
+      </div>
+
+      <table style={{ margin: "0 auto", marginTop: "20px", color: "white" }}>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Hat</th>
+            <th>Top</th>
+            <th>Bottom</th>
+            <th>Shoe</th>
+            {/* Add more table headers as needed */}
+          </tr>
+        </thead>
+        <tbody>
+          {outfits.map((outfit) => (
+            <tr key={outfit.id}>
+              <td>{outfit.date}</td>
+              <td>
+                <img
+                  src={outfit.hat.picture}
+                  alt="Hat"
+                  style={{ maxWidth: "100px", maxHeight: "100px" }}
+                />
+              </td>
+              <td>
+                <img
+                  src={outfit.top.picture}
+                  alt="Top"
+                  style={{ maxWidth: "100px", maxHeight: "100px" }}
+                />
+              </td>
+              <td>
+                <img
+                  src={outfit.bottom.picture}
+                  alt="Bottom"
+                  style={{ maxWidth: "100px", maxHeight: "100px" }}
+                />
+              </td>
+              <td>
+                <img
+                  src={outfit.shoes.picture}
+                  alt="shoe"
+                  style={{ maxWidth: "100px", maxHeight: "100px" }}
+                />
+              </td>
+              {/* Add more table cells based on your outfit data structure */}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

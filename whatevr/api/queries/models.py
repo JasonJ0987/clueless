@@ -118,6 +118,7 @@ class ClothesList(BaseModel):
 
 
 class OutfitIn(BaseModel):
+    date: str
     hat: ClothesOut
     top: ClothesOut
     bottom: ClothesOut
@@ -127,6 +128,7 @@ class OutfitIn(BaseModel):
 
 class OutfitOut(BaseModel):
     id: str
+    date: str
     hat: ClothesOut
     top: ClothesOut
     bottom: ClothesOut
