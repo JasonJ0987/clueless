@@ -37,7 +37,7 @@ services:
     volumes:
       - ./whatevr:/app
     environment:
-      OPEN_WEATHER_API_KEY: ${OPEN_WEATHER_API_KEY}
+      OPEN_WEATHER_API_KEY: "42d8b097a99e02375024f5e29fa11f64"
       DATABASE_URL: mongodb://root:password@mongo
       DATABASE_NAME: db-name
       WAIT_BEFORE: 5
