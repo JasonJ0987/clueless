@@ -14,7 +14,18 @@ CMD /wait && uvicorn main:app --reload --host 0.0.0.0 --port 80
 
 
 # glv-cloud-cli deploy -a clueless \
-#   -i registry.gitlab.com/XanderRubio/clueless/whatevr_clueless_image:7d66559f2dbcf3b640a0f338066d361a21b6838a \
-#   -e SIGNING_KEY=whatever \
-#   -e DATABASE_URL=postgresql://admin:password@et-instructors-authdata-service.default.svc.cluster.local/accounts \
+#   -i registry.gitlab.com/xanderrubio/clueless/whatevr_image \
+#   -e SIGNING_KEY=87fe4a3fcfb60092dbaeb854a196bc3d9b190aed7930c734749e85245de698420c25f8e6899c421b4494e99459e01058de5daa9d49584cd62ec975da9aea33db \
+#
+# -e DATABASE_URL=postgresql://admin:password@et-instructors-authdata-service.default.svc.cluster.local/accounts \
 #   -e CORS_HOST=https://sjp19-public-resources.gitlab.io
+
+
+
+# glv-cloud-cli deploy -a mongo-database -i \
+# mongo:latest -e \
+# MONGO_INITDB_ROOT_USERNAME=root \
+# -e MONGO_INITDB_ROOT_PASSWORD=password \
+# -m /data/db \
+# -p 27017 \
+# -x=false
