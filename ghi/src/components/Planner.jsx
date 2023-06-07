@@ -1,6 +1,6 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import "../index.css"
 import { NewOutfit } from "../button"
 
@@ -8,6 +8,7 @@ function Planner() {
   const [weather, setWeather] = useState([]);
   const [outfits, setOutfits] = useState([]);
   const { token } = useToken();
+  const { outfitId } =useParams();
 
   const loadWeather = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/weather`;
@@ -42,6 +43,55 @@ function Planner() {
     }
   }
 
+  const handleDeleteOutfit = async (outfitId) => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${outfitId}`;
+    const fetchConfig = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      setOutfits(
+        outfits.filter((outfit) => outfit.id !== outfitId)
+      );
+    } else {
+      console.error("Failed to delete an outfit");
+    }
+  };
+
+  const handleUpdateOutfit = async (outfitId) => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${outfitId}`;
+    const fetchConfig = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      const updatedOutfit = {
+        hat: { picture: "updated_hat_picture_url" },
+        top: { picture: "updated_top_picture_url" },
+        bottom: { picture: "updated_bottom_picture_url" },
+        shoes: { picture: "updated_shoes_picture_url" },
+      },
+      body: JSON.stringify(updatedOutfit),
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      setOutfits(
+        outfits.map((outfit) => {
+          if (outfit.id === outfitId) {
+            return updatedOutfit; //
+          }
+          return outfit;
+        })
+      );
+    } else {
+      console.error("Failed to update an outfit");
+    }
+  };
 
   useEffect(() => {
     loadWeather();
@@ -235,6 +285,7 @@ function Planner() {
             <th>Top</th>
             <th>Bottom</th>
             <th>Shoe</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -268,6 +319,12 @@ function Planner() {
                   alt="shoe"
                   style={{ maxWidth: "100px", maxHeight: "100px" }}
                 />
+              </td>
+              <td>
+                <button onClick={() => handleUpdateOutfit(outfit.id)}>Update</button>
+                <button onClick={() => handleDeleteOutfit(outfit.id)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
