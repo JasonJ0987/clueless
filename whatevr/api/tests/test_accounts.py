@@ -5,6 +5,7 @@ import os
 os.environ["DATABASE_URL"] = "mongodb://root:password"
 
 
+
 # Creating a new client instance using the app object
 client = TestClient(app)
 
@@ -27,7 +28,6 @@ def test_create_account():
     # Checking that the response body contains the expected data
     assert "id" in response.json()
     assert "email" in response.json()
-
 
 
 # Defining a test function to get the access token for an existing account
