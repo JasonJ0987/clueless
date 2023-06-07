@@ -10,6 +10,7 @@ function Planner() {
   const { token } = useToken();
   const { outfitId } =useParams();
 
+
   const loadWeather = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/weather`;
     const fetchConfig = {
@@ -62,36 +63,6 @@ function Planner() {
     }
   };
 
-  const handleUpdateOutfit = async (outfitId) => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${outfitId}`;
-    const fetchConfig = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      const updatedOutfit = {
-        hat: { picture: "updated_hat_picture_url" },
-        top: { picture: "updated_top_picture_url" },
-        bottom: { picture: "updated_bottom_picture_url" },
-        shoes: { picture: "updated_shoes_picture_url" },
-      },
-      body: JSON.stringify(updatedOutfit),
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      setOutfits(
-        outfits.map((outfit) => {
-          if (outfit.id === outfitId) {
-            return updatedOutfit; //
-          }
-          return outfit;
-        })
-      );
-    } else {
-      console.error("Failed to update an outfit");
-    }
-  };
 
   useEffect(() => {
     loadWeather();
@@ -124,9 +95,6 @@ function Planner() {
   let mdyFive = MDYOfWeek(5);
   let dayFive = dayOfWeek(5);
 
-
-
-
   return (
     <div>
       <div>
@@ -143,7 +111,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "30vh",
+            height: "35vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -169,7 +137,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "30vh",
+            height: "35vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -195,7 +163,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "30vh",
+            height: "35vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -221,7 +189,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "30vh",
+            height: "35vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -247,7 +215,7 @@ function Planner() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "30vh",
+            height: "35vh",
             width: "150vh",
             textAlign: "center",
           }}
@@ -321,7 +289,6 @@ function Planner() {
                 />
               </td>
               <td>
-                <button onClick={() => handleUpdateOutfit(outfit.id)}>Update</button>
                 <button onClick={() => handleDeleteOutfit(outfit.id)}>
                   Delete
                 </button>
@@ -330,10 +297,9 @@ function Planner() {
           ))}
         </tbody>
       </table>
+      <div></div>
     </div>
   );
 };
-
-
 
 export default Planner;
