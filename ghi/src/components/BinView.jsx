@@ -12,6 +12,7 @@ function BinView() {
   const [tags, setTags] = useState([]);
   const { token } = useToken();
   const { binId } = useParams();
+  const { itemId } = useParams();
 
   const loadCloset = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
@@ -90,6 +91,23 @@ function BinView() {
     }
   };
 
+  const handleDeleteItem = async (itemId) => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes/${itemId}`;
+    const fetchConfig = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      setClothes(clothes.filter((item) => item.id !== itemId));
+    } else {
+      console.error("Failed to delete a clothing item");
+    }
+  };
+
   useEffect(() => {
     loadCloset();
     loadTags();
@@ -105,7 +123,8 @@ function BinView() {
 
   return (
     <div>
-      <h1 style={{ color: "white" }}>{bin && bin.name}
+      <h1 style={{ color: "white" }}>
+        {bin && bin.name}
         <AddItemButton />
       </h1>
       <br></br>
@@ -134,10 +153,17 @@ function BinView() {
                 <div className="card-text">{item.primary_color}</div>
                 <div className="card-text">{item.type}</div>
                 <br></br>
-                <div className="card-text">Tags{item.tag_ids.map((tagId => {
-                  const tag = tags.find((tag) => tag.id === tagId);
-                  return <li key={tag.id}>{tag.description}</li>
-                }))}
+                <div className="card-text">
+                  Tags
+                  {item.tag_ids.map((tagId) => {
+                    const tag = tags.find((tag) => tag.id === tagId);
+                    return <li key={tag.id}>{tag.description}</li>;
+                  })}
+                </div>
+                <div style={{ display: "flex", justifyContent: "flex-end"}}>
+                  <button onClick={() => handleDeleteItem(item.id)}>
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>
