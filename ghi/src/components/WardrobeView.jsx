@@ -31,21 +31,21 @@ function WardrobeView() {
         loadOutfit();
     }, [token]);
 
-     const boxStyle = {
-       width: "200px",
-       height: "200px",
-       backgroundColor: "#ccc",
-       margin: "10px",
-       display: "flex",
-       flexDirection: "column",
-       justifyContent: "center",
-       alignItems: "center",
-       position: "relative",
-       boxShadow: "0 3px 15px rgba(255, 255, 0, 0.5)",
-       borderRadius: "9px",
-       backgroundSize: "cover",
-       backgroundPosition: "center",
-     };
+    const boxStyle = {
+      width: "200px",
+      height: "200px",
+      backgroundColor: "#ccc",
+      margin: "10px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      position: "relative",
+      boxShadow: "0 3px 15px rgba(255, 255, 0, 0.5)",
+      borderRadius: "9px",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    };
 
     return (
       <div>

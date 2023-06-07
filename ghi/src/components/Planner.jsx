@@ -63,6 +63,31 @@ function Planner() {
     }
   };
 
+  // const handleUpdateOutfit = async (outfitId) => {
+  //   const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${outfitId}`;
+  //   const fetchConfig = {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //     body: JSON.stringify(outfitId),
+  //   };
+  //   try {
+  //     const response = await fetch(url, fetchConfig);
+  //     if (response.ok || response.status === 422) {
+  //       const updatedOutfitData = await response.json();
+  //       const updatedOutfits = outfits.map((outfit) =>
+  //         outfit.id === outfitId ? updatedOutfitData : outfit
+  //       );
+  //       setOutfits(updatedOutfits);
+  //     } else {
+  //       console.error("Failed to update the outfit");
+  //     }
+  //   } catch (error) {
+  //     console.error("An error occurred while updating the outfit:", error);
+  //   }
+  // };
 
   useEffect(() => {
     loadWeather();
@@ -289,6 +314,9 @@ function Planner() {
                 />
               </td>
               <td>
+                {/* <button onClick={() => handleUpdateOutfit(outfit.id)}>
+                  Update
+                </button> */}
                 <button onClick={() => handleDeleteOutfit(outfit.id)}>
                   Delete
                 </button>
