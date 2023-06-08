@@ -4,15 +4,13 @@ import { useParams } from "react-router-dom";
 import { AddItemButton } from "../button";
 
 function BinView() {
-  const [closets, setClosets] = useState(null);
   const [closetId, setClosetId] = useState("");
   const [bin, setBin] = useState(null);
   const [clothes, setClothes] = useState(null);
-  const [userId, setUserId] = useState("");
+  // const [userId, setUserId] = useState("");
   const [tags, setTags] = useState([]);
   const { token } = useToken();
   const { binId } = useParams();
-  const { itemId } = useParams();
 
   const loadCloset = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
@@ -26,7 +24,6 @@ function BinView() {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      setClosets(data.closets);
       setClosetId(data.closets[0].id);
     }
   };
@@ -63,17 +60,17 @@ function BinView() {
     }
   };
 
-  const loadUser = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/token`;
-    fetch(url, {
-      credentials: "include",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setUserId(data.account.id);
-      })
-      .catch((error) => console.error(error));
-  };
+  // const loadUser = async () => {
+  //   const url = `${process.env.REACT_APP_WHATEVR}/token`;
+  //   fetch(url, {
+  //     credentials: "include",
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setUserId(data.account.id);
+  //     })
+  //     .catch((error) => console.error(error));
+  // };
 
   const loadClothes = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes`;
@@ -114,7 +111,7 @@ function BinView() {
   }, [token]);
   useEffect(() => {
     if (closetId !== "") loadBins();
-    loadUser();
+    // loadUser();
   }, [closetId]);
   useEffect(() => {
     if (closetId !== "") loadClothes();
@@ -142,7 +139,7 @@ function BinView() {
                 <div className="image-wrapper">
                   <img
                     src={item.picture}
-                    alt="picture of clothes"
+                    alt="clothes"
                     style={{
                       width: "100%",
                       height: "100%",
