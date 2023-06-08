@@ -38,7 +38,7 @@ services:
       - ./whatevr:/app
     environment:
       OPEN_WEATHER_API_KEY: ${OPEN_WEATHER_API_KEY}
-      DATABASE_URL: mongodb://root:password@mongo
+      DATABASE_URL: mongodb://root:password@feb-23-et-14-mongo-database-service.default.svc.cluster.local
       DATABASE_NAME: db-name
       WAIT_BEFORE: 5
       WAIT_TIMEOUT: 60

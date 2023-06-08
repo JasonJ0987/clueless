@@ -61,8 +61,6 @@ pages:
       - public
 
 build-whatevr-image:
-  services:
-    - docker:dind
   stage: build
   image: docker:git
   variables:
