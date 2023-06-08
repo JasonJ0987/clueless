@@ -93,7 +93,7 @@ function BinView() {
   };
 
   useEffect(() => {
-  }, [loadCloset, loadTags, loadBins, loadClothes]);
+  }, [token, loadCloset, loadTags, loadBins, loadClothes]);
   // useEffect(() => {
   //   if (closetId !== "") loadBins();
   // });
