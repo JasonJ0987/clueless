@@ -1,5 +1,5 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { AddItemButton } from "../button";
 
@@ -92,16 +92,20 @@ function BinView() {
     }
   };
 
-  useEffect(() => {
-    loadCloset();
-    loadTags();
-  });
-  useEffect(() => {
-    if (closetId !== "") loadBins();
-  });
-  useEffect(() => {
-    if (closetId !== "") loadClothes();
-  });
+  // useEffect(() => {
+  //   loadCloset();
+  //   loadTags();
+  // });
+  // useEffect(() => {
+  //   if (closetId !== "") loadBins();
+  // });
+  // useEffect(() => {
+  //   if (closetId !== "") loadClothes();
+  // });
+  loadCloset();
+  loadTags();
+  loadBins();
+  loadClothes();
 
 
   return (
