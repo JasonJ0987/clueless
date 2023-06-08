@@ -2,7 +2,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css'
 
-
 const ClothesForm = () => {
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
