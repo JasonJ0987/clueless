@@ -14,6 +14,7 @@ const WardrobeForm = () => {
   const [shoe, setShoe] = useState(null);
   const [userId, setUserId] = useState("");
   const { token } = useToken();
+  const navigate = useNavigate();
 
 
   const loadUser = useCallback(async () => {
@@ -98,7 +99,6 @@ const WardrobeForm = () => {
     loadBottoms();
     loadShoes();
     loadUser();
-    useNavigate("/planner")
   }, [token, loadHats, loadTops, loadBottoms, loadShoes, loadUser]);
 
   const handleSubmit = async (event) => {
@@ -128,6 +128,7 @@ const WardrobeForm = () => {
       setBottom(null);
       setShoe(null);
       setUserId("");
+      navigate("/planner")
     } else {
       const error = await response.json();
       return error
