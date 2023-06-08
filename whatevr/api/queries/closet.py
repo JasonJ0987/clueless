@@ -73,12 +73,14 @@ class ClothesQueries(Queries):
     DB_NAME = "library"
     COLLECTION = "clothes"
 
-    def get_all(self, closet_id: str, bin_id: str, user_id) -> List[ClothesOut]:
+    def get_all(
+        self, closet_id: str, bin_id: str, user_id
+    ) -> List[ClothesOut]:
         props = self.collection.find(
             {
                 "closet_id": ObjectId(closet_id),
                 "bin_id": ObjectId(bin_id),
-                "user_id": ObjectId(user_id)
+                "user_id": ObjectId(user_id),
             }
         )
         clothesPropsList = list(props)
@@ -89,12 +91,14 @@ class ClothesQueries(Queries):
             clothesProps["user_id"] = str(clothesProps["user_id"])
         return [ClothesOut(**clothes) for clothes in clothesPropsList]
 
-    def get_one(self, clothes_id: str, closet_id: str, bin_id: str) -> ClothesOut | None:
+    def get_one(
+        self, clothes_id: str, closet_id: str, bin_id: str
+    ) -> ClothesOut | None:
         props = self.collection.find_one(
             {
                 "_id": ObjectId(clothes_id),
                 "closet_id": ObjectId(closet_id),
-                "bin_id": ObjectId(bin_id)
+                "bin_id": ObjectId(bin_id),
             }
         )
         if not props:
@@ -123,7 +127,7 @@ class ClothesQueries(Queries):
             {
                 "_id": ObjectId(clothes_id),
                 "closet_id": ObjectId(closet_id),
-                "bin_id": ObjectId(bin_id)
+                "bin_id": ObjectId(bin_id),
             }
         )
 
@@ -181,9 +185,7 @@ class OutfitQueries(Queries):
             {
                 "_id": ObjectId(outfit_id),
             },
-            {
-                "$set": {**props}
-            }
+            {"$set": {**props}},
         )
         props["id"] = str(ObjectId(outfit_id))
         props["user_id"] = str(props["user_id"])

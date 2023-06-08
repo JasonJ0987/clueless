@@ -27,8 +27,4 @@ class TagQueries(Queries):
         return TagOut(**props)
 
     def delete(self, tag_id: str) -> bool:
-        self.collection.delete_one(
-            {
-                "_id": ObjectId(tag_id)
-            }
-        )
+        self.collection.delete_one({"_id": ObjectId(tag_id)})
