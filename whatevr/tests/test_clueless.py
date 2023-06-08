@@ -1,10 +1,6 @@
 from fastapi.testclient import TestClient
 from api.utils.token_auth import get_current_user
-from api.queries.closet import (
-    ClosetQueries,
-    BinQueries,
-    ClothesQueries
-)
+from api.queries.closet import ClosetQueries, BinQueries, ClothesQueries
 from api.queries.tags import TagQueries
 from main import app
 
@@ -20,8 +16,8 @@ async def get_token():
             "username": "string",
             "first": "string",
             "last": "string",
-            "zipcode": 0
-        }
+            "zipcode": 0,
+        },
     }
 
 
@@ -37,7 +33,7 @@ class FakeUserQuery:
                 "username": "test",
                 "first": "test",
                 "last": "test",
-                "zipcode": 12345
+                "zipcode": 12345,
             }
         else:
             return None
@@ -49,9 +45,7 @@ class FakeUserQuery:
 
 class FakeClosetQuery:
     def get_all(self):
-        return [
-            {"name": "test", "id": 10}
-        ]
+        return [{"name": "test", "id": 10}]
 
 
 class FakeBinQuery:
@@ -82,7 +76,7 @@ class FakeClothesQuery:
                     "tag_ids": ["test"],
                     "bin_id": "1",
                     "closet_id": "10",
-                    "user_id": "1"
+                    "user_id": "1",
                 }
             ]
         else:
@@ -91,12 +85,7 @@ class FakeClothesQuery:
 
 class FakeTagQuery:
     def get_all(self):
-        return [
-            {
-                "id": "10",
-                "description": "test"
-            }
-        ]
+        return [{"id": "10", "description": "test"}]
 
 
 def test_get_tag():
