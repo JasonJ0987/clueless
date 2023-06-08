@@ -12,9 +12,14 @@ async def read_main():
     return {"msg": "Hello Main"}
 
 
+origins = [
+    "http://localhost:3000",
+    os.environ.get("CORS_HOST", None),
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.environ.get("CORS_HOST", "None")],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -25,3 +30,4 @@ app.include_router(accounts.router, tags=["accounts"])
 app.include_router(weather.router, tags=["weather"])
 app.include_router(closet.router, tags=["closet"])
 app.include_router(tags.router, tags=["tags"])
+
