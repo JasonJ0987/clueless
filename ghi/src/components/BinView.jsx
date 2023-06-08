@@ -11,7 +11,7 @@ function BinView() {
   const { token } = useToken();
   const { binId } = useParams();
 
-  const loadCloset = async () => {
+  const loadCloset = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
     const fetchConfig = {
       method: "GET",
@@ -25,7 +25,7 @@ function BinView() {
       const data = await response.json();
       setClosetId(data.closets[0].id);
     }
-  };
+  }, [token]);
 
   const loadBins = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}`;
@@ -43,7 +43,7 @@ function BinView() {
     }
   }, [token, binId, closetId]);
 
-  const loadTags = async () => {
+  const loadTags = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/tags`;
     const fetchConfig = {
       method: "GET",
@@ -57,9 +57,9 @@ function BinView() {
       const data = await response.json();
       setTags(data.tags);
     }
-  };
+  }, [token]);
 
-  const loadClothes = async () => {
+  const loadClothes = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -73,7 +73,7 @@ function BinView() {
       const data = await response.json();
       setClothes(data.clothes);
     }
-  };
+  }, [token, closetId, binId]);
 
   const handleDeleteItem = async (itemId) => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes/${itemId}`;
@@ -98,7 +98,7 @@ function BinView() {
   });
   useEffect(() => {
     if (closetId !== "") loadBins();
-  }, [closetId, loadBins]);
+  });
   useEffect(() => {
     if (closetId !== "") loadClothes();
   });
