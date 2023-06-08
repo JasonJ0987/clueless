@@ -29,7 +29,7 @@ export const Main = () => {
             alt="logo"
             height="150vh"
             width="10vh"
-            style={{ marginLeft: "100px", marginTop: "80px", justifyContent: "center" }}
+            style={{  marginTop: "80px", justifyContent: "center" }}
           />
           {!token && (
             <li style={{ display: "flex", justifyContent: "center"}}>
@@ -43,7 +43,7 @@ export const Main = () => {
                   }}
                   title="Get started"
                 >
-                  Click Here
+                  New? Click Here
                 </button>
               </Link>
             </li>
