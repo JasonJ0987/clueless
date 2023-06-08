@@ -28,3 +28,9 @@ CMD /wait && uvicorn main:app --reload --host 0.0.0.0 --port 80
 # -m /data/db \
 # -p 27017 \
 # -x=false
+
+
+# glv-cloud-cli logs -a clueless (checking logs)
+# glv-cloud-cli deploy -a clueless -d (delete)
+# glv-cloud-cli deploy -a clueless -i nginx
+# glv-cloud-cli list  
