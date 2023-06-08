@@ -11,10 +11,6 @@ export const Main = () => {
 
   return (
     <>
-      <div className="px-4 py-5" id="background">
-        {!token && <p className="whitetext">Please sign up</p>}
-        {token && <p className="whitetext">Main Page</p>}
-      </div>
       <section
         className="hero image-as-background"
         style={{
@@ -40,7 +36,7 @@ export const Main = () => {
               <Link to="/signup" className="nav-links-mobile">
                 <button
                   href="#"
-                  // className="btn btn primary"
+                  className="btn btn primary"
                   style={{
                     fontSize: "20px",
                     marginTop: "30px",

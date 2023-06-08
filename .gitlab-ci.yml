@@ -43,8 +43,6 @@ build-front-end-job:
   artifacts:
     paths:
       - ghi/build/
-  services:
-  - docker:dind
 
 pages:
   stage: deploy
