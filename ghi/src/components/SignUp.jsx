@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 
 const Signup = () => {
@@ -139,6 +139,7 @@ const Signup = () => {
                         />
                       </form>
                     </div>
+                     <p href= "#" style={{color: "white", textAlign: "center", marginTop: "20px"}}>Already signed up? <Link to="/login" href= "#" style={{color: "white"}}>Log in Here!</Link></p>
                   </div>
                 </div>
               </div>
