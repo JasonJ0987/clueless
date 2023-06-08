@@ -71,7 +71,7 @@ build-whatevr-image:
   only:
     - main
 
-deploy-whatevr-image:
+deploy-user-image:
   stage: deploy
   image: registry.gitlab.com/galvanize-inc/foss/glv-cloud-cli:latest
   script:
