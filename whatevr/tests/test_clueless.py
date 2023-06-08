@@ -1,13 +1,6 @@
 from fastapi.testclient import TestClient
-from api.queries.models import (
-    AccountOut,
-)
 from api.utils.token_auth import get_current_user
-from api.queries.closet import (
-    ClosetQueries,
-    BinQueries,
-    ClothesQueries
-)
+from api.queries.closet import ClosetQueries, BinQueries, ClothesQueries
 from api.queries.tags import TagQueries
 from main import app
 
@@ -23,23 +16,12 @@ async def get_token():
             "username": "string",
             "first": "string",
             "last": "string",
-            "zipcode": 0
-        }
+            "zipcode": 0,
+        },
     }
 
 
 client = TestClient(app)
-
-
-def fake_user():
-    return AccountOut(
-        id="1",
-        email="test@example.com",
-        username="test",
-        first="test",
-        last="test",
-        zipcode=12345
-    )
 
 
 class FakeUserQuery:
@@ -51,17 +33,19 @@ class FakeUserQuery:
                 "username": "test",
                 "first": "test",
                 "last": "test",
-                "zipcode": 12345
+                "zipcode": 12345,
             }
         else:
             return None
 
+    @property
+    def id(self):
+        return "1"
+
 
 class FakeClosetQuery:
     def get_all(self):
-        return [
-            {"name": "test", "id": 10}
-        ]
+        return [{"name": "test", "id": 10}]
 
 
 class FakeBinQuery:
@@ -81,7 +65,7 @@ class FakeBinQuery:
 
 class FakeClothesQuery:
     def get_all(self, closet_id, bin_id, user_id):
-        if closet_id == "10" and bin_id == "1" and user_id == FakeUserQuery.id:
+        if closet_id == "10" and bin_id == "1" and user_id == "1":
             return [
                 {
                     "id": "100",
@@ -92,7 +76,7 @@ class FakeClothesQuery:
                     "tag_ids": ["test"],
                     "bin_id": "1",
                     "closet_id": "10",
-                    "user_id": FakeUserQuery
+                    "user_id": "1",
                 }
             ]
         else:
@@ -101,12 +85,7 @@ class FakeClothesQuery:
 
 class FakeTagQuery:
     def get_all(self):
-        return [
-            {
-                "id": "10",
-                "description": "test"
-            }
-        ]
+        return [{"id": "10", "description": "test"}]
 
 
 def test_get_tag():
@@ -174,22 +153,22 @@ def test_get_token():
 
 
 def test_get_clothes():
-    app.dependency_overrides[ClothesQueries] = FakeClothesQuery
     app.dependency_overrides[get_current_user] = FakeUserQuery
+    app.dependency_overrides[ClothesQueries] = FakeClothesQuery
     closet_id = "10"
     bin_id = "1"
     response = client.get(f"/api/closet/{closet_id}/bins/{bin_id}/clothes")
     assert response.status_code == 200
-    assert len(response.json()) == 1
+    assert len(response.json()["clothes"]) == 1
     app.dependency_overrides = {}
     data = response.json()
     assert "clothes" in data
-    assert data["clothes"][0]["id"] == "1"
+    assert data["clothes"][0]["id"] == "100"
     assert data["clothes"][0]["name"] == "clothestest"
     assert data["clothes"][0]["picture"] == "test"
     assert data["clothes"][0]["primary_color"] == "test"
     assert data["clothes"][0]["type"] == "test"
     assert data["clothes"][0]["tag_ids"] == ["test"]
     assert data["clothes"][0]["bin_id"] == "1"
-    assert data["clothes"][0]["closet"] == "10"
-    assert data["clothes"][0]["user_id"] == FakeUserQuery
+    assert data["clothes"][0]["closet_id"] == "10"
+    assert data["clothes"][0]["user_id"] == "1"
