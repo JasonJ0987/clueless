@@ -8,6 +8,7 @@ from api.queries.closet import (
     BinQueries,
     ClothesQueries
 )
+from api.queries.tags import TagQueries
 from main import app
 
 
@@ -79,8 +80,8 @@ class FakeBinQuery:
 
 
 class FakeClothesQuery:
-    def get_all(self, closet_id, bin_id):
-        if closet_id == "10" and bin_id == "1":
+    def get_all(self, closet_id, bin_id, user_id):
+        if closet_id == "10" and bin_id == "1" and user_id == FakeUserQuery.id:
             return [
                 {
                     "id": "100",
@@ -91,7 +92,7 @@ class FakeClothesQuery:
                     "tag_ids": ["test"],
                     "bin_id": "1",
                     "closet_id": "10",
-                    "user_id": "1000"
+                    "user_id": FakeUserQuery
                 }
             ]
         else:
@@ -109,7 +110,7 @@ class FakeTagQuery:
 
 
 def test_get_tag():
-    app.dependency_overrides[ClosetQueries] = FakeClosetQuery
+    app.dependency_overrides[TagQueries] = FakeTagQuery
     app.dependency_overrides[get_current_user] = FakeUserQuery
     response = client.get("/api/tags")
     assert response.status_code == 200
@@ -177,13 +178,13 @@ def test_get_clothes():
     app.dependency_overrides[get_current_user] = FakeUserQuery
     closet_id = "10"
     bin_id = "1"
-    response = client.get(f"/api/clothes/{closet_id}/bins/{bin_id}/clothes")
+    response = client.get(f"/api/closet/{closet_id}/bins/{bin_id}/clothes")
     assert response.status_code == 200
     assert len(response.json()) == 1
     app.dependency_overrides = {}
     data = response.json()
     assert "clothes" in data
-    assert data["clothes"][0]["id"] == "100"
+    assert data["clothes"][0]["id"] == "1"
     assert data["clothes"][0]["name"] == "clothestest"
     assert data["clothes"][0]["picture"] == "test"
     assert data["clothes"][0]["primary_color"] == "test"
@@ -191,5 +192,4 @@ def test_get_clothes():
     assert data["clothes"][0]["tag_ids"] == ["test"]
     assert data["clothes"][0]["bin_id"] == "1"
     assert data["clothes"][0]["closet"] == "10"
-    assert data["clothes"][0]["user_id"] == "1000"
-
+    assert data["clothes"][0]["user_id"] == FakeUserQuery
