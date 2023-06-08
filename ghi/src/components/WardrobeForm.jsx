@@ -98,6 +98,7 @@ const WardrobeForm = () => {
     loadBottoms();
     loadShoes();
     loadUser();
+    useNavigate("/planner")
   }, [token, loadHats, loadTops, loadBottoms, loadShoes, loadUser]);
 
   const handleSubmit = async (event) => {
@@ -132,7 +133,7 @@ const WardrobeForm = () => {
       return error
     }
   };
-    
+
   const handleHatChange = (event) => {
     const value = event.target.value;
     const selectedHat = hats.find((hat) =>hat.id === value);
@@ -273,7 +274,7 @@ const WardrobeForm = () => {
           <div>
             {bottom && (
               <img src={bottom.picture} alt="bottom" style={{ ...boxStyle, maxWidth: "100%", maxHeight: "100%", objectFit: "fill" }} />
-            )} 
+            )}
           </div>
         </div>
         <br></br>
