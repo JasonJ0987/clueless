@@ -111,7 +111,6 @@ class FakeTagQuery:
 def test_get_tag():
     app.dependency_overrides[ClosetQueries] = FakeClosetQuery
     app.dependency_overrides[get_current_user] = FakeUserQuery
-    id = "10"
     response = client.get("/api/tags")
     assert response.status_code == 200
     assert len(response.json()) == 1
