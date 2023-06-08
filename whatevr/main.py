@@ -30,5 +30,3 @@ app.include_router(accounts.router, tags=["accounts"])
 app.include_router(weather.router, tags=["weather"])
 app.include_router(closet.router, tags=["closet"])
 app.include_router(tags.router, tags=["tags"])
-
-
