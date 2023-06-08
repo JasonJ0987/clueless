@@ -14,7 +14,7 @@ export const Main = () => {
       <section
         className="hero image-as-background"
         style={{
-          backgroundImage: "url('https://media0.giphy.com/media/xT9KVgmGTooXz0iDPW/giphy.gif?cid=6c09b9527slpvckmql9sg3607qaqsptiekc907fr2g9pp5ih&ep=v1_gifs_search&rid=giphy.gif&ct=g')",
+          backgroundColor: "url('https://media0.giphy.com/media/xT9KVgmGTooXz0iDPW/giphy.gif?cid=6c09b9527slpvckmql9sg3607qaqsptiekc907fr2g9pp5ih&ep=v1_gifs_search&rid=giphy.gif&ct=g')",
           width: "100%",
           paddingLeft: "0",
           marginRight: "150px",
