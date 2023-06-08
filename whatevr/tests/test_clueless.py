@@ -90,7 +90,7 @@ class FakeClothesQuery:
                     "type": "test",
                     "tag_ids": ["test"],
                     "bin_id": "1",
-                    "closet": "10",
+                    "closet_id": "10",
                     "user_id": "1000"
                 }
             ]
@@ -111,7 +111,6 @@ class FakeTagQuery:
 def test_get_tag():
     app.dependency_overrides[ClosetQueries] = FakeClosetQuery
     app.dependency_overrides[get_current_user] = FakeUserQuery
-    id = "10"
     response = client.get("/api/tags")
     assert response.status_code == 200
     assert len(response.json()) == 1
@@ -123,7 +122,6 @@ def test_get_tag():
 
 
 def test_get_bins():
-    app.dependency_overrides[ClosetQueries] = FakeClosetQuery
     app.dependency_overrides[get_current_user] = FakeUserQuery
     app.dependency_overrides[BinQueries] = FakeBinQuery
     closet_id = "10"
@@ -177,14 +175,21 @@ def test_get_token():
 def test_get_clothes():
     app.dependency_overrides[ClothesQueries] = FakeClothesQuery
     app.dependency_overrides[get_current_user] = FakeUserQuery
-    response = client.get("/api/clothes")
+    closet_id = "10"
+    bin_id = "1"
+    response = client.get(f"/api/clothes/{closet_id}/bins/{bin_id}/clothes")
     assert response.status_code == 200
     assert len(response.json()) == 1
     app.dependency_overrides = {}
     data = response.json()
     assert "clothes" in data
-    assert data["clothes"][0]["name"] == "test"
+    assert data["clothes"][0]["id"] == "100"
+    assert data["clothes"][0]["name"] == "clothestest"
     assert data["clothes"][0]["picture"] == "test"
     assert data["clothes"][0]["primary_color"] == "test"
     assert data["clothes"][0]["type"] == "test"
-    assert data["clo"]
+    assert data["clothes"][0]["tag_ids"] == ["test"]
+    assert data["clothes"][0]["bin_id"] == "1"
+    assert data["clothes"][0]["closet"] == "10"
+    assert data["clothes"][0]["user_id"] == "1000"
+
