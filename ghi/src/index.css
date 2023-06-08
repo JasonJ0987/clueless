@@ -3,7 +3,7 @@ html, body{
 }
 
 .navbar {
-  /* background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%); */
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,19 +309,19 @@ html, body{
   margin-bottom: 20px;
 }
 
-/* .parent:first-of-type{
+.parent:first-of-type{
     background: #ffffff url("https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2342&q=80") no-repeat center center fixed;
     background-size: cover;
     background-position: center;
     height: 100vh;
-  } */
+  }
 
-  /* .parent:last-of-type {
+.parent:last-of-type {
     background: #ffffff url("https://media.discordapp.net/attachments/759607406560018484/1116115313570893915/Screenshot_2023-06-07_at_5.23.16_PM.png?width=1636&height=1208") no-repeat center center fixed;
     background-size: cover;
     background-position: center;
     height: 100vh;
-  } */
+  }
   .parent {
     width: 100%;
     color: #fff;
