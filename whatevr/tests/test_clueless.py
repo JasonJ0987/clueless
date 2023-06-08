@@ -172,4 +172,3 @@ def test_get_clothes():
     assert data["clothes"][0]["bin_id"] == "1"
     assert data["clothes"][0]["closet_id"] == "10"
     assert data["clothes"][0]["user_id"] == "1"
-
