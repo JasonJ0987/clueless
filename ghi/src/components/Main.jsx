@@ -4,7 +4,6 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import "react-json-pretty/themes/monikai.css";
 import "../index.css";
 
-// };
 import { Link } from "react-router-dom";
 
 export const Main = () => {
