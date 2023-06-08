@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import '../index.css'
 
@@ -86,7 +86,7 @@ const ClothesForm = () => {
     }
   };
 
-  const loadBins = async () => {
+  const loadBins = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/`;
     const fetchConfig = {
       method: "GET",
@@ -100,9 +100,9 @@ const ClothesForm = () => {
       const data = await response.json();
       setBins(data.bins);
     }
-  };
+  }, [token]);
 
-  const loadTags = async () => {
+  const loadTags = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/tags`;
     const fetchConfig = {
       method: "GET",
@@ -116,9 +116,9 @@ const ClothesForm = () => {
       const data = await response.json();
       setTags(data.tags);
     }
-  };
+  }, [token]);
 
-  const loadUser = async () => {
+  const loadUser = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/token`;
     fetch(url, {
       credentials: "include",
@@ -128,13 +128,13 @@ const ClothesForm = () => {
         setUserId(data.account.id);
       })
       .catch((error) => console.error(error));
-  };
+  }, []);
 
   useEffect(() => {
     loadBins();
     loadTags();
     loadUser();
-  }, [token]);
+  }, [token, loadBins, loadTags, loadUser]);
 
   return (
       <div className="container">

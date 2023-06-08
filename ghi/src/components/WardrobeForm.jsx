@@ -1,7 +1,6 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 const WardrobeForm = () => {
   const [date, setDate] = useState("")
@@ -16,10 +15,9 @@ const WardrobeForm = () => {
   const [userId, setUserId] = useState("");
   const navigate = useNavigate();
   const { token } = useToken();
-  const { wardrobeId } = useParams();
 
 
-  const loadUser = async () => {
+  const loadUser = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/token`;
     fetch(url, {
       credentials: "include",
@@ -29,9 +27,9 @@ const WardrobeForm = () => {
         setUserId(data.account.id);
       })
       .catch((error) => console.error(error));
-  };
+  }, []);
 
-  const loadHats = async () => {
+  const loadHats = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -45,9 +43,9 @@ const WardrobeForm = () => {
       const data = await response.json();
       setHats(data.clothes);
     }
-  };
+  }, [token]);
 
-  const loadTops = async () => {
+  const loadTops = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -61,9 +59,9 @@ const WardrobeForm = () => {
       const data = await response.json();
       setTops(data.clothes);
     }
-  };
+  }, [token]);
 
-  const loadBottoms = async () => {
+  const loadBottoms = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -77,9 +75,9 @@ const WardrobeForm = () => {
       const data = await response.json();
       setBottoms(data.clothes);
     }
-  };
+  }, [token]);
 
-  const loadShoes = async () => {
+  const loadShoes = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -93,7 +91,7 @@ const WardrobeForm = () => {
       const data = await response.json();
       setShoes(data.clothes);
     }
-  };
+  }, [token]);
 
   useEffect(() => {
     loadHats();
@@ -101,7 +99,7 @@ const WardrobeForm = () => {
     loadBottoms();
     loadShoes();
     loadUser();
-  }, [token]);
+  }, [token, loadHats, loadTops, loadBottoms, loadShoes, loadUser]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

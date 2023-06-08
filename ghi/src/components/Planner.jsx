@@ -1,6 +1,5 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState, useEffect } from "react";
-import { Link, useParams } from 'react-router-dom';
+import { useState, useEffect, useCallback } from "react";
 import "../index.css"
 import { NewOutfit } from "../button"
 
@@ -8,10 +7,9 @@ function Planner() {
   const [weather, setWeather] = useState([]);
   const [outfits, setOutfits] = useState([]);
   const { token } = useToken();
-  const { outfitId } =useParams();
 
 
-  const loadWeather = async () => {
+  const loadWeather = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/weather`;
     const fetchConfig = {
       method: "GET",
@@ -25,9 +23,9 @@ function Planner() {
       const data = await response.json();
       setWeather(data);
     }
-  };
+  }, [token]);
 
-  const loadOutfits = async (outfitId) => {
+  const loadOutfits = useCallback(async (outfitId) => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe`;
     const fetchConfig = {
       method: "GET",
@@ -42,7 +40,7 @@ function Planner() {
       console.log(data)
       setOutfits(data.outfits)
     }
-  }
+  }, [token]);
 
   const handleDeleteOutfit = async (outfitId) => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${outfitId}`;
@@ -92,7 +90,7 @@ function Planner() {
   useEffect(() => {
     loadWeather();
     loadOutfits();
-  }, [token]);
+  }, [token, loadOutfits, loadWeather]);
 
   function MDYOfWeek(number) {
     let fullDay = weather[number] && weather[number]["time"];
