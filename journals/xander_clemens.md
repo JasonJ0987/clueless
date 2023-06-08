@@ -179,3 +179,15 @@ Jason and Jeanette were the primary developers today. In the morning, we added O
 * Today, we made progress on our Wardrobe page and CSS and cleaned up our repository home page by addressing issues, closing them, and completing merge requests.
 
 Jason and Jeanette did a good portion of the driving today, improving our planner page by connecting our OpenWeather API call, working on our wardrobe form page, and getting a successful submission that now registers in our MongoDB. We made adjustments to the CSS layout on the Wardrobe form and allowed the clothing items in a user's closet to be successfully picked from a dropdown select tag. We must focus on taking the data submitted on our wardrobe form and connecting that to our planner page. After doing this, the next focus will be to create Unit tests and get them to pass.
+
+## 6/6/2023
+
+* Today, we made progress on how our wardrobe form is sending data and then how it is returning our data to our planner page. In addition, we further built out our unit tests.
+
+Today, we first focused on finishing up the last of our merge requests and closing any issues still open. We then focused on getting our wardrobe form to send data to our planner page. We got the data to send successfully. However, we are still working on getting the data to return to our planner page and figuring out how to get our clothes for the specific day to be saved and regenerated upon a day change. We also worked on building out our unit tests and getting them to pass. However, we continually ran into the issue of needing help to import the modules used throughout the unit tests we constructed. We attempted to move the files around and change the file structure, but we still needed to get our unit tests to pass. We will continue working on this issue and hope to resolve it by tomorrow.
+
+## 6/7/2023
+
+* Today, we made progress on our unit tests, planning our the deitlaaed frontend presentaiton of data of our wardrobe to display on our planner and beginnngin the process of deployment to Cirrus.
+
+Today I focused the morning on building on our unit tests and getting them to pass. I had written out 5 unit tests on another branch and ran into the issue of not being able to run them on my terminal in VSCode becuase of an import module error. From here I worked with a SEIR that advised me to test out one of the unit test inside the docker conterinar terminal. When doing this I had to pip install pytest and then was able to succeffuly run one unit test that passed. From here I advides our team that we could move forqward with beggining the process of deployment to Cirrus. During this time I was working 

@@ -31,7 +31,7 @@ router = APIRouter()
 async def post_closet(
     closet: ClosetIn,
     repo: ClosetQueries = Depends(),
-    current_user: dict = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user),
 ):
     closet = repo.create(closet)
     return closet
@@ -40,7 +40,7 @@ async def post_closet(
 @router.get("/api/closet", response_model=ClosetList)
 def get_closets(
     repo: ClosetQueries = Depends(),
-    current_user: dict = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user),
 ):
     return ClosetList(closets=repo.get_all())
 
@@ -66,7 +66,9 @@ def get_bins(
     return BinList(bins=repo.get_all(closet_id=closet_id))
 
 
-@router.get("/api/closet/{closet_id}/bins/{bin_id}", response_model=BinOut | None)
+@router.get(
+    "/api/closet/{closet_id}/bins/{bin_id}", response_model=BinOut | None
+)
 def get_bin(
     closet_id: str,
     bin_id: str,
@@ -79,7 +81,9 @@ def get_bin(
     return props
 
 
-@router.post("/api/closet/{closet_id}/bins/{bin_id}/clothes", response_model=ClothesOut)
+@router.post(
+    "/api/closet/{closet_id}/bins/{bin_id}/clothes", response_model=ClothesOut
+)
 async def post_clothes(
     clothes: ClothesIn,
     repo: ClothesQueries = Depends(),
@@ -89,19 +93,36 @@ async def post_clothes(
     return new_clothes
 
 
-@router.get("/api/closet/{closet_id}/bins/{bin_id}/clothes", response_model=ClothesList | None)
+@router.get(
+    "/api/closet/{closet_id}/bins/{bin_id}/clothes",
+    response_model=ClothesList | None,
+)
 def get_clothes(
     closet_id: str,
     bin_id: str,
     repo: ClothesQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
-    if ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id, user_id=current_user.id)) == []:
+    if (
+        ClothesList(
+            clothes=repo.get_all(
+                closet_id=closet_id, bin_id=bin_id, user_id=current_user.id
+            )
+        )
+        == []
+    ):
         return None
-    return ClothesList(clothes=repo.get_all(closet_id=closet_id, bin_id=bin_id, user_id=current_user.id))
+    return ClothesList(
+        clothes=repo.get_all(
+            closet_id=closet_id, bin_id=bin_id, user_id=current_user.id
+        )
+    )
 
 
-@router.get("/api/closet/{closet_id}/bins/{bin_id}/clothes/{clothes_id}", response_model=ClothesOut | None)
+@router.get(
+    "/api/closet/{closet_id}/bins/{bin_id}/clothes/{clothes_id}",
+    response_model=ClothesOut | None,
+)
 def get_clothing_item(
     closet_id: str,
     bin_id: str,
@@ -109,13 +130,21 @@ def get_clothing_item(
     repo: ClothesQueries = Depends(),
     current_user: dict = Depends(get_current_user),
 ):
-    props = repo.get_one(clothes_id=clothes_id, bin_id=bin_id, closet_id=closet_id, user_id=current_user.id)
+    props = repo.get_one(
+        clothes_id=clothes_id,
+        bin_id=bin_id,
+        closet_id=closet_id,
+        user_id=current_user.id,
+    )
     if not props:
         return None
     return props
 
 
-@router.delete("/api/closet/{closet_id}/bins/{bin_id}/clothes/{clothes_id}", response_model=bool)
+@router.delete(
+    "/api/closet/{closet_id}/bins/{bin_id}/clothes/{clothes_id}",
+    response_model=bool,
+)
 async def delete_clothing(
     closet_id: str,
     bin_id: str,

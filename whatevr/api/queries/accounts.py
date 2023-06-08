@@ -1,5 +1,5 @@
 from .client import Queries
-from .models import AccountIn, Account, AccountOut
+from api.queries.models import AccountIn, Account
 from pymongo.errors import DuplicateKeyError
 
 
@@ -18,7 +18,9 @@ class AccountQueries(Queries):
         props["id"] = str(props["_id"])
         return Account(**props)
 
-    def create(self, info: AccountIn, hashed_password: str, roles=["patron"]) -> Account:
+    def create(
+        self, info: AccountIn, hashed_password: str, roles=["patron"]
+    ) -> Account:
         props = info.dict()
         props["password"] = hashed_password
         props["roles"] = roles

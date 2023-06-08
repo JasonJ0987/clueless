@@ -1,17 +1,16 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import '../index.css';
 
 
 function WardrobeView() {
     const [outfit, setOutfit] = useState(null);
-    const [weather, setWeather] = useState([]);
     const { wardrobeId } = useParams();
     const { token } = useToken();
 
 
-    const loadOutfit = async () => {
+    const loadOutfit = useCallback(async () => {
         const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${wardrobeId}`
         const fetchConfig = {
             method: "GET",
@@ -25,27 +24,27 @@ function WardrobeView() {
             const data = await response.json();
             setOutfit(data)
         }
-    }
+    }, [wardrobeId, token]);
 
     useEffect(() => {
         loadOutfit();
-    }, [token]);
+    }, [token, loadOutfit]);
 
-     const boxStyle = {
-       width: "200px",
-       height: "200px",
-       backgroundColor: "#ccc",
-       margin: "10px",
-       display: "flex",
-       flexDirection: "column",
-       justifyContent: "center",
-       alignItems: "center",
-       position: "relative",
-       boxShadow: "0 3px 15px rgba(255, 255, 0, 0.5)",
-       borderRadius: "9px",
-       backgroundSize: "cover",
-       backgroundPosition: "center",
-     };
+    // const boxStyle = {
+    //   width: "200px",
+    //   height: "200px",
+    //   backgroundColor: "#ccc",
+    //   margin: "10px",
+    //   display: "flex",
+    //   flexDirection: "column",
+    //   justifyContent: "center",
+    //   alignItems: "center",
+    //   position: "relative",
+    //   boxShadow: "0 3px 15px rgba(255, 255, 0, 0.5)",
+    //   borderRadius: "9px",
+    //   backgroundSize: "cover",
+    //   backgroundPosition: "center",
+    // };
 
     return (
       <div>

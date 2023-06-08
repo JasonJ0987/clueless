@@ -1,4 +1,6 @@
 import pymongo
+from fastapi.exceptions import HTTPException
+
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client.database

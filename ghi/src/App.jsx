@@ -24,7 +24,7 @@ function App() {
 
   return (
     <AuthProvider baseUrl={baseUrl}>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <NavBar />
         <div className="container" id="outerdiv" style={{ padding: "0" }}>
           <Routes>
@@ -42,6 +42,7 @@ function App() {
               <Route path="new" element={< ClothesForm />} />
             </Route>
             <Route path="wardrobe">
+              <Route path="new" element={< WardrobeForm />} />
               <Route path=":wardrobeId/update" element={< WardrobeForm />} />
               <Route path=":wardrobeId" element={< WardrobeView />} />
             </Route>

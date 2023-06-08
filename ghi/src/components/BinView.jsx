@@ -1,19 +1,17 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { AddItemButton } from "../button";
 
 function BinView() {
-  const [closets, setClosets] = useState(null);
   const [closetId, setClosetId] = useState("");
   const [bin, setBin] = useState(null);
   const [clothes, setClothes] = useState(null);
-  const [userId, setUserId] = useState("");
   const [tags, setTags] = useState([]);
   const { token } = useToken();
   const { binId } = useParams();
 
-  const loadCloset = async () => {
+  const loadCloset = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
     const fetchConfig = {
       method: "GET",
@@ -25,12 +23,11 @@ function BinView() {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      setClosets(data.closets);
       setClosetId(data.closets[0].id);
     }
-  };
+  }, [token]);
 
-  const loadBins = async () => {
+  const loadBins = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}`;
     const fetchConfig = {
       method: "GET",
@@ -44,9 +41,9 @@ function BinView() {
       const data = await response.json();
       setBin(data);
     }
-  };
+  }, [token, binId, closetId]);
 
-  const loadTags = async () => {
+  const loadTags = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/tags`;
     const fetchConfig = {
       method: "GET",
@@ -60,21 +57,9 @@ function BinView() {
       const data = await response.json();
       setTags(data.tags);
     }
-  };
+  }, [token]);
 
-  const loadUser = async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/token`;
-    fetch(url, {
-      credentials: "include",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setUserId(data.account.id);
-      })
-      .catch((error) => console.error(error));
-  };
-
-  const loadClothes = async () => {
+  const loadClothes = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -88,24 +73,43 @@ function BinView() {
       const data = await response.json();
       setClothes(data.clothes);
     }
+  }, [token, closetId, binId]);
+
+  const handleDeleteItem = async (itemId) => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}/clothes/${itemId}`;
+    const fetchConfig = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      setClothes(clothes.filter((item) => item.id !== itemId));
+    } else {
+      console.error("Failed to delete a clothing item");
+    }
   };
 
   useEffect(() => {
     loadCloset();
     loadTags();
-  }, [token]);
-  useEffect(() => {
-    if (closetId !== "") loadBins();
-    loadUser();
-  }, [closetId]);
-  useEffect(() => {
-    if (closetId !== "") loadClothes();
-  }, [closetId]);
+    loadBins();
+    loadClothes();
+  }, [loadCloset, loadTags, loadBins, loadClothes]);
+  // useEffect(() => {
+  //   if (closetId !== "") loadBins();
+  // });
+  // useEffect(() => {
+  //   if (closetId !== "") loadClothes();
+  // });
 
 
   return (
     <div>
-      <h1 style={{ color: "white" }}>{bin && bin.name}
+      <h1 style={{ color: "white" }}>
+        {bin && bin.name}
         <AddItemButton />
       </h1>
       <br></br>
@@ -123,7 +127,7 @@ function BinView() {
                 <div className="image-wrapper">
                   <img
                     src={item.picture}
-                    alt="picture of clothes"
+                    alt="clothes"
                     style={{
                       width: "100%",
                       height: "100%",
@@ -134,10 +138,17 @@ function BinView() {
                 <div className="card-text">{item.primary_color}</div>
                 <div className="card-text">{item.type}</div>
                 <br></br>
-                <div className="card-text">Tags{item.tag_ids.map((tagId => {
-                  const tag = tags.find((tag) => tag.id === tagId);
-                  return <li key={tag.id}>{tag.description}</li>
-                }))}
+                <div className="card-text">
+                  Tags
+                  {item.tag_ids.map((tagId) => {
+                    const tag = tags.find((tag) => tag.id === tagId);
+                    return <li key={tag.id}>{tag.description}</li>;
+                  })}
+                </div>
+                <div style={{ display: "flex", justifyContent: "flex-end"}}>
+                  <button onClick={() => handleDeleteItem(item.id)}>
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>

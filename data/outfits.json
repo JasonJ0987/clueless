@@ -1,7 +1,8 @@
 [{
   "_id": {
-    "$oid": "647a2d53f636ca30ee73c12d"
+    "$oid": "64808949a32fe7993817fc5f"
   },
+  "date": "2023-06-10",
   "hat": {
     "id": "6478e048848f17601cc41f81",
     "name": "yellow bucket hat",
@@ -43,74 +44,15 @@
     "user_id": "646620b95ccb73e9d4986b0a"
   },
   "shoes": {
-    "id": "647a1e70aa30bfd053522095",
-    "name": "university blue ",
-    "picture": "data:image/jpeg;base64,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",
-    "primary_color": "baby blue",
-    "type": "Nike Dunk Lows",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf"
-    ],
-    "bin_id": "64765a3929d0764ee869728a",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "user_id": {
-    "$oid": "646620b95ccb73e9d4986b0a"
-  }
-},
-{
-  "_id": {
-    "$oid": "647f7975953cfba2f4b189c1"
-  },
-  "hat": {
-    "id": "6478e048848f17601cc41f81",
-    "name": "yellow bucket hat",
-    "picture": "https://img-va.myshopline.com/image/store/2003883650/1671759039078/61-bright-yellow_900x.jpeg?w=800&h=800",
-    "primary_color": "yellow",
-    "type": "bucket hat",
-    "tag_ids": [
-      "6478bdd7f9945b090ea1f9fe"
-    ],
-    "bin_id": "646bc0f74277954dd0f38117",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "top": {
-    "id": "647d0f4b02f9be67831bdd5e",
-    "name": "rain jacket",
-    "picture": "https://shop.pbs.org/graphics/products/regular/XE6402_ALT_front.jpg",
-    "primary_color": "yellow",
-    "type": "long rain jacket",
-    "tag_ids": [
-      "6478bdd7f9945b090ea1f9fe"
-    ],
-    "bin_id": "646beb5724b33168d5719493",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "bottom": {
-    "id": "647d0ed202f9be67831bdd5d",
-    "name": "denim shorts",
-    "picture": "https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Homeboy-X-Tra-Blue-Baggy-Denim-Shorts-_356666-front-US.jpg",
-    "primary_color": "dark blue",
-    "type": "denim",
+    "id": "647d0c2302f9be67831bdd5b",
+    "name": "Converse",
+    "picture": "https://cdn-fsly.yottaa.net/57f4626c312e584b1a000020/www.tillys.com/v~4b.215.0.0/on/demandware.static/-/Sites-master-catalog/default/dwffc2acf5/tillys/images/catalog/1000x1000/102720100.jpg?yocs=y_l_x_",
+    "primary_color": "black and white",
+    "type": "Low tops",
     "tag_ids": [
       "646d1f505b47d2fcc8c7b6cf",
-      "6478bdd7f9945b090ea1f9fe"
-    ],
-    "bin_id": "647659f829d0764ee8697289",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "shoes": {
-    "id": "647a1e70aa30bfd053522095",
-    "name": "university blue ",
-    "picture": "data:image/jpeg;base64,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",
-    "primary_color": "baby blue",
-    "type": "Nike Dunk Lows",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf"
+      "6478bdd7f9945b090ea1f9fe",
+      "6478bde7f9945b090ea1f9ff"
     ],
     "bin_id": "64765a3929d0764ee869728a",
     "closet_id": "646b99c3f2cd73044cf5707d",
@@ -122,8 +64,9 @@
 },
 {
   "_id": {
-    "$oid": "647f92f368399fff27804253"
+    "$oid": "64808d52a32fe7993817fc60"
   },
+  "date": "2023-06-10",
   "hat": {
     "id": "647a1df9aa30bfd053522092",
     "name": "green hat",
@@ -165,142 +108,13 @@
     "user_id": "646620b95ccb73e9d4986b0a"
   },
   "shoes": {
-    "id": "647d0c2302f9be67831bdd5b",
-    "name": "Converse",
-    "picture": "https://cdn-fsly.yottaa.net/57f4626c312e584b1a000020/www.tillys.com/v~4b.215.0.0/on/demandware.static/-/Sites-master-catalog/default/dwffc2acf5/tillys/images/catalog/1000x1000/102720100.jpg?yocs=y_l_x_",
-    "primary_color": "black and white",
-    "type": "Low tops",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf",
-      "6478bdd7f9945b090ea1f9fe",
-      "6478bde7f9945b090ea1f9ff"
-    ],
-    "bin_id": "64765a3929d0764ee869728a",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "user_id": {
-    "$oid": "646620b95ccb73e9d4986b0a"
-  }
-},
-{
-  "_id": {
-    "$oid": "647f930468399fff27804254"
-  },
-  "hat": {
-    "id": "647a1df9aa30bfd053522092",
-    "name": "green hat",
-    "picture": "https://cdn.media.amplience.net/i/partycity/C691725_festive-green?$large$&fmt=auto&qlt=default",
-    "primary_color": "green",
-    "type": "hat",
+    "id": "647a1e70aa30bfd053522095",
+    "name": "university blue ",
+    "picture": "data:image/jpeg;base64,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",
+    "primary_color": "baby blue",
+    "type": "Nike Dunk Lows",
     "tag_ids": [
       "646d1f505b47d2fcc8c7b6cf"
-    ],
-    "bin_id": "646bc0f74277954dd0f38117",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "top": {
-    "id": "647d0f4b02f9be67831bdd5e",
-    "name": "rain jacket",
-    "picture": "https://shop.pbs.org/graphics/products/regular/XE6402_ALT_front.jpg",
-    "primary_color": "yellow",
-    "type": "long rain jacket",
-    "tag_ids": [
-      "6478bdd7f9945b090ea1f9fe"
-    ],
-    "bin_id": "646beb5724b33168d5719493",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "bottom": {
-    "id": "647d0ed202f9be67831bdd5d",
-    "name": "denim shorts",
-    "picture": "https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Homeboy-X-Tra-Blue-Baggy-Denim-Shorts-_356666-front-US.jpg",
-    "primary_color": "dark blue",
-    "type": "denim",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf",
-      "6478bdd7f9945b090ea1f9fe"
-    ],
-    "bin_id": "647659f829d0764ee8697289",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "shoes": {
-    "id": "647d0c2302f9be67831bdd5b",
-    "name": "Converse",
-    "picture": "https://cdn-fsly.yottaa.net/57f4626c312e584b1a000020/www.tillys.com/v~4b.215.0.0/on/demandware.static/-/Sites-master-catalog/default/dwffc2acf5/tillys/images/catalog/1000x1000/102720100.jpg?yocs=y_l_x_",
-    "primary_color": "black and white",
-    "type": "Low tops",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf",
-      "6478bdd7f9945b090ea1f9fe",
-      "6478bde7f9945b090ea1f9ff"
-    ],
-    "bin_id": "64765a3929d0764ee869728a",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "user_id": {
-    "$oid": "646620b95ccb73e9d4986b0a"
-  }
-},
-{
-  "_id": {
-    "$oid": "647f931268399fff27804255"
-  },
-  "hat": {
-    "id": "647a1df9aa30bfd053522092",
-    "name": "green hat",
-    "picture": "https://cdn.media.amplience.net/i/partycity/C691725_festive-green?$large$&fmt=auto&qlt=default",
-    "primary_color": "green",
-    "type": "hat",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf"
-    ],
-    "bin_id": "646bc0f74277954dd0f38117",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "top": {
-    "id": "647d0e8202f9be67831bdd5c",
-    "name": "purple tshirt",
-    "picture": "https://imgprd19.hobbylobby.com/e/6f/6f/e6f6f1ed992ed7e8e6c471d96091266413fad47e/350Wx350H-1667328-1018.jpg",
-    "primary_color": "purple",
-    "type": "tshirt",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf",
-      "6478bdd7f9945b090ea1f9fe"
-    ],
-    "bin_id": "646beb5724b33168d5719493",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "bottom": {
-    "id": "647d0ed202f9be67831bdd5d",
-    "name": "denim shorts",
-    "picture": "https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Homeboy-X-Tra-Blue-Baggy-Denim-Shorts-_356666-front-US.jpg",
-    "primary_color": "dark blue",
-    "type": "denim",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf",
-      "6478bdd7f9945b090ea1f9fe"
-    ],
-    "bin_id": "647659f829d0764ee8697289",
-    "closet_id": "646b99c3f2cd73044cf5707d",
-    "user_id": "646620b95ccb73e9d4986b0a"
-  },
-  "shoes": {
-    "id": "647d0c2302f9be67831bdd5b",
-    "name": "Converse",
-    "picture": "https://cdn-fsly.yottaa.net/57f4626c312e584b1a000020/www.tillys.com/v~4b.215.0.0/on/demandware.static/-/Sites-master-catalog/default/dwffc2acf5/tillys/images/catalog/1000x1000/102720100.jpg?yocs=y_l_x_",
-    "primary_color": "black and white",
-    "type": "Low tops",
-    "tag_ids": [
-      "646d1f505b47d2fcc8c7b6cf",
-      "6478bdd7f9945b090ea1f9fe",
-      "6478bde7f9945b090ea1f9ff"
     ],
     "bin_id": "64765a3929d0764ee869728a",
     "closet_id": "646b99c3f2cd73044cf5707d",

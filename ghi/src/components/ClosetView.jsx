@@ -1,5 +1,5 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import "../index.css";
 
@@ -9,7 +9,7 @@ function ClosetView() {
   const [closetId, setClosetId] = useState("");
   const { token } = useToken();
 
-  const loadCloset = async () => {
+  const loadCloset = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
     const fetchConfig = {
       method: "GET",
@@ -24,9 +24,9 @@ function ClosetView() {
       setClosets(data.closets);
       setClosetId(data.closets[0].id);
     }
-  };
+  }, [token]);
 
-  const loadBins = async () => {
+  const loadBins = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins`;
     const fetchConfig = {
       method: "GET",
@@ -40,15 +40,16 @@ function ClosetView() {
       const data = await response.json();
       setBins(data.bins.filter((bin) => bin.closet_id === closetId));
     }
-  };
+  }, [token, closetId]);
 
   useEffect(() => {
     loadCloset();
-  }, [token]);
+    loadBins();
+  }, [token, loadCloset, loadBins]);
 
-  useEffect(() => {
-    if (closetId !== "") loadBins();
-  }, [closetId]);
+  // useEffect(() => {
+  //   if (closetId !== "") loadBins();
+  // }, [closetId]);
 
   return (
     <div
