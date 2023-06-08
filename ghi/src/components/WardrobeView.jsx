@@ -3,12 +3,10 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import '../index.css';
 
-
 function WardrobeView() {
     const [outfit, setOutfit] = useState(null);
     const { wardrobeId } = useParams();
     const { token } = useToken();
-
 
     const loadOutfit = useCallback(async () => {
         const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${wardrobeId}`
@@ -79,6 +77,5 @@ function WardrobeView() {
       </div>
     );
 }
-
 
 export default WardrobeView;
