@@ -1,5 +1,5 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { AddItemButton } from "../button";
 
@@ -27,7 +27,7 @@ function BinView() {
     }
   };
 
-  const loadBins = async () => {
+  const loadBins = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${binId}`;
     const fetchConfig = {
       method: "GET",
@@ -41,7 +41,7 @@ function BinView() {
       const data = await response.json();
       setBin(data);
     }
-  };
+  }, [token, binId, closetId]);
 
   const loadTags = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/tags`;
@@ -95,13 +95,13 @@ function BinView() {
   useEffect(() => {
     loadCloset();
     loadTags();
-  }, [token, loadCloset, loadTags]);
+  });
   useEffect(() => {
     if (closetId !== "") loadBins();
   }, [closetId, loadBins]);
   useEffect(() => {
     if (closetId !== "") loadClothes();
-  }, [closetId, loadClothes]);
+  });
 
 
   return (
