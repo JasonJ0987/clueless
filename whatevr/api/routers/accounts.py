@@ -12,10 +12,13 @@ from api.utils.authenticator import authenticator
 from pydantic import BaseModel
 
 from api.queries.accounts import (
-    AccountIn,
-    AccountOut,
     AccountQueries,
     DuplicateAccountError,
+)
+
+from api.queries.models import (
+    AccountIn,
+    AccountOut,
 )
 
 
