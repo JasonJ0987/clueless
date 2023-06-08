@@ -1,7 +1,6 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel, EmailStr
 from typing import List
-# from jwtdown_fastapi.authentication import Token
 
 
 class PydanticObjectId(ObjectId):
@@ -14,7 +13,7 @@ class PydanticObjectId(ObjectId):
         if value:
             try:
                 ObjectId(value)
-            except:
+            except ValueError:
                 raise ValueError(f"Not a valid object id: {value}")
         return value
 
@@ -138,17 +137,3 @@ class OutfitOut(BaseModel):
 
 class OutfitList(BaseModel):
     outfits: List[OutfitOut]
-
-
-# class AccountOut(Account):
-#     id: int
-#     modified: str
-#     hashed_password: str
-
-
-# class AccountIn(Account):
-#     password: str
-
-
-# class AccountToken(Token):
-#     account: AccountOut
