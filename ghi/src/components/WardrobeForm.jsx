@@ -1,7 +1,7 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+// import placeholderImage from "../ghi/public/placeholder-image.png";
 
 const WardrobeForm = () => {
   const [hats, setHats] = useState([]);
@@ -13,9 +13,8 @@ const WardrobeForm = () => {
   const [shoes, setShoes] = useState([]);
   const [shoe, setShoe] = useState(null);
   const [userId, setUserId] = useState("");
-  const navigate = useNavigate();
   const { token } = useToken();
-  const { wardrobeId } = useParams();
+
 
   const loadUser = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/token`;
@@ -41,9 +40,10 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      setHats(data.clothes);
+      setHats(data.clothes)
     }
-  };
+};
+
 
   const loadTops = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
@@ -57,9 +57,10 @@ const WardrobeForm = () => {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      setTops(data.clothes);
+      setTops(data.clothes)
     }
   };
+
 
   const loadBottoms = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
@@ -76,6 +77,7 @@ const WardrobeForm = () => {
       setBottoms(data.clothes);
     }
   };
+
 
   const loadShoes = async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
@@ -110,51 +112,48 @@ const WardrobeForm = () => {
     data.shoes = shoe;
     data.user_id = userId;
 
-    const response = await fetch(
-      `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${wardrobeId}`,
+    const response = await fetch(`${process.env.REACT_APP_WHATEVR}/api/wardrobe`,
       {
-        method: "PUT",
+        method: "POST",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-      }
-    );
+      });
     if (response.ok) {
       setHat(null);
       setTop(null);
       setBottom(null);
       setShoe(null);
       setUserId("");
-      navigate("/planner")
     } else {
       const error = await response.json();
-      return error;
+      return error
     }
   };
-
+    
   const handleHatChange = (event) => {
     const value = event.target.value;
-    const selectedHat = hats.find((hat) => hat.id === value);
+    const selectedHat = hats.find((hat) =>hat.id === value);
     setHat(selectedHat);
   };
 
   const handleTopChange = (event) => {
     const value = event.target.value;
-    const selectedTop = tops.find((top) => top.id === value);
+    const selectedTop = tops.find((top) =>top.id === value);
     setTop(selectedTop);
   };
 
   const handleBottomChange = (event) => {
     const value = event.target.value;
-    const selectedBottom = bottoms.find((bottom) => bottom.id === value);
+    const selectedBottom = bottoms.find((bottom) =>bottom.id === value);
     setBottom(selectedBottom);
   };
 
   const handleShoeChange = (event) => {
     const value = event.target.value;
-    const selectedShoe = shoes.find((shoe) => shoe.id === value);
+    const selectedShoe = shoes.find((shoe) =>shoe.id === value);
     setShoe(selectedShoe);
   };
 
@@ -180,152 +179,104 @@ const WardrobeForm = () => {
     alignItems: "center",
   };
 
-  return (
-    <>
-      <h1 style={{ color: "white", textAlign: "center", fontSize: "45px" }}>
-        Select Your Outfit of the Day!{" "}
-      </h1>
+console.log("hat", hat);
+console.log("top", top);
+console.log("bottom", bottom);
+console.log("shoe", shoe);
+// console.log("hatpic", hatImage);
+
+return (
+  <>
+  <h1 style={{ color: "white", textAlign: "center", fontSize: '45px' }}>Select Your Outfit of the Day! </h1>
+  <br></br>
+    <div style={containerStyle}>
+      <h1 style={{ color: "white", textAlign: "center"}}>Hats</h1>
       <br></br>
-      <div style={containerStyle}>
-        <h1 style={{ color: "white", textAlign: "center" }}>Hats</h1>
+      <form onSubmit={handleSubmit}>
+        <div style={{ textAlign: "center" }}>
+          <select name="hat" value={hat ? hat.id : ""} onChange={handleHatChange}>
+            <option value="">Choose a Hat</option>
+            {hats.map((hat) => (
+              <option value={hat.id} key={hat.id}>
+                {hat.name}
+              </option>
+            ))}
+          </select>
+          <div>
+            {hat && (
+              <img src={hat.picture} alt="hat" style={{ ...boxStyle, maxWidth: "100%", maxHeight: "100%", objectFit: "fill" }} />
+            )}
+          </div>
+        </div>
         <br></br>
-        <form onSubmit={handleSubmit}>
-          <div style={{ textAlign: "center" }}>
-            <select
-              name="hat"
-              value={hat ? hat.id : ""}
-              onChange={handleHatChange}
-            >
-              <option value="">Choose a Hat</option>
-              {hats.map((hat) => (
-                <option value={hat.id} key={hat.id}>
-                  {hat.name}
-                </option>
-              ))}
-            </select>
-            <div>
-              {hat && (
-                <img
-                  src={hat.picture}
-                  alt="hat"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
-                />
-              )}
-            </div>
-          </div>
-          <br></br>
-          <br></br>
+        <br></br>
 
-          <h1 style={{ color: "white", textAlign: "center" }}>Tops</h1>
-          <br></br>
-          <div style={{ textAlign: "center" }}>
-            <select
-              name="top"
-              value={top ? top.id : ""}
-              onChange={handleTopChange}
-            >
-              <option value="">Choose a Top</option>
-              {tops.map((top) => (
-                <option value={top.id} key={top.id}>
-                  {top.name}
-                </option>
-              ))}
-            </select>
-            <div>
-              {top && (
-                <img
-                  src={top.picture}
-                  alt="Top"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
-                />
-              )}
-            </div>
+        <h1 style={{ color: "white", textAlign: "center" }}>Tops</h1>
+        <br></br>
+        <div style={{  textAlign: "center" }}>
+          <select name="top" value={top ? top.id : ""} onChange={handleTopChange}>
+            <option value="">Choose a Top</option>
+            {tops.map((top) => (
+              <option value={top.id} key={top.id}>
+                {top.name}
+              </option>
+            ))}
+          </select>
+          <div>
+            {top && (
+              <img src={top.picture} alt="Top" style={{ ...boxStyle, maxWidth: "100%", maxHeight: "100%", objectFit: "fill" }} />
+            )}
           </div>
-          <br></br>
-          <br></br>
+        </div>
+        <br></br>
+        <br></br>
 
-          <br></br>
-          <h1 style={{ color: "white", textAlign: "center" }}>Bottoms</h1>
-          <br></br>
-          <div style={{ textAlign: "center" }}>
-            <select
-              name="bottom"
-              value={bottom ? bottom.id : ""}
-              onChange={handleBottomChange}
-            >
-              <option value="">Choose a Bottom</option>
-              {bottoms.map((bottom) => (
-                <option value={bottom.id} key={bottom.id}>
-                  {bottom.name}
-                </option>
-              ))}
-            </select>
-            <div>
-              {bottom && (
-                <img
-                  src={bottom.picture}
-                  alt="bottom"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
-                />
-              )}
-            </div>
+        <br></br>
+        <h1 style={{ color: "white", textAlign: "center" }}>Bottoms</h1>
+        <br></br>
+        <div style={{  textAlign: "center" }}>
+          <select name="bottom" value={bottom ? bottom.id : ""} onChange={handleBottomChange}>
+            <option value="">Choose a Bottom</option>
+            {bottoms.map((bottom) => (
+              <option value={bottom.id} key={bottom.id}>
+                {bottom.name}
+              </option>
+            ))}
+          </select>
+          <div>
+            {bottom && (
+              <img src={bottom.picture} alt="bottom" style={{ ...boxStyle, maxWidth: "100%", maxHeight: "100%", objectFit: "fill" }} />
+            )} 
           </div>
-          <br></br>
-          <br></br>
+        </div>
+        <br></br>
+        <br></br>
 
-          <h1 style={{ color: "white", textAlign: "center" }}>Shoes</h1>
-          <br></br>
-          <div style={{ textAlign: "center" }}>
-            <select
-              name="shoe"
-              value={shoe ? shoe.id : ""}
-              onChange={handleShoeChange}
-            >
-              <option value="">Choose a Shoe</option>
-              {shoes.map((shoe) => (
-                <option value={shoe.id} key={shoe.id}>
-                  {shoe.name}
-                </option>
-              ))}
-            </select>
-            <div>
+        <h1 style={{ color: "white", textAlign: "center" }}>Shoes</h1>
+        <br></br>
+        <div style={{  textAlign: "center" }}>
+          <select name="shoe" value={shoe ? shoe.id : ""} onChange={handleShoeChange}>
+            <option value="">Choose a Shoe</option>
+            {shoes.map((shoe) => (
+              <option value={shoe.id} key={shoe.id}>
+                {shoe.name}
+              </option>
+            ))}
+          </select>
+          <div>
               {shoe && (
-                <img
-                  src={shoe.picture}
-                  alt="shoe"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
-                />
+                <img src={shoe.picture} alt="shoe" style={{ ...boxStyle, maxWidth: "100%", maxHeight: "100%", objectFit: "fill" }} />
               )}
-            </div>
           </div>
+        </div>
 
-          <button className="btn btn-primary" type="submit">
-            Submit Styles
-          </button>
-        </form>
-      </div>
+        <button className="btn btn-primary" type="submit">
+          Submit Styles
+        </button>
+      </form>
+    </div>
     </>
-  );
+);
 };
 
 export default WardrobeForm;
