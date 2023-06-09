@@ -1,4 +1,4 @@
-# I Wear Whatevr
+# Clueless - I Wear Whatevr
 
 The team (corporate-espionage👀) behind this project is:
 
@@ -10,7 +10,12 @@ The team (corporate-espionage👀) behind this project is:
 
 
 
-Clueless – bringing you clothing outfit recommendations based on the weather.
+Clueless – Quickly create outfits based on the weather forecast.
+
+Clueless - Clothing organizer catogroized by hat, top, bottoms, and shoes.
+
+Clueless - Stay stylish and organized, all in one place.
+
 
 ## Design
 
