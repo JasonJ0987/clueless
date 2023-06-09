@@ -122,6 +122,48 @@ Still in the process of implementing the Front-End Authentication. We ran consol
 
 ## 05/26/2023
 
-We must address the issue we had with obtaining the token. After consulting the other groups we decided to add a baseurl variable that is assigned a value of a string of the localhost location of our front end. Then, after providing the <Authprovider> with the baseurl, we managed to properly generate our token. Now both our sign in and log in components in the front end were properly functioning. We set it up so that after a user registers a new account, they will be logged in right away and navigated to the main page. The current main page is empty so we decided to work on styling it. While some of us worked on developing a navbar the others worked on the main page as well. The navbar will contain a sign in and log in button that leads to either form while the user is not logged in. For the time being we placed a simple "please log in" message if the user is not logged in and a "main page" message if they are. Our next goal after setting up the navbar and main page was to load our closet back end data to the front end.
+We must address the issue we had with obtaining the token. After consulting the other groups we decided to add a baseurl variable that is assigned a value of a string of the localhost location of our front end. Then, after providing the <Authprovider> with the baseurl, we managed to properly generate our token. Now both our sign in and log in components in the front end were properly functioning. We set it up so that after a user registers a new account, they will be logged in right away and navigated to the main page. The current main page is empty so we decided to work on styling it. While some of us worked on developing a navbar the others worked on the main page as well. The navbar will contain a sign in and log in button that leads to either form while the user is not logged in. For the time being we placed a simple "please log in" message if the user is not logged in and a "main page" message if they are. Our next goal after setting up the navbar and main page was to load our closet back end data to the front end. The day was dedicated to generating a view page that lets the user see the closet page that will contain the required bins.
 
+## 05/30/2023
 
+Sabrina finished coding out the Navbar functionality. It is now only showing the login and sign in buttons when the user is logged out and it will disappear upon login. We decided we wanted to use some sort of slider view for our Planner. With that in mind, however, we begain to work on generating a page that will allow us to see all items within a specific bin within the closet. We also discussed that our next actions will be to create a clothing upload form and an outfit creation form.
+
+We succesfully generated the bin view, however it is visually very bare bones. During development we had some issues loading the bin and clothing data in the bin view. Using "{ X && X }" to load the data fixed the issue. Originally the bin view was using div blocks but we changed it to be cards so now each bin is a card and so are the clothing objects.
+
+Sabrina formatted the navbar further and bin card images were reformatted to include more information such as the image of the bin. Tomorrow we plan to work on generating tags and to assign them to the clothes so that it will show on their cards.
+
+## 05/31/2023
+
+We added an error message to the login form. If the user inputs an incorrect email or password then they will see a red alert message notifying them that their login information is incorrect.
+
+We decided to start writing the clothing form to allow users to upload their own clothes to the site. There was concern on how to apply multiple tags to a clothing item through a select tag. Eventually we figured a method to do so, instead of using select tags we allowed the user to select multiple tags by presenting to them the list of tags available and allowing them to click as many of them as desired. Once they enter in all the required information they can hit the upload button and they will be navigated to the bin page they were on to see their new item.
+
+We realized an interesting issue after getting the form to this state. Perhaps a user_id needs to be applied to the clothes? For now, we decided to leave it. We also saw that the tags to be associated with the clothing item needed an id property as well. Although we were able to get the form to appear as we wanted, submitting it did not generate a clothing item into our database. This was a blocker for the day.
+
+The navbar's styling was also further updated to be more stylistic; including a logo and a drop down menu
+
+We started creating the wardrobe form as well.
+
+## 06/01/2023
+
+Today, we tried separating clothes and setClothes to individual useStates. Now the form successfully uploads clothing items. However all users are able to see all uploaded clothing, despite whoever made it. Only the user who created the clothes should be able to see them so we returned to the back-end and applied a user_id property to the clothing item. Now create clothing functions by checking the current user and populating the clothing data to have the user's id. Now on the front end, we can create a clothing item and only have whoever made it see it in their closet.
+
+The login form was stylized to be less of a boring form, color was added and everything was formatted to be visualy appealing.
+
+While creating the wardrobe form, we realized we needed a wardrobe model as well. This model was named to be Outfit and the appropriate CRUD routers were generated for this model. The model has 4 clothesOut objects (hat, top, bottom, shoes) and also generates a user_id based on the user creating it.
+
+## 06/02/2023
+
+Continued working on the wardrobe/outfit form. Today we got the CRUD functions fully functional. Now on the back end you can see all your outfits made, create an outfit, look at a particular outfit, and delete an outfit. We wanted to figure out hwo to fit the outfits with the planner that will be made. Perhaps a wardrobe form is not needed at all? We discussed the possibility of simply selecting the hats, shirts, bottoms, and shoes in each day of the planner instead of using a whole form. The wardrobe form still not completed but is slowly coming together.
+
+Further style updates were made, previously the drop down had an issue that prevented us from smoothly moving from the root button to the actual dropdown without losing the dropdown. But now the dropdown is as functional as possible, however the routes from bin to bin was acting odd. This will be investigated further.
+
+## 06/05/2023
+
+## 06/06/2023
+
+## 06/07/2023
+
+## 06/08/2023
+
+## 06/09/2023
