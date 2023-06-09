@@ -178,12 +178,6 @@ const WardrobeForm = () => {
     alignItems: "center",
   };
 
-console.log("hat", hat);
-console.log("top", top);
-console.log("bottom", bottom);
-console.log("shoe", shoe);
-// console.log("hatpic", hatImage);
-
 return (
   <>
   <h1 style={{ color: "white", textAlign: "center", fontSize: '45px' }}>Select Your Outfit of the Day! </h1>
