@@ -14,10 +14,9 @@ return (
     <section
       className="hero image-as-background"
       style={{
-        background: "url('https://media0.giphy.com/media/xT9KVgmGTooXz0iDPW/giphy.gif?cid=6c09b9527slpvckmql9sg3607qaqsptiekc907fr2g9pp5ih&ep=v1_gifs_search&rid=giphy.gif&ct=g')",
+        backgroundImage: "url('https://media0.giphy.com/media/xT9KVgmGTooXz0iDPW/giphy.gif?cid=6c09b9527slpvckmql9sg3607qaqsptiekc907fr2g9pp5ih&ep=v1_gifs_search&rid=giphy.gif&ct=g')",
         width: "100%",
         paddingLeft: "0",
-        marginRight: "150px",
         height: "100%",
         objectFit: "fill"
       }}
@@ -29,8 +28,11 @@ return (
           alt="logo"
           height="150vh"
           width="10vh"
-          style={{  marginTop: "80px", justifyContent: "center" }}
+          style={{marginTop: "80px", justifyContent: "center", marginLeft: "100px" }}
         />
+        <br/>
+        <br/>
+        <br/>
         {!token && (
           <li style={{ display: "flex", justifyContent: "center"}}>
             <Link to="/signup" className="nav-links-mobile">
@@ -50,7 +52,7 @@ return (
         )}
       </div>
     </section>
-
+    {token && (
     <div className="parent" style={{ width: "100%", height: "500px" }}>
       <div className="whatevr" style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)", padding: "20px", borderRadius: "5px", border: "inset", borderColor: "#ffe978"  }}>
         <h1 style={{ textShadow: "0 0 5px #000" }}>Plan an outfit with your own online Closet!</h1>
@@ -64,7 +66,8 @@ return (
         </li>
       </div>
     </div>
-    {!token && (
+    )};
+    {token && (
     <div className="parent" style={{ width: "100%", height: "500px", }}>
       <div className="whatevr" style={{ border: "inset", borderColor: "#ffe978", boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)", padding: "20px", borderRadius: "5px" }} >
         <h1 style={{ textShadow: "0 0 5px #000"}}>View all of your clothing!</h1>
@@ -76,7 +79,7 @@ return (
         </li>
       </div>
     </div>
-    )}
+    )};
   </>
 );
 };
