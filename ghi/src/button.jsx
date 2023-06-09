@@ -39,7 +39,15 @@ export function NewOutfit() {
 export function LogoutButton() {
     return (
         <Link to='/'>
-            <button className='btn'>LOG OUT</button>
+            <button className='btn btn primary'>LOG OUT</button>
+        </Link>
+    );
+}
+
+export function SubmitButton() {
+    return (
+        <Link to='/closet'>
+            <button className='btn btn primary'>SUBMIT</button>
         </Link>
     );
 }

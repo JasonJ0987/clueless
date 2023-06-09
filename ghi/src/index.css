@@ -1,6 +1,4 @@
-html, body{
-  background-color: #1f2029;
-}
+
 
 .navbar {
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
@@ -11,12 +9,7 @@ html, body{
 }
 
 .navbar-logo {
-  color: #fff;
-  justify-self: start;
   margin-left: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 1.5rem;
 }
 
 .menu-icon {
@@ -91,10 +84,6 @@ html, body{
 
 .dropdown-link:hover {
   background: #ffe978;
-}
-
-.div#root{
-  background-color: #1f2029;
 }
 
 .bin-container {
@@ -250,10 +239,6 @@ html, body{
   color: white;
 }
 
-:root {
-  background-color: #1f2029;
-}
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -340,7 +325,7 @@ html, body{
 }
 
 .hero {
-	background-position: 50% 50%;
+	background-position: 100% 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
 
@@ -369,12 +354,19 @@ html, body{
 
 .hero-container {
 	height: 100%;
+  width: 100%;
 	padding: 30px 50px;
-	position: relative;
+  position: relative;
 	z-index: 2;
 }
 
-.hero-button {
+.background-image{
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+/* .hero-button {
   background: rgba(255,255,255,0.8);
   color: #44575b;
   font-size: 24px;
@@ -384,7 +376,7 @@ html, body{
   margin-top: 30px;
   padding: 20px 90px;
   text-decoration: none;
-}
+} */
 
 .hero-title {
 	color: white;
