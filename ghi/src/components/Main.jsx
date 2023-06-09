@@ -2,7 +2,6 @@ import useToken from "@galvanize-inc/jwtdown-for-react";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "react-json-pretty/themes/monikai.css";
 import "../index.css";
-
 import { Link } from "react-router-dom";
 
 export const Main = () => {
@@ -11,14 +10,14 @@ export const Main = () => {
   return (
     <>
       <section
-        className="hero image-as-background"
+        className="hero"
         style={{
           backgroundImage:
             "url('https://media0.giphy.com/media/xT9KVgmGTooXz0iDPW/giphy.gif?cid=6c09b9527slpvckmql9sg3607qaqsptiekc907fr2g9pp5ih&ep=v1_gifs_search&rid=giphy.gif&ct=g')",
-          // width: "100%",
-          // paddingLeft: "0",
-          // height: "100%",
-          // objectFit: "cover",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          justifyContent: "center"
         }}
       >
         <div className="hero-container">
@@ -26,13 +25,13 @@ export const Main = () => {
             className="hero-title animate fadeInUp delay-600"
             src="whatevr-logo-plain.png"
             alt="logo"
-            // height="150vh"
-            // width="10vh"
-            // style={{
-            //   marginTop: "80px",
-            //   justifyContent: "center",
-            //   marginLeft: "100px",
-            // }}
+            height="100%"
+            width="10vh"
+            style={{
+              marginTop: "80px",
+              justifyContent: "center",
+              marginLeft: "100px",
+            }}
           />
           <br />
           <br />
@@ -57,17 +56,9 @@ export const Main = () => {
         </div>
       </section>
       {token && (
-        <div className="parent" style={{ width: "100%", height: "500px" }}>
+        <div className="parent">
           <div
-            className="whatevr"
-            style={{
-              boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-              padding: "20px",
-              borderRadius: "5px",
-              border: "inset",
-              borderColor: "#ffe978",
-            }}
-          >
+            className="whatevr">
             <h1 style={{ textShadow: "0 0 5px #000" }}>
               Plan an outfit with your own online Closet!
             </h1>
@@ -86,7 +77,7 @@ export const Main = () => {
       )}
       ;
       {token && (
-        <div className="parent" style={{ width: "100%", height: "500px" }}>
+        <div className="parent">
           <div
             className="whatevr"
             style={{

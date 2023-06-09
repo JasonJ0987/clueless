@@ -1,9 +1,12 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import "../index.css";
 
 const WardrobeForm = () => {
   const [date, setDate] = useState("");
+  const [closetId, setClosetId] = useState("")
+  const [bins, setBins] = useState([]);
   const [hats, setHats] = useState([]);
   const [hat, setHat] = useState(null);
   const [tops, setTops] = useState([]);
@@ -28,8 +31,41 @@ const WardrobeForm = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  const loadBins = useCallback(async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setBins(data.bins);
+    }
+  }, [token, closetId]);
+
+
+  const loadClosetId = useCallback(async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setClosetId(data.closets[0].id);
+    }
+  }, [token]);
+
   const loadHats = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${bins[0]["id"]}/clothes`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -45,7 +81,7 @@ const WardrobeForm = () => {
   }, [token]);
 
   const loadTops = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${bins[1]["id"]}/clothes`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -61,7 +97,7 @@ const WardrobeForm = () => {
   }, [token]);
 
   const loadBottoms = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${bins[2]["id"]}/clothes`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -77,7 +113,7 @@ const WardrobeForm = () => {
   }, [token]);
 
   const loadShoes = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/${bins[3]["id"]}/clothes`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -93,12 +129,14 @@ const WardrobeForm = () => {
   }, [token]);
 
   useEffect(() => {
+    loadClosetId();
+    loadBins();
     loadHats();
     loadTops();
     loadBottoms();
     loadShoes();
     loadUser();
-  }, [token, loadHats, loadTops, loadBottoms, loadShoes, loadUser]);
+  }, [token, closetId, bins, loadHats, loadTops, loadBottoms, loadShoes, loadUser]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -163,36 +201,12 @@ const WardrobeForm = () => {
     setDate(event.target.value);
   };
 
-  const boxStyle = {
-    width: "200px",
-    height: "200px",
-    backgroundColor: "#ccc",
-    margin: "10px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
-    boxShadow: "0 3px 15px rgba(255, 255, 0, 0.5)",
-    borderRadius: "9px",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
-  const containerStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  };
-
   return (
     <>
-      <h1 style={{ color: "white", textAlign: "center", fontSize: "45px" }}>
-        Select Your Outfit of the Day!{" "}
-      </h1>
+      <h1 className="header-style2">Select Your Outfit of the Day! </h1>
       <br></br>
-      <div style={containerStyle}>
-        <h1 style={{ color: "white", textAlign: "center" }}>Date</h1>
+      <div className="container-style">
+        <h1 className="header-style">Date</h1>
         <br />
         <div style={{ textAlign: "center" }}>
           <input
@@ -204,12 +218,11 @@ const WardrobeForm = () => {
         </div>
       </div>
       <br></br>
-
-      <div style={containerStyle}>
-        <h1 style={{ color: "white", textAlign: "center" }}>Hats</h1>
+      <div className="container-style">
+        <h1 className="header-style">Hats</h1>
         <br></br>
         <form onSubmit={handleSubmit}>
-          <div style={{ textAlign: "center" }}>
+          <div className="center">
             <select
               name="hat"
               value={hat ? hat.id : ""}
@@ -227,22 +240,16 @@ const WardrobeForm = () => {
                 <img
                   src={hat.picture}
                   alt="hat"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
+                  className="box-style2 box-size"
                 />
               )}
             </div>
           </div>
           <br></br>
           <br></br>
-
-          <h1 style={{ color: "white", textAlign: "center" }}>Tops</h1>
+          <h1 className="header-style">Tops</h1>
           <br></br>
-          <div style={{ textAlign: "center" }}>
+          <div className="center">
             <select
               name="top"
               value={top ? top.id : ""}
@@ -260,23 +267,17 @@ const WardrobeForm = () => {
                 <img
                   src={top.picture}
                   alt="Top"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
+                  className="box-style2 box-size"
                 />
               )}
             </div>
           </div>
           <br></br>
           <br></br>
-
           <br></br>
-          <h1 style={{ color: "white", textAlign: "center" }}>Bottoms</h1>
+          <h1 className="header-style">Bottoms</h1>
           <br></br>
-          <div style={{ textAlign: "center" }}>
+          <div className="center">
             <select
               name="bottom"
               value={bottom ? bottom.id : ""}
@@ -294,22 +295,16 @@ const WardrobeForm = () => {
                 <img
                   src={bottom.picture}
                   alt="bottom"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
+                  className="box-style2 box-size"
                 />
               )}
             </div>
           </div>
           <br></br>
           <br></br>
-
-          <h1 style={{ color: "white", textAlign: "center" }}>Shoes</h1>
+          <h1 className="header-style">Shoes</h1>
           <br></br>
-          <div style={{ textAlign: "center" }}>
+          <div className="center">
             <select
               name="shoe"
               value={shoe ? shoe.id : ""}
@@ -327,17 +322,11 @@ const WardrobeForm = () => {
                 <img
                   src={shoe.picture}
                   alt="shoe"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
+                  className="box-style2 box-size"
                 />
               )}
             </div>
           </div>
-
           <button className="btn btn-primary" type="submit">
             Submit Styles
           </button>

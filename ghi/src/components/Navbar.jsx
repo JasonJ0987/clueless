@@ -32,7 +32,6 @@ function Navbar(closet_id) {
 
   useEffect(() => {
     return () => {
-      // Cleanup the timeout on unmount
       clearTimeout(delayHandler);
     };
   }, [delayHandler]);

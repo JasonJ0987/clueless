@@ -1,17 +1,16 @@
 .filedrop {
   min-height: 50px;
-  min-width: 100px;
-  border: 3px solid #d3d3d3;
+  min-width: 75px;
+  border: 3px solid white;
   text-align: center;
-  font-size: 24px;
-  padding: 32px;
+  font-size: 16px;
+  padding: 24px;
   border-radius: 4px;
 }
+ .filedrop drag{
+  border: 3px dashed #ffe978 ;
+ }
 
-.filedrop.drag {
-  border: 3px dashed #1e90ff;
-}
-
-.filedrop.ready {
-  border: 3px solid #32cd32;
-}
+ .filedrop ready{
+  border: 3px solid#ffe978;
+ }

@@ -31,13 +31,7 @@ const Signup = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "#1f2029",
-        minHeight: "100vh",
-        paddingTop: "10px",
-      }}
-    >
+    <div id="signup-background">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -58,10 +52,7 @@ const Signup = () => {
                         style={{ maxWidth: "400px", maxHeight: "600px" }}
                       >
                         <div className="form-group">
-                          <label
-                            className="form-label"
-                            style={{ marginTop: "5px" }}
-                          >
+                          <label className="form-label signup-margin">
                             Username:
                           </label>
                           <input
@@ -75,10 +66,7 @@ const Signup = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label
-                            className="form-label"
-                            style={{ marginTop: "5px" }}
-                          >
+                          <label className="form-label signup-margin">
                             First Name:
                           </label>
                           <input
@@ -92,11 +80,7 @@ const Signup = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label
-                            className="form-label"
-                            s
-                            tyle={{ marginTop: "5px" }}
-                          >
+                          <label className="form-label signup-margin">
                             Last Name:
                           </label>
                           <input
@@ -110,10 +94,7 @@ const Signup = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label
-                            className="form-label"
-                            style={{ marginTop: "5px" }}
-                          >
+                          <label className="form-label signup-margin">
                             Email:
                           </label>
                           <input
@@ -127,10 +108,7 @@ const Signup = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label
-                            className="form-label"
-                            style={{ marginTop: "5px" }}
-                          >
+                          <label className="form-label signup-margin">
                             Password:
                           </label>
                           <input
@@ -144,10 +122,7 @@ const Signup = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label
-                            className="form-label"
-                            style={{ marginTop: "5px" }}
-                          >
+                          <label className="form-label signup-margin">
                             Confirm Password:
                           </label>
                           <input
@@ -161,10 +136,7 @@ const Signup = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label
-                            className="form-label"
-                            style={{ marginTop: "5px" }}
-                          >
+                          <label className="form-label signup-margin">
                             Zip Code:
                           </label>
                           <input
@@ -194,7 +166,7 @@ const Signup = () => {
                       }}
                     >
                       Already signed up?{" "}
-                      <Link to="/login" href="#" style={{ color: "white" }}>
+                      <Link to="/login" href="#" className="form-label">
                         Log in Here!
                       </Link>
                     </p>

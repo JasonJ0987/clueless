@@ -296,6 +296,11 @@ html, body{
   text-align: left;
   margin-left: 50px;
   margin-right: 150px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 5px;
+  border: inset;
+  border-color: #ffe978;
 }
 
 .whatevr h1 {
@@ -324,6 +329,7 @@ html, body{
   }
   .parent {
     width: 100%;
+    height: 100%;
     color: #fff;
     font-family: tahoma;
     text-align: center;
@@ -343,17 +349,18 @@ html, body{
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
+  /* background-image: url(https://media0.giphy.com/media/xT9KVgmGTooXz0iDPW/giphy.gif?cid=6c09b9527slpvckmql9sg3607qaqsptiekc907fr2g9pp5ih&ep=v1_gifs_search&rid=giphy.gif&ct=g);, */
 
   backface-visibility: hidden;
-	height: 100vh;
+	height: 100%;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
+  object-fit: cover;
 
 	@media screen and (min-width:640px) {
 		background-position: 50% 0;
 	}
-
 
 	&:after {
 		background-color: rgba(62,92,135,.5);
@@ -415,8 +422,6 @@ html, body{
   line-height: 1.5;
 }
 
-
-
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -466,3 +471,96 @@ html, body{
 .delay-800 {
   animation-delay: 0.8s;
 }
+
+.header-style {
+  color: "white";
+  text-align: "center";
+}
+
+.header-style2 {
+  color: "white";
+  text-align: "center";
+  font-size: "45px";
+}
+
+.center {
+  text-align: "center";
+}
+
+.bin-card {
+  height: "200vh";
+  width: "200vw";
+}
+
+
+
+  .box-style2 {
+    width: "200px";
+    height: "200px";
+    background-color: "#ccc";
+    margin: "10px";
+    display: "flex";
+    flex-direction: "column";
+    justify-content: "center";
+    align-items: "center";
+    position: "relative";
+    box-shadow: "0 3px 15px rgba(255, 255, 0, 0.5)";
+    border-radius: "9px";
+    background-size: "cover";
+    background-position: "center";
+  }
+
+  .container-style {
+    display: "flex";
+    flex-direction: "column";
+    align-items: "center";
+  }
+
+  .box-size {
+    max-width: "100%";
+    max-height: "100%";
+    object-fit: "fill";
+  }
+
+  .h5 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .signup-margin {
+    margin-top: "5px";
+  }
+
+  #signup-background {
+    background-color: "#1f2029";
+    min-height: "100vh";
+    padding-top: "10px";
+  }
+
+  .planner-card {
+    display: "flex";
+    flex-direction: "column";
+    align-items: "center";
+    height: "35vh";
+    width: "150vh";
+    text-align: "center";
+  }
+
+  .planner-image {
+    max-width: "100px";
+    max-height: "100px";
+  }
+
+  .planner-table {
+    margin: "0 auto";
+    margin-top: "20px";
+    color: "white"
+  }
+
+  .clothing-margin {
+    margin-right: "10px"
+  }
+
+  .margin-bottom {
+    margin-bottom: "15px";
+  }

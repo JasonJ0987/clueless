@@ -53,18 +53,18 @@ function ClosetView() {
       className="container mt-5"
       style={{ maxWidth: "1000px", margin: "0 auto" }}
     >
-      <h1 style={{ color: "white" }}>{closets && closets[0].name}</h1>
+      <h1 style={{ color: "white", textAlign: "center" }}>{closets && closets[0].name}</h1>
       <br></br>
       <br></br>
-      <div className="bin-container">
+      <div className="bin-container" style={{justifyContent: "center"}}>
         <div className="grid-container">
           {bins &&
             bins.map((bin) => (
-              <div className="card mb-5 bin-card" key={bin.id}>
-                <h5 style={{ fontSize: "24pt", textAlign: "center" }}>
+              <div className="card mb-5" style={{textAlign: "center", height:"100%", width:"300px"}} key={bin.id}>
+                <h5>
                   <NavLink
                     to={`bins/${bin.id}`}
-                    style={{ color: "black", textDecoration: "none" }}
+                    style={{ color: "black", textDecoration: "none"}}
                     onMouseEnter={(e) => (e.target.style.color = "#8B8000")}
                     onMouseLeave={(e) => (e.target.style.color = "black")}
                   >

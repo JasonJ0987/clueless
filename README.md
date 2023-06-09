@@ -12,7 +12,7 @@ The team (corporate-espionage👀) behind this project is:
 
 Clueless – Quickly create outfits based on the weather forecast.
 
-Clueless - Clothing organizer catogroized by hat, top, bottoms, and shoes.
+Clueless - Clothing organizer categorized by hat, top, bottoms, and shoes.
 
 Clueless - Stay stylish and organized, all in one place.
 
@@ -24,13 +24,14 @@ Clueless - Stay stylish and organized, all in one place.
 - [GHI](docs/wireframe.md)
 - [Integrations](docs/integrations.md)
 
+
 ## Intended users
 
 This application is perfect for individuals interested in fashion, organization, and saving time. Specifically, fashionistas who want to store images of their clothes, create outfits, and get weather forecasts for their area; organizers who need a visual way to organize their clothes and easily find the perfect outfit for any occasion; and time-savers who want to quickly create outfits by using the weather forecast to guide them. If you fall into any of these categories, this app is the ideal solution for you!
 
 ## Functionality
 
-- Create an account: Users can create an account by providing their email address, password, and zip code.
+- Create an account: Users can create an account by providing their email address, password, username, and zip code.
 - Upload clothing images: Users can upload images of their clothes by clicking on the "Upload" button and selecting the images from their computer.
 - See images: Users can see the images they have uploaded by clicking on the "Images" tab.
 - View a five-day calendar: Users can view a five-day calendar to see the weather for their location based on their zip code. The calendar will display the date, temperature, and a weather description with the icon of the weather.

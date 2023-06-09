@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import "./filedrop.css"
 
 const FileDrop = ({ onDrop }) => {
   const [drag, setDrag] = useState(false);
