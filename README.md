@@ -1,5 +1,7 @@
 # Clueless - I Wear Whatevr
 
+Our Clueless application can be viewed at [https://xanderrubio.gitlab.io/clueless/](https://xanderrubio.gitlab.io/clueless/)
+
 The team (corporate-espionage👀) behind this project is:
 
 - Jason Jang | [LinkedIn](https://www.linkedin.com/in/chiyoung-jang) | [GitLab](https://gitlab.com/JasonJJ98)
