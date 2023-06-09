@@ -128,3 +128,27 @@ The team got some help from Paul Wu to pass the baseUrl to the App.jsx file.
 1. Today we are finishing up the create a clothing item and will start the wardrobe form.
 2. Xander was the driver for half the day. Today we were working on getting the clothing item form to work correctly which we did. Jason worked on the backend for the "Clothes Out" model and added the ID for the accounts to that model. Liland created the check boxes for the tags thast the user can select when uploading their clothing item. For the other half of the day I was the driver. I was trying to get the clothing items to display on the wardrobe form so that the user can select (stretch goal: using carousal) each clothing to choose their style. 
 3. My blocker is that none of the changes I am making to the code are being relfected on the website. I am having to restart docker container each time in order to see the changes I am making. 
+
+
+## June 2nd 2023
+1. Today we want to work on adding the  OutfinIn and OutfitOut models to the project and work on the CSS portion.
+
+2. Me and Jason were the drivers for today. We added the OutfitIn and OutfitOut models and the functions to our closet.py. We build the waardrobe page and applied the CSS style. Xander started building out the unit tests for the API endpoints.
+
+3. The blocker for today is trying to figure out how we can display the new clothjing models to the front end. The data displays succefully on the MongoDB Compass but not in the frontend. 
+
+
+## June 5th 2023
+1. Today we want to work some more on the CSS and improve the planner page. We also have to connect our API in order to display the weather data on the planner page.
+
+2. Today me and Jason were the drivers. We were able to connect the OpenWeather API call and now we get a successful submission to our MongoDB. 
+
+3. No blockers, we just need to connect our wardrobe form and our planner page so when a user submits an outfit it can be displayed on the planner page.
+
+
+## June 6th 2023
+1. Today we want to finish the merge requests and close all issues that are open.
+
+2. Today we were able to get the wardrobe form to send data to the planner page. We alos worked on unit tests and are trying to get those to pass. 
+
+3. Blocker for the moment is that we are trying to figur out how we can get the outfits to be deleted after the day changes. Also we are having an issue with the unit tests. We keep getting an error where its not reading the file structure. Liland moved around some files to see if that would work but its still giving us the same errors.
