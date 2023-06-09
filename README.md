@@ -2,6 +2,12 @@
 
 ![Clueless](/uploads/4cf976194d05e16899e2baf3389de0ae/Clueless.mp4)
 
+<br>
+<video width="560" height="315" controls>
+  <source src="/uploads/4cf976194d05e16899e2baf3389de0ae/Clueless.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 Our Clueless application can be viewed at [https://xanderrubio.gitlab.io/clueless/](https://xanderrubio.gitlab.io/clueless/)
 
 The team (corporate-espionage👀) behind this project is:
