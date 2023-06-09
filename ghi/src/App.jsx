@@ -13,14 +13,12 @@ import WardrobeForm from "./components/WardrobeForm";
 import WardrobeView from "./components/WardrobeView";
 import Planner from "./components/Planner";
 import ClothesForm from "./components/ClothingForm";
-import './index.css'
-
-
+import "./index.css";
 
 function App() {
   const domain = /https:\/\/[^/]+/;
   const basename = process.env.PUBLIC_URL.replace(domain, "");
-  const baseUrl = process.env.REACT_APP_CLUELESS_API_HOST;
+  const baseUrl = process.env.REACT_APP_WHATEVR;
 
   return (
     <AuthProvider baseUrl={baseUrl}>
@@ -32,28 +30,26 @@ function App() {
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/wardrobe" element={<WardrobeForm />} />
-            <Route exact path="/" element={< Main />} />
-            <Route exact path="/signup" element={< Signup />} />
-            <Route exact path="/login" element={< Login />} />
-            <Route exact path="/planner" element={< Planner />} />
+            <Route exact path="/" element={<Main />} />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/planner" element={<Planner />} />
             <Route path="closet">
-              <Route index element={< ClosetView />} />
-              <Route path="bins/:binId" element={< BinView />} />
-              <Route path="new" element={< ClothesForm />} />
+              <Route index element={<ClosetView />} />
+              <Route path="bins/:binId" element={<BinView />} />
+              <Route path="new" element={<ClothesForm />} />
             </Route>
             <Route path="wardrobe">
-              <Route path="new" element={< WardrobeForm />} />
-              <Route path=":wardrobeId/update" element={< WardrobeForm />} />
-              <Route path=":wardrobeId" element={< WardrobeView />} />
+              <Route path="new" element={<WardrobeForm />} />
+              <Route path=":wardrobeId/update" element={<WardrobeForm />} />
+              <Route path=":wardrobeId" element={<WardrobeView />} />
             </Route>
-            <Route path="planner" element={< Planner />}>
-            </Route>
+            <Route path="planner" element={<Planner />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
     </AuthProvider>
   );
 }
-
 
 export default App;

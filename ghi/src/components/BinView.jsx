@@ -105,7 +105,6 @@ function BinView() {
   //   if (closetId !== "") loadClothes();
   // });
 
-
   return (
     <div>
       <h1 style={{ color: "white" }}>
@@ -145,7 +144,7 @@ function BinView() {
                     return <li key={tag.id}>{tag.description}</li>;
                   })}
                 </div>
-                <div style={{ display: "flex", justifyContent: "flex-end"}}>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
                   <button onClick={() => handleDeleteItem(item.id)}>
                     Delete
                   </button>
