@@ -13,9 +13,9 @@ Clueless – bringing you clothing outfit recommendations based on the weather.
 ## Design
 
 - [API design](docs/endpoints.md)
-- [Data model](docs/data-model.md) 
+- [Data model](docs/data-model.md)
 - [GHI](docs/wireframe.md)
-- [Integrations](docs/integrations.md) (NEED TO CREATE)
+- [Integrations](docs/integrations.md) 
 
 ## Intended users
 (REVIEW AND UPDATE)
