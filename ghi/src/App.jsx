@@ -20,7 +20,7 @@ import './index.css'
 function App() {
   const domain = /https:\/\/[^/]+/;
   const basename = process.env.PUBLIC_URL.replace(domain, "");
-  const baseUrl = process.env.REACT_APP_CLUELESS_API_HOST;
+  const baseUrl = process.env.REACT_APP_WHATEVR;
 
   return (
     <AuthProvider baseUrl={baseUrl}>
