@@ -1,3 +1,6 @@
+## Jason Jang Journal
+- Please note: Certain entries were added retroactively to this digital journal from a manual journal
+
 ## 05/08/2023:
 Application brainstorming
 Decided as a team that we will develop a weather/event based fashion coordinator planner
@@ -110,5 +113,15 @@ Main is now up to branch
 ## 05/24/2023
 
 We began work on implementing the Front-End Authentication. We decided to create the token grabber and sign-up form first. We tried testing to see if the back-end was working together with the front-end and we discovered that our sign-up function was not generating an account. We got a bunch of errors regarding the token. We were wondering if the issue was the we needed a log in function for sign in to work so we tried to create a login function. We discovered that we were unable to find an access token. Turns out our payload did not match what it does in the Playground app that was provided to us. We struggled with getting the authentication on the front end to work for the rest of the day
+
+
+## 05/25/2023
+
+Still in the process of implementing the Front-End Authentication. We ran console logs to test to see if the back-end data was matching with the front-end data but the sign-up function we made was not generating account and created errors regarding the token. We decided to take a break from the sign-up and thought that maybe it will work if the log-in form is made first. However, we were unable to find an access token no matter the form. We used the template provided to us from the instructors and changed it around to fit our purposes. The payload does not look like what it does in the authentication playground example provided to us. We kept getting a TypeError failed to fetch response.
+
+
+## 05/26/2023
+
+We must address the issue we had with obtaining the token. After consulting the other groups we decided to add a baseurl variable that is assigned a value of a string of the localhost location of our front end. Then, after providing the <Authprovider> with the baseurl, we managed to properly generate our token. Now both our sign in and log in components in the front end were properly functioning. We set it up so that after a user registers a new account, they will be logged in right away and navigated to the main page. The current main page is empty so we decided to work on styling it. While some of us worked on developing a navbar the others worked on the main page as well. The navbar will contain a sign in and log in button that leads to either form while the user is not logged in. For the time being we placed a simple "please log in" message if the user is not logged in and a "main page" message if they are. Our next goal after setting up the navbar and main page was to load our closet back end data to the front end.
 
 
