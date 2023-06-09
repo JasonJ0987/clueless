@@ -1,6 +1,6 @@
 # Data Model that was used when creating the API using FASTAPI and Mongo DB
 
-In our models, each model has a corresponding class that defines its structure. These classes are created using the Pydantic library, which includes features for validating and serializing data.
+In our models, each model has a corresponding class that defines its structure.Our file for our models can be found [here](whatevr/api/queries/models.py). These classes are created using the Pydantic library, which includes features for validating and serializing data.
 
 - SessionOut
 - AccountIn
@@ -176,7 +176,7 @@ In our models, each model has a corresponding class that defines its structure. 
     ```
 
 # The OutfitList class represents a list of outfits.
-    ```
+    ```python
     class OutfitList(BaseModel):
         outfits: List[OutfitOut]
     ```
