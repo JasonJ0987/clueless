@@ -24,9 +24,9 @@ In our models, each model has a corresponding class that defines its structure. 
 
 # The SessionOut class represents a session that authenticates a user.
     ```json
-class SessionOut(BaseModel):
-    jti: str
-    account_id: str
+    class SessionOut(BaseModel):
+        jti: str
+        account_id: str
     ```
 
 #  The AccountIn class contains the data needed to create a new account.
@@ -180,5 +180,3 @@ class OutfitOut(BaseModel):
 class OutfitList(BaseModel):
     outfits: List[OutfitOut]
     ```
-
-    
