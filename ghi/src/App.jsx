@@ -13,6 +13,7 @@ import WardrobeForm from "./components/WardrobeForm";
 import WardrobeView from "./components/WardrobeView";
 import Planner from "./components/Planner";
 import ClothesForm from "./components/ClothingForm";
+import Footer from "./components/Footer";
 import "./index.css";
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
             <Route path="planner" element={<Planner />}></Route>
           </Routes>
         </div>
-
+        <Footer/>
       </BrowserRouter>
     </AuthProvider>
   );
