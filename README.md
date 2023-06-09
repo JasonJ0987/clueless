@@ -1,6 +1,8 @@
 # Clueless - I Wear Whatevr
-
-[![Video Title](https://youtu.be/YLf4C6Ncb2I)]
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
+[[Video Title](https://youtu.be/YLf4C6Ncb2I)]
 
 Our Clueless application can be viewed at [https://xanderrubio.gitlab.io/clueless/](https://xanderrubio.gitlab.io/clueless/)
 
