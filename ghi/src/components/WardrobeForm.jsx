@@ -1,7 +1,6 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-// import placeholderImage from "../ghi/public/placeholder-image.png";
+import { useNavigate } from "react-router-dom";
 
 const WardrobeForm = () => {
   const [hats, setHats] = useState([]);
