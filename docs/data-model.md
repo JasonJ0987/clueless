@@ -23,14 +23,14 @@ In our models, each model has a corresponding class that defines its structure. 
 - OutfitList
 
 # The SessionOut class represents a session that authenticates a user.
-    ```json
+    ```python
     class SessionOut(BaseModel):
         jti: str
         account_id: str
     ```
 
 #  The AccountIn class contains the data needed to create a new account.
-    ```json
+    ```python
 class AccountIn(BaseModel):
     email: EmailStr
     username: str
@@ -42,13 +42,13 @@ class AccountIn(BaseModel):
     ```
 
 # The Account class represents an account that has already been created.
-    ```json
+    ```python
 class Account(AccountIn):
     id: PydanticObjectId
     ```
 
 # The AccountOut class contains the data returned when an account is retrieved.
-    ```json
+    ```python
 class AccountOut(BaseModel):
     id: str
     email: EmailStr
@@ -59,45 +59,45 @@ class AccountOut(BaseModel):
     ```
 
 # The TagIn class contains the data needed to create a new tag.
-    ```json
+    ```python
 class TagIn(BaseModel):
     description: str
     ```
 
 # The TagOut class represents a tag that has already been created.
-    ```json
+    ```python
 class TagOut(BaseModel):
     id: str
     description: str
     ```
 
 #  The TagList class represents a list of tags.
-    ```json
+    ```python
 class TagList(BaseModel):
     tags: List[TagOut]
     ```
 
 # The ClosetIn class contains the data needed to create a new closet.
-    ```json
+    ```python
 class ClosetIn(BaseModel):
     name: str
     ```
 
 # The ClosetOut class represents a closet that has already been created.
-    ```json
+    ```python
 class ClosetOut(BaseModel):
     id: int | str
     name: str
     ```
 
 # The ClosetList class represents a list of closets.
-    ```json
+    ```python
 class ClosetList(BaseModel):
     closets: List[ClosetOut]
     ```
 
 #  The BinIn class contains the data needed to create a new bin.
-    ```json
+    ```python
 class BinIn(BaseModel):
     name: str
     picture: str
@@ -105,7 +105,7 @@ class BinIn(BaseModel):
     ```
 
 # The BinOut class represents a bin that has already been created.
-    ```json
+    ```python
 class BinOut(BaseModel):
     id: str
     name: str
@@ -114,13 +114,13 @@ class BinOut(BaseModel):
     ```
 
 # The BinList class represents a list of bins.
-    ```json
+    ```python
 class BinList(BaseModel):
     bins: List[BinOut]
     ```
 
 # The ClothesIn class contains the data needed to create a new piece of clothing.
-    ```json
+    ```python
 class ClothesIn(BaseModel):
     name: str
     picture: str
@@ -133,7 +133,7 @@ class ClothesIn(BaseModel):
     ```
 
 # The ClothesOut class represents a piece of clothing that has already been created.
-    ```json
+    ```python
 class ClothesOut(BaseModel):
     id: str
     name: str
@@ -147,13 +147,13 @@ class ClothesOut(BaseModel):
     ```
 
 # The ClothesList class represents a list of pieces of clothing.
-    ```json
+    ```python
 class ClothesList(BaseModel):
     clothes: List[ClothesOut]
     ```
 
 # The OutfitIn class contains the data needed to create a new outfit.
-    ```json
+    ```python
 class OutfitIn(BaseModel):
     date: str
     hat: ClothesOut
@@ -164,7 +164,7 @@ class OutfitIn(BaseModel):
     ```
 
 # The OutfitOut class represents an outfit that has already been created.
-    ```json
+    ```python
 class OutfitOut(BaseModel):
     id: str
     date: str
@@ -176,7 +176,7 @@ class OutfitOut(BaseModel):
     ```
 
 # The OutfitList class represents a list of outfits.
-    ```json
+    ```python
 class OutfitList(BaseModel):
     outfits: List[OutfitOut]
     ```
