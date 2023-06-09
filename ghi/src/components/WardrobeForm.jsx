@@ -1,8 +1,9 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const WardrobeForm = () => {
+  const [date, setDate] = useState("");
   const [hats, setHats] = useState([]);
   const [hat, setHat] = useState(null);
   const [tops, setTops] = useState([]);
@@ -13,8 +14,9 @@ const WardrobeForm = () => {
   const [shoe, setShoe] = useState(null);
   const [userId, setUserId] = useState("");
   const { token } = useToken();
+  const navigate = useNavigate();
 
-  const loadUser = async () => {
+  const loadUser = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/token`;
     fetch(url, {
       credentials: "include",
@@ -24,9 +26,9 @@ const WardrobeForm = () => {
         setUserId(data.account.id);
       })
       .catch((error) => console.error(error));
-  };
+  }, []);
 
-  const loadHats = async () => {
+  const loadHats = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -40,9 +42,9 @@ const WardrobeForm = () => {
       const data = await response.json();
       setHats(data.clothes);
     }
-  };
+  }, [token]);
 
-  const loadTops = async () => {
+  const loadTops = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -56,9 +58,9 @@ const WardrobeForm = () => {
       const data = await response.json();
       setTops(data.clothes);
     }
-  };
+  }, [token]);
 
-  const loadBottoms = async () => {
+  const loadBottoms = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -72,9 +74,9 @@ const WardrobeForm = () => {
       const data = await response.json();
       setBottoms(data.clothes);
     }
-  };
+  }, [token]);
 
-  const loadShoes = async () => {
+  const loadShoes = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
     const fetchConfig = {
       method: "GET",
@@ -88,7 +90,7 @@ const WardrobeForm = () => {
       const data = await response.json();
       setShoes(data.clothes);
     }
-  };
+  }, [token]);
 
   useEffect(() => {
     loadHats();
@@ -96,11 +98,12 @@ const WardrobeForm = () => {
     loadBottoms();
     loadShoes();
     loadUser();
-  }, [token]);
+  }, [token, loadHats, loadTops, loadBottoms, loadShoes, loadUser]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {};
+    data.date = date;
     data.hat = hat;
     data.top = top;
     data.bottom = bottom;
@@ -119,11 +122,13 @@ const WardrobeForm = () => {
       }
     );
     if (response.ok) {
+      setDate("");
       setHat(null);
       setTop(null);
       setBottom(null);
       setShoe(null);
       setUserId("");
+      navigate("/planner");
     } else {
       const error = await response.json();
       return error;
@@ -154,6 +159,10 @@ const WardrobeForm = () => {
     setShoe(selectedShoe);
   };
 
+  const handleDateChange = (event) => {
+    setDate(event.target.value);
+  };
+
   const boxStyle = {
     width: "200px",
     height: "200px",
@@ -179,9 +188,23 @@ const WardrobeForm = () => {
   return (
     <>
       <h1 style={{ color: "white", textAlign: "center", fontSize: "45px" }}>
-        Clueless on what to wear?<br></br> Style Your Outfit here!{" "}
+        Select Your Outfit of the Day!{" "}
       </h1>
       <br></br>
+      <div style={containerStyle}>
+        <h1 style={{ color: "white", textAlign: "center" }}>Date</h1>
+        <br />
+        <div style={{ textAlign: "center" }}>
+          <input
+            type="date"
+            name="date"
+            value={date}
+            onChange={handleDateChange}
+          />
+        </div>
+      </div>
+      <br></br>
+
       <div style={containerStyle}>
         <h1 style={{ color: "white", textAlign: "center" }}>Hats</h1>
         <br></br>
