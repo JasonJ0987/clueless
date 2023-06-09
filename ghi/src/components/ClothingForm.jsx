@@ -100,7 +100,7 @@ const ClothesForm = () => {
       const data = await response.json();
       setClosetId(data.closets[0].id);
     }
-  }, [token]);x``
+  }, [token]);
 
   const loadBins = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/`;
