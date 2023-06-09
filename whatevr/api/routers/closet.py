@@ -84,9 +84,7 @@ def get_bin(
 @router.delete(
         "/api/closet/{closet_id}/bins/{bin_id}", response_model=bool
 )
-
-
-async def delete_clothing(
+async def delete_bin(
     closet_id: str,
     bin_id: str,
     repo: BinQueries = Depends(),
