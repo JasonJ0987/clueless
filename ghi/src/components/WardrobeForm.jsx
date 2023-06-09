@@ -180,7 +180,7 @@ const WardrobeForm = () => {
 
 return (
   <>
-  <h1 style={{ color: "white", textAlign: "center", fontSize: '45px' }}>Select Your Outfit of the Day! </h1>
+  <h1 style={{ color: "white", textAlign: "center", fontSize: '45px' }}>Clueless on what to wear?<br></br> Style Your Outfit here! </h1>
   <br></br>
     <div style={containerStyle}>
       <h1 style={{ color: "white", textAlign: "center"}}>Hats</h1>

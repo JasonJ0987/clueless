@@ -148,24 +148,18 @@ The team got some help from Paul Wu to pass the baseUrl to the App.jsx file.
 3. Blocker for the moment is that we are trying to figur out how we can get the outfits to be deleted after the day changes. Also we are having an issue with the unit tests. We keep getting an error where its not reading the file structure. Liland moved around some files to see if that would work but its still giving us the same errors.
 
 ## June 7th 2023
-1.
-
-2.
-
-3.
+1. Today we are planning on making more progress on the unit tests and begin our deployment process.
+2. Today Xander was working on the unit tests and helped us with creating ours. I, Jason and Liland worked on writing code to help save the wardrobe images on a specific day. However, we were having an issue where the imges were still being displayed even though the day concluded. Liland came up with a different idea that we will be using instead to facilitate the planner and outfit form. This afternoon we wroked on trying to pass the pipeline faliures. 
+3. blocker for the moment is trying to pass the piplines.
 
 
 ## June 8th 2023
-1.
-
-2.
-
-3.
+1. Today we were able to pass the piplelines errors.
+2. Liland and Xander were the drivers for today. Today we were able to get the application to deploy on cirrus server. We noticed that the application was not leeting us create a user once the application was deployed. In the console we kept getting a cors error. Each team member worked on their unit tests and we got all unit tests to pass before then end of day. The only thing we would have left to do in our application is clean up some formatting and try to resolve the cors error.
+3. No blockers at this moment.
 
 
 ## June 9th 2023
-1.
-
-2.
-
-3.
+1. Today we are working on cleaning up some of the code and the styling of our forms.
+2. We now officially passedthe piple and unit tests and our application is now deployed. We will spend the rest of the day today just cleaning and editing some ouf our css. 
+3. No blockers at the moment. 
