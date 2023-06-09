@@ -4,6 +4,7 @@ import "../index.css";
 
 const ClothesForm = () => {
   const [name, setName] = useState("");
+  const [closetId, setClosetId] = useState("");
   const [picture, setPicture] = useState("");
   const [color, setColor] = useState("");
   const [type, setType] = useState("");
@@ -57,7 +58,7 @@ const ClothesForm = () => {
     data.type = type;
     data.tag_ids = tagId;
     data.bin_id = binId;
-    data.closet_id = "646b99c3f2cd73044cf5707d";
+    data.closet_id = closetId;
     data.user_id = userId;
 
     const response = await fetch(
@@ -85,8 +86,24 @@ const ClothesForm = () => {
     }
   };
 
+  const loadCloset = useCallback(async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setClosetId(data.closets[0].id);
+    }
+  }, [token]);
+
   const loadBins = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -130,10 +147,11 @@ const ClothesForm = () => {
   }, []);
 
   useEffect(() => {
+    loadCloset();
     loadBins();
     loadTags();
     loadUser();
-  }, [token, loadBins, loadTags, loadUser]);
+  }, [token, loadCloset, loadBins, loadTags, loadUser]);
 
   return (
     <div className="container">
