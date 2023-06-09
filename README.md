@@ -14,7 +14,7 @@ The team (corporate-espionage👀) behind this project is:
 
 Clueless – Quickly create outfits based on the weather forecast.
 
-Clueless - Clothing organizer catogroized by hat, top, bottoms, and shoes.
+Clueless - Clothing organizer categorized by hat, top, bottoms, and shoes.
 
 Clueless - Stay stylish and organized, all in one place.
 
