@@ -1,13 +1,12 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect, useCallback } from "react";
-import "../index.css"
-import { NewOutfit } from "../button"
+import "../index.css";
+import { NewOutfit } from "../button";
 
 function Planner() {
   const [weather, setWeather] = useState([]);
   const [outfits, setOutfits] = useState([]);
   const { token } = useToken();
-
 
   const loadWeather = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/weather`;
@@ -25,22 +24,25 @@ function Planner() {
     }
   }, [token]);
 
-  const loadOutfits = useCallback(async (outfitId) => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe`;
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    };
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data)
-      setOutfits(data.outfits)
-    }
-  }, [token]);
+  const loadOutfits = useCallback(
+    async (outfitId) => {
+      const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe`;
+      const fetchConfig = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await fetch(url, fetchConfig);
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        setOutfits(data.outfits);
+      }
+    },
+    [token]
+  );
 
   const handleDeleteOutfit = async (outfitId) => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${outfitId}`;
@@ -53,9 +55,7 @@ function Planner() {
     };
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
-      setOutfits(
-        outfits.filter((outfit) => outfit.id !== outfitId)
-      );
+      setOutfits(outfits.filter((outfit) => outfit.id !== outfitId));
     } else {
       console.error("Failed to delete an outfit");
     }
@@ -103,7 +103,7 @@ function Planner() {
   function dayOfWeek(number) {
     let fullDay = weather[number] && weather[number]["time"];
     let date = new Date(fullDay);
-    let day = date.toLocaleDateString('en-US', {weekday: 'long'});
+    let day = date.toLocaleDateString("en-US", { weekday: "long" });
     return `${day}`;
   }
 
@@ -326,6 +326,6 @@ function Planner() {
       <div></div>
     </div>
   );
-};
+}
 
 export default Planner;

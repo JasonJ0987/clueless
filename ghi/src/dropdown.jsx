@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './dropdown.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./dropdown.css";
 
 function Dropdown() {
   const [click, setClick] = useState(false);
 
-
   const handleClick = () => {
     setClick(!click);
-    window.location.reload(); };
-
+    window.location.reload();
+  };
 
   return (
     <ul
@@ -54,15 +53,12 @@ function Dropdown() {
         </Link>
       </li>
       <li>
-        <Link
-          className="dropdown-link"
-          to="/closet/new"
-        >
+        <Link className="dropdown-link" to="/closet/new">
           Upload Clothing Item
         </Link>
       </li>
     </ul>
   );
-};
+}
 
 export default Dropdown;
