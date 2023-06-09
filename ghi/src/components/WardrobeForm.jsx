@@ -1,6 +1,8 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import "../wardrobe.css";
+
 
 const WardrobeForm = () => {
   const [date, setDate] = useState("")
@@ -163,38 +165,17 @@ const WardrobeForm = () => {
     setDate(event.target.value);
   };
 
-  const boxStyle = {
-    width: "200px",
-    height: "200px",
-    backgroundColor: "#ccc",
-    margin: "10px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
-    boxShadow: "0 3px 15px rgba(255, 255, 0, 0.5)",
-    borderRadius: "9px",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
-  const containerStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  };
-
   return (
     <>
-      <h1 style={{ color: "white", textAlign: "center", fontSize: "45px" }}>
-        Select Your Outfit of the Day!{" "}
+      <h1 className="title">
+        Clueless on what to wear? <br />
+        Style Your Outfit of the Day!
       </h1>
-      <br></br>
-      <div style={containerStyle}>
-        <h1 style={{ color: "white", textAlign: "center" }}>Date</h1>
+      <br />
+      <div className="container">
+        <h1 className="subtitle">Date</h1>
         <br />
-        <div style={{ textAlign: "center" }}>
+        <div className="select">
           <input
             type="date"
             name="date"
@@ -203,13 +184,13 @@ const WardrobeForm = () => {
           />
         </div>
       </div>
-      <br></br>
+      <br />
 
-      <div style={containerStyle}>
-        <h1 style={{ color: "white", textAlign: "center" }}>Hats</h1>
-        <br></br>
+      <div className="container">
+        <h1 className="subtitle">Hats</h1>
+        <br />
         <form onSubmit={handleSubmit}>
-          <div style={{ textAlign: "center" }}>
+          <div className="select">
             <select
               name="hat"
               value={hat ? hat.id : ""}
@@ -227,85 +208,104 @@ const WardrobeForm = () => {
                 <img
                   src={hat.picture}
                   alt="hat"
-                  style={{
-                    ...boxStyle,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "fill",
-                  }}
+                  className="box image"
                 />
               )}
             </div>
           </div>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
-        <h1 style={{ color: "white", textAlign: "center" }}>Tops</h1>
-        <br></br>
-        <div style={{  textAlign: "center" }}>
-          <select name="top" value={top ? top.id : ""} onChange={handleTopChange}>
-            <option value="">Choose a Top</option>
-            {tops.map((top) => (
-              <option value={top.id} key={top.id}>
-                {top.name}
-              </option>
-            ))}
-          </select>
-          <div>
-            {top && (
-              <img src={top.picture} alt="Top" style={{ ...boxStyle, maxWidth: "100%", maxHeight: "100%", objectFit: "fill" }} />
-            )}
-          </div>
-        </div>
-        <br></br>
-        <br></br>
-
-        <br></br>
-        <h1 style={{ color: "white", textAlign: "center" }}>Bottoms</h1>
-        <br></br>
-        <div style={{  textAlign: "center" }}>
-          <select name="bottom" value={bottom ? bottom.id : ""} onChange={handleBottomChange}>
-            <option value="">Choose a Bottom</option>
-            {bottoms.map((bottom) => (
-              <option value={bottom.id} key={bottom.id}>
-                {bottom.name}
-              </option>
-            ))}
-          </select>
-          <div>
-            {bottom && (
-              <img src={bottom.picture} alt="bottom" style={{ ...boxStyle, maxWidth: "100%", maxHeight: "100%", objectFit: "fill" }} />
-            )}
-          </div>
-        </div>
-        <br></br>
-        <br></br>
-
-        <h1 style={{ color: "white", textAlign: "center" }}>Shoes</h1>
-        <br></br>
-        <div style={{  textAlign: "center" }}>
-          <select name="shoe" value={shoe ? shoe.id : ""} onChange={handleShoeChange}>
-            <option value="">Choose a Shoe</option>
-            {shoes.map((shoe) => (
-              <option value={shoe.id} key={shoe.id}>
-                {shoe.name}
-              </option>
-            ))}
-          </select>
-          <div>
-              {shoe && (
-                <img src={shoe.picture} alt="shoe" style={{ ...boxStyle, maxWidth: "100%", maxHeight: "100%", objectFit: "fill" }} />
+          <h1 className="subtitle">Tops</h1>
+          <br />
+          <div className="select">
+            <select
+              name="top"
+              value={top ? top.id : ""}
+              onChange={handleTopChange}
+            >
+              <option value="">Choose a Top</option>
+              {tops.map((top) => (
+                <option value={top.id} key={top.id}>
+                  {top.name}
+                </option>
+              ))}
+            </select>
+            <div>
+              {top && (
+                <img
+                  src={top.picture}
+                  alt="Top"
+                  className="box image"
+                />
               )}
+            </div>
           </div>
-        </div>
+          <br />
+          <br />
 
-        <button className="btn btn-primary" type="submit">
-          Submit Styles
-        </button>
-      </form>
-    </div>
+          <br />
+          <h1 className="subtitle">Bottoms</h1>
+          <br />
+          <div className="select">
+            <select
+              name="bottom"
+              value={bottom ? bottom.id : ""}
+              onChange={handleBottomChange}
+            >
+              <option value="">Choose a Bottom</option>
+              {bottoms.map((bottom) => (
+                <option value={bottom.id} key={bottom.id}>
+                  {bottom.name}
+                </option>
+              ))}
+            </select>
+            <div>
+              {bottom && (
+                <img
+                  src={bottom.picture}
+                  alt="bottom"
+                  className="box image"
+                />
+              )}
+            </div>
+          </div>
+          <br />
+          <br />
+
+          <h1 className="subtitle">Shoes</h1>
+          <br />
+          <div className="select">
+            <select
+              name="shoe"
+              value={shoe ? shoe.id : ""}
+              onChange={handleShoeChange}
+            >
+              <option value="">Choose a Shoe</option>
+              {shoes.map((shoe) => (
+                <option value={shoe.id} key={shoe.id}>
+                  {shoe.name}
+                </option>
+              ))}
+            </select>
+            <div>
+              {shoe && (
+                <img
+                  src={shoe.picture}
+                  alt="shoe"
+                  className="box image"
+                />
+              )}
+            </div>
+          </div>
+
+          <button className="btn btn-primary" type="submit">
+            Submit Styles
+          </button>
+        </form>
+      </div>
     </>
-);
+  );
 };
 
 export default WardrobeForm;
