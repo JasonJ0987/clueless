@@ -204,7 +204,6 @@ const WardrobeForm = () => {
         </div>
       </div>
       <br></br>
-
       <div style={containerStyle}>
         <h1 style={{ color: "white", textAlign: "center" }}>Hats</h1>
         <br></br>
@@ -239,7 +238,6 @@ const WardrobeForm = () => {
           </div>
           <br></br>
           <br></br>
-
           <h1 style={{ color: "white", textAlign: "center" }}>Tops</h1>
           <br></br>
           <div style={{ textAlign: "center" }}>
@@ -272,7 +270,6 @@ const WardrobeForm = () => {
           </div>
           <br></br>
           <br></br>
-
           <br></br>
           <h1 style={{ color: "white", textAlign: "center" }}>Bottoms</h1>
           <br></br>
@@ -306,7 +303,6 @@ const WardrobeForm = () => {
           </div>
           <br></br>
           <br></br>
-
           <h1 style={{ color: "white", textAlign: "center" }}>Shoes</h1>
           <br></br>
           <div style={{ textAlign: "center" }}>
@@ -337,7 +333,6 @@ const WardrobeForm = () => {
               )}
             </div>
           </div>
-
           <button className="btn btn-primary" type="submit">
             Submit Styles
           </button>

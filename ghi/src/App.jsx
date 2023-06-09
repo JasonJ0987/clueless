@@ -47,6 +47,7 @@ function App() {
             <Route path="planner" element={<Planner />}></Route>
           </Routes>
         </div>
+
       </BrowserRouter>
     </AuthProvider>
   );
