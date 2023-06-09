@@ -1,5 +1,9 @@
 # Clueless - I Wear Whatevr
 
+![Clueless](/uploads/4cf976194d05e16899e2baf3389de0ae/Clueless.mp4)
+
+Our Clueless application can be viewed at [https://xanderrubio.gitlab.io/clueless/](https://xanderrubio.gitlab.io/clueless/)
+
 The team (corporate-espionage👀) behind this project is:
 
 - Jason Jang | [LinkedIn](https://www.linkedin.com/in/chiyoung-jang) | [GitLab](https://gitlab.com/JasonJJ98)
@@ -8,14 +12,11 @@ The team (corporate-espionage👀) behind this project is:
 - Sabrina Blinder | [LinkedIn](https://www.linkedin.com/in/sabrina-blinder-959575260) | [GitLab](https://gitlab.com/sabrinablinder)
 - Xander Clemens | [LinkedIn](https://www.linkedin.com/in/alexanderclemens/) | [GitLab](https://gitlab.com/XanderRubio)
 
-
-
 Clueless – Quickly create outfits based on the weather forecast.
 
 Clueless - Clothing organizer categorized by hat, top, bottoms, and shoes.
 
 Clueless - Stay stylish and organized, all in one place.
-
 
 ## Design
 
@@ -23,6 +24,9 @@ Clueless - Stay stylish and organized, all in one place.
 - [Data model](docs/data-model.md)
 - [GHI](docs/wireframe.md)
 - [Integrations](docs/integrations.md)
+- [Unit Tests](docs/unit-tests.md)
+- [Deployment to Cirrus By Galvanize](docs/deployment.md)
+
 
 
 ## Intended users

@@ -1,4 +1,4 @@
-html, body{
+.html, .body{
   background-color: #1f2029;
 }
 
@@ -138,7 +138,7 @@ html, body{
     filter: blur(0);
   }
 
-  body {
+  .body {
   font-weight: 300;
   font-size: 15px;
   line-height: 1.7;
