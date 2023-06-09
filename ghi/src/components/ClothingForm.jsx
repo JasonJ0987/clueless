@@ -116,7 +116,7 @@ const ClothesForm = () => {
       const data = await response.json();
       setBins(data.bins);
     }
-  }, [token]);
+  }, [token, closetId]);
 
   const loadTags = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/tags`;
