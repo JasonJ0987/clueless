@@ -2,11 +2,10 @@ from fastapi import (
     Depends,
     APIRouter,
 )
-
-import requests
 from pydantic import BaseModel
 from api.utils.token_auth import get_current_user
 import os
+import requests
 
 OPEN_WEATHER_API_KEY = os.environ["OPEN_WEATHER_API_KEY"]
 
