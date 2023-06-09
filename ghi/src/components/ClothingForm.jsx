@@ -147,6 +147,8 @@ const ClothesForm = () => {
               <div className="card-front">
                 <div className="center-wrap">
                   <div className="section text-center">
+                    <br></br>
+                    <br></br>
                     <h4 className="mb-4 pb-3"> Upload your Clothes!</h4>
                     <form onSubmit={handleSubmit}>
                       <div className="form-group">
@@ -166,7 +168,7 @@ const ClothesForm = () => {
                         <label
                           className="form-label"
                           htmlFor="picture"
-                          style={{ marginRight: "10px" }}
+                          style={{ marginRight: "10px"}}
                         >
                           Picture
                         </label>

@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#1f2029", minHeight: "100vh" }}>
+    <div style= {{ minHeight: "100vh" }}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">

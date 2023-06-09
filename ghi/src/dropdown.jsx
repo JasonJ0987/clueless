@@ -4,7 +4,6 @@ import "./dropdown.css";
 
 function Dropdown() {
   const [click, setClick] = useState(false);
-
   const handleClick = () => {
     setClick(!click);
     window.location.reload();

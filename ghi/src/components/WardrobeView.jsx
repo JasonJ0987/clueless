@@ -28,48 +28,32 @@ function WardrobeView() {
     loadOutfit();
   }, [token, loadOutfit]);
 
-  // const boxStyle = {
-  //   width: "200px",
-  //   height: "200px",
-  //   backgroundColor: "#ccc",
-  //   margin: "10px",
-  //   display: "flex",
-  //   flexDirection: "column",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   position: "relative",
-  //   boxShadow: "0 3px 15px rgba(255, 255, 0, 0.5)",
-  //   borderRadius: "9px",
-  //   backgroundSize: "cover",
-  //   backgroundPosition: "center",
-  // };
-
   return (
     <div>
-      <h1 style={{ color: "white", textAlign: "center" }}>Your Outfit</h1>
+      <h1 className="header-style">Your Outfit</h1>
       <br></br>
-      <div style={{ textAlign: "center" }}>
-        <h2 style={{ color: "white", textAlign: "center" }}>Hat</h2>
+      <div className="center">
+        <h2 className="header-style">Hat</h2>
         <img
-          style={{ height: "200px", width: "200px" }}
+          className="bin-card"
           src={outfit && outfit.hat.picture}
           alt="hat"
         />
-        <h2 style={{ color: "white", textAlign: "center" }}>Top</h2>
+        <h2 className="header-style">Top</h2>
         <img
-          style={{ height: "200px", width: "200px" }}
+          className="bin-card"
           src={outfit && outfit.top.picture}
           alt="top"
         />
-        <h2 style={{ color: "white", textAlign: "center" }}>Bottoms</h2>
+        <h2 className="header-style">Bottoms</h2>
         <img
-          style={{ height: "200px", width: "200px" }}
+          className="bin-card"
           src={outfit && outfit.bottom.picture}
           alt="bottom"
         />
-        <h2 style={{ color: "white", textAlign: "center" }}>Shoes</h2>
+        <h2 className="header-style">Shoes</h2>
         <img
-          style={{ height: "200px", width: "200px" }}
+          className="bin-card"
           src={outfit && outfit.shoes.picture}
           alt="shoe"
         />
