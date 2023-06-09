@@ -18,7 +18,7 @@ export const Main = () => {
           width: "100%",
           paddingLeft: "0",
           height: "100%",
-          objectFit: "fill",
+          objectFit: "cover",
         }}
       >
         <div className="hero-container">

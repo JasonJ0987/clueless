@@ -98,12 +98,7 @@ function BinView() {
     loadBins();
     loadClothes();
   }, [loadCloset, loadTags, loadBins, loadClothes]);
-  // useEffect(() => {
-  //   if (closetId !== "") loadBins();
-  // });
-  // useEffect(() => {
-  //   if (closetId !== "") loadClothes();
-  // });
+
 
   return (
     <div>
