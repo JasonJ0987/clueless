@@ -26,13 +26,13 @@ export const Main = () => {
             className="hero-title animate fadeInUp delay-600"
             src="whatevr-logo-plain.png"
             alt="logo"
-            height="150vh"
-            width="10vh"
-            style={{
-              marginTop: "80px",
-              justifyContent: "center",
-              marginLeft: "100px",
-            }}
+            // height="150vh"
+            // width="10vh"
+            // style={{
+            //   marginTop: "80px",
+            //   justifyContent: "center",
+            //   marginLeft: "100px",
+            // }}
           />
           <br />
           <br />

@@ -81,9 +81,7 @@ def get_bin(
     return props
 
 
-@router.delete(
-        "/api/closet/{closet_id}/bins/{bin_id}", response_model=bool
-)
+@router.delete("/api/closet/{closet_id}/bins/{bin_id}", response_model=bool)
 async def delete_bin(
     closet_id: str,
     bin_id: str,
