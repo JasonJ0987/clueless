@@ -81,6 +81,21 @@ def get_bin(
     return props
 
 
+@router.delete(
+        "/api/closet/{closet_id}/bins/{bin_id}", response_model=bool
+)
+
+
+async def delete_clothing(
+    closet_id: str,
+    bin_id: str,
+    repo: BinQueries = Depends(),
+    current_user: dict = Depends(get_current_user),
+):
+    repo.delete(closet_id=closet_id, bin_id=bin_id)
+    return True
+
+
 @router.post(
     "/api/closet/{closet_id}/bins/{bin_id}/clothes", response_model=ClothesOut
 )

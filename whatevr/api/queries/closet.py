@@ -68,6 +68,14 @@ class BinQueries(Queries):
         props["id"] = str(props["_id"])
         return BinOut(**props)
 
+    def delete(self, bin_id: str):
+        self.collection.delete_one(
+            {
+                "_id": ObjectId(bin_id),
+                "closet_id": ObjectId(closet_id),
+            }
+        )
+
 
 class ClothesQueries(Queries):
     DB_NAME = "library"
