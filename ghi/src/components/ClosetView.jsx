@@ -47,9 +47,6 @@ function ClosetView() {
     loadBins();
   }, [token, loadCloset, loadBins]);
 
-  // useEffect(() => {
-  //   if (closetId !== "") loadBins();
-  // }, [closetId]);
 
   return (
     <div
