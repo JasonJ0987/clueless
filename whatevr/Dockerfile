@@ -32,7 +32,13 @@ CMD /wait && uvicorn main:app --reload --host 0.0.0.0 --port 80
 
 
 #Other version
-# glv-cloud-cli deploy -a clueless -i registry.gitlab.com/xanderrubio/clueless/whatevr_image:latest -e CORS_HOST=https://xanderrubio.gitlab.io/clueless -e OPEN_WEATHER_API_KEY=42d8b097a99e02375024f5e29fa11f64 -e SIGNING_KEY=87fe4a3fcfb60092dbaeb854a196bc3d9b190aed7930c734749e85245de698420c25f8e6899c421b4494e99459e01058de5daa9d49584cd62ec975da9aea33db -e DATABASE_URL=mongodb://root:password@feb-23-et-14-mongo-database-service.default.svc.cluster.local
+# glv-cloud-cli deploy -a clueless \
+# -i registry.gitlab.com/xanderrubio/clueless/whatevr_image:latest \
+# -e OPEN_WEATHER_API_KEY=42d8b097a99e02375024f5e29fa11f64 \
+# -e SIGNING_KEY=87fe4a3fcfb60092dbaeb854a196bc3d9b190aed7930c734749e85245de698420c25f8e6899c421b4494e99459e01058de5daa9d49584cd62ec975da9aea33db \
+# -e DATABASE_URL=mongodb://root:password@feb-23-et-14-mongo-database-service.default.svc.cluster.local
+# -e CORS_HOST=https://xanderrubio.gitlab.io/clueless \
+
 # glv-cloud-cli deploy -a clueless -i registry.gitlab.com/xanderrubio/clueless/whatevr_image:latest -e CORS_HOST=https://xanderrubio.gitlab.io/clueless -e OPEN_WEATHER_API_KEY=42d8b097a99e02375024f5e29fa11f64 -e DATABASE_URL=mongodb://root:password@feb-23-et-14-mongo-database-service.default.svc.cluster.local
 
 
