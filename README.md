@@ -23,6 +23,7 @@ Clueless - Stay stylish and organized, all in one place.
 - [Data model](docs/data-model.md)
 - [GHI](docs/wireframe.md)
 - [Integrations](docs/integrations.md)
+- [Deployment to Cirrus By Galvanize](docs/deployment.md)
 
 ## Intended users
 
