@@ -128,19 +128,19 @@ For June 3rd, Jeanette was the driver for wardrobe form. We used the solution fr
 2. I was the driver for today. We were able to successfully add an outfit to the planner. In order to do so we had to create an update (PUT) function for the outfit in the backend. Then we hardcoded 5 outfits to the front end for each of the card in the front end.
 Xander have been working on the unit testings for the backend.
 3. Blocker - We realized that since the Open Weather API dynamically changes each day, the outfit that was created for that certain date will not move along with it. Might have to change up our plans for that.
-Also, the unit testing isn't working as it should. It's not recognizing anything from our yaml whenever we try running the tests with "pytest" in the terminal. Will need assistance for this. 
+Also, the unit testing isn't working as it should. It's not recognizing anything from our yaml whenever we try running the tests with "pytest" in the terminal. Will need assistance for this.
 
 ## June 7th, 2023
-1.
-2.
-3.
+1. The team and I will start on CI/CD. Need to finish up the frontend with the planner situation from June 6th.
+2. Received advice from Kornebari to implement the outfits with the date from Open Weather. It was useful but will not be able to implement the changes from backend to frontend in time. I was the driver and I created a backup plan for the planner page. Instead of having the outfits display along with the weather/date, we will create a table instead to display the outfits created by the end user. Afterwards, we decided to start on CI/CD. Having trouble understanding how to run the pipeline.
+3. Blocker - unit test not working the way we wanted to. It's not running the tests and kept having us pip install things that we have in the requirements.txt file already. Will need help from an instructor/seir
 
 ## June 8th, 2023
-1.
-2.
-3.
+1. Team and I will be continuing deployment.
+2. After requesting help from Andrew, we were able to successfully deploy our project with Cirrus. Now, we are running into the issue where the user is not able to sign up or login with the deployment website. It's having a fetch error. Andrew was not here for the rest of the day to help us with this issue. So instead, we moved on to creating simple unit tests for our project. At first, we were all confused with how to start but after some clarification from Violet we were able to create unit testing. We created 5 in total and all the tests were able to pass in Docker and the pipeline was able to pass as well on GitLab after integrating the unit tests.
+3. Blocker - kind of frustrating to not receive the extra help for deployment and unit testing. Had some extra help with Paul Wu with deployment.
 
 ## June 9th, 2023
-1.
-2.
-3.
+1. Cleaning up the backend, frontend, and hopefully get the sign up and login function to work on the deployed website.
+2. Finish deployment and making sure project is working correctly before submitting it in today.
+3. Blocker - nothing. I feel relieve to have finally complete the final project with my team!
