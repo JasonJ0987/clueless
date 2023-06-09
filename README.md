@@ -1,6 +1,6 @@
 # Clueless - I Wear Whatevr
 
-![Clueless](/uploads/4cf976194d05e16899e2baf3389de0ae/Clueless.mp4)
+![Clueless](/uploads/ad7815cbc43f6163f9aede27af924f1b/Clueless.mp4)
 
 Our Clueless application can be viewed at [https://xanderrubio.gitlab.io/clueless/](https://xanderrubio.gitlab.io/clueless/)
 
