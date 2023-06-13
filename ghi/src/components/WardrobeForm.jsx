@@ -13,6 +13,8 @@ const WardrobeForm = () => {
   const [shoes, setShoes] = useState([]);
   const [shoe, setShoe] = useState(null);
   const [userId, setUserId] = useState("");
+  const [bins, setBins] = useState([]);
+  const [closet, setCloset] = useState(null);
   const { token } = useToken();
   const navigate = useNavigate();
 
@@ -28,8 +30,51 @@ const WardrobeForm = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  const loadCloset = useCallback(async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    const data = await response.json();
+      console.log(data)
+    setCloset(data.closets[0]);
+    console.log("closetID", data.closets[0].id)
+  }, [token]);
+
+  useEffect(() => {
+    loadCloset();
+  }, [loadCloset]);
+
+
+  const loadBins = useCallback(async () => {
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closet && closet.id}/bins`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setBins(data.bins);
+      console.log(data)
+      console.log("bins", data.bins[0].id)
+    }
+  }, [token, closet]);
+
+  useEffect(() => {
+    loadBins();
+  }, [loadBins]);
+
   const loadHats = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closet && closet.id}/bins/${bins[0].id}/clothes`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -42,10 +87,14 @@ const WardrobeForm = () => {
       const data = await response.json();
       setHats(data.clothes);
     }
-  }, [token]);
+  }, [closet, bins, token]);
+
+  useEffect(() => {
+    loadHats();
+  }, [loadHats]);
 
   const loadTops = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646beb5724b33168d5719493/clothes`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closet && closet.id}/bins/${bins[1].id}/clothes`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -58,10 +107,14 @@ const WardrobeForm = () => {
       const data = await response.json();
       setTops(data.clothes);
     }
-  }, [token]);
+  }, [closet, bins, token]);
+
+  useEffect(() => {
+    loadTops();
+  }, [loadTops]);
 
   const loadBottoms = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/647659f829d0764ee8697289/clothes`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closet && closet.id}/bins/${bins[2].id}/clothes`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -74,10 +127,14 @@ const WardrobeForm = () => {
       const data = await response.json();
       setBottoms(data.clothes);
     }
-  }, [token]);
+  }, [closet, bins, token]);
+
+  useEffect(() => {
+    loadBottoms();
+  }, [loadBottoms]);
 
   const loadShoes = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/64765a3929d0764ee869728a/clothes`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closet && closet.id}/bins/${bins[3].id}/clothes`;
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -90,15 +147,15 @@ const WardrobeForm = () => {
       const data = await response.json();
       setShoes(data.clothes);
     }
-  }, [token]);
+  }, [closet, bins, token]);
 
   useEffect(() => {
-    loadHats();
-    loadTops();
-    loadBottoms();
     loadShoes();
+  }, [loadShoes]);
+
+  useEffect(() => {
     loadUser();
-  }, [token, loadHats, loadTops, loadBottoms, loadShoes, loadUser]);
+  }, [token, loadUser]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -160,7 +217,8 @@ const WardrobeForm = () => {
   };
 
   const handleDateChange = (event) => {
-    setDate(event.target.value);
+    const value = event.target.value;
+    setDate(value)
   };
 
   const boxStyle = {
@@ -200,6 +258,7 @@ const WardrobeForm = () => {
             name="date"
             value={date}
             onChange={handleDateChange}
+            required
           />
         </div>
       </div>

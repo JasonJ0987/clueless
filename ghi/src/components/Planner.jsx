@@ -37,7 +37,6 @@ function Planner() {
       const response = await fetch(url, fetchConfig);
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         setOutfits(data.outfits);
       }
     },
@@ -60,32 +59,6 @@ function Planner() {
       console.error("Failed to delete an outfit");
     }
   };
-
-  // const handleUpdateOutfit = async (outfitId) => {
-  //   const url = `${process.env.REACT_APP_WHATEVR}/api/wardrobe/${outfitId}`;
-  //   const fetchConfig = {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     body: JSON.stringify(outfitId),
-  //   };
-  //   try {
-  //     const response = await fetch(url, fetchConfig);
-  //     if (response.ok || response.status === 422) {
-  //       const updatedOutfitData = await response.json();
-  //       const updatedOutfits = outfits.map((outfit) =>
-  //         outfit.id === outfitId ? updatedOutfitData : outfit
-  //       );
-  //       setOutfits(updatedOutfits);
-  //     } else {
-  //       console.error("Failed to update the outfit");
-  //     }
-  //   } catch (error) {
-  //     console.error("An error occurred while updating the outfit:", error);
-  //   }
-  // };
 
   useEffect(() => {
     loadWeather();
@@ -268,7 +241,14 @@ function Planner() {
         <NewOutfit />
       </div>
 
-      <table style={{ margin: "0 auto", marginTop: "20px", color: "white" }}>
+      <table
+        style={{
+          textAlign: "center",
+          margin: "0 auto",
+          marginTop: "20px",
+          color: "white",
+        }}
+      >
         <thead>
           <tr>
             <th>Date</th>
@@ -282,7 +262,15 @@ function Planner() {
         <tbody>
           {outfits.map((outfit) => (
             <tr key={outfit.id}>
-              <td>{outfit.date}</td>
+              <td>
+                {new Date(outfit.date).toLocaleDateString("en-US", {
+                  timeZone: "UTC",
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </td>
               <td>
                 <img
                   src={outfit.hat.picture}
@@ -312,9 +300,6 @@ function Planner() {
                 />
               </td>
               <td>
-                {/* <button onClick={() => handleUpdateOutfit(outfit.id)}>
-                  Update
-                </button> */}
                 <button onClick={() => handleDeleteOutfit(outfit.id)}>
                   Delete
                 </button>

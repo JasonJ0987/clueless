@@ -103,7 +103,7 @@ const ClothesForm = () => {
   }, [token]);
 
   const loadBins = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins/`;
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins`;
     const fetchConfig = {
       method: "GET",
       headers: {
