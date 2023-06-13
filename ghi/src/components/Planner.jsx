@@ -264,6 +264,7 @@ function Planner() {
             <tr key={outfit.id}>
               <td>
                 {new Date(outfit.date).toLocaleDateString("en-US", {
+                  timeZone: "UTC",
                   weekday: "long",
                   year: "numeric",
                   month: "long",
