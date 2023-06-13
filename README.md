@@ -31,7 +31,7 @@ Clueless - Stay stylish and organized, all in one place.
 
 ## Intended users
 
-This application is perfect for individuals interested in fashion, organization, and saving time. Specifically, fashionistas who want to store images of their clothes, create outfits, and get weather forecasts for their area; organizers who need a visual way to organize their clothes and easily find the perfect outfit for any occasion; and time-savers who want to quickly create outfits by using the weather forecast to guide them. If you fall into any of these categories, this app is the ideal solution for you!
+This application is great for individuals interested in fashion, organization, and saving time. Specifically, fashionistas who want to store images of their clothes, create outfits, and get weather forecasts for their area; organizers who need a visual way to organize their clothes and easily find the perfect outfit for any occasion; and time-savers who want to quickly create outfits by using the weather forecast to guide them. If you fall into any of these categories, this app is the ideal solution for you!
 
 ## Functionality
 
