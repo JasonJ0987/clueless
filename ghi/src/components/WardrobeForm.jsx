@@ -40,12 +40,10 @@ const WardrobeForm = () => {
       },
     };
     const response = await fetch(url, fetchConfig);
-    // if (response.ok) {
     const data = await response.json();
       console.log(data)
     setCloset(data.closets[0]);
     console.log("closetID", data.closets[0].id)
-    // }
   }, [token]);
 
   useEffect(() => {
@@ -219,7 +217,8 @@ const WardrobeForm = () => {
   };
 
   const handleDateChange = (event) => {
-    setDate(event.target.value);
+    const value = event.target.value;
+    setDate(value)
   };
 
   const boxStyle = {
@@ -259,6 +258,7 @@ const WardrobeForm = () => {
             name="date"
             value={date}
             onChange={handleDateChange}
+            required
           />
         </div>
       </div>
