@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./dropdown.css";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 
 function Dropdown() {
+
   const [click, setClick] = useState(false);
-  const [closetId, setClosetId] = useState(null);
-  const [bins, setBins] = useState([]);
+  const [closetId, setClosetId] = useState("");
+  const [bins, setBins] = useState(null);
+  const { token } = useToken();
 
   const handleClick = () => {
     setClick(!click);
@@ -24,33 +27,31 @@ function Dropdown() {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
-      setClosetId(data.closets[0].id);
+      setClosetId(data.closets[0].id)
     }
   }, [token]);
 
 
   const loadBins = useCallback(async () => {
-    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId}/bins`;
-        const fetchConfig = {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const response = await fetch(url, fetchConfig);
-        if (response.ok) {
-          const data = await response.json();
-          setBins(data.bins.filter((bin) => bin.closet_id === closetId));
-        }
-      }, [token, closetId]);
+    const url = `${process.env.REACT_APP_WHATEVR}/api/closet/${closetId && closetId}/bins`;
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setBins(data.bins.filter((bin) => bin.closet_id === closetId));
+    }
+  }, [token, closetId]);
 
   useEffect(() => {
     loadCloset();
     loadBins();
-    console.log(bins)
   }, [token, loadCloset, loadBins]);
-
 
   return (
     <>
@@ -66,7 +67,7 @@ function Dropdown() {
       <li>
         <Link
           className="dropdown-link"
-          to= {`/closet/bins/${bins[0].id}`}
+          to= {`/closet/bins/${bins && bins[0].id}`}
         >
           Hats
         </Link>
@@ -74,7 +75,7 @@ function Dropdown() {
       <li>
         <Link
           className="dropdown-link"
-          to="/closet/bins/646beb5724b33168d5719493"
+          to= {`/closet/bins/${bins && bins[1].id}`}
         >
           Tops
         </Link>
@@ -82,7 +83,7 @@ function Dropdown() {
       <li>
         <Link
           className="dropdown-link"
-          to="/closet/bins/647659f829d0764ee8697289"
+          to= {`/closet/bins/${bins && bins[2].id}`}
         >
           Bottoms
         </Link>
@@ -90,7 +91,7 @@ function Dropdown() {
       <li>
         <Link
           className="dropdown-link"
-          to="/closet/bins/64765a3929d0764ee869728a"
+          to= {`/closet/bins/${bins && bins[3].id}`}
         >
           Shoes
         </Link>
