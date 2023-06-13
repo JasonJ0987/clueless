@@ -13,6 +13,7 @@ const WardrobeForm = () => {
   const [shoes, setShoes] = useState([]);
   const [shoe, setShoe] = useState(null);
   const [userId, setUserId] = useState("");
+  const [bins, setBins] = useState([]);
   const { token } = useToken();
   const navigate = useNavigate();
 
@@ -27,6 +28,8 @@ const WardrobeForm = () => {
       })
       .catch((error) => console.error(error));
   }, []);
+
+  const loadBins = useCallback()
 
   const loadHats = useCallback(async () => {
     const url = `${process.env.REACT_APP_WHATEVR}/api/closet/646b99c3f2cd73044cf5707d/bins/646bc0f74277954dd0f38117/clothes`;
