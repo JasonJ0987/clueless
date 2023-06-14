@@ -9,30 +9,32 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const { login, token } = useToken();
   const navigate = useNavigate();
-  const [isLoginClicked, setIsLoginClicked] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const HandleLogin = async (event) => {
-    event.preventDefault();
-    const response = await login(email, password);
-    if (response && response.success) {
-      setIsLoginClicked(true);
-      setErrorMessage("");
-    } else if (!token) {
-      setIsLoginClicked(true);
-      setErrorMessage("Username/password was entered incorrectly");
-    }
-  };
 
   useEffect(() => {
-    if (isLoginClicked && token) {
+    if (token !== null) {
       navigate("/");
     }
-  }, [isLoginClicked, token, navigate]);
+  }, [token]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    HandleLogin(e);
+    await login(email, password);
+    const ourToken = token
+    if (ourToken === null) {
+      setIsError(true);
+      setErrorMessage("Please wait a few minutes or username/password was entered incorrectly");
+      setEmail("");
+      setPassword("");
+    }
   };
+
+  let errorClass = "alert alert-danger d-none";
+
+  if (isError) {
+    errorClass = "alert alert-danger"
+  }
 
   return (
     <div style= {{ minHeight: "100vh" }}>
@@ -75,11 +77,9 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                           />
                         </div>
-                        {isLoginClicked && !token && (
-                          <div className="alert alert-danger">
+                          <div className={errorClass}>
                             {errorMessage}
                           </div>
-                        )}
                         <div style={{ marginTop: "15px" }}>
                           <input
                             className="btn btn-primary"
