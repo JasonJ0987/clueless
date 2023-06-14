@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import { useNavigate } from "react-router-dom";
 import "../index.css";
 
 const ClothesForm = () => {
@@ -14,6 +15,7 @@ const ClothesForm = () => {
   const [bins, setBins] = useState([]);
   const [tags, setTags] = useState([]);
   const { token } = useToken();
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     const value = event.target.value;
@@ -80,6 +82,7 @@ const ClothesForm = () => {
       setBinId("");
       setTagId([]);
       setUserId("");
+      navigate(`/closet/bins/${binId}`);
     } else {
       const error = await response.json();
       console.log("Error", error);

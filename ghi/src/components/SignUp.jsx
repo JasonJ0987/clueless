@@ -12,6 +12,7 @@ const Signup = () => {
   const [zipcode, setZipcode] = useState("");
   const { register, login } = useToken();
   const navigate = useNavigate();
+  const { token } = useToken();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +28,9 @@ const Signup = () => {
     register(accountData, `${process.env.REACT_APP_WHATEVR}/api/accounts`);
     login(accountData.email, accountData.password);
     e.target.reset();
-    navigate("/");
+    if (token) {
+      navigate("/");
+    }
   };
 
   return (
