@@ -12,8 +12,8 @@ export const Main = () => {
       <section
         className="hero"
         style={{
-        //   backgroundImage:
-        //     "url('https://media0.giphy.com/media/xT9KVgmGTooXz0iDPW/giphy.gif?cid=6c09b9527slpvckmql9sg3607qaqsptiekc907fr2g9pp5ih&ep=v1_gifs_search&rid=giphy.gif&ct=g')",
+          backgroundImage:
+            "url('https://media0.giphy.com/media/xT9KVgmGTooXz0iDPW/giphy.gif?cid=6c09b9527slpvckmql9sg3607qaqsptiekc907fr2g9pp5ih&ep=v1_gifs_search&rid=giphy.gif&ct=g')",
           width: "100%",
           height: "100%",
           objectFit: "cover",
