@@ -98,12 +98,6 @@ function BinView() {
     loadBins();
     loadClothes();
   }, [loadCloset, loadTags, loadBins, loadClothes]);
-  // useEffect(() => {
-  //   if (closetId !== "") loadBins();
-  // });
-  // useEffect(() => {
-  //   if (closetId !== "") loadClothes();
-  // });
 
 
   return (
@@ -145,7 +139,7 @@ function BinView() {
                     return <li key={tag.id}>{tag.description}</li>;
                   })}
                 </div>
-                <div style={{ display: "flex", justifyContent: "flex-end"}}>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
                   <button onClick={() => handleDeleteItem(item.id)}>
                     Delete
                   </button>

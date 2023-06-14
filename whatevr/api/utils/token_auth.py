@@ -20,7 +20,6 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception
-
     except JWTError:
         raise credentials_exception
     user = AccountOut(**payload.get("account"))

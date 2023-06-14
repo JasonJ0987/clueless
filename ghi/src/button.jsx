@@ -2,9 +2,7 @@ import React from 'react';
 import './button.css';
 import { Link } from 'react-router-dom';
 
-
 export function SignupButton() {
-
     return (
         <Link to='/signup'>
             <button className='btn'>GET STYLED</button>

@@ -132,23 +132,34 @@ The team got some help from Paul Wu to pass the baseUrl to the App.jsx file.
 
 ## June 2nd 2023
 1. Today we want to work on adding the  OutfinIn and OutfitOut models to the project and work on the CSS portion.
-
 2. Me and Jason were the drivers for today. We added the OutfitIn and OutfitOut models and the functions to our closet.py. We build the waardrobe page and applied the CSS style. Xander started building out the unit tests for the API endpoints.
-
 3. The blocker for today is trying to figure out how we can display the new clothjing models to the front end. The data displays succefully on the MongoDB Compass but not in the frontend. 
 
 
 ## June 5th 2023
 1. Today we want to work some more on the CSS and improve the planner page. We also have to connect our API in order to display the weather data on the planner page.
-
 2. Today me and Jason were the drivers. We were able to connect the OpenWeather API call and now we get a successful submission to our MongoDB. 
-
 3. No blockers, we just need to connect our wardrobe form and our planner page so when a user submits an outfit it can be displayed on the planner page.
 
 
 ## June 6th 2023
 1. Today we want to finish the merge requests and close all issues that are open.
-
 2. Today we were able to get the wardrobe form to send data to the planner page. We alos worked on unit tests and are trying to get those to pass. 
-
 3. Blocker for the moment is that we are trying to figur out how we can get the outfits to be deleted after the day changes. Also we are having an issue with the unit tests. We keep getting an error where its not reading the file structure. Liland moved around some files to see if that would work but its still giving us the same errors.
+
+## June 7th 2023
+1. Today we are planning on making more progress on the unit tests and begin our deployment process.
+2. Today Xander was working on the unit tests and helped us with creating ours. I, Jason and Liland worked on writing code to help save the wardrobe images on a specific day. However, we were having an issue where the imges were still being displayed even though the day concluded. Liland came up with a different idea that we will be using instead to facilitate the planner and outfit form. This afternoon we wroked on trying to pass the pipeline faliures. 
+3. blocker for the moment is trying to pass the piplines.
+
+
+## June 8th 2023
+1. Today we were able to pass the piplelines errors.
+2. Liland and Xander were the drivers for today. Today we were able to get the application to deploy on cirrus server. We noticed that the application was not leeting us create a user once the application was deployed. In the console we kept getting a cors error. Each team member worked on their unit tests and we got all unit tests to pass before then end of day. The only thing we would have left to do in our application is clean up some formatting and try to resolve the cors error.
+3. No blockers at this moment.
+
+
+## June 9th 2023
+1. Today we are working on cleaning up some of the code and the styling of our forms.
+2. We now officially passedthe piple and unit tests and our application is now deployed. We will spend the rest of the day today just cleaning and editing some ouf our css. 
+3. No blockers at the moment. 
