@@ -16,7 +16,7 @@ const Login = () => {
     if (token !== null) {
       navigate("/");
     }
-  }, [token]);
+  }, [token, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

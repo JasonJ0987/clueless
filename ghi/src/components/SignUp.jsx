@@ -12,7 +12,6 @@ const Signup = () => {
   const [zipcode, setZipcode] = useState("");
   const { register, login } = useToken();
   const navigate = useNavigate();
-  const { token } = useToken();
 
   const handleSubmit = (e) => {
     e.preventDefault();
