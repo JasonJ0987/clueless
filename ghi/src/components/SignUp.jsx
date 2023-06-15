@@ -28,9 +28,7 @@ const Signup = () => {
     register(accountData, `${process.env.REACT_APP_WHATEVR}/api/accounts`);
     login(accountData.email, accountData.password);
     e.target.reset();
-    if (token) {
-      navigate("/");
-    }
+    navigate("/");
   };
 
   return (
